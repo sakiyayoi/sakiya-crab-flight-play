@@ -1,0 +1,24 @@
+{
+  "revision": "crab-flight-stage2b-r1-public1",
+  "gameBuild": "stage2b-r1",
+  "prototype": true,
+  "ownerAccepted": false,
+  "buildAssets": {
+    "Build/stage2b-r1.data": {
+      "bytes": 11275036,
+      "sha256": "27e9b87aae4539111bb06fbfe576566f51680b3abe8573a0593a51d5e4d4b42e"
+    },
+    "Build/stage2b-r1.framework.js": {
+      "bytes": 442201,
+      "sha256": "755f1925c8ff7440fac988bd24c7953e0566171dc026ffec42ca6db1de059246"
+    },
+    "Build/stage2b-r1.loader.js": {
+      "bytes": 19431,
+      "sha256": "1f4f00e437fb31a136ae066cd8b586bafaa5d6b36f3a8f35c20d5a02401b96b2"
+    },
+    "Build/stage2b-r1.wasm": {
+      "bytes": 26226440,
+      "sha256": "e070df8c333644b0c79d6690686c4a7a261b97a618c18eb574df25d3acb8e41b"
+    }
+  }
+}
