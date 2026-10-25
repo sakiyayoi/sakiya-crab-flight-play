@@ -1,30 +1,30 @@
 {
-  "revision": "crab-flight-rotor-burst-r5-overdrive-public1",
-  "gameBuild": "crab-flight-rotor-burst-r5-overdrive",
+  "revision": "crab-flight-rotor-burst-r6-spectacle-public1",
+  "gameBuild": "crab-flight-rotor-burst-r6-spectacle",
   "gameplayRuleVersion": "crab-overdrive-r5",
   "prototype": true,
   "ownerAccepted": false,
   "buildAssets": {
-    "Build/rotor-burst-r5-overdrive.data": {
-      "bytes": 11301832,
-      "sha256": "494cbe4f5118af9a6479645d52af93ac6b2e9678037586c29f9be17475812446"
+    "Build/rotor-burst-r6-spectacle.framework.js": {
+      "bytes": 443472,
+      "sha256": "bbb0fe5651d0ea6326894500f53dcdcada1c31e5444b0bfb091335893786eb58"
     },
-    "Build/rotor-burst-r5-overdrive.framework.js": {
-      "bytes": 443457,
-      "sha256": "3071502e1a8deb5d8eeac4a48fe32787d61edf19606bbaceb9f9413c7a80a95f"
+    "Build/rotor-burst-r6-spectacle.data": {
+      "bytes": 11305544,
+      "sha256": "4384d75a54a9f040a5553ad052e1beee4aa4007d38b55a4ced8165a2c08f4179"
     },
-    "Build/rotor-burst-r5-overdrive.loader.js": {
+    "Build/rotor-burst-r6-spectacle.loader.js": {
       "bytes": 19431,
-      "sha256": "7adcbeb2d2ba8b32873b5178f9be4d4a8a5d342ca11dfd6a47e76381c7d24750"
+      "sha256": "c7e8f479c5440956f38ca04fef70d62d710c8bf4829b1866879a7c409f3b0676"
     },
-    "Build/rotor-burst-r5-overdrive.wasm": {
-      "bytes": 26307728,
-      "sha256": "9b1caabee9572ba901122d1c32b0b0c274e3172a2a75d9d36a4f520d536416bb"
+    "Build/rotor-burst-r6-spectacle.wasm": {
+      "bytes": 26329303,
+      "sha256": "582b0153850fba6ea0412aab01460b632990b8066353531e120315e54149a05b"
     }
   },
   "knownGaps": [
     "not all inputs secondary3",
-    "high-angle total breaks can decrease",
+    "self-occlusion and empty distant ground remain",
     "physical iPhone/real listening/performance unverified",
     "full game incomplete"
   ]
