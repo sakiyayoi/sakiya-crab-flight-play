@@ -28,6 +28,7 @@
   if(e.type==='reset'){stopAll();playedWalls.clear();wasReady=false;return;}
   if(e.type==='charge'){if(ready)shot('charge.work',.7+e.strength*.3);return;}
   if(e.type==='launch'){stopAll();duckUntil=now()+.1;if(ready)shot('flight.launch');else original.play('launch');return;}
+  if(e.type==='boost'){if(ready)shot('flight.launch',.55);else original.play('launch',.55);return;}
   if(e.type==='destruction'){
    if(now()-chainTime>.8){chain=0;chainMarks.clear();}chain++;chainTime=now();if([2,4,7].includes(chain)&&!chainMarks.has(chain)){chainMarks.add(chain);if(ready)shot('chain.threshold.'+chain);}
    if(e.material==='wall')playedWalls.add(e.objectId);materialEvent(e);return;
