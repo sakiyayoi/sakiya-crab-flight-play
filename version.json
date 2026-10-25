@@ -1,29 +1,31 @@
 {
-  "revision": "crab-flight-rotor-burst-r4-visibility-public1",
-  "gameBuild": "crab-flight-rotor-burst-r4-visibility",
-  "gameplayRuleVersion": "crab-rotor-burst-r3-chain",
+  "revision": "crab-flight-rotor-burst-r5-overdrive-public1",
+  "gameBuild": "crab-flight-rotor-burst-r5-overdrive",
+  "gameplayRuleVersion": "crab-overdrive-r5",
   "prototype": true,
   "ownerAccepted": false,
   "buildAssets": {
-    "Build/rotor-burst-r4-visibility.loader.js": {
+    "Build/rotor-burst-r5-overdrive.data": {
+      "bytes": 11301832,
+      "sha256": "494cbe4f5118af9a6479645d52af93ac6b2e9678037586c29f9be17475812446"
+    },
+    "Build/rotor-burst-r5-overdrive.framework.js": {
+      "bytes": 443457,
+      "sha256": "3071502e1a8deb5d8eeac4a48fe32787d61edf19606bbaceb9f9413c7a80a95f"
+    },
+    "Build/rotor-burst-r5-overdrive.loader.js": {
       "bytes": 19431,
-      "sha256": "e3002b0d03877973b878f589fab73e25d21ee08b3f0cbd9c22085ab900c34b1f"
+      "sha256": "7adcbeb2d2ba8b32873b5178f9be4d4a8a5d342ca11dfd6a47e76381c7d24750"
     },
-    "Build/rotor-burst-r4-visibility.wasm": {
-      "bytes": 26274566,
-      "sha256": "c0e190da69a8ed0898680ffe02c752a0f97f9dac50af421ce686b5ac9eaf43bd"
-    },
-    "Build/rotor-burst-r4-visibility.framework.js": {
-      "bytes": 442567,
-      "sha256": "cfc0e071a00612e43e035fb26736ec112d50223fc2081d8e5dbc28556b427d3a"
-    },
-    "Build/rotor-burst-r4-visibility.data": {
-      "bytes": 11290541,
-      "sha256": "d87f997b1a0aec4861aa69beff6c2c88b99ee5d13c319396304e3b6b59644ae3"
+    "Build/rotor-burst-r5-overdrive.wasm": {
+      "bytes": 26307728,
+      "sha256": "9b1caabee9572ba901122d1c32b0b0c274e3172a2a75d9d36a4f520d536416bb"
     }
   },
   "knownGaps": [
-    "different swipe secondary2",
-    "physical iPhone/real listening unverified"
+    "not all inputs secondary3",
+    "high-angle total breaks can decrease",
+    "physical iPhone/real listening/performance unverified",
+    "full game incomplete"
   ]
 }
