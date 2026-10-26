@@ -1,30 +1,30 @@
 {
-  "revision": "crab-flight-rotor-burst-r6-spectacle-public1",
-  "gameBuild": "crab-flight-rotor-burst-r6-spectacle",
-  "gameplayRuleVersion": "crab-overdrive-r5",
+  "revision": "crab-flight-impact-core-r7-public1",
+  "gameBuild": "crab-flight-impact-core-r7",
+  "gameplayRuleVersion": "crab-impact-core-r7",
   "prototype": true,
   "ownerAccepted": false,
   "buildAssets": {
-    "Build/rotor-burst-r6-spectacle.framework.js": {
-      "bytes": 443472,
-      "sha256": "bbb0fe5651d0ea6326894500f53dcdcada1c31e5444b0bfb091335893786eb58"
-    },
-    "Build/rotor-burst-r6-spectacle.data": {
-      "bytes": 11305544,
-      "sha256": "4384d75a54a9f040a5553ad052e1beee4aa4007d38b55a4ced8165a2c08f4179"
-    },
-    "Build/rotor-burst-r6-spectacle.loader.js": {
+    "Build/impact-core-r7.loader.js": {
       "bytes": 19431,
-      "sha256": "c7e8f479c5440956f38ca04fef70d62d710c8bf4829b1866879a7c409f3b0676"
+      "sha256": "2b5245435cd41dead3eea1eb560f8db7aeed1af1a48bb7762251e3f55371fad5"
     },
-    "Build/rotor-burst-r6-spectacle.wasm": {
-      "bytes": 26329303,
-      "sha256": "582b0153850fba6ea0412aab01460b632990b8066353531e120315e54149a05b"
+    "Build/impact-core-r7.framework.js": {
+      "bytes": 443625,
+      "sha256": "8a05fa5498b44e480bf52193ebafa95205b58a2236e32bb57ac80cc65ec51b5f"
+    },
+    "Build/impact-core-r7.data": {
+      "bytes": 11315109,
+      "sha256": "5c1eca6b10f0afa302ae0df9333a98f1247a99275a5c03212460a1de9c98b598"
+    },
+    "Build/impact-core-r7.wasm": {
+      "bytes": 26528786,
+      "sha256": "d08f58ecffc9e27904337ab25cde821b8741fdea37e202d47a30a8dae04ae910"
     }
   },
   "knownGaps": [
     "not all inputs secondary3",
-    "self-occlusion and empty distant ground remain",
+    "region artwork/contacts and optional local growth are prototype hypotheses; standard r7 distance tradeoff retained",
     "physical iPhone/real listening/performance unverified",
     "full game incomplete"
   ]

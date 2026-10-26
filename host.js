@@ -1,19 +1,29 @@
 'use strict';
-document.body.dataset.wrapperRevision='rotor-burst-r6-spectacle';
-const $=id=>document.getElementById(id),RULE='crab-overdrive-r5',RECORD='crab-flight-rotor-burst-r6-spectacle-record',PREF='crab-flight-rotor-burst-r6-spectacle';
+document.body.dataset.wrapperRevision='impact-core-r7';
+const $=id=>document.getElementById(id),RULE='crab-impact-core-r7',RECORD='crab-flight-impact-core-r7-record',PREF='crab-flight-impact-core-r7';
 const config={angle:40,power:70,claw:45,shell:45,legs:45,direction:1,spinRps:0},comfort={volume:65,reduced:!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)};
 let game=null,runtimeReady=false,loaded=false,view='loading',phase='ready',resumeView='aim',optionsBack='title',savedBest=0,oldBest=0,lastEvent=-1,lastResult=-1,lastMissCount=0,lastDestruction=0,feedbackTimer=null,recordTimer=null,spaceHeld=false,kickPointer=null,sentHeld=false,lastState=null;
 const gesture=new window.FlightLaunch.PointerSwipe();let chargePath=0,chargeAt=0;
 function addChargeWork(r){const now=r.sampleTime;const dt=(now-chargeAt)/1000,travel=Math.max(0,r.path-chargePath)/Math.max(100,Math.min(innerWidth,innerHeight));if(dt>0)send('AddSpinWork',JSON.stringify({distance:travel,seconds:dt,direction:r.direction}));chargeAt=now;chargePath=r.path;}
 function safe(v,min,max,fallback){v=Number(v);return Number.isFinite(v)?Math.min(max,Math.max(min,v)):fallback;}
 try{
- const c=JSON.parse(localStorage.getItem(PREF+'-config')||localStorage.getItem('crab-flight-city2-config')||localStorage.getItem('crab-flight-kick-r1-config')||localStorage.getItem('crab-flight-r1-config'));if(c)for(const id of Object.keys(config))config[id]=safe(c[id],id==='angle'?10:id==='direction'?-1:id==='spinRps'?-12:0,id==='angle'?80:id==='direction'?1:id==='spinRps'?12:100,config[id]);
+ const c=JSON.parse(localStorage.getItem(PREF+'-config'));if(c)for(const id of Object.keys(config))config[id]=safe(c[id],id==='angle'?10:id==='direction'?-1:id==='spinRps'?-12:0,id==='angle'?80:id==='direction'?1:id==='spinRps'?12:100,config[id]);
  const cft=JSON.parse(localStorage.getItem(PREF+'-comfort')||localStorage.getItem('crab-flight-city2-comfort')||localStorage.getItem('crab-flight-kick-r1-comfort')||localStorage.getItem('crab-flight-r1-comfort'));if(cft){comfort.volume=safe(cft.volume,0,100,65);if(typeof cft.reduced==='boolean')comfort.reduced=cft.reduced;}
  const record=JSON.parse(localStorage.getItem(RECORD));if(record&&record.ruleVersion===RULE)savedBest=safe(record.best,0,10000,0);
  oldBest=safe(localStorage.getItem('crab-flight-r1-best'),0,10000,0);
 }catch{}
 // This comparison uses a fixed crab; retained custom UI and older saves remain intact.
 const FIXED_SHAPE=Object.freeze({claw:45,shell:45,legs:45});Object.assign(config,FIXED_SHAPE);
+const P=window.CrabProgression,pageSession=crypto.randomUUID();
+let progressLoaded;try{progressLoaded=P.read(localStorage.getItem(P.STORAGE_KEY));}catch{progressLoaded={state:P.create(),canWrite:false,status:'storage-unavailable'};}
+if(!navigator.locks)progressLoaded.canWrite=false;
+let progress=progressLoaded.state,earnedThisRun=0,purchaseLevel=null,purchaseUnlockAt=0,purchasePending=false;
+function saveProgress(){if(progressLoaded.canWrite)try{localStorage.setItem(P.STORAGE_KEY,P.serialize(progress));}catch{progressLoaded.canWrite=false;}}
+function growthUI(){const cost=P.nextCost(progress);$('coinResult').textContent=progressLoaded.canWrite?'+'+earnedThisRun+' 🪙　'+progress.coins+' 🪙':'成長記録を確認できません';$('upgrade').textContent=cost===null?'飛ばす力 MAX':'飛ばす力 '+(progress.level+1)+'　'+cost+' 🪙';$('upgrade').disabled=!progressLoaded.canWrite||cost===null||progress.coins<cost||clock()<purchaseUnlockAt;purchaseLevel=progress.level;}
+function refreshProgress(){try{const latest=P.read(localStorage.getItem(P.STORAGE_KEY));if(!latest.canWrite){progressLoaded.canWrite=false;return false;}progress=latest.state;return progressLoaded.canWrite;}catch{progressLoaded.canWrite=false;return false;}}
+window.addEventListener('storage',e=>{if(e.key===P.STORAGE_KEY){refreshProgress();growthUI();}});
+async function settleProgress(s){if(!navigator.locks){growthUI();return;}return navigator.locks.request(P.STORAGE_KEY,{mode:'exclusive'},()=>{if(!refreshProgress()){growthUI();return;}const out=P.settle(progress,{session:pageSession,generation:s.generation,attempt:s.attempts,finished:s.phase==='result',phase:s.phase,physicsFault:s.physicsFault,distance:s.distance,destructionCount:s.destructionEvent});if(out.status!=='duplicate-or-stale'){progress=out.state;earnedThisRun=out.earned||0;saveProgress();}growthUI();});}
+$('upgrade').onclick=async()=>{if(view!=='result'||phase!=='result'||!progressLoaded.canWrite||$('upgrade').disabled)return;const expected=purchaseLevel,expectedAttempt=lastState?.attempts,expectedGeneration=lastState?.generation;purchasePending=true;$('upgrade').disabled=true;$('retry').disabled=$('prepare').disabled=true;if(!navigator.locks){purchasePending=false;$('retry').disabled=$('prepare').disabled=false;return;}return navigator.locks.request(P.STORAGE_KEY,{mode:'exclusive'},()=>{if(view!=='result'||phase!=='result'||lastState?.attempts!==expectedAttempt||lastState?.generation!==expectedGeneration||!refreshProgress()){growthUI();return;}const out=P.purchase(progress,{expectedLevel:expected});if(out.status==='purchased'){progress=out.state;purchaseUnlockAt=clock()+650;setTimeout(growthUI,660);saveProgress();send('SetUpgradeLevel',String(progress.level));window.FlightSound.play('adjust');}growthUI();}).finally(()=>{purchasePending=false;$('retry').disabled=$('prepare').disabled=false;});};
 let boostUntil=0;
 let lastBurstCount=0;let oldKick=0;try{const k=JSON.parse(localStorage.getItem('crab-flight-kick-r1-record'));if(k&&k.ruleVersion==='crab-kick-r1')oldKick=safe(k.best,0,10000,0);}catch{}
 $('legacyBest').textContent=(oldBest>0?'旧・初着地 '+oldBest.toFixed(1)+' m。':'')+(oldKick>0?'旧キック版 '+oldKick.toFixed(1)+' m。':'')+((oldBest>0||oldKick>0)?'別記録として保持。':'');
@@ -43,16 +53,16 @@ function cancelGesture(reason,clear=true){window.FlightSound.setSpin(0);const r=
 function setPaused(paused){cancelRecord();cancelGesture('pause');releaseKick();send('SetPaused',paused?'1':'0');window.FlightSound.setPaused(paused);}
 function pause(){if(!['aim','flight','result'].includes(view))return;resumeView=view;setPaused(true);setView('pause');}
 function resume(){if(view!=='pause')return;setPaused(false);setView(resumeView);}
-function configure(){Object.assign(config,FIXED_SHAPE);persist();numbers();send('Configure',JSON.stringify(config));}
+function configure(){Object.assign(config,FIXED_SHAPE,{upgradeLevel:progress.level});persist();numbers();send('Configure',JSON.stringify(config));}
 function applyComfort(){document.body.dataset.reduced=String(comfort.reduced);$('motion').setAttribute('aria-checked',String(comfort.reduced));$('motion').textContent=comfort.reduced?'演出の動き：少なめ':'演出の動き：通常';$('volume').value=comfort.volume;$('volumeValue').textContent=comfort.volume+'%';window.FlightSound.setVolume(comfort.volume/100);send('SetReducedMotion',comfort.reduced?'1':'0');try{localStorage.setItem(PREF+'-comfort',JSON.stringify(comfort));}catch{}}
-function prepare(){cancelRecord();cancelGesture('prepare');releaseKick();window.FlightSound.setPaused(false);send('Prepare');setView('aim');numbers();}
+function prepare(){if(purchasePending)return;refreshProgress();cancelRecord();cancelGesture('prepare');releaseKick();window.FlightSound.setPaused(false);send('Prepare');send('SetUpgradeLevel',String(progress.level));setView('aim');numbers();}
 function openCustom(){if(!['aim','result'].includes(view))return;if(view==='result')send('Prepare');cancelGesture('custom');setPaused(true);setView('custom');}
 function openOptions(){optionsBack=view;if(view!=='pause')setPaused(true);setView('options');}
 $('start').onclick=()=>{if(loaded&&runtimeReady)prepare();};$('prepare').onclick=prepare;$('customButton').onclick=$('resultCustom').onclick=openCustom;
 $('closeCustom').onclick=()=>{setPaused(false);configure();setView('aim');};$('titleOptions').onclick=$('pauseOptions').onclick=openOptions;
 $('closeOptions').onclick=()=>{if(optionsBack!=='pause')setPaused(false);setView(optionsBack);};$('pauseButton').onclick=pause;$('resume').onclick=resume;
 $('home').onclick=()=>{cancelRecord();cancelGesture('home');releaseKick();window.FlightSound.setPaused(false);send('Prepare');setView('title');};
-$('prepare').onclick=()=>{stampInput();if(view!=='result'||phase!=='result')return;cancelRecord();releaseKick();lastEvent=-1;send('RetryLaunch');};
+$('prepare').onclick=()=>{stampInput();if(view!=='result'||phase!=='result'||purchasePending)return;refreshProgress();cancelRecord();releaseKick();lastEvent=-1;send('SetUpgradeLevel',String(progress.level));send('RetryLaunch');};
 $('retry').onclick=prepare;
 $('cancelAim').onclick=()=>cancelGesture('button');$('helpButton').onclick=()=>{const expanded=$('helpButton').getAttribute('aria-expanded')!=='true';$('helpButton').setAttribute('aria-expanded',String(expanded));aimHint(expanded?'10秒間、左右に何度もスワイプ。たまったら上に弾いて離す。止めて離すと取消。':'');};
 $('sound').onclick=async()=>{const enabled=await window.FlightSound.toggle();$('sound').setAttribute('aria-checked',String(enabled));$('sound').textContent=enabled?'音：オン':'音：オフ';};
@@ -82,7 +92,7 @@ window.addEventListener('blur',()=>{cancelGesture('blur');releaseKick();pause();
 window.addEventListener('resize',()=>{cancelGesture('resize');releaseKick();if(view==='flight')pause();});
 window.receiveFlightState=s=>{
  if(window.FlightSound.update)window.FlightSound.update(s);
- lastState=s;runtimeReady=s.runtimeReady===true;document.body.dataset.runtimeReady=String(runtimeReady);$('start').disabled=!loaded||!runtimeReady;
+ $('brand').textContent=s.phase==='flight'?({restaurant:'レストラン',mall:'商業施設',office:'オフィス街'}[s.district]||'カニとばし'):'カニとばし · 比較試作';lastState=s;runtimeReady=s.runtimeReady===true;document.body.dataset.runtimeReady=String(runtimeReady);$('start').disabled=!loaded||!runtimeReady;
  const changed=phase!==s.phase;if(changed)cancelRecord();phase=s.phase;document.body.dataset.phase=phase;document.body.dataset.stage=s.stage;document.body.dataset.runtimeRevision=s.revision;document.body.dataset.ruleVersion=s.ruleVersion;document.body.dataset.paused=String(s.paused);document.body.dataset.direction=String(s.direction);document.body.dataset.spinRps=String(s.spinRps);
  if(loaded&&runtimeReady&&view==='loading')setView('title');
  if(changed){releaseKick();if(phase==='flight'){lastMissCount=0;lastEvent=-1;lastDestruction=0;lastBurstCount=0;boostUntil=0;setView('flight');if(!Array.isArray(s.events))window.FlightSound.play('launch');}if(phase==='result'){setView('result');if(s.newRecord)recordTimer=setTimeout(()=>{recordTimer=null;if(view==='result')window.FlightSound.play('record');},100);}}
@@ -100,7 +110,7 @@ window.receiveFlightState=s=>{
  $('resultCause').textContent='';
  $('bestDifference').textContent=s.previousBest>0?'ベスト差 '+(s.bestDelta>=0?'+':'')+s.bestDelta.toFixed(1)+' m':'はじめての記録';
  if(invalid){$('resultCause').textContent='物理試作を安全停止。この投球は記録対象外です。';$('firstContactResult').textContent=({'non-finite':'数値異常を検出','floor-tunnel':'地面の貫通を検出','world-bound':'試験範囲の外へ到達','settle-timeout':'停止までの試験時間を超過'})[s.physicsFault]||'物理状態の確認が必要です';$('bestDifference').textContent='入力を変えて再試行できます。旧記録は保持。';}
- if(phase==='result'&&lastResult!==s.attempts){lastResult=s.attempts;if(!invalid){savedBest=Math.max(savedBest,s.best);try{localStorage.setItem(RECORD,JSON.stringify({ruleVersion:RULE,best:savedBest,lastRun:{distance:s.distance,firstContact:s.firstContact,perfect:s.perfects,good:s.goods,earlyMiss:s.earlyMisses,config:{...config}}}));}catch{}}}
+ if(phase==='result'&&lastResult!==s.attempts){lastResult=s.attempts;settleProgress(s);if(!invalid){savedBest=Math.max(savedBest,s.best);try{localStorage.setItem(RECORD,JSON.stringify({ruleVersion:RULE,best:savedBest,lastRun:{distance:s.distance,firstContact:s.firstContact,perfect:s.perfects,good:s.goods,earlyMiss:s.earlyMisses,config:{...config}}}));}catch{}}}
 };
 $('loadAgain').onclick=()=>window.location.reload();numbers();applyComfort();$('best').textContent=savedBest.toFixed(1)+' m';
-(async()=>{try{const script=document.createElement('script');script.src='Build/rotor-burst-r6-spectacle.loader.js';document.body.appendChild(script);await new Promise((resolve,reject)=>{script.onload=resolve;script.onerror=reject;});game=await createUnityInstance($('unity-canvas'),{dataUrl:'Build/rotor-burst-r6-spectacle.data',frameworkUrl:'Build/rotor-burst-r6-spectacle.framework.js',codeUrl:'Build/rotor-burst-r6-spectacle.wasm',streamingAssetsUrl:'StreamingAssets',companyName:'SakiyaPrototype',productName:'カニとばし',productVersion:'crab-flight-rotor-burst-r6-spectacle',autoSyncPersistentDataPath:true},p=>$('loadText').textContent=Math.round(p*100)+'%');configure();send('RestoreBest',savedBest);applyComfort();loaded=true;$('start').disabled=!runtimeReady;if(runtimeReady)setView('title');else $('loadText').textContent='カニの準備を仕上げています…';}catch(error){setView('error');$('loadTitle').textContent='読み込みを確認してください';$('loadText').textContent='3Dカニを開始できませんでした。再読み込みで戻らない場合は実行環境の確認が必要です。';$('loadAgain').classList.remove('hidden');console.info('Flight load failed:',String(error));}})();
+(async()=>{try{const script=document.createElement('script');script.src='Build/impact-core-r7.loader.js';document.body.appendChild(script);await new Promise((resolve,reject)=>{script.onload=resolve;script.onerror=reject;});game=await createUnityInstance($('unity-canvas'),{dataUrl:'Build/impact-core-r7.data',frameworkUrl:'Build/impact-core-r7.framework.js',codeUrl:'Build/impact-core-r7.wasm',streamingAssetsUrl:'StreamingAssets',companyName:'SakiyaPrototype',productName:'カニとばし',productVersion:'crab-flight-impact-core-r7',autoSyncPersistentDataPath:true},p=>$('loadText').textContent=Math.round(p*100)+'%');configure();send('RestoreBest',savedBest);applyComfort();loaded=true;$('start').disabled=!runtimeReady;if(runtimeReady)setView('title');else $('loadText').textContent='カニの準備を仕上げています…';}catch(error){setView('error');$('loadTitle').textContent='読み込みを確認してください';$('loadText').textContent='3Dカニを開始できませんでした。再読み込みで戻らない場合は実行環境の確認が必要です。';$('loadAgain').classList.remove('hidden');console.info('Flight load failed:',String(error));}})();
