@@ -1,31 +1,32 @@
 {
-  "revision": "crab-flight-ceiling-r9-public1",
-  "gameBuild": "crab-flight-ceiling-r9",
-  "gameplayRuleVersion": "crab-ceiling-r9",
+  "revision": "crab-flight-world-r10-public1",
+  "gameBuild": "crab-flight-world-r10",
+  "gameplayRuleVersion": "crab-world-r10",
   "prototype": true,
   "ownerAccepted": false,
   "buildAssets": {
-    "Build/ceiling-r9.data": {
-      "bytes": 11474265,
-      "sha256": "82fe5f93aa0575dee6602e55fbe169492b8a0362573c73440598f7edf4ba3f39"
+    "Build/world-r10.wasm": {
+      "bytes": 26862044,
+      "sha256": "e18a260287eb1b50b1070cac7bafc0b3cc3830bb6eb6de0583368d539e883f8a"
     },
-    "Build/ceiling-r9.loader.js": {
+    "Build/world-r10.framework.js": {
+      "bytes": 443818,
+      "sha256": "b530a9b7dd2dab3816f55e2c7559296ac4f3c0fbfc374d2a95d3f89d53a1b70a"
+    },
+    "Build/world-r10.data": {
+      "bytes": 11476802,
+      "sha256": "bc24a2bc2caf3251ade7ea826a379172965bacb3333f271e975a18fd640e3d0c"
+    },
+    "Build/world-r10.loader.js": {
       "bytes": 19431,
-      "sha256": "7d35591d5f87d6acb0204a322d561e85c7bf9db58e6d46259a5597703501a07a"
-    },
-    "Build/ceiling-r9.wasm": {
-      "bytes": 26590370,
-      "sha256": "cd8911fbaa9b834eead6a0feead27ce25b9e1e44ad2a1c733db47f39c5404170"
-    },
-    "Build/ceiling-r9.framework.js": {
-      "bytes": 443625,
-      "sha256": "e1b4b34c96e340ecef7e1206cebe57aeaabebffb5c497c019e7cd2af5499b52b"
+      "sha256": "1a9d84add3dc9cf07247ada5cd24a69a0d037abfd8e19630c15fd5303ad80547"
     }
   },
   "knownGaps": [
-    "not all inputs secondary3",
-    "regional art and level2 roof passage are prototype hypotheses; weak input floor-tunnel and prior public retry discrepancy remain unresolved",
-    "physical iPhone/real listening/performance unverified",
-    "full game incomplete"
+    "transient penetration remains; bounded reproducer fix only",
+    "not all inputs secondary3; C7 full quality not passed",
+    "glass display natural contact unverified",
+    "flat far scenery and full world unfinished",
+    "physical iPhone/real listening/GPU frame timing unverified"
   ]
 }
