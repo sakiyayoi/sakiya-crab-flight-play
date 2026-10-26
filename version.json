@@ -1,30 +1,30 @@
 {
-  "revision": "crab-flight-momentum-r8-public1",
-  "gameBuild": "crab-flight-momentum-r8",
-  "gameplayRuleVersion": "crab-momentum-r8",
+  "revision": "crab-flight-ceiling-r9-public1",
+  "gameBuild": "crab-flight-ceiling-r9",
+  "gameplayRuleVersion": "crab-ceiling-r9",
   "prototype": true,
   "ownerAccepted": false,
   "buildAssets": {
-    "Build/momentum-r8.data": {
-      "bytes": 11315573,
-      "sha256": "140fe3ee7dee00bb470d18f7428bfec61652ae2a2c4489c21696b34379fd4553"
+    "Build/ceiling-r9.data": {
+      "bytes": 11474265,
+      "sha256": "82fe5f93aa0575dee6602e55fbe169492b8a0362573c73440598f7edf4ba3f39"
     },
-    "Build/momentum-r8.loader.js": {
+    "Build/ceiling-r9.loader.js": {
       "bytes": 19431,
-      "sha256": "6c541cbb7a96384523f3f3920fc4ef66b21ae093a4afe01853fc980f6776f931"
+      "sha256": "7d35591d5f87d6acb0204a322d561e85c7bf9db58e6d46259a5597703501a07a"
     },
-    "Build/momentum-r8.framework.js": {
+    "Build/ceiling-r9.wasm": {
+      "bytes": 26590370,
+      "sha256": "cd8911fbaa9b834eead6a0feead27ce25b9e1e44ad2a1c733db47f39c5404170"
+    },
+    "Build/ceiling-r9.framework.js": {
       "bytes": 443625,
-      "sha256": "8a05fa5498b44e480bf52193ebafa95205b58a2236e32bb57ac80cc65ec51b5f"
-    },
-    "Build/momentum-r8.wasm": {
-      "bytes": 26529323,
-      "sha256": "9c08a2deeaeddf17b46c48956594031573ab6af055c6e649194e49c804cdbea8"
+      "sha256": "e1b4b34c96e340ecef7e1206cebe57aeaabebffb5c497c019e7cd2af5499b52b"
     }
   },
   "knownGaps": [
     "not all inputs secondary3",
-    "region artwork/contacts and optional local growth are prototype hypotheses; high/left versusr7 tradeoffs retained; left break count also reduced",
+    "regional art and level2 roof passage are prototype hypotheses; weak input floor-tunnel and prior public retry discrepancy remain unresolved",
     "physical iPhone/real listening/performance unverified",
     "full game incomplete"
   ]
