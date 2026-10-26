@@ -1,6 +1,6 @@
 'use strict';
-document.body.dataset.wrapperRevision='impact-core-r7';
-const $=id=>document.getElementById(id),RULE='crab-impact-core-r7',RECORD='crab-flight-impact-core-r7-record',PREF='crab-flight-impact-core-r7';
+document.body.dataset.wrapperRevision='momentum-r8';
+const $=id=>document.getElementById(id),RULE='crab-momentum-r8',RECORD='crab-flight-momentum-r8-record',PREF='crab-flight-momentum-r8';
 const config={angle:40,power:70,claw:45,shell:45,legs:45,direction:1,spinRps:0},comfort={volume:65,reduced:!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)};
 let game=null,runtimeReady=false,loaded=false,view='loading',phase='ready',resumeView='aim',optionsBack='title',savedBest=0,oldBest=0,lastEvent=-1,lastResult=-1,lastMissCount=0,lastDestruction=0,feedbackTimer=null,recordTimer=null,spaceHeld=false,kickPointer=null,sentHeld=false,lastState=null;
 const gesture=new window.FlightLaunch.PointerSwipe();let chargePath=0,chargeAt=0;
@@ -8,7 +8,7 @@ function addChargeWork(r){const now=r.sampleTime;const dt=(now-chargeAt)/1000,tr
 function safe(v,min,max,fallback){v=Number(v);return Number.isFinite(v)?Math.min(max,Math.max(min,v)):fallback;}
 try{
  const c=JSON.parse(localStorage.getItem(PREF+'-config'));if(c)for(const id of Object.keys(config))config[id]=safe(c[id],id==='angle'?10:id==='direction'?-1:id==='spinRps'?-12:0,id==='angle'?80:id==='direction'?1:id==='spinRps'?12:100,config[id]);
- const cft=JSON.parse(localStorage.getItem(PREF+'-comfort')||localStorage.getItem('crab-flight-city2-comfort')||localStorage.getItem('crab-flight-kick-r1-comfort')||localStorage.getItem('crab-flight-r1-comfort'));if(cft){comfort.volume=safe(cft.volume,0,100,65);if(typeof cft.reduced==='boolean')comfort.reduced=cft.reduced;}
+ const cft=JSON.parse(localStorage.getItem(PREF+'-comfort')||localStorage.getItem('crab-flight-impact-core-r7-comfort')||localStorage.getItem('crab-flight-city2-comfort')||localStorage.getItem('crab-flight-kick-r1-comfort')||localStorage.getItem('crab-flight-r1-comfort'));if(cft){comfort.volume=safe(cft.volume,0,100,65);if(typeof cft.reduced==='boolean')comfort.reduced=cft.reduced;}
  const record=JSON.parse(localStorage.getItem(RECORD));if(record&&record.ruleVersion===RULE)savedBest=safe(record.best,0,10000,0);
  oldBest=safe(localStorage.getItem('crab-flight-r1-best'),0,10000,0);
 }catch{}
@@ -19,7 +19,7 @@ let progressLoaded;try{progressLoaded=P.read(localStorage.getItem(P.STORAGE_KEY)
 if(!navigator.locks)progressLoaded.canWrite=false;
 let progress=progressLoaded.state,earnedThisRun=0,purchaseLevel=null,purchaseUnlockAt=0,purchasePending=false;
 function saveProgress(){if(progressLoaded.canWrite)try{localStorage.setItem(P.STORAGE_KEY,P.serialize(progress));}catch{progressLoaded.canWrite=false;}}
-function growthUI(){const cost=P.nextCost(progress);$('coinResult').textContent=progressLoaded.canWrite?'+'+earnedThisRun+' 🪙　'+progress.coins+' 🪙':'成長記録を確認できません';$('upgrade').textContent=cost===null?'飛ばす力 MAX':'飛ばす力 '+(progress.level+1)+'　'+cost+' 🪙';$('upgrade').disabled=!progressLoaded.canWrite||cost===null||progress.coins<cost||clock()<purchaseUnlockAt;purchaseLevel=progress.level;}
+function growthUI(){const cost=P.nextCost(progress);$('coinResult').textContent=progressLoaded.canWrite?'+'+earnedThisRun+' 🪙　'+progress.coins+' 🪙':'成長記録を確認できません';$('upgrade').textContent=cost===null?'打ち出し MAX':'打ち出し +'+((progress.level+1)*4)+'%　'+cost+' 🪙';$('upgrade').disabled=!progressLoaded.canWrite||cost===null||progress.coins<cost||clock()<purchaseUnlockAt;purchaseLevel=progress.level;}
 function refreshProgress(){try{const latest=P.read(localStorage.getItem(P.STORAGE_KEY));if(!latest.canWrite){progressLoaded.canWrite=false;return false;}progress=latest.state;return progressLoaded.canWrite;}catch{progressLoaded.canWrite=false;return false;}}
 window.addEventListener('storage',e=>{if(e.key===P.STORAGE_KEY){refreshProgress();growthUI();}});
 async function settleProgress(s){if(!navigator.locks){growthUI();return;}return navigator.locks.request(P.STORAGE_KEY,{mode:'exclusive'},()=>{if(!refreshProgress()){growthUI();return;}const out=P.settle(progress,{session:pageSession,generation:s.generation,attempt:s.attempts,finished:s.phase==='result',phase:s.phase,physicsFault:s.physicsFault,distance:s.distance,destructionCount:s.destructionEvent});if(out.status!=='duplicate-or-stale'){progress=out.state;earnedThisRun=out.earned||0;saveProgress();}growthUI();});}
@@ -32,7 +32,7 @@ const clock=()=>typeof performance!=='undefined'?performance.now():Date.now();
 function stampInput(){}
 function send(method,value=''){if(game){game.SendMessage('CrabFlightGame',method,String(value));}}
 function persist(){try{localStorage.setItem(PREF+'-config',JSON.stringify(config));}catch{}}
-function numbers(c=config){$('angleValue').textContent=(c.direction<0?'↖ ':'↗ ')+Math.round(c.angle)+'°';$('powerValue').textContent=Math.round(c.power);$('spinValue').textContent=(c===config&&!gesture.active?0:Math.abs(c.spinRps||0)).toFixed(1);$('powerFill').style.width=c.power+'%';}
+function numbers(c=config){$('angleValue').textContent=(c.direction<0?'↖ ':'↗ ')+Math.round(c.angle)+'°';$('powerValue').textContent=Math.round(c.power);$('spinValue').textContent=(c===config&&!gesture.active?(view==='aim'&&lastState?.chargeStarted?Math.abs(lastState.spinRps||0):0):Math.abs(c.spinRps||0)).toFixed(1);$('powerFill').style.width=c.power+'%';}
 function eventTime(e){return Number.isFinite(e.timeStamp)?e.timeStamp:clock();}
 function swipePayload(r){return JSON.stringify({angle:r.angle,power:r.power,direction:r.direction,spinRps:r.spinRps,spinPhase:r.spinPhase||0,eligible:r.valid!==false});}
 function cancelRecord(){if(recordTimer!==null){clearTimeout(recordTimer);recordTimer=null;}}
@@ -113,4 +113,4 @@ window.receiveFlightState=s=>{
  if(phase==='result'&&lastResult!==s.attempts){lastResult=s.attempts;settleProgress(s);if(!invalid){savedBest=Math.max(savedBest,s.best);try{localStorage.setItem(RECORD,JSON.stringify({ruleVersion:RULE,best:savedBest,lastRun:{distance:s.distance,firstContact:s.firstContact,perfect:s.perfects,good:s.goods,earlyMiss:s.earlyMisses,config:{...config}}}));}catch{}}}
 };
 $('loadAgain').onclick=()=>window.location.reload();numbers();applyComfort();$('best').textContent=savedBest.toFixed(1)+' m';
-(async()=>{try{const script=document.createElement('script');script.src='Build/impact-core-r7.loader.js';document.body.appendChild(script);await new Promise((resolve,reject)=>{script.onload=resolve;script.onerror=reject;});game=await createUnityInstance($('unity-canvas'),{dataUrl:'Build/impact-core-r7.data',frameworkUrl:'Build/impact-core-r7.framework.js',codeUrl:'Build/impact-core-r7.wasm',streamingAssetsUrl:'StreamingAssets',companyName:'SakiyaPrototype',productName:'カニとばし',productVersion:'crab-flight-impact-core-r7',autoSyncPersistentDataPath:true},p=>$('loadText').textContent=Math.round(p*100)+'%');configure();send('RestoreBest',savedBest);applyComfort();loaded=true;$('start').disabled=!runtimeReady;if(runtimeReady)setView('title');else $('loadText').textContent='カニの準備を仕上げています…';}catch(error){setView('error');$('loadTitle').textContent='読み込みを確認してください';$('loadText').textContent='3Dカニを開始できませんでした。再読み込みで戻らない場合は実行環境の確認が必要です。';$('loadAgain').classList.remove('hidden');console.info('Flight load failed:',String(error));}})();
+(async()=>{try{const script=document.createElement('script');script.src='Build/momentum-r8.loader.js';document.body.appendChild(script);await new Promise((resolve,reject)=>{script.onload=resolve;script.onerror=reject;});game=await createUnityInstance($('unity-canvas'),{dataUrl:'Build/momentum-r8.data',frameworkUrl:'Build/momentum-r8.framework.js',codeUrl:'Build/momentum-r8.wasm',streamingAssetsUrl:'StreamingAssets',companyName:'SakiyaPrototype',productName:'カニとばし',productVersion:'crab-flight-momentum-r8',autoSyncPersistentDataPath:true},p=>$('loadText').textContent=Math.round(p*100)+'%');configure();send('RestoreBest',savedBest);applyComfort();loaded=true;$('start').disabled=!runtimeReady;if(runtimeReady)setView('title');else $('loadText').textContent='カニの準備を仕上げています…';}catch(error){setView('error');$('loadTitle').textContent='読み込みを確認してください';$('loadText').textContent='3Dカニを開始できませんでした。再読み込みで戻らない場合は実行環境の確認が必要です。';$('loadAgain').classList.remove('hidden');console.info('Flight load failed:',String(error));}})();

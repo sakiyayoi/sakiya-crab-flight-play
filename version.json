@@ -1,30 +1,30 @@
 {
-  "revision": "crab-flight-impact-core-r7-public1",
-  "gameBuild": "crab-flight-impact-core-r7",
-  "gameplayRuleVersion": "crab-impact-core-r7",
+  "revision": "crab-flight-momentum-r8-public1",
+  "gameBuild": "crab-flight-momentum-r8",
+  "gameplayRuleVersion": "crab-momentum-r8",
   "prototype": true,
   "ownerAccepted": false,
   "buildAssets": {
-    "Build/impact-core-r7.loader.js": {
-      "bytes": 19431,
-      "sha256": "2b5245435cd41dead3eea1eb560f8db7aeed1af1a48bb7762251e3f55371fad5"
+    "Build/momentum-r8.data": {
+      "bytes": 11315573,
+      "sha256": "140fe3ee7dee00bb470d18f7428bfec61652ae2a2c4489c21696b34379fd4553"
     },
-    "Build/impact-core-r7.framework.js": {
+    "Build/momentum-r8.loader.js": {
+      "bytes": 19431,
+      "sha256": "6c541cbb7a96384523f3f3920fc4ef66b21ae093a4afe01853fc980f6776f931"
+    },
+    "Build/momentum-r8.framework.js": {
       "bytes": 443625,
       "sha256": "8a05fa5498b44e480bf52193ebafa95205b58a2236e32bb57ac80cc65ec51b5f"
     },
-    "Build/impact-core-r7.data": {
-      "bytes": 11315109,
-      "sha256": "5c1eca6b10f0afa302ae0df9333a98f1247a99275a5c03212460a1de9c98b598"
-    },
-    "Build/impact-core-r7.wasm": {
-      "bytes": 26528786,
-      "sha256": "d08f58ecffc9e27904337ab25cde821b8741fdea37e202d47a30a8dae04ae910"
+    "Build/momentum-r8.wasm": {
+      "bytes": 26529323,
+      "sha256": "9c08a2deeaeddf17b46c48956594031573ab6af055c6e649194e49c804cdbea8"
     }
   },
   "knownGaps": [
     "not all inputs secondary3",
-    "region artwork/contacts and optional local growth are prototype hypotheses; standard r7 distance tradeoff retained",
+    "region artwork/contacts and optional local growth are prototype hypotheses; high/left versusr7 tradeoffs retained; left break count also reduced",
     "physical iPhone/real listening/performance unverified",
     "full game incomplete"
   ]
