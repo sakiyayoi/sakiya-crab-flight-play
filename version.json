@@ -1,32 +1,14 @@
 {
-  "revision": "crab-flight-world-r10-public1",
-  "gameBuild": "crab-flight-world-r10",
-  "gameplayRuleVersion": "crab-world-r10",
-  "prototype": true,
-  "ownerAccepted": false,
-  "buildAssets": {
-    "Build/world-r10.wasm": {
-      "bytes": 26862044,
-      "sha256": "e18a260287eb1b50b1070cac7bafc0b3cc3830bb6eb6de0583368d539e883f8a"
-    },
-    "Build/world-r10.framework.js": {
-      "bytes": 443818,
-      "sha256": "b530a9b7dd2dab3816f55e2c7559296ac4f3c0fbfc374d2a95d3f89d53a1b70a"
-    },
-    "Build/world-r10.data": {
-      "bytes": 11476802,
-      "sha256": "bc24a2bc2caf3251ade7ea826a379172965bacb3333f271e975a18fd640e3d0c"
-    },
-    "Build/world-r10.loader.js": {
-      "bytes": 19431,
-      "sha256": "1a9d84add3dc9cf07247ada5cd24a69a0d037abfd8e19630c15fd5303ad80547"
-    }
-  },
-  "knownGaps": [
-    "transient penetration remains; bounded reproducer fix only",
-    "not all inputs secondary3; C7 full quality not passed",
-    "glass display natural contact unverified",
-    "flat far scenery and full world unfinished",
-    "physical iPhone/real listening/GPU frame timing unverified"
-  ]
+  "revision": "crab-flight-route-r15-floor-contact",
+  "uiRevision": "route-ui-r15-floor-contact1",
+  "rule": "crab-route-r15-floor-contact",
+  "inputCommit": "fdec70ac15c707c3b3ee917322e5e306450a0cf5",
+  "candidate": true,
+  "published": false,
+  "adopted": false,
+  "naturalNativeInput": true,
+  "browserGameplay": false,
+  "actualListening": false,
+  "physicalIPhone": false,
+  "change": "rotating support safety-step rescue; existing layout/forces/limits/finite stock unchanged; observed16deg stop repaired, transient penetration remains"
 }

@@ -42,3 +42,11 @@ body[data-reduced=true] #kickFeedback{transform:none}
 body[data-result-layout=split] #result{display:flex;align-items:flex-start;justify-content:center;padding:calc(80px + env(safe-area-inset-top)) 20px 22px}
 body[data-result-layout=split] #result .panel-scroll{max-height:none;overflow:visible;flex-shrink:0;padding:10px 14px}
 @media(orientation:landscape) and (max-height:540px){body[data-result-layout=split] #result{align-items:center;justify-content:flex-end;padding:66px 22px 14px}body[data-result-layout=split][data-direction="-1"] #result{justify-content:flex-start}}
+
+/* r12: name the measured reserve without claiming why a run ended. */
+#flightMotion{align-items:center;flex-wrap:wrap}
+#rotorStatus{display:grid;grid-template-columns:minmax(0,1fr) 3ch;gap:1px 4px;width:120px;flex-shrink:0;color:var(--paper);text-shadow:1px 1px var(--ink)}
+#rotorStatus label{grid-column:1/-1;display:block;margin:0;font-size:11px;line-height:1.2;white-space:nowrap}
+#rotorStatus #rotorReserve{width:100%;height:9px;min-width:0}
+#rotorPercent{margin:0;font-size:11px;line-height:1;font-variant-numeric:tabular-nums;text-align:right;color:var(--gold)}
+#resultCause{font-size:12px;line-height:1.35;margin:4px 0}
