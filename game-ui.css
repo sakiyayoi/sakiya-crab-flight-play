@@ -50,3 +50,38 @@ body[data-result-layout=split] #result .panel-scroll{max-height:none;overflow:vi
 #rotorStatus #rotorReserve{width:100%;height:9px;min-width:0}
 #rotorPercent{margin:0;font-size:11px;line-height:1;font-variant-numeric:tabular-nums;text-align:right;color:var(--gold)}
 #resultCause{font-size:12px;line-height:1.35;margin:4px 0}
+
+/* Result overview: local world stays readable; the strip owns the full distance. */
+body[data-result-layout=split] #result{bottom:0;padding:calc(72px + env(safe-area-inset-top)) 20px max(12px,env(safe-area-inset-bottom))}
+body[data-result-layout=split] #result .panel{height:100%;max-height:100%;gap:8px;pointer-events:none}
+body[data-result-layout=split] #result .panel>*{pointer-events:auto;flex-shrink:0}
+body[data-result-layout=split] #result .panel-scroll{max-height:175px;overflow-y:auto}
+body[data-result-layout=split] #distanceResult{font-size:56px!important}
+#resultJourney{margin-top:auto;padding:8px 12px;background:#221d18eb;border-left:3px solid var(--gold);text-align:left;font-size:11px}
+#resultViewCaption{position:absolute;left:20px;right:20px;top:47%;color:var(--paper);font-size:11px;text-shadow:1px 2px var(--ink);pointer-events:none;text-align:center}
+.journey-heading,.journey-scale{display:flex;justify-content:space-between;gap:8px}.journey-heading{font-size:12px}.journey-scale{font-variant-numeric:tabular-nums;color:#fff0d6bd;font-size:10px}
+#journeyStrip{display:block;width:100%;height:27px;margin-top:3px}
+#journeyDetails summary{cursor:pointer;padding-top:5px;min-height:25px;color:var(--gold)}
+#journeySections{max-height:110px;overflow-y:auto;padding-left:19px;margin:4px 0;font-size:11px;line-height:1.65}
+body[data-result-layout=split] #result .row{margin:0!important}
+@media(orientation:landscape){
+body[data-result-layout=split] #result{align-items:center;justify-content:flex-end;padding:60px 16px 10px}
+body[data-result-layout=split][data-direction="-1"] #result{justify-content:flex-start}
+body[data-result-layout=split] #result .panel{height:auto;max-width:min(340px,43vw)!important;max-height:100%;gap:6px;pointer-events:auto}
+body[data-result-layout=split] #result .panel-scroll{flex-shrink:1;max-height:155px;min-height:80px;padding:7px 10px;overflow-y:auto}
+body[data-result-layout=split] #distanceResult{font-size:44px!important}
+#resultJourney{margin-top:0;padding:5px 9px}#journeyStrip{height:22px}#journeyDetails summary{padding-top:3px;min-height:20px}
+#resultViewCaption{left:16px;right:47%;top:auto;bottom:16px;text-align:left}
+body[data-direction="-1"] #resultViewCaption{left:47%;right:16px;text-align:right}
+#journeySections{max-height:75px}body[data-result-layout=split] #result #retry,body[data-result-layout=split] #result #prepare{min-height:48px;padding:7px;font-size:16px}
+}
+
+.journey-key{font-size:9px;color:var(--gold);align-self:center;white-space:nowrap}
+/* Opening the route detail must not push the immediate replay controls away. */
+#journeyDetails{position:relative}
+#journeySections{position:absolute;bottom:100%;left:-9px;right:-9px;z-index:1;max-height:150px;margin:0 0 8px;padding:9px 10px 9px 30px;background:#221d18fa;border:1px solid #fff0d655;box-shadow:0 3px 12px #0006}
+
+/* Result map adds a third row; bound the landscape summary instead of letting it paint over the map. */
+@media(orientation:landscape){
+ body[data-result-layout=split] #result .panel .panel-scroll{min-height:0!important;max-height:125px!important;flex:1 1 auto!important;overflow-y:auto!important}
+}
