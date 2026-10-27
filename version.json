@@ -1,14 +1,13 @@
 {
-  "revision": "crab-flight-route-r15-floor-contact",
-  "uiRevision": "route-ui-r15-floor-contact1",
-  "rule": "crab-route-r15-floor-contact",
-  "inputCommit": "fdec70ac15c707c3b3ee917322e5e306450a0cf5",
-  "candidate": true,
-  "published": false,
-  "adopted": false,
-  "naturalNativeInput": true,
-  "browserGameplay": false,
-  "actualListening": false,
-  "physicalIPhone": false,
-  "change": "rotating support safety-step rescue; existing layout/forces/limits/finite stock unchanged; observed16deg stop repaired, transient penetration remains"
+  "revision": "crab-flight-route-r18-hero2-mall1",
+  "ruleVersion": "crab-route-r18-hero2-mall1",
+  "sourceCommit": "b3712643357427cc483eab753328c1b7fceca426",
+  "sourceBranch": "candidate/world-r18-hero2-mall1",
+  "actorModule": "crab-hero-r2",
+  "objectModule": "mall-object-model-r18-1",
+  "regionModule": "section-art-r16-3-indoor-mall",
+  "heroInputCommit": "d8143e41f2417d57518d0f227f4974f2fcfbe2ff",
+  "objectInputCommit": "640e33e1f29c8c42ed12b2a17a86bd651cbfdf1a",
+  "state": "unadopted visual integration comparison; existing floor counterexample and strong-input distance shortening unresolved; natural contact with three new boutique targets not established",
+  "publicUpdated": false
 }
