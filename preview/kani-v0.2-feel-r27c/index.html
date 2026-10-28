@@ -4,7 +4,7 @@
  const [html,scope]=await Promise.all([read(new URL('template.html.txt',base)),read(new URL('../storage-scope.js',base))]);
  if(scope.includes('<'+'/script'))throw Error('scope source');
  const payload='<base href="'+base.href+'">'+html.replace(/<!doctype html>/i,'');
- const quoted=JSON.stringify(payload).replace(/</g,'\u003c');
+ const quoted=JSON.stringify(payload).replace(/</g,'\\u003c');
  const boot="'use strict';try{"+scope+";if(window.__kaniPreviewStorage?.prefix!=='kani-preview:kani-v0.2-feel-r27c:')throw Error('scope incomplete');document.write("+quoted+");}catch(error){document.write('<p role=alert>試遊版を開始できませんでした。正式版の記録は変更していません。</p>');}";
  document.getElementById('game').srcdoc='<!doctype html><script>'+boot+'<'+'/script>';
 }catch{document.getElementById('error').hidden=false;}})();
