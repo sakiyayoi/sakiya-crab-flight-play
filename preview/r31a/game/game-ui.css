@@ -1,0 +1,114 @@
+/* Original prototype UI. Information follows the current action; world stays open. */
+:root{--paper:#fff0d6;--ink:#221d18;--hot:#ff5c2b;--gold:#ffcb40}
+body{font-family:-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;color:var(--paper)}
+button{border-radius:2px;min-height:48px;border:1px solid #fff0d666;background:#221d18e8;box-shadow:none;color:var(--paper);font-weight:850}
+button:active{transform:translateY(2px)}button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.primary{background:var(--hot);color:var(--paper);border:0;box-shadow:4px 4px 0 var(--ink)}
+#topbar{left:16px;right:16px;top:max(10px,env(safe-area-inset-top));gap:6px}#brand{font-size:13px;letter-spacing:.04em;text-shadow:1px 2px var(--ink)}#sound,#pauseButton{min-width:48px;min-height:46px;font-size:12px;padding:6px 10px}
+#title{background:linear-gradient(0deg,#1a1715e8 0%,#1a171500 70%);align-items:flex-end;padding:80px 24px 30px}
+#title .panel{display:flex;flex-direction:column;align-items:stretch;gap:16px;width:100%;max-width:560px;padding:0;max-height:100%;background:none;border:0;box-shadow:none;overflow:visible}
+#title .title-copy{transform:rotate(-3deg);align-self:flex-start}#title h1{font-size:clamp(38px,11vw,64px);line-height:1.02;letter-spacing:-.065em;margin:0;text-shadow:3px 3px 0 var(--ink)}#title .title-copy p{font-size:13px;margin:13px 0 0;font-weight:700}
+#title .title-actions{display:grid;grid-template-columns:1fr 100px;gap:10px;align-items:center}#title .title-actions>.row{margin:0}#titleOptions{font-size:13px}#start{min-height:60px;font-size:25px;letter-spacing:.1em}#title .title-actions>.muted{grid-column:1/-1;margin:0;font-size:11px}#legacyBest{display:none}
+#aimHUD{left:20px;right:20px;top:76px;text-align:left;display:grid;grid-template-columns:1fr 94px;align-items:start}
+#aimNumbers{display:flex;flex-direction:column;gap:2px;align-items:flex-start;background:none;border:0;border-radius:0;padding:0;text-shadow:2px 2px var(--ink)}
+#aimNumbers>span:nth-child(3){order:-1;font-size:12px;line-height:1}#spinValue{font-size:66px!important;letter-spacing:-.06em;color:var(--paper);font-variant-numeric:tabular-nums}
+#aimNumbers>span:nth-child(-n+2){font-size:11px;display:none}body[data-charged=true] #aimNumbers>span:nth-child(-n+2){display:block}#aimNumbers>span:nth-child(-n+2) b{font-size:20px;color:var(--gold)}
+#chargeGauge{width:86px;height:64px;margin:0;background:#221d18c9;border:0;overflow:hidden;position:relative;transform:rotate(3deg)}#chargeTime{font-size:23px;position:relative;z-index:1;line-height:60px}#chargeFill{position:absolute;inset:auto 0 0;height:5px;background:var(--hot)}#powerTrack{display:none}#aimHint{grid-column:1/-1;max-width:80%;font-size:12px;background:#221d18cd;padding:6px 10px}
+#launchZone{left:20px;right:20px;bottom:88px;height:24%;min-height:148px;max-height:218px;border:0;border-bottom:4px solid #fff0d6aa;background:#221d181c;border-radius:0;align-items:flex-end;justify-content:flex-start;padding:16px;font-size:20px;font-weight:950;text-shadow:2px 2px var(--ink)}#launchZone:before{left:auto;right:8px;top:20%;transform:rotate(-10deg);font-size:54px;content:'↗';color:var(--paper)}body[data-dragging=true] #launchZone{background:#ff5c2b20;border-color:var(--hot)}
+#aimActions{bottom:max(14px,env(safe-area-inset-bottom));left:20px;right:20px}#customButton,#helpButton{font-size:12px;background:#221d18c9;padding:9px 14px}#cancelAim{font-size:12px}
+/* Live physics distance is the primary HUD; no distance-hiding selector is retained. */
+#flightHUD{top:calc(74px + env(safe-area-inset-top));left:20px;right:auto;width:min(360px,calc(100% - 40px));display:block;pointer-events:none}
+#distanceLabel{display:block;font-size:12px;font-weight:850;line-height:1.2;letter-spacing:.08em;text-shadow:2px 2px var(--ink)}
+#distanceLine{display:flex;align-items:baseline;gap:7px;white-space:nowrap}
+#distance{display:inline;font-size:clamp(56px,20vw,80px);letter-spacing:-.065em;color:var(--paper);text-shadow:3px 3px var(--ink);font-weight:950;line-height:1.05;font-variant-numeric:tabular-nums}
+#distanceUnit{display:inline;font-size:22px;font-weight:900;letter-spacing:0;margin:0}
+#flightMotion{display:flex;align-items:baseline;gap:10px;margin-top:3px;min-height:25px;font-size:12px;font-weight:850;white-space:nowrap}
+#height{position:static;width:auto;height:auto;max-width:none;min-width:0;padding:0;margin:0;text-align:left;font-size:20px;line-height:1.2;color:var(--paper);background:none;text-shadow:2px 2px var(--ink);font-variant-numeric:tabular-nums}
+#acceleration{color:var(--gold);font-size:12px;text-shadow:2px 2px var(--ink)}
+#destructionReadout{margin-left:auto;font-size:11px;color:var(--paper);text-shadow:2px 2px var(--ink)}#destructionValue{font-size:16px;font-variant-numeric:tabular-nums}
+body[data-accelerating=true] #distance,body[data-accelerating=true] #height{color:var(--gold)}
+/* Entry points are hidden for this fixed-shape comparison; retained custom code is intact. */
+body[data-fixed-shape=true] #customButton,body[data-fixed-shape=true] #resultCustom{display:none!important}
+#aimActions{justify-content:flex-end}#cancelAim{margin-right:auto}
+#kick{display:block}#kickFeedback{top:calc(204px + env(safe-area-inset-top));right:20px;font-size:25px;color:var(--gold);max-width:85%;text-align:right;transform:rotate(-4deg);text-shadow:2px 3px var(--ink)}
+#result{background:transparent;align-items:flex-end;padding:0 20px 22px}#result .panel{display:flex!important;flex-direction:column!important;gap:10px;padding:0!important;width:100%!important;max-width:520px;background:none;border:0;box-shadow:none;overflow:visible!important}#result .panel-scroll{border:0;background:#221d18d9;padding:14px 18px;text-align:left;border-left:5px solid var(--hot);max-width:100%;overflow:visible}#resultTitle{font-size:12px;letter-spacing:0;color:var(--gold)}#distanceResult{font-size:clamp(56px,18vw,76px)!important;letter-spacing:-.055em;line-height:1;margin:5px 0!important;color:var(--paper)}#distanceResultValue{font-weight:950}#distanceResultUnit{font-size:23px;letter-spacing:0}body[data-invalid-result=true] #distanceResult{font-size:34px!important}#resultCause:empty{display:none}#bestDifference,#firstContactResult{display:inline-block;font-size:12px;margin:6px 10px 0 0;font-weight:700}#flightSummary{display:none}#result .row{display:grid!important;grid-template-columns:1fr 1fr;margin:0!important;gap:10px}#retry{font-size:23px;min-height:59px}#prepare{font-size:14px}#resultCustom{font-size:13px;min-height:44px;margin:0!important;align-self:flex-end;background:#221d18b0}
+#pauseMenu .panel,#options .panel,#custom .panel{border-radius:0;border:1px solid #fff0d655;background:#221d18f0;box-shadow:none}#pauseMenu .panel>.muted{display:none}
+body[data-reduced=true] #kickFeedback{transform:none}
+@media(orientation:landscape) and (max-height:540px){#title{padding:70px 26px 25px}#title .panel{display:grid;grid-template-columns:1fr 1fr;max-width:760px;gap:32px}#title h1{font-size:39px}#title .title-actions{grid-template-columns:1fr 90px}#start{font-size:23px}#aimHUD{top:68px;left:22px;right:auto;grid-template-columns:140px 85px;gap:15px}#spinValue{font-size:52px!important}#chargeGauge{height:50px}#chargeTime{line-height:47px;font-size:20px}#launchZone{left:66%;right:22px;top:96px;bottom:76px;min-height:120px;height:auto}#aimActions{bottom:12px}#flightHUD{top:calc(66px + env(safe-area-inset-top));width:310px}#distance{font-size:64px}#distanceLabel{font-size:11px}#height{font-size:18px}#flightMotion{gap:8px}#kickFeedback{top:calc(142px + env(safe-area-inset-top));font-size:24px;max-width:300px}#result{padding:0 22px 18px;justify-content:flex-end}#result .panel{max-width:340px!important}#distanceResult{font-size:64px!important}#distanceResultUnit{font-size:20px}#result .panel-scroll{padding:10px 16px}#retry{min-height:49px;font-size:22px}#resultCustom{min-height:44px}#firstContactResult,#bestDifference{font-size:11px}}
+/* Results leave the stopped crab's lower playfield visible; panel side follows direction. */
+@media(orientation:portrait){#result{align-items:flex-start;padding-top:80px}#result .panel{gap:9px}#resultCustom{align-self:flex-end}}
+@media(orientation:landscape) and (max-height:540px){body[data-direction="-1"] #result{justify-content:flex-start}}
+/* Override the retained split-layout selector explicitly, rather than relying on source order. */
+body[data-result-layout=split] #result{display:flex;align-items:flex-start;justify-content:center;padding:calc(80px + env(safe-area-inset-top)) 20px 22px}
+body[data-result-layout=split] #result .panel-scroll{max-height:none;overflow:visible;flex-shrink:0;padding:10px 14px}
+@media(orientation:landscape) and (max-height:540px){body[data-result-layout=split] #result{align-items:center;justify-content:flex-end;padding:66px 22px 14px}body[data-result-layout=split][data-direction="-1"] #result{justify-content:flex-start}}
+
+/* r12: name the measured reserve without claiming why a run ended. */
+#flightMotion{align-items:center;flex-wrap:wrap}
+#rotorStatus{display:grid;grid-template-columns:minmax(0,1fr) 3ch;gap:1px 4px;width:120px;flex-shrink:0;color:var(--paper);text-shadow:1px 1px var(--ink)}
+#rotorStatus label{grid-column:1/-1;display:block;margin:0;font-size:11px;line-height:1.2;white-space:nowrap}
+#rotorStatus #rotorReserve{width:100%;height:9px;min-width:0}
+#rotorPercent{margin:0;font-size:11px;line-height:1;font-variant-numeric:tabular-nums;text-align:right;color:var(--gold)}
+#resultCause{font-size:12px;line-height:1.35;margin:4px 0}
+
+/* Result overview: local world stays readable; the strip owns the full distance. */
+body[data-result-layout=split] #result{bottom:0;padding:calc(72px + env(safe-area-inset-top)) 20px max(12px,env(safe-area-inset-bottom))}
+body[data-result-layout=split] #result .panel{height:100%;max-height:100%;gap:8px;pointer-events:none}
+body[data-result-layout=split] #result .panel>*{pointer-events:auto;flex-shrink:0}
+body[data-result-layout=split] #result .panel-scroll{max-height:175px;overflow-y:auto}
+body[data-result-layout=split] #distanceResult{font-size:56px!important}
+#resultJourney{margin-top:auto;padding:8px 12px;background:#221d18eb;border-left:3px solid var(--gold);text-align:left;font-size:11px}
+#resultViewCaption{position:absolute;left:20px;right:20px;top:47%;color:var(--paper);font-size:11px;text-shadow:1px 2px var(--ink);pointer-events:none;text-align:center}
+.journey-heading,.journey-scale{display:flex;justify-content:space-between;gap:8px}.journey-heading{font-size:12px}.journey-scale{font-variant-numeric:tabular-nums;color:#fff0d6bd;font-size:10px}
+#journeyStrip{display:block;width:100%;height:27px;margin-top:3px}
+#journeyDetails summary{cursor:pointer;padding-top:5px;min-height:25px;color:var(--gold)}
+#journeySections{max-height:110px;overflow-y:auto;padding-left:19px;margin:4px 0;font-size:11px;line-height:1.65}
+body[data-result-layout=split] #result .row{margin:0!important}
+@media(orientation:landscape){
+body[data-result-layout=split] #result{align-items:center;justify-content:flex-end;padding:60px 16px 10px}
+body[data-result-layout=split][data-direction="-1"] #result{justify-content:flex-start}
+body[data-result-layout=split] #result .panel{height:auto;max-width:min(340px,43vw)!important;max-height:100%;gap:6px;pointer-events:auto}
+body[data-result-layout=split] #result .panel-scroll{flex-shrink:1;max-height:155px;min-height:80px;padding:7px 10px;overflow-y:auto}
+body[data-result-layout=split] #distanceResult{font-size:44px!important}
+#resultJourney{margin-top:0;padding:5px 9px}#journeyStrip{height:22px}#journeyDetails summary{padding-top:3px;min-height:20px}
+#resultViewCaption{left:16px;right:47%;top:auto;bottom:16px;text-align:left}
+body[data-direction="-1"] #resultViewCaption{left:47%;right:16px;text-align:right}
+#journeySections{max-height:75px}body[data-result-layout=split] #result #retry,body[data-result-layout=split] #result #prepare{min-height:48px;padding:7px;font-size:16px}
+}
+
+.journey-key{font-size:9px;color:var(--gold);align-self:center;white-space:nowrap}
+/* Opening the route detail must not push the immediate replay controls away. */
+#journeyDetails{position:relative}
+#journeySections{position:absolute;bottom:100%;left:-9px;right:-9px;z-index:1;max-height:150px;margin:0 0 8px;padding:9px 10px 9px 30px;background:#221d18fa;border:1px solid #fff0d655;box-shadow:0 3px 12px #0006}
+
+/* Result map adds a third row; bound the landscape summary instead of letting it paint over the map. */
+@media(orientation:landscape){
+ body[data-result-layout=split] #result .panel .panel-scroll{min-height:0!important;max-height:125px!important;flex:1 1 auto!important;overflow-y:auto!important}
+}
+
+/* r29 uses a compact workshop, no equipment controls over an active launch. */
+#gearChoices{display:grid;grid-template-columns:1fr 1fr;gap:8px}#gearChoices button{min-height:58px;font-size:15px}#gearChoices button[aria-pressed=true]{outline:3px solid #ffc75b;background:#54401d}#gearDescription{min-height:3em;font-size:14px;line-height:1.5}#resultCustom{font-size:14px;min-height:42px}#customButton{font-size:13px;min-height:42px}
+
+/* Result card follows the available side, never the launch-direction assumption. */
+@media(orientation:landscape){
+ body[data-result-layout=split][data-result-side=left] #result{justify-content:flex-start}
+ body[data-result-layout=split][data-result-side=right] #result{justify-content:flex-end}
+ body[data-result-side=left] #resultViewCaption{left:47%;right:16px;text-align:right}
+ body[data-result-side=right] #resultViewCaption{left:16px;right:47%;text-align:left}
+}
+
+/* ui1: route summary stays with the score; only replay controls sit at the bottom. */
+@media(orientation:portrait){
+ body[data-result-layout=split] #resultJourney{margin-top:0}
+ body[data-result-layout=split] #result .row{margin-top:auto!important}
+}
+/* Keep the distance readable before optional scrollable result details on short screens. */
+@media(orientation:landscape) and (max-height:440px){
+ body[data-result-layout=split] #result .panel{gap:4px}
+ body[data-result-layout=split] #result .panel .panel-scroll{max-height:140px!important;flex:1 1 auto!important;padding:5px 9px}
+ body[data-result-layout=split] #result #distanceResult{font-size:36px!important;margin:2px 0!important}
+ body[data-result-layout=split] #result .panel-scroll p{margin-top:2px;margin-bottom:2px}
+ body[data-result-layout=split] #result #resultCause{font-size:10px}
+ body[data-result-layout=split] #result #retry,body[data-result-layout=split] #result #prepare{min-height:44px}
+ body[data-result-layout=split] #result #upgrade,body[data-result-layout=split] #result #resultCustom{min-height:36px;padding:4px}
+}
