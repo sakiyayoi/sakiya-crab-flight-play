@@ -1,0 +1,2 @@
+/* Preview-only storage namespace; preserve production saves and prior previews. */
+(()=>{'use strict';const prefix='preview-finish-r14:';for(const method of ['getItem','setItem','removeItem']){const original=Storage.prototype[method];Storage.prototype[method]=function(key,...args){return original.call(this,prefix+String(key),...args);};}const originalOpen=IDBFactory.prototype.open;IDBFactory.prototype.open=function(name,...args){return originalOpen.call(this,prefix+String(name),...args);};})();
