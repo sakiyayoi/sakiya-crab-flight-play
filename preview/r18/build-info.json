@@ -1,0 +1,13 @@
+{
+  "version": "kani-finish-r18",
+  "preview": "r18",
+  "sourceCommit": "7065e442e1d4f9532674ed7ef0e6c82e748e62eb",
+  "engineCommit": "571e1e1a6cdeb7f4516aadf5dc6d55b61f2f5b8f",
+  "CSharpSHA256": "6827c2f30f907df2f6f1feb3eace3f627b4dfe8a00225b41279c412fd31cbfb8",
+  "originalZIP_SHA256": "456f1563894427a0fd3511cc148d6b7c7f0c8ed4f89e100962e92f51b945d3f8",
+  "status": "UNACCEPTED_PREVIEW",
+  "performancePassed": false,
+  "continuous10Complete": false,
+  "unresolvedPreparationStallMs": 383.2,
+  "transport": "Original saved R18 payload, losslessly decoded for static hosting. No Unity rebuild."
+}
