@@ -4,12 +4,12 @@
 window.FlightResult=(()=>{
  const root=document.createElement('div');root.id='resultJourney';root.className='hidden';
  root.innerHTML='<div id="resultViewCaption"></div><div class="journey-heading"><b>この一投の跡</b><span id="journeyCount"></span></div><svg id="journeyStrip" viewBox="0 0 300 28" preserveAspectRatio="none" role="img"></svg><div class="journey-scale"><span id="journeyFrom"></span><span class="journey-key">黄:破壊 ●:停止 枠:画面</span><span id="journeyTo"></span></div><details id="journeyDetails"><summary id="journeySummary"></summary><ol id="journeySections"></ol></details>';
- document.querySelector('#result .row').before(root);
+ document.getElementById('resultDetails').append(root);
  const $=id=>document.getElementById(id),svg=$('journeyStrip'),ns='http://www.w3.org/2000/svg';let key='';
  const metre=x=>Number(x).toFixed(1)+' m';
  function node(tag,attributes,parent=svg){const n=document.createElementNS(ns,tag);for(const [k,v]of Object.entries(attributes))n.setAttribute(k,String(v));parent.append(n);return n;}
  function update(s){
-  const o=s.phase==='result'?s.resultOverview:null;root.classList.toggle('hidden',!o);if(!o){key='';return;}
+  const o=s.phase==='result'?s.resultOverview:null;root.classList.toggle('hidden',!o);$('resultDetails').classList.toggle('hidden',!o);if(!o){key='';return;}
   const from=o.from,to=o.to,span=Math.max(.01,to-from),x=p=>8+284*Math.max(0,Math.min(1,(p-from)/span));
   const currentKey=s.generation+':'+s.attempts;
   if(key!==currentKey){

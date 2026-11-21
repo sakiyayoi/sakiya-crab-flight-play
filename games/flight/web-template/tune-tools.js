@@ -55,6 +55,9 @@
     const panel = document.createElement('section');
     panel.id = 'tune-panel'; panel.setAttribute('aria-label', '実画面チューニング');
     panel.innerHTML = '<h2>実画面チューニング</h2><p>調整を閉じると、そのまま投げられます。演出の変更はこの画面だけに反映されます。</p><div id="tune-feel-status" class="tune-status" role="status">feel：読み込み値（未変更）</div><div id="tune-physics-status" class="tune-status" role="status">物理：読み込み値（未変更）</div>';
+    const revision = document.createElement('p');
+    revision.id = 'tune-revision'; revision.textContent = lastState.revision || document.body.dataset.wrapperRevision;
+    panel.querySelector('h2').after(revision);
     document.body.append(toggle, panel);
     toggle.onclick = () => { panel.hidden = !panel.hidden; toggle.setAttribute('aria-expanded', String(!panel.hidden)); };
     panel.addEventListener('keydown', e => { if (e.key === 'Escape') { panel.hidden = true; toggle.setAttribute('aria-expanded', 'false'); toggle.focus(); } });

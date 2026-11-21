@@ -1,7 +1,7 @@
  'use strict';
 (function(root){
  const test=new URLSearchParams(location.search).get('test')==='1',events=[],media=matchMedia('(prefers-reduced-motion: reduce)'),key='crab-flight-feel-v2-calm';
- let config,preset='mashimashi',shake=false,ready=false,occ=200000,camMax=0,state=null,resultKey='',resultStart=0,resultTarget=0,lastFps=performance.now(),fpsSum=0,fpsMin=Infinity,fpsNow=0,fpsSamples=0;
+ let config,preset='mashimashi',shake=false,ready=false,occ=200000,camMax=0,state=null,lastFps=performance.now(),fpsSum=0,fpsMin=Infinity,fpsNow=0,fpsSamples=0;
  const panel=document.createElement('div');panel.id='feelOverlay';panel.setAttribute('aria-hidden','true');panel.style.cssText='position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:8';document.getElementById('stage').append(panel);
  try{const own=localStorage.getItem(key),old=JSON.parse(own||localStorage.getItem('crab-flight-feel-v1')||'null');if(old){if(['mashimashi','futsuu','off'].includes(old.preset))preset=old.preset;else if(old.preset==='normal')preset='futsuu';if(own&&typeof old.shake==='boolean')shake=old.shake;}}catch{}
  const settings=()=>({preset,shake,reducedMotion:media.matches});
@@ -17,11 +17,11 @@
   const p=state.cameraPosition,r=state.cameraRight,u=state.cameraUp,d={x:point.x-p.x,y:point.y-p.y,z:point.z-p.z},dot=q=>d.x*q.x+d.y*q.y+d.z*q.z;
   return{x:(.5+dot(r)/(2*state.cameraSize*state.cameraAspect))*innerWidth,y:(.5-dot(u)/(2*state.cameraSize))*innerHeight};
  }
- function popup(c,text,chain){if(preset==='off')return;
+ function popup(c,text,chain){if(preset==='off'||state?.phase!=='flight')return;
   const el=document.createElement('strong'),where=project(c.position),big=!!chain||c.headline===true,rot=(c.occ%5-2)*3,reduced=media.matches;
   el.textContent=text+(chain?'  +'+chain:'');el.dataset.feelPopup=big?'chain':'break';
   const size=big?Math.min(config.ui.chainFontPx,innerWidth*.075):config.ui.fontPx;
-  el.style.cssText='position:absolute;left:'+Math.max(innerWidth*.16,Math.min(innerWidth*.84,where.x))+'px;top:'+Math.max(innerHeight*.23,Math.min(innerHeight*.7,where.y-25))+'px;color:'+(big?'#ffdd45':'#fff3ce')+';text-shadow:3px 4px 0 #172629,-2px -1px 0 #172629,2px -1px 0 #172629;-webkit-text-stroke:1px #172629;font-weight:1000;font-size:'+size+'px;line-height:1.05;max-width:76vw;text-align:center;letter-spacing:-.04em;filter:drop-shadow(0 3px 0 #e16c20);';
+  el.style.cssText='position:absolute;width:max-content;left:'+Math.max(innerWidth*.16,Math.min(innerWidth*.84,where.x))+'px;top:'+Math.max(innerHeight*.23,Math.min(innerHeight*.7,where.y-25))+'px;color:'+(big?'#ffdd45':'#fff3ce')+';text-shadow:3px 4px 0 #172629,-2px -1px 0 #172629,2px -1px 0 #172629;-webkit-text-stroke:1px #172629;font-weight:1000;font-size:'+size+'px;line-height:1.05;max-width:76vw;text-align:center;letter-spacing:-.04em;filter:drop-shadow(0 3px 0 #e16c20);';
   // Only actual break cues make +1. A chain is one headline, never a fake extra score pop.
   if(big){for(const old of panel.querySelectorAll('[data-feel-popup="chain"]'))old.remove();el.style.padding='10px 16px';el.style.background='#e8511ee8';el.style.background='none';el.style.isolation='isolate';const bg=document.createElement('span');bg.setAttribute('aria-hidden','true');bg.style.cssText='position:absolute;inset:-5px -15px;z-index:-1;background:#e8511ee8;clip-path:polygon(0 27%,16% 29%,12% 0,34% 16%,44% 0,57% 16%,78% 4%,79% 22%,100% 19%,89% 45%,100% 72%,78% 70%,84% 100%,61% 85%,46% 100%,31% 82%,12% 95%,15% 68%,0 72%,9% 50%)';el.append(bg);}
   else{const small=panel.querySelectorAll('[data-feel-popup="break"]');if(small.length>=3)small[0].remove();}
@@ -35,17 +35,25 @@
    const rise=media.matches?0:Math.min(1,age/end)*config.ui.popRisePx;
    // Keep the comic headline in a screen lane away from the live crab, not its old impact point.
    if(big&&state?.actorViewport){const heroY=(1-state.actorViewport.y)*innerHeight,half=Math.min(innerHeight*.16,el.offsetHeight*peak*.5),upper=Math.max(hudBottom+half+18,innerHeight*.34),lower=Math.min(innerHeight*.74,innerHeight-half-92);el.style.top=(Math.abs(upper-heroY)>Math.abs(lower-heroY)?upper:lower)+'px';}
-   el.style.transform='translate(-50%,'+(-rise)+'px) rotate('+(media.matches?0:rot)+'deg) scale('+scale+')';el.style.opacity=String(Math.min(1,Math.max(0,(end-age)/config.ui.popOutMs)));requestAnimationFrame(frame);}frame();
+   el.style.transform='translate(-50%,'+(-rise)+'px) rotate('+(media.matches?0:rot)+'deg) scale('+scale+')';el.style.opacity=String(Math.min(1,Math.max(0,(end-age)/config.ui.popOutMs)));
+   // Constrain the painted (scaled/rotated) popup, including its star, below
+   // the live numbers and above the push control. Short viewports may omit it.
+   const bounds=el.getBoundingClientRect(),star=el.firstElementChild?.getBoundingClientRect();
+   const left=Math.min(bounds.left,star?.left??bounds.left),right=Math.max(bounds.right,star?.right??bounds.right),top=Math.min(bounds.top,star?.top??bounds.top),bottom=Math.max(bounds.bottom,star?.bottom??bounds.bottom);
+   const laneTop=document.getElementById('flightHUD').getBoundingClientRect().bottom+16,laneBottom=document.getElementById('kick').getBoundingClientRect().top-16;
+   el.style.visibility=bottom-top>laneBottom-laneTop?'hidden':'visible';
+   el.style.top=(parseFloat(el.style.top)+Math.max(laneTop-top,Math.min(0,laneBottom-bottom)))+'px';
+   el.style.left=(parseFloat(el.style.left)+Math.max(16-left,Math.min(0,innerWidth-16-right)))+'px';
+   requestAnimationFrame(frame);}frame();
  }
- function startResult(c){const k=c.generation+':result';if(resultKey===k)return;resultKey=k;resultStart=performance.now();resultTarget=c.distance??0;if(!c.invalid&&preset!=='off'&&!media.matches){document.getElementById('resultCountValue').textContent='0.0';push({event:'result',occ:c.occ??++occ,fx:'countup',ms:config.ui.resultCountMs});}}
- function cue(c){if(c.event==='result')startResult(c);if(c.event==='reset'){panel.replaceChildren();resultKey='';return;}if(preset==='off')return;
+ function cue(c){if(c.event==='result'){panel.replaceChildren();return;}if(c.event==='reset'){panel.replaceChildren();return;}if(preset==='off')return;
   if(c.event==='glass_break')popup({...c,value:1,headline:true},'生簀、退場！ +1',0);else if(c.event==='break')popup({...c,value:1},c.material==='person'?'人間ボウリング！ +1':c.material==='bird'?'鳥、緊急発進！ +1':'+1',0);
   if(c.event==='chain'){popup(c,(state?.gear===1?'棚ごと返品！':state?.gear===2?'鉄鍋、営業終了！':state?.gear===3?'脚から大惨事！':c.chain>=7?'まとめて解散！':c.chain>=4?'カニ、営業妨害！':'大盛り粉砕！')+' '+c.chain+'連鎖',c.chain);}
   if(c.event==='push_perfect'||c.event==='push_good'||c.event==='push_miss')popup(c,c.event==='push_perfect'?'PERFECT!':c.event==='push_good'?'GOOD!':'MISS',0);
  }
  root.FlightCues.subscribe(cue);
- function update(s){state=s;camMax=Math.max(camMax,s.feel?.cameraOffset||0);const el=document.getElementById('distanceResultValue');if(s.phase==='result'){startResult({generation:s.generation,distance:s.distance,invalid:!!s.physicsFault});document.getElementById('resultTally').hidden=!!s.physicsFault;if(s.physicsFault)el.textContent='記録なし';else{el.textContent=s.distance.toFixed(1);if(preset==='off'||media.matches)document.getElementById('resultCountValue').textContent=s.distance.toFixed(1);}}else{resultKey='';el.textContent=s.distance.toFixed(1);}}
- function frame(t){const dt=t-lastFps;lastFps=t;if(dt>0&&dt<10000){fpsNow=1000/dt;fpsMin=Math.min(fpsMin,fpsNow);fpsSum+=fpsNow;fpsSamples++;}if(state?.phase==='result'&&!state.physicsFault&&resultKey&&preset!=='off'&&!media.matches){const q=Math.min(1,(t-resultStart)/config.ui.resultCountMs);document.getElementById('resultCountValue').textContent=(resultTarget*(1-Math.pow(1-q,3))).toFixed(1);}requestAnimationFrame(frame);}requestAnimationFrame(frame);
+ function update(s){state=s;camMax=Math.max(camMax,s.feel?.cameraOffset||0);if(s.phase!=='flight')panel.replaceChildren();document.getElementById('distanceResultValue').textContent=s.physicsFault?'記録なし':s.distance.toFixed(1);}
+ function frame(t){const dt=t-lastFps;lastFps=t;if(dt>0&&dt<10000){fpsNow=1000/dt;fpsMin=Math.min(fpsMin,fpsNow);fpsSum+=fpsNow;fpsSamples++;}requestAnimationFrame(frame);}requestAnimationFrame(frame);
  async function load(){const r=await fetch('StreamingAssets/feel.json');if(!r.ok)throw Error('feel.json HTTP '+r.status);config=await r.json();send('LoadFeelR27',JSON.stringify(config));ready=true;apply();}
  function mount(){const old=document.getElementById('motion');if(old){const p=old.nextElementSibling;if(p&&p.textContent.includes('少なめ'))p.remove();old.remove();}const host=document.querySelector('#options .panel-scroll');const group=document.createElement('div');group.innerHTML='<div id="fxPreset" role="radiogroup" aria-label="演出"><span>演出：</span><button type="button" role="radio" data-value="mashimashi">マシマシ</button><button type="button" role="radio" data-value="futsuu">ふつう</button><button type="button" role="radio" data-value="off">オフ</button></div><button type="button" id="shakeToggle" role="switch" aria-checked="false">画面揺れ：オフ</button>';host.append(group);for(const b of group.querySelectorAll('[data-value]'))b.onclick=()=>setSettings({preset:b.dataset.value});group.querySelector('#shakeToggle').onclick=()=>setSettings({shake:!shake});root.FlightFeel.mountDone=true;apply();}
  media.addEventListener('change',apply);
