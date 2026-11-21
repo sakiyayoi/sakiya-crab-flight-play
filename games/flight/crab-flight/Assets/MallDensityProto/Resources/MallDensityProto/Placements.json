@@ -1,0 +1,632 @@
+{
+  "revision": "city-density-r2",
+  "instances": [
+    {
+      "id": "density-proto-00-can",
+      "asset": "mall_r5_density_can",
+      "band": "near",
+      "p": [
+        32,
+        0,
+        0
+      ],
+      "s": [
+        1.55,
+        1.55,
+        1.55
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 800
+    },
+    {
+      "id": "density-proto-01-can",
+      "asset": "mall_r5_density_can",
+      "band": "near",
+      "p": [
+        73.7,
+        0,
+        -0.3
+      ],
+      "s": [
+        1.55,
+        1.55,
+        1.55
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 801
+    },
+    {
+      "id": "density-proto-02-can",
+      "asset": "mall_r5_density_can",
+      "band": "near",
+      "p": [
+        115,
+        0,
+        1.4
+      ],
+      "s": [
+        1.55,
+        1.55,
+        1.55
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 802
+    },
+    {
+      "id": "density-proto-03-crate",
+      "asset": "mall_r5_density_crate",
+      "band": "near",
+      "p": [
+        37,
+        0,
+        -1.8
+      ],
+      "s": [
+        1.1,
+        1.1,
+        1.1
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 803
+    },
+    {
+      "id": "density-proto-04-crate",
+      "asset": "mall_r5_density_crate",
+      "band": "near",
+      "p": [
+        86.5,
+        0,
+        -1.6
+      ],
+      "s": [
+        1.1,
+        1.1,
+        1.1
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 804
+    },
+    {
+      "id": "density-proto-05-crate",
+      "asset": "mall_r5_density_crate",
+      "band": "near",
+      "p": [
+        130,
+        0,
+        1.2
+      ],
+      "s": [
+        1.1,
+        1.1,
+        1.1
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 805
+    },
+    {
+      "id": "density-proto-06-gift",
+      "asset": "mall_r5_gift_small",
+      "band": "near",
+      "p": [
+        42,
+        0,
+        -1.3
+      ],
+      "s": [
+        1.1,
+        1.1,
+        1.1
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 806
+    },
+    {
+      "id": "density-proto-07-gift",
+      "asset": "mall_r5_gift_small",
+      "band": "near",
+      "p": [
+        57.8,
+        0,
+        -1.6
+      ],
+      "s": [
+        1.1,
+        1.1,
+        1.1
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 807
+    },
+    {
+      "id": "density-proto-08-candy",
+      "asset": "mall_r5_sweets_small",
+      "band": "near",
+      "p": [
+        71,
+        0,
+        1.6
+      ],
+      "s": [
+        1.05,
+        1.05,
+        1.05
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 808
+    },
+    {
+      "id": "density-proto-09-candy",
+      "asset": "mall_r5_sweets_small",
+      "band": "near",
+      "p": [
+        99.8,
+        0,
+        -0.7
+      ],
+      "s": [
+        1.05,
+        1.05,
+        1.05
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 809
+    },
+    {
+      "id": "density-proto-10-capsule",
+      "asset": "mall_r5_capsule_small",
+      "band": "near",
+      "p": [
+        103,
+        0,
+        -1.6
+      ],
+      "s": [
+        1.1,
+        1.1,
+        1.1
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 810
+    },
+    {
+      "id": "density-proto-11-capsule",
+      "asset": "mall_r5_capsule_small",
+      "band": "near",
+      "p": [
+        111.1,
+        0,
+        -1.5
+      ],
+      "s": [
+        1.1,
+        1.1,
+        1.1
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 811
+    },
+    {
+      "id": "density-proto-12-capsule",
+      "asset": "mall_r5_capsule_small",
+      "band": "near",
+      "p": [
+        126,
+        0,
+        1.7
+      ],
+      "s": [
+        1.1,
+        1.1,
+        1.1
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 812
+    },
+    {
+      "id": "density-proto-13-vending",
+      "asset": "mall_r5_density_vending",
+      "band": "near",
+      "p": [
+        30.2,
+        0,
+        0
+      ],
+      "s": [
+        1.35,
+        1.35,
+        1.35
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 813
+    },
+    {
+      "id": "density-proto-14-vending",
+      "asset": "mall_r5_density_vending",
+      "band": "near",
+      "p": [
+        102.2,
+        0,
+        3.7
+      ],
+      "s": [
+        1.35,
+        1.35,
+        1.35
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 814
+    },
+    {
+      "id": "density-proto-15-stall",
+      "asset": "mall_r5_density_stall",
+      "band": "near",
+      "p": [
+        65.8,
+        0,
+        -2.6
+      ],
+      "s": [
+        1.05,
+        1.05,
+        1.05
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 815
+    },
+    {
+      "id": "density-proto-16-van",
+      "asset": "mall_r5_density_van",
+      "band": "near",
+      "p": [
+        88.8,
+        0,
+        -2.8
+      ],
+      "s": [
+        1.05,
+        1.05,
+        1.05
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 816
+    },
+    {
+      "id": "density-proto-17-shelf",
+      "asset": "mall_r5_gift_large",
+      "band": "near",
+      "p": [
+        59.7,
+        0,
+        4.4
+      ],
+      "s": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 817
+    },
+    {
+      "id": "density-proto-18-giant-capsule",
+      "asset": "mall_r5_capsule_large",
+      "band": "near",
+      "p": [
+        120,
+        0,
+        3.8
+      ],
+      "s": [
+        3.6,
+        3.6,
+        3.6
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 818
+    },
+    {
+      "id": "density-proto2-00-roof-can",
+      "asset": "mall_r5_density_can",
+      "band": "near",
+      "p": [
+        30.2,
+        4.515,
+        0
+      ],
+      "s": [
+        0.75,
+        0.75,
+        0.75
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 820
+    },
+    {
+      "id": "density-proto2-01-roof-crate",
+      "asset": "mall_r5_density_crate",
+      "band": "near",
+      "p": [
+        65.8,
+        4.2097500000000005,
+        -2.6
+      ],
+      "s": [
+        0.75,
+        0.75,
+        0.75
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 821
+    },
+    {
+      "id": "density-proto2-02-gallery-gift",
+      "asset": "mall_r5_gift_small",
+      "band": "near",
+      "p": [
+        39,
+        8.219999999999999,
+        9.7
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 822
+    },
+    {
+      "id": "density-proto2-03-ledge-sweets",
+      "asset": "mall_r5_sweets_small",
+      "band": "near",
+      "p": [
+        92,
+        6.4,
+        7
+      ],
+      "s": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 823
+    },
+    {
+      "id": "density-proto2-04-roof-capsule",
+      "asset": "mall_r5_capsule_small",
+      "band": "near",
+      "p": [
+        102.2,
+        4.59,
+        3.7
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 824
+    },
+    {
+      "id": "density-proto2-05-hanging-pod",
+      "asset": "mall_r5_capsule_small",
+      "band": "near",
+      "p": [
+        77,
+        17.5,
+        1
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 825
+    },
+    {
+      "id": "density-proto2-06-hanging-pod",
+      "asset": "mall_r5_capsule_small",
+      "band": "near",
+      "p": [
+        85,
+        16.8,
+        1
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 826
+    },
+    {
+      "id": "density-proto2-07-hanging-pod",
+      "asset": "mall_r5_capsule_small",
+      "band": "near",
+      "p": [
+        125,
+        12.5,
+        4.8
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 827
+    },
+    {
+      "id": "density-proto2-08-balcony-gift",
+      "asset": "mall_r5_gift_large",
+      "band": "near",
+      "p": [
+        48,
+        8.415000000000001,
+        10
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 828
+    },
+    {
+      "id": "density-proto2-09-balcony-vending",
+      "asset": "mall_r5_density_vending",
+      "band": "near",
+      "p": [
+        60,
+        8.425,
+        9.7
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 829
+    },
+    {
+      "id": "density-proto2-10-balcony-stall",
+      "asset": "mall_r5_density_stall",
+      "band": "near",
+      "p": [
+        108,
+        8.415000000000001,
+        10
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 830
+    },
+    {
+      "id": "density-proto2-11-balcony-capsule",
+      "asset": "mall_r5_capsule_large",
+      "band": "near",
+      "p": [
+        131,
+        8.425,
+        10
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 831
+    },
+    {
+      "id": "density-proto2-12-giant-vertical-sign",
+      "asset": "mall_r5_density_vertical_sign2",
+      "band": "near",
+      "p": [
+        100,
+        3,
+        0.4
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 832
+    },
+    {
+      "id": "density-proto2-13-hanging-display-sign",
+      "asset": "mall_r5_density_hanging_sign2",
+      "band": "near",
+      "p": [
+        69,
+        10.5,
+        2.2
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "breakable": true,
+      "chunk": 0,
+      "chainGroup": 833
+    }
+  ]
+}

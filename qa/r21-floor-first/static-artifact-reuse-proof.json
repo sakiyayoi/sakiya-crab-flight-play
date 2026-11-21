@@ -1,0 +1,13 @@
+{
+  "currentPhysicsCommit": "aa807674a865261324b19ac3a8c59b00745fab43",
+  "captureInput": "inspect03 source map; same unchanged r19 visualart snapshot",
+  "changedPathsSinceCaptures": [
+    "games/flight/crab-flight/Assets/Tests/PlayMode/FloorFirstR21.cs",
+    "games/flight/crab-flight/Assets/Scripts/FloorContactStepR10.cs"
+  ],
+  "reusedBecause": "Static section images/active-mesh snapshot created beforeflight, no FloorContactStep executed; entire visual/model/material/scene/layout/camera/resource input hashes unchanged. No image relabelled as newphysics/replayedflight.",
+  "sourceMapCaptureSHA256": "e59e45e6bda02019fafd2bbf944f58256fbdc4ea2b3332103647398610951d26",
+  "sourceMapFinalSHA256": "f370046bc1ec026fdeb8c0aee8e595efe1fdad8d0ecbb841f979bf4aeec0df20",
+  "mayUseForPhotoCoverageAndRepetitionOnly": true,
+  "mayUseForFinalPhysicsThrowEvidence": false
+}

@@ -1,0 +1,43 @@
+{
+  "lockedAtUTC": "2026-10-28T02:57:42.003102+00:00",
+  "count": 40,
+  "weak": {
+    "rawFlickPower": 55,
+    "count": 20
+  },
+  "strong": {
+    "rawFlickPower": 100,
+    "count": 20
+  },
+  "crossProduct": {
+    "angleDeg": [
+      12,
+      16,
+      28,
+      45,
+      70
+    ],
+    "direction": [
+      1,
+      -1
+    ],
+    "activeChargeTicksAt60Hz": [
+      601,
+      607
+    ]
+  },
+  "charge": {
+    "seconds": 10,
+    "legalNormalizedTravelSpeed": 2,
+    "tickSeconds": 0.016666666666666666,
+    "shape": [
+      45,
+      45,
+      45
+    ],
+    "upgrade": 0
+  },
+  "productionPath": "Configure → BeginAim/PreviewLaunch → BeginSpinCharge → AddSpinWork/Tick → ReleaseLaunch → Tick → result → Prepare; no ReviewDropPose/replay override/body set/seed setter",
+  "scope": "Native production game methods using valid inputs at DOM SendMessage boundary. This is not40 physical finger swipes or40 WebGL runs. Browser one-cycle separately required before executable delivery. No same-seed guarantee or all-input guarantee. No extra seeds exposed in production UI; phase, direction, angle varied.",
+  "pass": "40 results,20 per raw-power class; floor-tunnel0 and geometric support never below unchanged -0.45m. All other faults reported; strong-distance and collider fit judged separately."
+}

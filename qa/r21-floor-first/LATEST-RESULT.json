@@ -1,0 +1,8 @@
+{
+  "physicalCommit": "aa807674a865261324b19ac3a8c59b00745fab43",
+  "sourceSHA256": "e8b5075a21a66e07ab9388a45778a3e29d3d1dd016c429f5dbca6026e8ab5f57",
+  "acceptance": "acceptance40-final-summary.json",
+  "oldComparisonOnly": "acceptance40-summary.json refers e96f524/first40; do not use for current candidate",
+  "delivery": "inspection-final-reviewed/delivery-inspection.json",
+  "executableMayDeliver": false
+}

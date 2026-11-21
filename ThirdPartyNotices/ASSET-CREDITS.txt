@@ -1,0 +1,5 @@
+Kenney Food Kit 2.0 / Kenney / CC0 / https://kenney.nl/assets/food-kit
+Selected plate, plate-broken, sushi-salmon, fish and colormap; placement/colliders/LOD modified locally.
+Crab low poly animated 3d model / methodical pixel / CC0 / https://opengameart.org/content/crab-low-poly-animated-3d-model
+Crab candidate is inspected/baked/exported for comparison, not adopted as replacement of original r3 crab.
+Original r3 crab and restaurant models: self-authored project assets.

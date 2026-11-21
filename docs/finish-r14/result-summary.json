@@ -1,0 +1,230 @@
+{
+  "version": "kani-finish-r14",
+  "engineCommit": "5a59476f3b5a207f6059d66e5df108f3c65d8c1f",
+  "CSharpSHA256": "c37e26e588da54a27d09b982498f4ce6fbc3808ea52ad95eb02aed32ffee66d5",
+  "change": "Frozen Mesh vertices and Transform reference cache only; exact original per-vertex matrix arithmetic and all solver steps retained",
+  "matchedProfile": {
+    "scope": "One unchanged-input/seed42043/1280x800DPR1/ChromeMetal/recorderOFF comparison. Opt-in instrumentation and real scheduling overhead included; render batching and host load may differ. Native every-query bit equality establishes same geometry/physical input. No strict10/generalFPS/M14/old616.6 resolution claim.",
+    "initialBodyExact": true
+  },
+  "before": {
+    "callback": {
+      "n": 4366,
+      "mean": 17.88960146587265,
+      "max": 158.69999999925494,
+      "p95": 23.199999999254942
+    },
+    "flightUpdate": {
+      "n": 4366,
+      "mean": 5.434814475490394,
+      "max": 153.69999999925494,
+      "p95": 8.5
+    },
+    "regions": {
+      "prefix": {
+        "physicsSteps": 5998,
+        "supportCalls": 177021,
+        "supportMicrosecondsPerCall": 2.4087537843769695,
+        "simulateMicrosecondsPerOuterStep": 512.604201777095,
+        "totalMs": {
+          "n": 1733,
+          "mean": 4.634102710154589,
+          "max": 79.30000305175781,
+          "p95": 8.300000190734863
+        },
+        "simulateMs": {
+          "n": 1733,
+          "mean": 1.7741488760871413,
+          "max": 51,
+          "p95": 3
+        },
+        "supportMs": {
+          "n": 1733,
+          "mean": 0.24604731890605627,
+          "max": 15.800000190734863,
+          "p95": 0.4000000059604645
+        }
+      },
+      "target": {
+        "physicsSteps": 732,
+        "supportCalls": 163423,
+        "supportMicrosecondsPerCall": 1.9917636972072341,
+        "simulateMicrosecondsPerOuterStep": 1554.9180196608352,
+        "totalMs": {
+          "n": 164,
+          "mean": 12.448170670285457,
+          "max": 153.6999969482422,
+          "p95": 75.4000015258789
+        },
+        "simulateMs": {
+          "n": 164,
+          "mean": 6.94024384385202,
+          "max": 102.5999984741211,
+          "p95": 45.79999923706055
+        },
+        "supportMs": {
+          "n": 164,
+          "mean": 1.9847560895652305,
+          "max": 31,
+          "p95": 15.199999809265137
+        }
+      },
+      "allCPU": {
+        "physicsSteps": 15356,
+        "supportCalls": 857948,
+        "supportMicrosecondsPerCall": 2.1620191594153537,
+        "simulateMicrosecondsPerOuterStep": 618.9828076867828,
+        "totalMs": {
+          "n": 4095,
+          "mean": 5.388424900774554,
+          "max": 153.6999969482422,
+          "p95": 8.399999618530273
+        },
+        "simulateMs": {
+          "n": 4095,
+          "mean": 2.3211477398872375,
+          "max": 102.5999984741211,
+          "p95": 3.0999999046325684
+        },
+        "supportMs": {
+          "n": 4095,
+          "mean": 0.45296703633262125,
+          "max": 31,
+          "p95": 0.4000000059604645
+        }
+      }
+    },
+    "final": {
+      "distance": 3220.00634765625,
+      "time": 68.26103210449219,
+      "physicsFault": "",
+      "peopleHit": 5,
+      "birdsHit": 3,
+      "destructionEvent": 54,
+      "chainBreaks": 15,
+      "rotorRemaining": 80798.59375
+    }
+  },
+  "after": {
+    "callback": {
+      "n": 4483,
+      "mean": 17.113116216819428,
+      "max": 107.30000000074506,
+      "p95": 21.199999999254942
+    },
+    "flightUpdate": {
+      "n": 4483,
+      "mean": 3.9347981262836584,
+      "max": 65.90000000223517,
+      "p95": 6.800000000745058
+    },
+    "regions": {
+      "prefix": {
+        "physicsSteps": 5998,
+        "supportCalls": 177021,
+        "supportMicrosecondsPerCall": 1.5704097341448293,
+        "simulateMicrosecondsPerOuterStep": 399.43391113489537,
+        "totalMs": {
+          "n": 1773,
+          "mean": 3.4373951500845843,
+          "max": 43.79990005493164,
+          "p95": 6.100100040435791
+        },
+        "simulateMs": {
+          "n": 1773,
+          "mean": 1.35127162943435,
+          "max": 31.700199127197266,
+          "p95": 2.4000000953674316
+        },
+        "supportMs": {
+          "n": 1773,
+          "mean": 0.15679385310098806,
+          "max": 7.5,
+          "p95": 0.3000999987125397
+        }
+      },
+      "target": {
+        "physicsSteps": 725,
+        "supportCalls": 156780,
+        "supportMicrosecondsPerCall": 1.1933920179562751,
+        "simulateMicrosecondsPerOuterStep": 1073.1038735241725,
+        "totalMs": {
+          "n": 182,
+          "mean": 7.632962648685162,
+          "max": 62.5,
+          "p95": 38.5
+        },
+        "simulateMs": {
+          "n": 182,
+          "mean": 4.274726968708929,
+          "max": 43.800201416015625,
+          "p95": 24.999900817871094
+        },
+        "supportMs": {
+          "n": 182,
+          "mean": 1.0280219811823341,
+          "max": 11.999099731445312,
+          "p95": 7.099299907684326
+        }
+      },
+      "allCPU": {
+        "physicsSteps": 14937,
+        "supportCalls": 852501,
+        "supportMicrosecondsPerCall": 1.3416948518687095,
+        "simulateMicrosecondsPerOuterStep": 472.6790532578488,
+        "totalMs": {
+          "n": 4094,
+          "mean": 3.9165860016606877,
+          "max": 65.80000305175781,
+          "p95": 6.900000095367432
+        },
+        "simulateMs": {
+          "n": 4094,
+          "mean": 1.724574259529186,
+          "max": 46.498600006103516,
+          "p95": 3.100100040435791
+        },
+        "supportMs": {
+          "n": 4094,
+          "mean": 0.2793835375947549,
+          "max": 11.999099731445312,
+          "p95": 0.4000000059604645
+        }
+      }
+    },
+    "final": {
+      "distance": 3220.00634765625,
+      "time": 68.26103210449219,
+      "physicsFault": "",
+      "peopleHit": 5,
+      "birdsHit": 3,
+      "destructionEvent": 54,
+      "chainBreaks": 15,
+      "rotorRemaining": 80798.59375,
+      "supportGeometryEntries": 13,
+      "supportGeometryReads": 907348
+    }
+  },
+  "ordinary": {
+    "distance": 2052.736083984375,
+    "time": 44.32937240600586,
+    "physicsFault": "",
+    "peopleHit": 2,
+    "birdsHit": 5,
+    "destructionEvent": 43,
+    "chainBreaks": 9,
+    "minHeight": -0.00521087646484375,
+    "kicksUsed": 2
+  },
+  "ordinaryReachedWorldEnd": false,
+  "savedArchives": 18,
+  "judgment": "Lily private confirmation candidate OK; not full performance/all-gates/game completion/owner adoption",
+  "remaining": [
+    "diagnostic entry107.3ms / Update5.2ms atsim0, separate from contact-loop peak",
+    "old unsynchronized616.6ms unresolved",
+    "strict10/M14/physicaliPhone/listening unconfirmed",
+    "minorfloor-5.211mm memo; no new floor repair",
+    "Native rejected Y-only arithmetic did not pass and was restored"
+  ],
+  "sourceLineage": "partial r32 reconstruction, not recovered original lost r49/r51/r52"
+}

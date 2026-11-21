@@ -1,0 +1,61 @@
+using System;using System.Collections.Generic;using System.Linq;using System.Runtime.InteropServices;using UnityEngine;
+[Serializable]public class FeelSettingsR27{public string preset="mashimashi";public bool shake=false,reducedMotion;}
+[Serializable]public class FeelCueR27{public string @event,material,part,objectId;public int occ,chain;public Vector3 position,velocity,normal;}
+[Serializable]public class FeelLogR27{public double t;public string @event,fx,kind,target,reason,text;public int occ,effect,chain,count,value;public float frames,timeScale,seconds,amp,decayMs,kick,pct,from,to,ms,dist,peak,settle;public bool on;public string[] colors;}
+[Serializable]public class FeelTelemetryR27{public bool loaded,shake,reduced;public string preset,configVersion;public int active,flashCount,flashSuppressed;public float cameraOffset,cameraMaxOffset,hold,slow,zoom=1;}
+public sealed partial class CrabFlightGame {
+ FeelConfig feelR27;FeelSettingsR27 feelSettingsR27=new FeelSettingsR27();MashimashiPresentationR27 feelDrawingR27;readonly CrabFeelV1.PresentationClock feelClockR27=new CrabFeelV1.PresentationClock();
+ readonly List<FeelCueR27> feelFlashQueueR27=new List<FeelCueR27>();readonly CrabFeelV1.FlashGate feelGateR27=new CrabFeelV1.FlashGate();
+ readonly Dictionary<Transform,Vector3> feelMeshScalesR27=new Dictionary<Transform,Vector3>();
+ Vector3 feelCameraDeltaR27;float feelZoomR27=1,feelShakeStartR27=-10,feelShakeDurationR27,feelShakeAmplitudeR27,feelKickR27,feelSquashStartR27=-10,feelSquashR27,feelRealDeltaR27=-1,feelMaxCameraR27;int feelChainR27,feelLastGameEventR27=-1,feelFastOccR27=100000;float feelChainTimeR27=-100,feelNextGhostR27,feelNextLineR27;bool feelGlassR27,feelWasReadyR27,feelResultR27,feelWasSlowR27;FeelCueR27 feelSlowCueR27;
+ double feelClockStampR27;bool FeelOnR27=>feelR27!=null;bool FeelEffectsR27=>FeelOnR27&&feelSettingsR27.preset!="off";
+#if UNITY_WEBGL && !UNITY_EDITOR
+ [DllImport("__Internal")]static extern void KaniTestPush(string json);
+#endif
+ void FeelLogR27(FeelCueR27 cue,string fx,Action<FeelLogR27> set=null){var x=new FeelLogR27{t=Time.realtimeSinceStartupAsDouble*1000,@event=cue.@event,occ=cue.occ,chain=cue.chain,fx=fx};set?.Invoke(x);
+#if UNITY_WEBGL && !UNITY_EDITOR
+ KaniTestPush(JsonUtility.ToJson(x));
+#endif
+ }
+ public void LoadFeelR27(string json){Initialize();feelClockStampR27=Time.realtimeSinceStartupAsDouble;feelR27=JsonUtility.FromJson<FeelConfig>(json);if(feelR27?.events==null||feelR27.presets==null)throw new ArgumentException("Invalid feel config");if(!feelDrawingR27){var o=new GameObject("Feel r27 rendered cues");o.transform.SetParent(transform,false);feelDrawingR27=o.AddComponent<MashimashiPresentationR27>();feelDrawingR27.Initialize(effectsPrefab.inkShader,feelR27);}if(effects){effects.ResetRun();effects.gameObject.SetActive(false);}ResetOverdrivePresentation();if(overdrivePresentation)overdrivePresentation.gameObject.SetActive(false);Report();}
+ public void SetFeelR27(string json){Initialize();BeginFeelFrameR27();feelSettingsR27=JsonUtility.FromJson<FeelSettingsR27>(json);if(feelSettingsR27.preset!="futsuu"&&feelSettingsR27.preset!="off")feelSettingsR27.preset="mashimashi";if(!FeelEffectsR27){feelClockR27.Reset();feelDrawingR27?.Clear();feelFlashQueueR27.Clear();ClearObjectFeelR27();feelShakeStartR27=feelSquashStartR27=-10;}if(!feelSettingsR27.shake||feelSettingsR27.reducedMotion)feelShakeStartR27=-10;Report();}
+ public void ClearFeelAuditR27(string _){feelMaxCameraR27=0;}
+ public void TestFire(string json){
+#if UNITY_WEBGL && !UNITY_EDITOR
+ if(!new Uri(Application.absoluteURL).Query.TrimStart('?').Split('&').Contains("test=1"))return;
+#endif
+ if(!FeelOnR27)return;var c=JsonUtility.FromJson<FeelCueR27>(json);c.position=crab.Root.position;FeelCueR27(c);}
+ void BeginFeelFrameR27(){if(!FeelOnR27)return;RestoreObjectFlashR27();cam.transform.position-=feelCameraDeltaR27;cam.orthographicSize/=feelZoomR27;feelCameraDeltaR27=Vector3.zero;feelZoomR27=1;foreach(var p in feelMeshScalesR27)if(p.Key)p.Key.localScale=p.Value;feelMeshScalesR27.Clear();}
+ float FilterFeelR27(float dt){double stamp=Time.realtimeSinceStartupAsDouble;double real=feelRealDeltaR27>0?Math.Max(0,stamp-feelClockStampR27):dt;feelClockStampR27=stamp;bool was=feelClockR27.HoldRemaining>0;var value=feelClockR27.Filter(real,paused,FeelEffectsR27);if(was&&feelClockR27.HoldRemaining<=0&&feelClockR27.SlowRemaining>0&&!feelWasSlowR27){feelWasSlowR27=true;FeelLogR27(feelSlowCueR27,"slowmo",x=>{x.seconds=feelR27.events.tankGlass.slowMs/1000;x.timeScale=feelR27.events.tankGlass.slowScale;x.effect=7;});}return Mathf.Min(dt,(float)value);}
+ void ResetFeelR27(){ClearObjectFeelR27();feelClockR27.Reset();feelDrawingR27?.Clear();feelFlashQueueR27.Clear();feelShakeStartR27=feelSquashStartR27=-10;feelNextGhostR27=feelNextLineR27=0;feelSlowCueR27=null;feelChainR27=0;feelChainTimeR27=-100;feelGlassR27=feelWasReadyR27=feelResultR27=feelWasSlowR27=false;feelLastGameEventR27=-1;}
+ void ObserveFeelEventR27(FlightGameEvent e){if(!FeelOnR27)return;if(e.type=="reset"){ResetFeelR27();return;}var c=new FeelCueR27{occ=e.id,position=e.position,velocity=e.velocity,normal=e.normal,material=e.material,objectId=e.objectId};
+  if(e.type=="destruction"){if(e.physicsTime-feelChainTimeR27>.8f)feelChainR27=0;feelChainTimeR27=e.physicsTime;feelChainR27++;c.@event=!feelGlassR27&&e.material=="glass"&&e.objectId.StartsWith("tank-glass-")?"glass_break":"break";if(c.@event=="glass_break")feelGlassR27=true;FeelCueR27(c);if(feelChainR27==2||feelChainR27==4||feelChainR27==7)FeelCueR27(new FeelCueR27{@event="chain",chain=feelChainR27,occ=e.id,position=e.position});return;}
+  c.@event=e.type=="charge"?"charge_stroke":e.type=="landing"?"ground_hit":e.type=="launch"?"launch":"";if(c.@event.Length>0)FeelCueR27(c);
+ }
+ void FeelCueR27(FeelCueR27 c){if(!FeelOnR27)return;var cfg=feelR27.Event(c.@event,c.chain);var m=feelR27.Multiplier(feelSettingsR27.preset);if(!FeelEffectsR27){if(cfg.flashPhases>0)FeelLogR27(c,"flash_skipped",x=>x.reason="off");return;}float now=Time.realtimeSinceStartup;
+  int frames=Mathf.FloorToInt(cfg.stopFrames*m.hitStopMultiplier);if(cfg.maxMashimashiStopFrames>0&&feelSettingsR27.preset=="mashimashi")frames=Mathf.Min(frames,cfg.maxMashimashiStopFrames);
+  if(frames>0){if(feelClockR27.HoldRemaining<=0)feelClockStampR27=Time.realtimeSinceStartupAsDouble;feelClockR27.Request(frames/60d,cfg.slowMs/1000d,cfg.slowScale);FeelLogR27(c,"hitstop",x=>{x.frames=frames;x.timeScale=.05f;});if(cfg.slowMs>0){feelSlowCueR27=c;feelWasSlowR27=false;}}
+  if(cfg.shakeM>0||cfg.kickM>0){feelShakeStartR27=now;feelShakeDurationR27=Mathf.Min(.12f,cfg.shakeMs/1000);feelShakeAmplitudeR27=Mathf.Min(.025f,cfg.shakeM*m.shakeMultiplier);feelKickR27=0;}
+  FeelLogR27(c,"shake",x=>{x.amp=feelSettingsR27.shake&&!feelSettingsR27.reducedMotion?feelShakeAmplitudeR27:0;x.kick=0;x.decayMs=cfg.shakeMs;});
+  if(cfg.squash>0){feelSquashStartR27=now;feelSquashR27=Mathf.Min(.3f,cfg.squash*m.squashMultiplier);FeelLogR27(c,"squash",x=>x.pct=feelSquashR27*100);}
+  string kind=c.@event=="glass_break"?"glass":c.@event=="charge_stroke"||c.@event=="launch"?"water":c.@event=="charge_ready"?"bubble":c.@event=="ground_hit"?"dust":c.@event=="push_perfect"?"star":c.@event=="new_record"?"confetti":c.material??"wood";
+  int count=Mathf.RoundToInt((c.@event=="new_record"?cfg.confetti:cfg.particles)*m.particleMultiplier);if(count>0){int actual=feelDrawingR27.Particles(c.position,count,kind,cam,now,c.velocity);FeelLogR27(c,"particles",x=>{x.count=actual;x.kind=kind;});}
+  if(cfg.flashPhases>0){feelFlashQueueR27.Add(c);}
+  bool mash=feelSettingsR27.preset=="mashimashi";
+  if(c.@event=="glass_break"||c.@event=="break"||c.@event=="push_perfect"){feelDrawingR27.Ring(c.position,now,c.@event=="glass_break");FeelLogR27(c,"shockwave",x=>x.effect=1);if(cfg.residueMs>0){feelDrawingR27.Residue(c.position,c.material,cam,now,cfg.residueMs/1000);FeelLogR27(c,"debris_keep",x=>x.seconds=cfg.residueMs/1000);}if(cfg.visualKnockbackM>0){if(KnockbackObjectR27(c,cfg.visualKnockbackM))FeelLogR27(c,"knockback",x=>x.dist=cfg.visualKnockbackM);}}
+  // Calm R3: local hit cues stay; launch never pulses the whole-camera zoom.
+  if(mash&&(c.@event=="launch"||c.@event=="flight_fast")){feelDrawingR27.Speed(crab.Root.position,cam,now,direction);FeelLogR27(c,"speedlines",x=>{x.on=true;x.effect=2;});}
+  if(mash&&c.@event=="flight_fast"){feelDrawingR27.Ghost(crab.Root.position,cam,now,crab.Root,c.velocity);FeelLogR27(c,"afterimage",x=>{x.on=true;x.effect=5;});}
+ }
+ FeelTelemetryR27 FeelStateR27()=>new FeelTelemetryR27{loaded=FeelOnR27,preset=feelSettingsR27.preset,shake=feelSettingsR27.shake,reduced=feelSettingsR27.reducedMotion,configVersion=feelR27?.version,active=feelDrawingR27?feelDrawingR27.Active:0,flashCount=feelGateR27.Accepted,flashSuppressed=feelGateR27.Suppressed,cameraOffset=feelCameraDeltaR27.magnitude,cameraMaxOffset=feelMaxCameraR27,hold=(float)feelClockR27.HoldRemaining,slow=(float)feelClockR27.SlowRemaining,zoom=feelZoomR27};
+ void FinishFeelFrameR27(float dt){if(!FeelOnR27)return;float now=Time.realtimeSinceStartup;if(spinCharge.Ready&&!feelWasReadyR27)FeelCueR27(new FeelCueR27{@event="charge_ready",occ=++feelFastOccR27,position=crab.Root.position});feelWasReadyR27=spinCharge.Ready;
+  if(simulation!=null&&phase=="flight"){if(simulation.EventID!=feelLastGameEventR27){feelLastGameEventR27=simulation.EventID;string e=simulation.LastEvent=="perfect"?"push_perfect":simulation.LastEvent=="good"?"push_good":simulation.LastEvent=="miss"?"push_miss":"";if(e.Length>0)FeelCueR27(new FeelCueR27{@event=e,occ=++feelFastOccR27,position=crab.Root.position});}if(simulation.Speed>=feelR27.events.flightFast.speedThreshold&&now>=feelNextGhostR27){feelNextGhostR27=now+feelR27.events.flightFast.ghostIntervalMs/1000;FeelCueR27(new FeelCueR27{@event="flight_fast",occ=++feelFastOccR27,position=crab.Root.position,velocity=simulation.Body.linearVelocity});}}
+  if(phase=="result"&&!feelResultR27){feelResultR27=true;if(newRecord)FeelCueR27(new FeelCueR27{@event="new_record",occ=++feelFastOccR27,position=crab.Root.position});}
+  if(FeelEffectsR27){var d=CrabFeelV1.CameraSafety.Sample(now-feelShakeStartR27,feelShakeDurationR27,feelShakeAmplitudeR27,feelKickR27,true,feelSettingsR27.shake,feelSettingsR27.reducedMotion,generation);feelCameraDeltaR27=cam.transform.right*((float)d.x-(float)d.kick*direction)+cam.transform.up*(float)d.y;cam.transform.position+=feelCameraDeltaR27;feelMaxCameraR27=Mathf.Max(feelMaxCameraR27,feelCameraDeltaR27.magnitude);
+
+   if(world.FrozenCompoundApplied){float age=(now-feelSquashStartR27)*1000/feelR27.drawing.squashMs;if(age>=0&&age<1){float x=feelSquashR27*Mathf.Sin(age*Mathf.PI);foreach(var mesh in crab.Root.GetComponentsInChildren<MeshRenderer>()){var tr=mesh.transform;if(!mesh.enabled||tr==crab.Root||feelMeshScalesR27.Keys.Any(parent=>tr==parent||tr.IsChildOf(parent)))continue;feelMeshScalesR27.Add(tr,tr.localScale);tr.localScale=Vector3.Scale(tr.localScale,new Vector3(1+x,1-x,1));}}}
+  }
+  foreach(var c in feelFlashQueueR27.OrderByDescending(c=>feelR27.Event(c.@event,c.chain).flashPriority)){bool on=feelGateR27.TryDisplay(Time.realtimeSinceStartupAsDouble,generation+"/"+c.occ+"/"+c.@event,FeelEffectsR27,feelSettingsR27.reducedMotion);if(on){ColorUtility.TryParseHtmlString(feelSettingsR27.preset=="mashimashi"?feelR27.flash.orange:feelR27.flash.white,out var color);bool objectFlash=c.@event=="break"&&feelSettingsR27.preset=="futsuu"&&FlashObjectR27(c,color);if(!objectFlash)feelDrawingR27.Flash(cam,color,c.position);FeelLogR27(c,"flash",x=>{x.colors=new[]{feelSettingsR27.preset=="mashimashi"?feelR27.flash.orange:feelR27.flash.white};x.frames=1;x.target=objectFlash?"object":"impact";x.effect=4;});break;}FeelLogR27(c,"flash_skipped",x=>x.reason=feelSettingsR27.reducedMotion?"reduced":!FeelEffectsR27?"off":"rate");}feelFlashQueueR27.Clear();
+  if(!FeelEffectsR27)feelDrawingR27.Clear();DrawObjectFeelR27(now);feelDrawingR27.Rotor(crab.Root.position,crab.Root,cam,Mathf.Clamp01(Mathf.Abs(currentSpinRps)/40),FeelEffectsR27&&phase=="flight"&&!feelSettingsR27.reducedMotion);DrawNeonFeel(now);trail.enabled=spinWake.enabled=landingRing.enabled=false;
+ }
+}

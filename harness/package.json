@@ -1,0 +1,10 @@
+{
+  "name": "kani-harness",
+  "private": true,
+  "description": "カニとばし ゲート。リポジトリ直下の package.json の scripts に \"gate\": \"bash harness/scripts/gate.sh\" を足すと npm run gate -- T01 で動く",
+  "scripts": {
+    "gate": "bash scripts/gate.sh",
+    "plan": "node scripts/plan.js",
+    "check-submission": "node scripts/check_submission.js"
+  }
+}

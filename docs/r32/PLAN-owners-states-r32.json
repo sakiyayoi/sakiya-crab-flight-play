@@ -1,0 +1,342 @@
+{
+  "atUTC": "2026-10-29T00:08:48.541Z",
+  "validation": [],
+  "rows": [
+    {
+      "id": "PF01",
+      "stream": "連投性能",
+      "owner": "リリー",
+      "status": "作業中",
+      "updated": "10/29 08:31",
+      "depends": []
+    },
+    {
+      "id": "T01",
+      "stream": "通し版",
+      "owner": "リリー",
+      "status": "作業中",
+      "updated": "10/29 01:18",
+      "depends": []
+    },
+    {
+      "id": "T02",
+      "stream": "通し版",
+      "owner": "リリー",
+      "status": "未着手",
+      "updated": "—",
+      "depends": [
+        "T01"
+      ]
+    },
+    {
+      "id": "T03",
+      "stream": "通し版",
+      "owner": "リリー",
+      "status": "未着手",
+      "updated": "—",
+      "depends": [
+        "T01"
+      ]
+    },
+    {
+      "id": "B01",
+      "stream": "不具合",
+      "owner": "リリー",
+      "status": "未着手",
+      "updated": "—",
+      "depends": [
+        "T01"
+      ]
+    },
+    {
+      "id": "B02",
+      "stream": "不具合",
+      "owner": "リリー",
+      "status": "未着手",
+      "updated": "—",
+      "depends": [
+        "T01"
+      ]
+    },
+    {
+      "id": "B03",
+      "stream": "不具合",
+      "owner": "リリー",
+      "status": "未着手",
+      "updated": "—",
+      "depends": [
+        "T01"
+      ]
+    },
+    {
+      "id": "B04",
+      "stream": "不具合",
+      "owner": "リリー",
+      "status": "未着手",
+      "updated": "—",
+      "depends": [
+        "T01"
+      ]
+    },
+    {
+      "id": "B05",
+      "stream": "不具合",
+      "owner": "リリー",
+      "status": "未着手",
+      "updated": "—",
+      "depends": [
+        "T01"
+      ]
+    },
+    {
+      "id": "CR01",
+      "stream": "クレジット",
+      "owner": "リリー",
+      "status": "未着手",
+      "updated": "—",
+      "depends": [
+        "F01"
+      ]
+    },
+    {
+      "id": "CR02",
+      "stream": "クレジット",
+      "owner": "リリー",
+      "status": "作業中",
+      "updated": "10/29 01:19",
+      "depends": []
+    },
+    {
+      "id": "CR03",
+      "stream": "クレジット",
+      "owner": "リリー",
+      "status": "作業中",
+      "updated": "10/29 01:19",
+      "depends": []
+    },
+    {
+      "id": "CR04",
+      "stream": "クレジット",
+      "owner": "リリー",
+      "status": "作業中",
+      "updated": "10/29 01:19",
+      "depends": []
+    },
+    {
+      "id": "CR05",
+      "stream": "クレジット",
+      "owner": "リリー",
+      "status": "未着手",
+      "updated": "—",
+      "depends": [
+        "CR03"
+      ]
+    },
+    {
+      "id": "F01",
+      "stream": "手触り",
+      "owner": "リリー",
+      "status": "作業中",
+      "updated": "10/28 22:55",
+      "depends": []
+    },
+    {
+      "id": "F02",
+      "stream": "手触り",
+      "owner": "リリー",
+      "status": "未着手",
+      "updated": "—",
+      "depends": [
+        "F01"
+      ]
+    },
+    {
+      "id": "F03",
+      "stream": "手触り",
+      "owner": "リリー",
+      "status": "未着手",
+      "updated": "—",
+      "depends": [
+        "F02"
+      ]
+    },
+    {
+      "id": "F04",
+      "stream": "手触り",
+      "owner": "リリー",
+      "status": "未着手",
+      "updated": "—",
+      "depends": [
+        "F02",
+        "F03"
+      ]
+    },
+    {
+      "id": "F05",
+      "stream": "手触り",
+      "owner": "リリー",
+      "status": "未着手",
+      "updated": "—",
+      "depends": [
+        "F02",
+        "T02",
+        "B01",
+        "B03"
+      ]
+    },
+    {
+      "id": "F06",
+      "stream": "手触り",
+      "owner": "リリー",
+      "status": "未着手",
+      "updated": "—",
+      "depends": [
+        "F05"
+      ]
+    },
+    {
+      "id": "F07",
+      "stream": "手触り",
+      "owner": "リリー",
+      "status": "未着手",
+      "updated": "—",
+      "depends": [
+        "F06"
+      ]
+    },
+    {
+      "id": "F08",
+      "stream": "手触り",
+      "owner": "リリー",
+      "status": "未着手",
+      "updated": "—",
+      "depends": [
+        "F07",
+        "CR01"
+      ]
+    },
+    {
+      "id": "F09",
+      "stream": "手触り",
+      "owner": "リリー",
+      "status": "未着手",
+      "updated": "—",
+      "depends": [
+        "F08"
+      ]
+    },
+    {
+      "id": "F10",
+      "stream": "手触り",
+      "owner": "リリー",
+      "status": "未着手",
+      "updated": "—",
+      "depends": [
+        "F04",
+        "F08"
+      ]
+    },
+    {
+      "id": "R01",
+      "stream": "公開",
+      "owner": "リリー",
+      "status": "未着手",
+      "updated": "—",
+      "depends": [
+        "T01",
+        "T02",
+        "T03",
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "CR01",
+        "CR02",
+        "CR03",
+        "CR04",
+        "CR05",
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10"
+      ]
+    },
+    {
+      "id": "R02",
+      "stream": "公開",
+      "owner": "親／カニ係（公開判断は本人の既存許可）",
+      "status": "未着手",
+      "updated": "—",
+      "depends": [
+        "R01"
+      ]
+    },
+    {
+      "id": "N01",
+      "stream": "次候補",
+      "owner": "リリー",
+      "status": "作業中",
+      "updated": "10/29 02:38",
+      "depends": []
+    },
+    {
+      "id": "N02",
+      "stream": "次候補",
+      "owner": "リリー",
+      "status": "作業中",
+      "updated": "10/29 02:53",
+      "depends": []
+    },
+    {
+      "id": "N03",
+      "stream": "次候補",
+      "owner": "リリー",
+      "status": "作業中",
+      "updated": "10/29 02:53",
+      "depends": []
+    },
+    {
+      "id": "N04",
+      "stream": "次候補",
+      "owner": "リリー",
+      "status": "作業中",
+      "updated": "10/29 02:53",
+      "depends": []
+    },
+    {
+      "id": "N05",
+      "stream": "次候補",
+      "owner": "リリー",
+      "status": "作業中",
+      "updated": "10/29 02:53",
+      "depends": []
+    },
+    {
+      "id": "N06",
+      "stream": "次候補",
+      "owner": "リリー",
+      "status": "作業中",
+      "updated": "10/29 02:53",
+      "depends": []
+    },
+    {
+      "id": "V01",
+      "stream": "演出最優先",
+      "owner": "リリー",
+      "status": "作業中",
+      "updated": "10/29 01:30",
+      "depends": []
+    }
+  ],
+  "counts": {
+    "作業中": 13,
+    "未着手": 20
+  }
+}

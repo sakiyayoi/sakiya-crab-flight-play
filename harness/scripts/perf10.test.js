@@ -1,0 +1,10 @@
+'use strict';
+const {test}=require('node:test'),assert=require('node:assert/strict'),{inspectPerf10}=require('./perf10');
+const fixture=()=>({version:'current',zipSHA256:'zip',conditions:{turns:10,tolerance:0},errors:[],rows:Array.from({length:10},(_,i)=>({i:i+1,launch:{serial:i+1},after:{version:'current',sourceIdentity:'native'},final:{fault:''},perf:{seenFlight:true,visibility:'visible',frames:[[10,10,1,'flight'],[20,10,2,'result']]}}))});
+test('equal raw timings pass',()=>assert(inspectPerf10(fixture(),'current','zip').ok));
+test('a single later worst failure cannot be hidden by lower mean',()=>{const r=fixture();r.rows[4].perf.frames=[[5,5,1,'flight'],[16,11,2,'result']];assert(!inspectPerf10(r,'current','zip').ok)});
+test('higher mean without higher worst fails',()=>{const r=fixture();r.rows[0].perf.frames=[[5,5,1,'flight'],[15,10,2,'result']];assert(!inspectPerf10(r,'current','zip').ok)});
+test('no tolerance for one representable increment',()=>{const r=fixture();r.rows[2].perf.frames[1][1]=10+Number.EPSILON*8;assert(!inspectPerf10(r,'current','zip').ok)});
+test('one old-result frame pilot is invalid',()=>{const r=fixture();r.rows[1].perf={seenFlight:false,visibility:'visible',frames:[[10,10,1,'result']]};assert(!inspectPerf10(r,'current','zip').ok)});
+test('wrong archive or stale version fails',()=>{assert(!inspectPerf10(fixture(),'old','zip').ok);assert(!inspectPerf10(fixture(),'current','different').ok)});
+test('same result reused ten times fails',()=>{const r=fixture();r.rows.forEach(v=>v.launch.serial=1);assert(!inspectPerf10(r,'current','zip').ok)});

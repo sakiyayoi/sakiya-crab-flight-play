@@ -1,0 +1,5 @@
+{
+    "commit": "isolated-neon-prototype",
+    "sha256": "8a3acb9c3a2d4c534f5d366850c3f869691ea32031632e9de65747b320e1dd77",
+    "scope": "All C# at build time. Derived from r18-mall-compact working source; not an adopted commit."
+}

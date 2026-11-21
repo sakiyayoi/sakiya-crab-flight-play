@@ -1,0 +1,17 @@
+#if FLOOR_DIAGNOSTICS || UNITY_EDITOR
+using System;using System.Collections.Generic;using System.Linq;using UnityEngine;
+public sealed partial class RigidCrabFlight {
+ [Serializable]public class ContactR24 {public string part,surface;public int other;public Vector3 point,normal,rawImpulse;public float separation,normalMagnitude,tangentMagnitude,prePointY,postPointY;}
+ [Serializable]public class SubR24 {public float time,low;public int index,count;public Vector3 p,v,w,preV,preW;public ContactR24[] contacts;}
+ [Serializable]public class WorstR24 {public SubR24 step;public SubR24[] history;public string floorSnapshot;}
+ [Serializable]public class StepR24 {public int step,breaks,secondary,debris;public float time,min;public int[] body;public string debrisHash,breakIDs;}
+ [Serializable]public class TraceR24 {public StepR24[] steps;public WorstR24 worst;}
+ public bool ReviewObserveR24;readonly List<StepR24> stepsR24=new List<StepR24>();readonly Queue<SubR24> subsR24=new Queue<SubR24>();readonly List<ContactR24> contactsR24=new List<ContactR24>();WorstR24 worstR24;Vector3 preVR24,preWR24,preComR24;
+ public string ReviewTraceR24()=>JsonUtility.ToJson(new TraceR24{steps=stepsR24.ToArray(),worst=worstR24});
+ static void BitsR24(List<int> b,Vector3 v){b.Add(BitConverter.SingleToInt32Bits(v.x));b.Add(BitConverter.SingleToInt32Bits(v.y));b.Add(BitConverter.SingleToInt32Bits(v.z));}
+ void BeforeSubR24(){if(!ReviewObserveR24)return;contactsR24.Clear();preVR24=Body.linearVelocity;preWR24=Body.angularVelocity;preComR24=Body.worldCenterOfMass;}
+ void ObserveContactR24(string part,int other,string surface,Vector3 point,Vector3 normal,Vector3 impulse,float separation){if(!ReviewObserveR24)return;float dot=Vector3.Dot(impulse,normal);contactsR24.Add(new ContactR24{part=part,other=other,surface=surface,point=point,normal=normal,rawImpulse=impulse,separation=separation,normalMagnitude=Mathf.Abs(dot),tangentMagnitude=(impulse-dot*normal).magnitude,prePointY=(preVR24+Vector3.Cross(preWR24,point-preComR24)).y,postPointY=Body.GetPointVelocity(point).y});}
+ void AfterSubR24(int i,int count){if(!ReviewObserveR24)return;var s=new SubR24{time=Time+StepSeconds*(i+1)/count,index=i,count=count,low=colliders.Min(c=>GeometricSupportPointR11(c).y),p=Body.position,v=Body.linearVelocity,w=Body.angularVelocity,preV=preVR24,preW=preWR24,contacts=contactsR24.ToArray()};subsR24.Enqueue(s);while(subsR24.Count>8)subsR24.Dequeue();if(worstR24==null||s.low<worstR24.step.low){RecordFloorDiagnosticsR10(Lowest());worstR24=new WorstR24{step=s,history=subsR24.ToArray(),floorSnapshot=FloorDiagnosticsJSON()};}}
+ void RecordStepR24(){if(!ReviewObserveR24)return;var b=new List<int>();BitsR24(b,Body.position);var q=Body.rotation;b.Add(BitConverter.SingleToInt32Bits(q.x));b.Add(BitConverter.SingleToInt32Bits(q.y));b.Add(BitConverter.SingleToInt32Bits(q.z));b.Add(BitConverter.SingleToInt32Bits(q.w));BitsR24(b,Body.linearVelocity);BitsR24(b,Body.angularVelocity);var d=new List<int>();foreach(var item in cityDebris){if(!item.body)continue;BitsR24(d,item.body.position);BitsR24(d,item.body.linearVelocity);BitsR24(d,item.body.angularVelocity);}stepsR24.Add(new StepR24{step=stepsR24.Count,time=Time,min=MinGeometricSupportR21,body=b.ToArray(),debris=cityDebris.Count,debrisHash=LaunchFingerprint.Hash(d.ToArray()),breaks=BreakEvents.Count,secondary=CitySecondaryBreaks,breakIDs=string.Join("|",BreakEvents.Select(x=>x.id))});}
+}
+#endif

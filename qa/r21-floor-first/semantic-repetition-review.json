@@ -1,0 +1,28 @@
+{
+  "reviewedAtUTC": "2026-10-28T03:39:02.003296+00:00",
+  "reviewer": "/root/r20_contact_review (independent of creator)",
+  "scope": "3actualNative static landscape images, source loop and generated duplicate alerts; no newscene runs/art edits",
+  "imageSHA256": {
+    "mall-844.png": "fdce4971b13cb05e869e3d2a5d0f5d8866fd0d5accd0fd32c61265ea33cf1263",
+    "office-844.png": "3c89eea546299e49ee08b646c69a6cae84bd514717f6064a54935b3ea7f2c12f",
+    "country-844.png": "fd139db43da1511bfe5713d5e8a384a665c3c29c5185cc1c6963b18e260a95ff"
+  },
+  "sourceSHA256": "df059e6e9353b61a7f3fe42018422c8033a9a1c069a96a99f5c979d2aaeb8a57",
+  "blockingFindings": [
+    {
+      "id": "MALL_IDENTICAL_WHOLE_SHOP_TEMPLATE",
+      "section": "mall",
+      "evidence": "SectionWorldArtR16.Mall four positions41/62/105/125 × floors0/8/16 per direction repeats glazed shopfront +longplinth +3pedestals/product boxes. Image confirmswholeunit repetition. Material/color differences are notnewforms.",
+      "countPerDirection": 12,
+      "distinction": "Whole storefront+display composition is not exempt asindividual pillars/windowframes."
+    }
+  ],
+  "legitimateRepetition": [
+    "road-paint lines andjoins",
+    "windowframes/horizontalmembers insideonefacade",
+    "slats withinonebench",
+    "wheels withinonevehicle"
+  ],
+  "notDefectCount": "989connected-component alerts are candidate observations, not989badlayouts.277interactive targets strict four-in-row/ABC×3 alerts0 is a limited automated result.",
+  "verdict": "FAIL_REVIEWED_TEMPLATE; do not deliver executable; visualwork remainsfrozen pendingfloor closure/current instruction"
+}

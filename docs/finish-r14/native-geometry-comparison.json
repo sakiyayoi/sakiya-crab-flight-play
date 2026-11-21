@@ -1,0 +1,66 @@
+{
+  "atUTC": "2026-11-01T13:17:52.606653+00:00",
+  "verdict": "PASS_NATIVE_EXACT_GEOMETRY_AND_PHYSICAL_EVENTS_NOT_WEBGL_PERFORMANCE",
+  "exact": {
+    "initialBody": true,
+    "impacts": true,
+    "breaks": true,
+    "resource": true,
+    "ticks": true,
+    "finished": true
+  },
+  "cachedShapes": 13,
+  "oldNewXYZBitChecks": 1196247,
+  "before": {
+    "distance": 3220.32421875,
+    "time": 67.80281066894531,
+    "physicsFault": "",
+    "floorContactExtraSteps": 55427,
+    "floorContactClampedSteps": 866,
+    "minHeight": -0.008851896971464157,
+    "automaticGroundBounces": 13,
+    "rotorRemaining": 45723.91015625,
+    "peopleHit": 5,
+    "birdsHit": 4
+  },
+  "after": {
+    "distance": 3220.32421875,
+    "time": 67.80281066894531,
+    "physicsFault": "",
+    "floorContactExtraSteps": 55427,
+    "floorContactClampedSteps": 866,
+    "minHeight": -0.008851896971464157,
+    "automaticGroundBounces": 13,
+    "rotorRemaining": 45723.91015625,
+    "peopleHit": 5,
+    "birdsHit": 4
+  },
+  "stateDifferences": {
+    "feel": {
+      "before": "{'loaded': True, 'shake': False, 'reduced': False, 'preset': 'mashimashi', 'configVersion': 'feel-r28-impact-1', 'active': 327, 'flashCount': 37, 'flashSuppressed': 19, 'cameraOffset': 0.0, 'cameraMax",
+      "after": "{'loaded': True, 'shake': False, 'reduced': False, 'preset': 'mashimashi', 'configVersion': 'feel-r28-impact-1', 'active': 335, 'flashCount': 36, 'flashSuppressed': 20, 'cameraOffset': 0.0, 'cameraMax"
+    },
+    "supportGeometryEntries": {
+      "before": "0",
+      "after": "13"
+    },
+    "supportGeometryReads": {
+      "before": "0",
+      "after": "1196247"
+    },
+    "frameRealtime": {
+      "before": "45.319032220986415",
+      "after": "46.86846222955329"
+    },
+    "throwAudit": {
+      "before": "{\"schema\":\"flight.throw.r21.1\",\"id\":\"731b5f22cd704bb7b4f2cce0282b30b5-1\",\"revision\":\"kani-finish-r13\",\"sourceIdentity\":\"{\\n    \\\"commit\\\": \\\"0359e15aea2882e5809a988e9a601e8106774f5c\\\",\\n    \\\"sha256\\\"",
+      "after": "{\"schema\":\"flight.throw.r21.1\",\"id\":\"cdc61ac73a3e4a6c90a20ea3fc0c47dd-1\",\"revision\":\"kani-finish-r13\",\"sourceIdentity\":\"{\\n    \\\"commit\\\": \\\"0359e15aea2882e5809a988e9a601e8106774f5c\\\",\\n    \\\"sha256\\\""
+    },
+    "fragmentVisibility": {
+      "before": "{'active': 0, 'peak': 6, 'materials': 1, 'rayCandidates': 0, 'triangleTests': 0, 'budgetExhaustions': 0, 'missingMeshes': 0, 'minOpacity': 1.0, 'maxQueryMs': 1.718400001525879, 'blockers': []}",
+      "after": "{'active': 0, 'peak': 6, 'materials': 1, 'rayCandidates': 0, 'triangleTests': 0, 'budgetExhaustions': 0, 'missingMeshes': 0, 'minOpacity': 1.0, 'maxQueryMs': 3.1756999492645264, 'blockers': []}"
+    }
+  },
+  "knownFixtureLimit": "EditMode background Destroy warnings are existing; no product render quality/FPS proof",
+  "rejected": "Y-only arithmetic shortcut failed exactness at tick3 and was restored to original MultiplyPoint3x4 per vertex"
+}

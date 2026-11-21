@@ -1,0 +1,79 @@
+{
+  "revision": "city-density-r1",
+  "autoInstall": false,
+  "purpose": "Optional contact placements; current flight remains unmodified. Integrator must attach approved physics, pooled shards and global cap before enabling. Avoid existing crate X39/bin X53.",
+  "instances": [
+    {
+      "id": "optional-contact--1-market_crate",
+      "asset": "market_crate",
+      "p": [
+        -64,
+        0,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": -2
+    },
+    {
+      "id": "optional-contact--1-road_barrier",
+      "asset": "road_barrier",
+      "p": [
+        -82,
+        0,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": -3
+    },
+    {
+      "id": "optional-contact-1-market_crate",
+      "asset": "market_crate",
+      "p": [
+        64,
+        0,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 1
+    },
+    {
+      "id": "optional-contact-1-road_barrier",
+      "asset": "road_barrier",
+      "p": [
+        82,
+        0,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 2
+    }
+  ]
+}

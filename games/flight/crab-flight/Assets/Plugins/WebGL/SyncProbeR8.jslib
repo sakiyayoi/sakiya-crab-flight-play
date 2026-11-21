@@ -1,0 +1,1 @@
+mergeInto(LibraryManager.library,{FlightSyncStampR8:function(kind,frame,simulation,realDelta,phase){var p=window.__crabSyncR8;if(p&&p.active)p.record(kind,performance.now(),frame,simulation,realDelta,phase,0);}});

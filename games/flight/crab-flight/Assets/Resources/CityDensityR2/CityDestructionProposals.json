@@ -1,0 +1,1485 @@
+{
+  "revision": "city-density-r2",
+  "physicsImplemented": false,
+  "globalShardCap": 48,
+  "environmentShareCap": 20,
+  "physicsShardPerBreakCap": 6,
+  "decorativeExtraShardCap": 12,
+  "groupCooldownMilliseconds": 85,
+  "maxHitStopMillisecondsPerSecond": 120,
+  "hitStopApplied": false,
+  "assets": [
+    {
+      "asset": "blade_sign",
+      "massKgSuggestion": 18,
+      "normalizedImpulseThresholdSuggestion": 0.6,
+      "maxPostBreakSpeedFractionSuggestion": 0.992,
+      "hitStopMillisecondsSuggestion": 28,
+      "envelopeWarning": "Whole-asset envelope is broadphase only; canopy/poles/car should use selected thin piece boxes or compound shapes, never a solid giant box.",
+      "intactEnvelope": {
+        "center": [
+          -0.12,
+          2.7,
+          0.11400000000000002
+        ],
+        "size": [
+          2.16,
+          5.4,
+          0.5820000000000001
+        ]
+      },
+      "shards": [
+        {
+          "shard": -1,
+          "fixed": true,
+          "center": [
+            -0.12,
+            2.7,
+            0.1325
+          ],
+          "size": [
+            2.16,
+            5.4,
+            0.545
+          ]
+        },
+        {
+          "shard": 0,
+          "fixed": false,
+          "center": [
+            -0.42,
+            3.13,
+            -0.03849999999999999
+          ],
+          "size": [
+            0.88,
+            0.7799999999999998,
+            0.277
+          ],
+          "massKgSuggestion": 0.7
+        },
+        {
+          "shard": 1,
+          "fixed": false,
+          "center": [
+            0.46,
+            3.13,
+            -0.03849999999999999
+          ],
+          "size": [
+            0.88,
+            0.7799999999999998,
+            0.277
+          ],
+          "massKgSuggestion": 0.7
+        },
+        {
+          "shard": 2,
+          "fixed": false,
+          "center": [
+            -0.42,
+            3.91,
+            -0.03849999999999999
+          ],
+          "size": [
+            0.88,
+            0.7799999999999998,
+            0.277
+          ],
+          "massKgSuggestion": 0.7
+        },
+        {
+          "shard": 3,
+          "fixed": false,
+          "center": [
+            0.46,
+            3.91,
+            -0.03849999999999999
+          ],
+          "size": [
+            0.88,
+            0.7799999999999998,
+            0.277
+          ],
+          "massKgSuggestion": 0.7
+        },
+        {
+          "shard": 4,
+          "fixed": false,
+          "center": [
+            -0.42,
+            4.6899999999999995,
+            -0.03849999999999999
+          ],
+          "size": [
+            0.88,
+            0.7800000000000002,
+            0.277
+          ],
+          "massKgSuggestion": 0.7
+        },
+        {
+          "shard": 5,
+          "fixed": false,
+          "center": [
+            0.46,
+            4.6899999999999995,
+            -0.03849999999999999
+          ],
+          "size": [
+            0.88,
+            0.7800000000000002,
+            0.277
+          ],
+          "massKgSuggestion": 0.7
+        }
+      ],
+      "suggestedDetachableMassKg": 4.2,
+      "suggestedFixedMassKg": 13.8,
+      "massUse": "Nominal prop mass and detachable pieces are separate. Do not automatically assign total prop mass to each shard. Effective game contact resistance remains a host tuning parameter."
+    },
+    {
+      "asset": "hvac_unit",
+      "massKgSuggestion": 95,
+      "normalizedImpulseThresholdSuggestion": 1.5,
+      "maxPostBreakSpeedFractionSuggestion": 0.972,
+      "hitStopMillisecondsSuggestion": 38,
+      "envelopeWarning": "Whole-asset envelope is broadphase only; canopy/poles/car should use selected thin piece boxes or compound shapes, never a solid giant box.",
+      "intactEnvelope": {
+        "center": [
+          0.30353149999999995,
+          0.9125,
+          -0.03450000000000003
+        ],
+        "size": [
+          3.107063,
+          1.825,
+          1.7189999999999999
+        ]
+      },
+      "shards": [
+        {
+          "shard": -1,
+          "fixed": true,
+          "center": [
+            0.30353149999999995,
+            0.9125,
+            0.0
+          ],
+          "size": [
+            3.107063,
+            1.825,
+            1.65
+          ]
+        },
+        {
+          "shard": 0,
+          "fixed": false,
+          "center": [
+            -0.8300000000000001,
+            0.58,
+            -0.6799999999999999
+          ],
+          "size": [
+            0.81,
+            0.72,
+            0.09999999999999998
+          ],
+          "massKgSuggestion": 1.8
+        },
+        {
+          "shard": 1,
+          "fixed": false,
+          "center": [
+            0.0,
+            0.58,
+            -0.6799999999999999
+          ],
+          "size": [
+            0.81,
+            0.72,
+            0.09999999999999998
+          ],
+          "massKgSuggestion": 1.8
+        },
+        {
+          "shard": 2,
+          "fixed": false,
+          "center": [
+            0.31750000000000006,
+            0.87,
+            -0.762
+          ],
+          "size": [
+            1.835,
+            1.3,
+            0.264
+          ],
+          "massKgSuggestion": 1.8
+        },
+        {
+          "shard": 3,
+          "fixed": false,
+          "center": [
+            -0.8300000000000001,
+            1.3199999999999998,
+            -0.6799999999999999
+          ],
+          "size": [
+            0.81,
+            0.72,
+            0.09999999999999998
+          ],
+          "massKgSuggestion": 1.8
+        },
+        {
+          "shard": 4,
+          "fixed": false,
+          "center": [
+            0.0,
+            1.3199999999999998,
+            -0.6799999999999999
+          ],
+          "size": [
+            0.81,
+            0.72,
+            0.09999999999999998
+          ],
+          "massKgSuggestion": 1.8
+        },
+        {
+          "shard": 5,
+          "fixed": false,
+          "center": [
+            0.8300000000000001,
+            1.3199999999999998,
+            -0.6799999999999999
+          ],
+          "size": [
+            0.81,
+            0.72,
+            0.09999999999999998
+          ],
+          "massKgSuggestion": 1.8
+        }
+      ],
+      "suggestedDetachableMassKg": 10.8,
+      "suggestedFixedMassKg": 84.2,
+      "massUse": "Nominal prop mass and detachable pieces are separate. Do not automatically assign total prop mass to each shard. Effective game contact resistance remains a host tuning parameter."
+    },
+    {
+      "asset": "market_crate",
+      "massKgSuggestion": 12,
+      "normalizedImpulseThresholdSuggestion": 0.4,
+      "maxPostBreakSpeedFractionSuggestion": 0.994,
+      "hitStopMillisecondsSuggestion": 20,
+      "envelopeWarning": "Whole-asset envelope is broadphase only; canopy/poles/car should use selected thin piece boxes or compound shapes, never a solid giant box.",
+      "intactEnvelope": {
+        "center": [
+          0.0,
+          0.8875000000000001,
+          -0.04099999999999998
+        ],
+        "size": [
+          2.26,
+          1.465,
+          1.842
+        ]
+      },
+      "shards": [
+        {
+          "shard": -1,
+          "fixed": true,
+          "center": [
+            0.0,
+            0.89,
+            -0.9
+          ],
+          "size": [
+            1.89,
+            1.4600000000000002,
+            0.028000000000000025
+          ]
+        },
+        {
+          "shard": 0,
+          "fixed": false,
+          "center": [
+            0.0,
+            0.35,
+            0.0
+          ],
+          "size": [
+            2.25,
+            0.24999999999999997,
+            1.75
+          ],
+          "massKgSuggestion": 1.3
+        },
+        {
+          "shard": 1,
+          "fixed": false,
+          "center": [
+            0.0,
+            1.21,
+            0.0
+          ],
+          "size": [
+            2.25,
+            0.25,
+            1.75
+          ],
+          "massKgSuggestion": 1.3
+        },
+        {
+          "shard": 2,
+          "fixed": false,
+          "center": [
+            0.0,
+            0.83,
+            -0.841
+          ],
+          "size": [
+            2.25,
+            1.3499999999999999,
+            0.242
+          ],
+          "massKgSuggestion": 1.3
+        },
+        {
+          "shard": 3,
+          "fixed": false,
+          "center": [
+            0.0,
+            0.83,
+            -0.04099999999999998
+          ],
+          "size": [
+            2.25,
+            1.3499999999999999,
+            1.842
+          ],
+          "massKgSuggestion": 1.3
+        },
+        {
+          "shard": 4,
+          "fixed": false,
+          "center": [
+            -1.0499999999999998,
+            0.83,
+            0.0
+          ],
+          "size": [
+            0.15999999999999992,
+            1.3499999999999999,
+            1.75
+          ],
+          "massKgSuggestion": 1.3
+        },
+        {
+          "shard": 5,
+          "fixed": false,
+          "center": [
+            1.0499999999999998,
+            0.83,
+            0.0
+          ],
+          "size": [
+            0.15999999999999992,
+            1.3499999999999999,
+            1.75
+          ],
+          "massKgSuggestion": 1.3
+        }
+      ],
+      "suggestedDetachableMassKg": 7.8,
+      "suggestedFixedMassKg": 4.2,
+      "massUse": "Nominal prop mass and detachable pieces are separate. Do not automatically assign total prop mass to each shard. Effective game contact resistance remains a host tuning parameter."
+    },
+    {
+      "asset": "vending_unit",
+      "massKgSuggestion": 140,
+      "normalizedImpulseThresholdSuggestion": 1.8,
+      "maxPostBreakSpeedFractionSuggestion": 0.967,
+      "hitStopMillisecondsSuggestion": 38,
+      "envelopeWarning": "Whole-asset envelope is broadphase only; canopy/poles/car should use selected thin piece boxes or compound shapes, never a solid giant box.",
+      "intactEnvelope": {
+        "center": [
+          0.0,
+          1.7,
+          -0.01974999999999999
+        ],
+        "size": [
+          1.9,
+          3.4,
+          1.5495
+        ]
+      },
+      "shards": [
+        {
+          "shard": -1,
+          "fixed": true,
+          "center": [
+            0.0,
+            1.7,
+            -0.013500000000000012
+          ],
+          "size": [
+            1.9,
+            3.4,
+            1.537
+          ]
+        },
+        {
+          "shard": 0,
+          "fixed": false,
+          "center": [
+            -0.42,
+            1.4,
+            -0.7342500000000001
+          ],
+          "size": [
+            0.82,
+            1.06,
+            0.12049999999999994
+          ],
+          "massKgSuggestion": 4
+        },
+        {
+          "shard": 1,
+          "fixed": false,
+          "center": [
+            0.42,
+            1.4,
+            -0.7342500000000001
+          ],
+          "size": [
+            0.82,
+            1.06,
+            0.12049999999999994
+          ],
+          "massKgSuggestion": 4
+        },
+        {
+          "shard": 2,
+          "fixed": false,
+          "center": [
+            -0.42,
+            2.5,
+            -0.7342500000000001
+          ],
+          "size": [
+            0.82,
+            1.0599999999999998,
+            0.12049999999999994
+          ],
+          "massKgSuggestion": 4
+        },
+        {
+          "shard": 3,
+          "fixed": false,
+          "center": [
+            0.42,
+            2.5,
+            -0.7342500000000001
+          ],
+          "size": [
+            0.82,
+            1.0599999999999998,
+            0.12049999999999994
+          ],
+          "massKgSuggestion": 4
+        }
+      ],
+      "suggestedDetachableMassKg": 16,
+      "suggestedFixedMassKg": 124,
+      "massUse": "Nominal prop mass and detachable pieces are separate. Do not automatically assign total prop mass to each shard. Effective game contact resistance remains a host tuning parameter."
+    },
+    {
+      "asset": "road_barrier",
+      "massKgSuggestion": 28,
+      "normalizedImpulseThresholdSuggestion": 0.55,
+      "maxPostBreakSpeedFractionSuggestion": 0.99,
+      "hitStopMillisecondsSuggestion": 26,
+      "envelopeWarning": "Whole-asset envelope is broadphase only; canopy/poles/car should use selected thin piece boxes or compound shapes, never a solid giant box.",
+      "intactEnvelope": {
+        "center": [
+          0.0,
+          0.8375,
+          0.0
+        ],
+        "size": [
+          3.0,
+          1.675,
+          0.85
+        ]
+      },
+      "shards": [
+        {
+          "shard": -1,
+          "fixed": true,
+          "center": [
+            0.0,
+            0.12,
+            0.0
+          ],
+          "size": [
+            3.0,
+            0.24,
+            0.85
+          ]
+        },
+        {
+          "shard": 0,
+          "fixed": false,
+          "center": [
+            -1.15,
+            0.9,
+            0.0
+          ],
+          "size": [
+            0.11999999999999988,
+            1.55,
+            0.14
+          ],
+          "massKgSuggestion": 2
+        },
+        {
+          "shard": 1,
+          "fixed": false,
+          "center": [
+            1.15,
+            0.9,
+            0.0
+          ],
+          "size": [
+            0.11999999999999988,
+            1.55,
+            0.14
+          ],
+          "massKgSuggestion": 2
+        },
+        {
+          "shard": 2,
+          "fixed": false,
+          "center": [
+            -0.85,
+            1.25,
+            -0.065
+          ],
+          "size": [
+            0.8299999999999998,
+            0.52,
+            0.19
+          ],
+          "massKgSuggestion": 0.9
+        },
+        {
+          "shard": 3,
+          "fixed": false,
+          "center": [
+            0.0,
+            1.25,
+            -0.065
+          ],
+          "size": [
+            0.83,
+            0.52,
+            0.19
+          ],
+          "massKgSuggestion": 0.9
+        },
+        {
+          "shard": 4,
+          "fixed": false,
+          "center": [
+            0.85,
+            1.25,
+            -0.065
+          ],
+          "size": [
+            0.8299999999999998,
+            0.52,
+            0.19
+          ],
+          "massKgSuggestion": 0.9
+        }
+      ],
+      "suggestedDetachableMassKg": 6.7,
+      "suggestedFixedMassKg": 21.3,
+      "massUse": "Nominal prop mass and detachable pieces are separate. Do not automatically assign total prop mass to each shard. Effective game contact resistance remains a host tuning parameter."
+    },
+    {
+      "asset": "facade_break_panel",
+      "massKgSuggestion": 60,
+      "normalizedImpulseThresholdSuggestion": 1.4,
+      "maxPostBreakSpeedFractionSuggestion": 0.978,
+      "hitStopMillisecondsSuggestion": 36,
+      "envelopeWarning": "Whole-asset envelope is broadphase only; canopy/poles/car should use selected thin piece boxes or compound shapes, never a solid giant box.",
+      "intactEnvelope": {
+        "center": [
+          0.0,
+          1.5,
+          -0.015999999999999993
+        ],
+        "size": [
+          4.48,
+          2.9800000000000004,
+          0.252
+        ]
+      },
+      "shards": [
+        {
+          "shard": 0,
+          "fixed": false,
+          "center": [
+            -1.5,
+            0.75,
+            -0.015999999999999993
+          ],
+          "size": [
+            1.4800000000000002,
+            1.48,
+            0.252
+          ],
+          "massKgSuggestion": 9
+        },
+        {
+          "shard": 1,
+          "fixed": false,
+          "center": [
+            0.0,
+            0.75,
+            -0.015999999999999993
+          ],
+          "size": [
+            1.48,
+            1.48,
+            0.252
+          ],
+          "massKgSuggestion": 9
+        },
+        {
+          "shard": 2,
+          "fixed": false,
+          "center": [
+            1.5,
+            0.75,
+            -0.015999999999999993
+          ],
+          "size": [
+            1.4800000000000002,
+            1.48,
+            0.252
+          ],
+          "massKgSuggestion": 9
+        },
+        {
+          "shard": 3,
+          "fixed": false,
+          "center": [
+            -1.5,
+            2.25,
+            -0.015999999999999993
+          ],
+          "size": [
+            1.4800000000000002,
+            1.4800000000000002,
+            0.252
+          ],
+          "massKgSuggestion": 9
+        },
+        {
+          "shard": 4,
+          "fixed": false,
+          "center": [
+            0.0,
+            2.25,
+            -0.015999999999999993
+          ],
+          "size": [
+            1.48,
+            1.4800000000000002,
+            0.252
+          ],
+          "massKgSuggestion": 9
+        },
+        {
+          "shard": 5,
+          "fixed": false,
+          "center": [
+            1.5,
+            2.25,
+            -0.015999999999999993
+          ],
+          "size": [
+            1.4800000000000002,
+            1.4800000000000002,
+            0.252
+          ],
+          "massKgSuggestion": 9
+        }
+      ],
+      "suggestedDetachableMassKg": 54,
+      "suggestedFixedMassKg": 6,
+      "massUse": "Nominal prop mass and detachable pieces are separate. Do not automatically assign total prop mass to each shard. Effective game contact resistance remains a host tuning parameter."
+    },
+    {
+      "asset": "delivery_van",
+      "massKgSuggestion": 1200,
+      "normalizedImpulseThresholdSuggestion": 3.2,
+      "maxPostBreakSpeedFractionSuggestion": 0.93,
+      "hitStopMillisecondsSuggestion": 44,
+      "envelopeWarning": "Whole-asset envelope is broadphase only; canopy/poles/car should use selected thin piece boxes or compound shapes, never a solid giant box.",
+      "intactEnvelope": {
+        "center": [
+          0.0,
+          1.3675,
+          0.0
+        ],
+        "size": [
+          5.65,
+          2.7150000000000003,
+          3.008
+        ]
+      },
+      "shards": [
+        {
+          "shard": -1,
+          "fixed": true,
+          "center": [
+            0.0,
+            1.5350000000000001,
+            0.0
+          ],
+          "size": [
+            5.65,
+            2.38,
+            2.27
+          ]
+        },
+        {
+          "shard": 0,
+          "fixed": false,
+          "center": [
+            -1.15,
+            1.5225,
+            -1.0775000000000001
+          ],
+          "size": [
+            1.91,
+            1.7850000000000001,
+            0.19500000000000006
+          ],
+          "massKgSuggestion": 12
+        },
+        {
+          "shard": 1,
+          "fixed": false,
+          "center": [
+            0.82,
+            1.5225,
+            -1.0775000000000001
+          ],
+          "size": [
+            1.91,
+            1.7850000000000001,
+            0.19500000000000006
+          ],
+          "massKgSuggestion": 12
+        },
+        {
+          "shard": 2,
+          "fixed": false,
+          "center": [
+            -1.15,
+            1.5225,
+            1.0775000000000001
+          ],
+          "size": [
+            1.91,
+            1.7850000000000001,
+            0.19500000000000006
+          ],
+          "massKgSuggestion": 12
+        },
+        {
+          "shard": 3,
+          "fixed": false,
+          "center": [
+            0.82,
+            1.5225,
+            1.0775000000000001
+          ],
+          "size": [
+            1.91,
+            1.7850000000000001,
+            0.19500000000000006
+          ],
+          "massKgSuggestion": 12
+        },
+        {
+          "shard": 4,
+          "fixed": false,
+          "center": [
+            1.895,
+            1.45,
+            0.0
+          ],
+          "size": [
+            1.68,
+            1.94,
+            3.008
+          ],
+          "massKgSuggestion": 25
+        },
+        {
+          "shard": 5,
+          "fixed": false,
+          "center": [
+            -0.7050000000000001,
+            1.57,
+            0.0
+          ],
+          "size": [
+            3.91,
+            1.9700000000000002,
+            2.13
+          ],
+          "massKgSuggestion": 32
+        },
+        {
+          "shard": 6,
+          "fixed": false,
+          "center": [
+            -1.8399999999999999,
+            0.55,
+            -0.010377999999999998
+          ],
+          "size": [
+            1.0799999999999998,
+            1.08,
+            2.503244
+          ],
+          "massKgSuggestion": 38
+        },
+        {
+          "shard": 7,
+          "fixed": false,
+          "center": [
+            1.8399999999999999,
+            0.55,
+            -0.010377999999999998
+          ],
+          "size": [
+            1.0799999999999998,
+            1.08,
+            2.503244
+          ],
+          "massKgSuggestion": 38
+        }
+      ],
+      "suggestedDetachableMassKg": 181,
+      "suggestedFixedMassKg": 1019,
+      "massUse": "Nominal prop mass and detachable pieces are separate. Do not automatically assign total prop mass to each shard. Effective game contact resistance remains a host tuning parameter."
+    },
+    {
+      "asset": "market_stall",
+      "massKgSuggestion": 86,
+      "normalizedImpulseThresholdSuggestion": 0.9,
+      "maxPostBreakSpeedFractionSuggestion": 0.985,
+      "hitStopMillisecondsSuggestion": 34,
+      "envelopeWarning": "Whole-asset envelope is broadphase only; canopy/poles/car should use selected thin piece boxes or compound shapes, never a solid giant box.",
+      "intactEnvelope": {
+        "center": [
+          0.0,
+          2.065,
+          -0.013749999999999929
+        ],
+        "size": [
+          3.62,
+          4.11,
+          2.2275
+        ]
+      },
+      "shards": [
+        {
+          "shard": 0,
+          "fixed": false,
+          "center": [
+            -1.55,
+            0.25,
+            0.0
+          ],
+          "size": [
+            0.3799999999999999,
+            0.48,
+            1.48
+          ],
+          "massKgSuggestion": 6
+        },
+        {
+          "shard": 1,
+          "fixed": false,
+          "center": [
+            1.55,
+            0.25,
+            0.0
+          ],
+          "size": [
+            0.3799999999999999,
+            0.48,
+            1.48
+          ],
+          "massKgSuggestion": 6
+        },
+        {
+          "shard": 2,
+          "fixed": false,
+          "center": [
+            0.0,
+            1.12,
+            0.0
+          ],
+          "size": [
+            3.62,
+            1.46,
+            1.78
+          ],
+          "massKgSuggestion": 20
+        },
+        {
+          "shard": 3,
+          "fixed": false,
+          "center": [
+            0.83,
+            1.04,
+            -0.04600000000000004
+          ],
+          "size": [
+            1.6199999999999999,
+            1.2999999999999998,
+            1.472
+          ],
+          "massKgSuggestion": 20
+        },
+        {
+          "shard": 4,
+          "fixed": false,
+          "center": [
+            0.0,
+            2.96,
+            -0.013749999999999929
+          ],
+          "size": [
+            3.595,
+            2.3200000000000003,
+            2.2275
+          ],
+          "massKgSuggestion": 12
+        },
+        {
+          "shard": 5,
+          "fixed": false,
+          "center": [
+            0.0,
+            2.325,
+            -0.13124999999999998
+          ],
+          "size": [
+            3.42,
+            0.9899999999999998,
+            1.5425
+          ],
+          "massKgSuggestion": 8
+        }
+      ],
+      "suggestedDetachableMassKg": 72,
+      "suggestedFixedMassKg": 14,
+      "massUse": "Nominal prop mass and detachable pieces are separate. Do not automatically assign total prop mass to each shard. Effective game contact resistance remains a host tuning parameter."
+    },
+    {
+      "asset": "street_awning",
+      "massKgSuggestion": 42,
+      "normalizedImpulseThresholdSuggestion": 0.5,
+      "maxPostBreakSpeedFractionSuggestion": 0.993,
+      "hitStopMillisecondsSuggestion": 26,
+      "envelopeWarning": "Whole-asset envelope is broadphase only; canopy/poles/car should use selected thin piece boxes or compound shapes, never a solid giant box.",
+      "intactEnvelope": {
+        "center": [
+          0.0,
+          2.49375,
+          -0.20999999999999996
+        ],
+        "size": [
+          5.84,
+          4.9875,
+          2.02
+        ]
+      },
+      "shards": [
+        {
+          "shard": -1,
+          "fixed": true,
+          "center": [
+            0.0,
+            2.475,
+            -0.13506249999999997
+          ],
+          "size": [
+            5.84,
+            4.95,
+            1.870125
+          ]
+        },
+        {
+          "shard": 0,
+          "fixed": false,
+          "center": [
+            -2.25,
+            4.68875,
+            -0.2825
+          ],
+          "size": [
+            0.8849999999999998,
+            0.5975000000000001,
+            1.875
+          ],
+          "massKgSuggestion": 2.2
+        },
+        {
+          "shard": 1,
+          "fixed": false,
+          "center": [
+            -1.35,
+            4.68875,
+            -0.2825
+          ],
+          "size": [
+            0.885,
+            0.5975000000000001,
+            1.875
+          ],
+          "massKgSuggestion": 2.2
+        },
+        {
+          "shard": 2,
+          "fixed": false,
+          "center": [
+            -0.44999999999999996,
+            4.68875,
+            -0.2825
+          ],
+          "size": [
+            0.885,
+            0.5975000000000001,
+            1.875
+          ],
+          "massKgSuggestion": 2.2
+        },
+        {
+          "shard": 3,
+          "fixed": false,
+          "center": [
+            0.44999999999999996,
+            4.68875,
+            -0.2825
+          ],
+          "size": [
+            0.885,
+            0.5975000000000001,
+            1.875
+          ],
+          "massKgSuggestion": 2.2
+        },
+        {
+          "shard": 4,
+          "fixed": false,
+          "center": [
+            1.35,
+            4.68875,
+            -0.2825
+          ],
+          "size": [
+            0.885,
+            0.5975000000000001,
+            1.875
+          ],
+          "massKgSuggestion": 2.2
+        },
+        {
+          "shard": 5,
+          "fixed": false,
+          "center": [
+            2.25,
+            4.68875,
+            -0.2825
+          ],
+          "size": [
+            0.8849999999999998,
+            0.5975000000000001,
+            1.875
+          ],
+          "massKgSuggestion": 2.2
+        }
+      ],
+      "suggestedDetachableMassKg": 13.2,
+      "suggestedFixedMassKg": 28.8,
+      "massUse": "Nominal prop mass and detachable pieces are separate. Do not automatically assign total prop mass to each shard. Effective game contact resistance remains a host tuning parameter."
+    },
+    {
+      "asset": "steel_drum",
+      "massKgSuggestion": 18,
+      "normalizedImpulseThresholdSuggestion": 0.7,
+      "maxPostBreakSpeedFractionSuggestion": 0.988,
+      "hitStopMillisecondsSuggestion": 30,
+      "envelopeWarning": "Whole-asset envelope is broadphase only; canopy/poles/car should use selected thin piece boxes or compound shapes, never a solid giant box.",
+      "intactEnvelope": {
+        "center": [
+          0.0,
+          0.8600000000000001,
+          0.0
+        ],
+        "size": [
+          1.360104,
+          1.52,
+          1.360104
+        ]
+      },
+      "shards": [
+        {
+          "shard": 0,
+          "fixed": false,
+          "center": [
+            0.152526,
+            0.8600000000000001,
+            0.152526
+          ],
+          "size": [
+            1.0550519999999999,
+            1.52,
+            1.0550519999999999
+          ],
+          "massKgSuggestion": 4
+        },
+        {
+          "shard": 1,
+          "fixed": false,
+          "center": [
+            -0.338048,
+            0.8,
+            0.338048
+          ],
+          "size": [
+            0.684008,
+            1.4,
+            0.684008
+          ],
+          "massKgSuggestion": 4
+        },
+        {
+          "shard": 2,
+          "fixed": false,
+          "center": [
+            -0.338048,
+            0.8,
+            -0.338048
+          ],
+          "size": [
+            0.684008,
+            1.4,
+            0.684008
+          ],
+          "massKgSuggestion": 4
+        },
+        {
+          "shard": 3,
+          "fixed": false,
+          "center": [
+            0.338048,
+            0.8,
+            -0.338048
+          ],
+          "size": [
+            0.684008,
+            1.4,
+            0.684008
+          ],
+          "massKgSuggestion": 4
+        }
+      ],
+      "suggestedDetachableMassKg": 16,
+      "suggestedFixedMassKg": 2,
+      "massUse": "Nominal prop mass and detachable pieces are separate. Do not automatically assign total prop mass to each shard. Effective game contact resistance remains a host tuning parameter."
+    },
+    {
+      "asset": "street_bench",
+      "massKgSuggestion": 48,
+      "normalizedImpulseThresholdSuggestion": 0.75,
+      "maxPostBreakSpeedFractionSuggestion": 0.986,
+      "hitStopMillisecondsSuggestion": 30,
+      "envelopeWarning": "Whole-asset envelope is broadphase only; canopy/poles/car should use selected thin piece boxes or compound shapes, never a solid giant box.",
+      "intactEnvelope": {
+        "center": [
+          0.0,
+          1.025,
+          0.0645175
+        ],
+        "size": [
+          3.7,
+          2.05,
+          1.359035
+        ]
+      },
+      "shards": [
+        {
+          "shard": -1,
+          "fixed": true,
+          "center": [
+            0.0,
+            1.015579,
+            0.09201749999999997
+          ],
+          "size": [
+            2.98,
+            2.031158,
+            1.304035
+          ]
+        },
+        {
+          "shard": 0,
+          "fixed": false,
+          "center": [
+            0.0,
+            1.22,
+            0.03250000000000003
+          ],
+          "size": [
+            3.7,
+            0.52,
+            1.295
+          ],
+          "massKgSuggestion": 3.5
+        },
+        {
+          "shard": 1,
+          "fixed": false,
+          "center": [
+            0.0,
+            1.315,
+            0.18250000000000002
+          ],
+          "size": [
+            3.7,
+            0.71,
+            0.9950000000000001
+          ],
+          "massKgSuggestion": 3.5
+        },
+        {
+          "shard": 2,
+          "fixed": false,
+          "center": [
+            0.0,
+            1.4100000000000001,
+            0.3325
+          ],
+          "size": [
+            3.7,
+            0.9000000000000001,
+            0.6950000000000001
+          ],
+          "massKgSuggestion": 3.5
+        },
+        {
+          "shard": 3,
+          "fixed": false,
+          "center": [
+            0.0,
+            1.505,
+            0.48250000000000004
+          ],
+          "size": [
+            3.7,
+            1.0899999999999999,
+            0.3950000000000001
+          ],
+          "massKgSuggestion": 3.5
+        }
+      ],
+      "suggestedDetachableMassKg": 14.0,
+      "suggestedFixedMassKg": 34.0,
+      "massUse": "Nominal prop mass and detachable pieces are separate. Do not automatically assign total prop mass to each shard. Effective game contact resistance remains a host tuning parameter."
+    },
+    {
+      "asset": "junction_cabinet",
+      "massKgSuggestion": 210,
+      "normalizedImpulseThresholdSuggestion": 2.0,
+      "maxPostBreakSpeedFractionSuggestion": 0.96,
+      "hitStopMillisecondsSuggestion": 40,
+      "envelopeWarning": "Whole-asset envelope is broadphase only; canopy/poles/car should use selected thin piece boxes or compound shapes, never a solid giant box.",
+      "intactEnvelope": {
+        "center": [
+          0.0,
+          1.255,
+          0.0
+        ],
+        "size": [
+          1.65,
+          2.51,
+          1.1
+        ]
+      },
+      "shards": [
+        {
+          "shard": -1,
+          "fixed": true,
+          "center": [
+            0.0,
+            1.255,
+            0.0
+          ],
+          "size": [
+            1.65,
+            2.51,
+            1.1
+          ]
+        },
+        {
+          "shard": 0,
+          "fixed": false,
+          "center": [
+            -0.36,
+            0.77,
+            -0.0335
+          ],
+          "size": [
+            0.7,
+            1.0,
+            0.907
+          ],
+          "massKgSuggestion": 8
+        },
+        {
+          "shard": 1,
+          "fixed": false,
+          "center": [
+            0.36,
+            0.77,
+            -0.0335
+          ],
+          "size": [
+            0.7,
+            1.0,
+            0.907
+          ],
+          "massKgSuggestion": 8
+        },
+        {
+          "shard": 2,
+          "fixed": false,
+          "center": [
+            -0.36,
+            1.79,
+            -0.0335
+          ],
+          "size": [
+            0.7,
+            1.0,
+            0.907
+          ],
+          "massKgSuggestion": 8
+        },
+        {
+          "shard": 3,
+          "fixed": false,
+          "center": [
+            0.36,
+            1.79,
+            -0.0335
+          ],
+          "size": [
+            0.7,
+            1.0,
+            0.907
+          ],
+          "massKgSuggestion": 8
+        }
+      ],
+      "suggestedDetachableMassKg": 32,
+      "suggestedFixedMassKg": 178,
+      "massUse": "Nominal prop mass and detachable pieces are separate. Do not automatically assign total prop mass to each shard. Effective game contact resistance remains a host tuning parameter."
+    },
+    {
+      "asset": "crate_stack",
+      "massKgSuggestion": 34,
+      "normalizedImpulseThresholdSuggestion": 0.45,
+      "maxPostBreakSpeedFractionSuggestion": 0.992,
+      "hitStopMillisecondsSuggestion": 22,
+      "envelopeWarning": "Whole-asset envelope is broadphase only; canopy/poles/car should use selected thin piece boxes or compound shapes, never a solid giant box.",
+      "intactEnvelope": {
+        "center": [
+          0.07999999999999996,
+          1.235,
+          0.029000000000000026
+        ],
+        "size": [
+          2.3499999999999996,
+          2.47,
+          1.532
+        ]
+      },
+      "shards": [
+        {
+          "shard": 0,
+          "fixed": false,
+          "center": [
+            -0.48,
+            0.61,
+            -0.02100000000000002
+          ],
+          "size": [
+            1.23,
+            1.22,
+            1.432
+          ],
+          "massKgSuggestion": 10
+        },
+        {
+          "shard": 1,
+          "fixed": false,
+          "center": [
+            0.6399999999999999,
+            0.61,
+            0.07900000000000001
+          ],
+          "size": [
+            1.23,
+            1.22,
+            1.432
+          ],
+          "massKgSuggestion": 10
+        },
+        {
+          "shard": 2,
+          "fixed": false,
+          "center": [
+            0.07999999999999996,
+            1.86,
+            -0.02100000000000002
+          ],
+          "size": [
+            1.23,
+            1.2200000000000002,
+            1.432
+          ],
+          "massKgSuggestion": 10
+        }
+      ],
+      "suggestedDetachableMassKg": 30,
+      "suggestedFixedMassKg": 4,
+      "massUse": "Nominal prop mass and detachable pieces are separate. Do not automatically assign total prop mass to each shard. Effective game contact resistance remains a host tuning parameter."
+    }
+  ],
+  "normalizedThresholdUnit": "Impulse / crab body mass in the existing prototype convention; game proposal, not material stress or an engineering fracture measurement."
+}

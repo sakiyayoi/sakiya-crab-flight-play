@@ -1,0 +1,26 @@
+{
+  "kind": "remaining concrete counterexample; no parameter adjustment",
+  "input": {
+    "angle": 70.0,
+    "direction": -1,
+    "chargeTicks": 607,
+    "weakDistance": 195.77963256835938,
+    "strongDistance": 188.54856872558594,
+    "delta": -7.2310638427734375,
+    "weakFile": "39-a70-p55-s-1-t607.json",
+    "strongFile": "40-a70-p100-s-1-t607.json"
+  },
+  "weak": "saved-accept02/39-a70-p55-s-1-t607.json",
+  "strong": "saved-accept02/40-a70-p100-s-1-t607.json",
+  "observations": {
+    "weakFirstContactSeconds": 0.26666659116744995,
+    "weakCeilingResponseSeconds": 0.3291665315628052,
+    "strongCeilingResponseSeconds": 0.15833334624767303,
+    "weakBreaks": 24,
+    "strongBreaks": 23,
+    "secondaryBoth": 5,
+    "bothNormalSettled": true
+  },
+  "causeStatus": "contact paths differ after blocked ceiling; not proof of a unique cause of final distance. No fault truncation in these2runs.",
+  "safeDefault": "Preserve actual collision/finite rotor accounting. Do not add transparent acceleration/energy refill/score inflation or alterangle silently toforce monotonicdistance. Retain as unresolvedcounterexample; newreproducible rawreceipt exists."
+}

@@ -1,0 +1,727 @@
+{
+  "revision": "r29-authored-contact-sets-1",
+  "instances": [
+    {
+      "id": "r29-mall--1-0-market_crate",
+      "asset": "market_crate",
+      "p": [
+        -64,
+        0,
+        0
+      ],
+      "s": [
+        1.15,
+        1.15,
+        1.15
+      ],
+      "yaw": 180,
+      "band": "contact",
+      "breakable": true,
+      "chunk": -2,
+      "chainGroup": -700
+    },
+    {
+      "id": "r29-mall--1-1-vending_unit",
+      "asset": "vending_unit",
+      "p": [
+        -69.5,
+        0,
+        0
+      ],
+      "s": [
+        1,
+        1.1,
+        1
+      ],
+      "yaw": 180,
+      "band": "contact",
+      "breakable": true,
+      "chunk": -2,
+      "chainGroup": -702
+    },
+    {
+      "id": "r29-mall--1-2-street_bench",
+      "asset": "street_bench",
+      "p": [
+        -75,
+        0,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 180,
+      "band": "contact",
+      "breakable": true,
+      "chunk": -2,
+      "chainGroup": -704
+    },
+    {
+      "id": "r29-mall-1-0-market_crate",
+      "asset": "market_crate",
+      "p": [
+        64,
+        0,
+        0
+      ],
+      "s": [
+        1.15,
+        1.15,
+        1.15
+      ],
+      "yaw": 0,
+      "band": "contact",
+      "breakable": true,
+      "chunk": 2,
+      "chainGroup": 703
+    },
+    {
+      "id": "r29-mall-1-1-vending_unit",
+      "asset": "vending_unit",
+      "p": [
+        69.5,
+        0,
+        0
+      ],
+      "s": [
+        1,
+        1.1,
+        1
+      ],
+      "yaw": 0,
+      "band": "contact",
+      "breakable": true,
+      "chunk": 2,
+      "chainGroup": 705
+    },
+    {
+      "id": "r29-mall-1-2-street_bench",
+      "asset": "street_bench",
+      "p": [
+        75,
+        0,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "contact",
+      "breakable": true,
+      "chunk": 2,
+      "chainGroup": 707
+    },
+    {
+      "id": "r29-office--1-0-blade_sign",
+      "asset": "blade_sign",
+      "p": [
+        -184,
+        -0.0,
+        0
+      ],
+      "s": [
+        0.9,
+        1.55,
+        1
+      ],
+      "yaw": 180,
+      "band": "contact",
+      "breakable": true,
+      "chunk": -5,
+      "chainGroup": -706
+    },
+    {
+      "id": "r29-office--1-1-hvac_unit",
+      "asset": "hvac_unit",
+      "p": [
+        -191,
+        0,
+        0
+      ],
+      "s": [
+        1.1,
+        1.1,
+        1.1
+      ],
+      "yaw": 180,
+      "band": "contact",
+      "breakable": true,
+      "chunk": -5,
+      "chainGroup": -708
+    },
+    {
+      "id": "r29-office--1-2-facade_break_panel",
+      "asset": "facade_break_panel",
+      "p": [
+        -197,
+        47,
+        0
+      ],
+      "s": [
+        0.7,
+        0.8,
+        1
+      ],
+      "yaw": 180,
+      "band": "contact",
+      "breakable": true,
+      "chunk": -5,
+      "chainGroup": -710
+    },
+    {
+      "id": "r29-office-1-0-blade_sign",
+      "asset": "blade_sign",
+      "p": [
+        184,
+        -0.0,
+        0
+      ],
+      "s": [
+        0.9,
+        1.55,
+        1
+      ],
+      "yaw": 0,
+      "band": "contact",
+      "breakable": true,
+      "chunk": 5,
+      "chainGroup": 709
+    },
+    {
+      "id": "r29-office-1-1-hvac_unit",
+      "asset": "hvac_unit",
+      "p": [
+        191,
+        0,
+        0
+      ],
+      "s": [
+        1.1,
+        1.1,
+        1.1
+      ],
+      "yaw": 0,
+      "band": "contact",
+      "breakable": true,
+      "chunk": 5,
+      "chainGroup": 711
+    },
+    {
+      "id": "r29-office-1-2-facade_break_panel",
+      "asset": "facade_break_panel",
+      "p": [
+        197,
+        47,
+        0
+      ],
+      "s": [
+        0.7,
+        0.8,
+        1
+      ],
+      "yaw": 0,
+      "band": "contact",
+      "breakable": true,
+      "chunk": 5,
+      "chainGroup": 713
+    },
+    {
+      "id": "r29-port--1-0-port_lattice_loader_r10",
+      "asset": "port_lattice_loader_r10",
+      "p": [
+        -728,
+        -0.0,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 180,
+      "band": "contact",
+      "breakable": true,
+      "chunk": -22,
+      "chainGroup": -712
+    },
+    {
+      "id": "r29-port--1-1-steel_drum",
+      "asset": "steel_drum",
+      "p": [
+        -738,
+        -0.135,
+        0
+      ],
+      "s": [
+        1.35,
+        1.35,
+        1.35
+      ],
+      "yaw": 180,
+      "band": "contact",
+      "breakable": true,
+      "chunk": -22,
+      "chainGroup": -714
+    },
+    {
+      "id": "r29-port--1-2-rail_glass_planter_display_r10",
+      "asset": "rail_glass_planter_display_r10",
+      "p": [
+        -745,
+        -0.02,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 180,
+      "band": "contact",
+      "breakable": true,
+      "chunk": -22,
+      "chainGroup": -716
+    },
+    {
+      "id": "r29-port-1-0-port_lattice_loader_r10",
+      "asset": "port_lattice_loader_r10",
+      "p": [
+        728,
+        -0.0,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "contact",
+      "breakable": true,
+      "chunk": 22,
+      "chainGroup": 715
+    },
+    {
+      "id": "r29-port-1-1-steel_drum",
+      "asset": "steel_drum",
+      "p": [
+        738,
+        -0.135,
+        0
+      ],
+      "s": [
+        1.35,
+        1.35,
+        1.35
+      ],
+      "yaw": 0,
+      "band": "contact",
+      "breakable": true,
+      "chunk": 22,
+      "chainGroup": 717
+    },
+    {
+      "id": "r29-port-1-2-rail_glass_planter_display_r10",
+      "asset": "rail_glass_planter_display_r10",
+      "p": [
+        745,
+        -0.02,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "contact",
+      "breakable": true,
+      "chunk": 22,
+      "chainGroup": 719
+    },
+    {
+      "id": "r29-viaduct--1-0-road_barrier",
+      "asset": "road_barrier",
+      "p": [
+        -1050,
+        30.4625,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 180,
+      "band": "contact",
+      "breakable": true,
+      "chunk": -32,
+      "chainGroup": -718
+    },
+    {
+      "id": "r29-viaduct--1-1-junction_cabinet",
+      "asset": "junction_cabinet",
+      "p": [
+        -1055,
+        19.145,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 180,
+      "band": "contact",
+      "breakable": true,
+      "chunk": -32,
+      "chainGroup": -720
+    },
+    {
+      "id": "r29-viaduct--1-2-blade_sign",
+      "asset": "blade_sign",
+      "p": [
+        -1062,
+        16.9,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 180,
+      "band": "contact",
+      "breakable": true,
+      "chunk": -32,
+      "chainGroup": -722
+    },
+    {
+      "id": "r29-viaduct-1-0-road_barrier",
+      "asset": "road_barrier",
+      "p": [
+        1050,
+        30.4625,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "contact",
+      "breakable": true,
+      "chunk": 32,
+      "chainGroup": 721
+    },
+    {
+      "id": "r29-viaduct-1-1-junction_cabinet",
+      "asset": "junction_cabinet",
+      "p": [
+        1055,
+        19.145,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "contact",
+      "breakable": true,
+      "chunk": 32,
+      "chainGroup": 723
+    },
+    {
+      "id": "r29-viaduct-1-2-blade_sign",
+      "asset": "blade_sign",
+      "p": [
+        1062,
+        16.9,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "contact",
+      "breakable": true,
+      "chunk": 32,
+      "chainGroup": 725
+    },
+    {
+      "id": "r29-country--1-0-irrigation_tank_r12",
+      "asset": "irrigation_tank_r12",
+      "p": [
+        -1490,
+        0,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 180,
+      "band": "contact",
+      "breakable": true,
+      "chunk": -46,
+      "chainGroup": -724
+    },
+    {
+      "id": "r29-country--1-1-solar_array_r12",
+      "asset": "solar_array_r12",
+      "p": [
+        -1501,
+        0,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 180,
+      "band": "contact",
+      "breakable": true,
+      "chunk": -46,
+      "chainGroup": -726
+    },
+    {
+      "id": "r29-country--1-2-road_barrier",
+      "asset": "road_barrier",
+      "p": [
+        -1509,
+        30.4625,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 180,
+      "band": "contact",
+      "breakable": true,
+      "chunk": -46,
+      "chainGroup": -728
+    },
+    {
+      "id": "r29-country-1-0-irrigation_tank_r12",
+      "asset": "irrigation_tank_r12",
+      "p": [
+        1490,
+        0,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "contact",
+      "breakable": true,
+      "chunk": 46,
+      "chainGroup": 727
+    },
+    {
+      "id": "r29-country-1-1-solar_array_r12",
+      "asset": "solar_array_r12",
+      "p": [
+        1501,
+        0,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "contact",
+      "breakable": true,
+      "chunk": 46,
+      "chainGroup": 729
+    },
+    {
+      "id": "r29-country-1-2-road_barrier",
+      "asset": "road_barrier",
+      "p": [
+        1509,
+        30.4625,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "contact",
+      "breakable": true,
+      "chunk": 46,
+      "chainGroup": 731
+    },
+    {
+      "id": "r29-launchrange--1-0-solar_array_r12",
+      "asset": "solar_array_r12",
+      "p": [
+        -2250,
+        0,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 180,
+      "band": "contact",
+      "breakable": true,
+      "chunk": -70,
+      "chainGroup": -730
+    },
+    {
+      "id": "r29-launchrange--1-1-junction_cabinet",
+      "asset": "junction_cabinet",
+      "p": [
+        -2262,
+        0,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 180,
+      "band": "contact",
+      "breakable": true,
+      "chunk": -70,
+      "chainGroup": -732
+    },
+    {
+      "id": "r29-launchrange-1-0-solar_array_r12",
+      "asset": "solar_array_r12",
+      "p": [
+        2250,
+        0,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "contact",
+      "breakable": true,
+      "chunk": 70,
+      "chainGroup": 732
+    },
+    {
+      "id": "r29-launchrange-1-1-junction_cabinet",
+      "asset": "junction_cabinet",
+      "p": [
+        2262,
+        0,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "contact",
+      "breakable": true,
+      "chunk": 70,
+      "chainGroup": 734
+    },
+    {
+      "id": "r29-orbit--1-0-solar_array_r12",
+      "asset": "solar_array_r12",
+      "p": [
+        -2860,
+        0,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 180,
+      "band": "contact",
+      "breakable": true,
+      "chunk": -89,
+      "chainGroup": -734
+    },
+    {
+      "id": "r29-orbit--1-1-facade_break_panel",
+      "asset": "facade_break_panel",
+      "p": [
+        -2874,
+        1,
+        0
+      ],
+      "s": [
+        1.25,
+        2,
+        1
+      ],
+      "yaw": 180,
+      "band": "contact",
+      "breakable": true,
+      "chunk": -89,
+      "chainGroup": -736
+    },
+    {
+      "id": "r29-orbit-1-0-solar_array_r12",
+      "asset": "solar_array_r12",
+      "p": [
+        2860,
+        0,
+        0
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "contact",
+      "breakable": true,
+      "chunk": 89,
+      "chainGroup": 736
+    },
+    {
+      "id": "r29-orbit-1-1-facade_break_panel",
+      "asset": "facade_break_panel",
+      "p": [
+        2874,
+        1,
+        0
+      ],
+      "s": [
+        1.25,
+        2,
+        1
+      ],
+      "yaw": 0,
+      "band": "contact",
+      "breakable": true,
+      "chunk": 89,
+      "chainGroup": 738
+    }
+  ]
+}

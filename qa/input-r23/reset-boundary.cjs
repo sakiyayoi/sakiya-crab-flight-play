@@ -1,0 +1,10 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+const source=fs.readFileSync(process.argv[2]||'games/flight/web-template/host.js','utf8');
+const send=source.slice(source.indexOf('function send('),source.indexOf('\nfunction ',source.indexOf('function send(')+1));
+const prepare=source.slice(source.indexOf('function prepare('),source.indexOf('\nfunction ',source.indexOf('function prepare(')+1));
+const ctx={console};vm.createContext(ctx);
+vm.runInContext(`var queued=[],view='result',phase='result',lastState={chargeReady:true,phase:'result',generation:7},pendingPrepareR23=0,prepareToAimR23=false,inputSequenceR23=0,inputLogR23=[],purchasePending=false,progress={level:0};var document={body:{dataset:{}}},game={SendMessage:(...x)=>queued.push(x)},acknowledgedR23=new Set(['Prepare','Configure']);const clock=()=>0;function refreshProgress(){}function cancelRecord(){}function cancelGesture(){}function releaseKick(){}function numbers(){}function persistInputR23(){}var pageSession="fixture";function setView(x){view=x;}var window={FlightSound:{setPaused:()=>{}}};${send}\n${prepare}`,ctx);
+vm.runInContext('prepare()',ctx);
+const actual=vm.runInContext('({view,chargeReady:lastState?.chargeReady,pending:pendingPrepareR23,queued})',ctx);
+console.log(JSON.stringify(actual,null,2));
+assert.ok(actual.pending>0&&actual.chargeReady!==true,'The old result charge must not be exposed as current ready before Unity reset acknowledgement');

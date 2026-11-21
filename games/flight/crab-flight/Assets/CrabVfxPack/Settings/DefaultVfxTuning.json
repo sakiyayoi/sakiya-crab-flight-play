@@ -1,0 +1,10 @@
+{
+  "poolLimit": 320,
+  "intensity": 1.0,
+  "dustOpacity": 0.16,
+  "ghostOpacity": 0.14,
+  "chargeGhostLife": 0.42,
+  "hitCooldown": 0.045,
+  "chainWindow": 0.50,
+  "reducedMotion": false
+}

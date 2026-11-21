@@ -1,0 +1,11 @@
+# AreasR5 private implementation candidate
+
+Input: CalmR4 source5753eea2 / engine de18764. New original meshes reconstructed from the permanently saved adopted r35-3 concept; not recovered r35 source.
+
+Both directions: 28–62m plush/gifts, 62–100m sweets, 100–135m capsule toys. Replace existing street3 ground contact IDs; keep their count, locations, chain group and save identity. Nine landmark anchors per side use large forms, with varying width/height and smaller companion props between them. The eight other macro sectors and tall mall route targets remain.
+
+The existing R18 rounded box/lathe authoring, grain texture and glass shader are reused. Opaque colors are baked into a pastel atlas on the existing R2Surface shader; each intact model is combined to one opaque draw plus glass where present. Fracture meshes align with the same authored local AABBs exported as contact/shard descriptors, rather than stretching display over the old thin vending panels. Broad box approximations are explicit; no detailed MeshColliders. At most five detachable groups plus base, still within City20/global48/decor12 and the CalmR4 independent debris scene.
+
+Protected: default shake OFF, main crab/floor stepping/rotor/energy/score rules, retry/save, current bold king crab and background. Existing tall gray equipment and boutique background remain visible; this is a first area/size implementation, not final art. Natural contact, performance and browser loop are separate evidence from staged same-camera Native screenshots. People/bird collisions, denser encounter rhythm and the more expressive energy-bounded shard scatter remain follow-up requirements, not deleted or claimed complete.
+
+Initial visibility diagnostic: initial R5 new shader had an 883.3ms rAF gap (paired C#6.9ms). R5b reusing the existing city shader had a 100ms gap (C#7.1ms), preserving all new shapes/colors. R5c explicitly uploads cached prefab mesh data during actual world initialization via UploadMeshData(false), retaining CPU data for fragment visibility. No hidden throw, first-throw redefinition or measurement filtering. Official API: https://docs.unity.com/en-us/engine/6000.3/script-reference/unityengine/mesh/uploadmeshdata . Each result is kept separately.

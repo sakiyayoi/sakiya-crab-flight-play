@@ -1,0 +1,10 @@
+{
+  "name": "crab-r23-input-acceptance",
+  "private": true,
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1"
+  }
+}

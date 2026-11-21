@@ -1,0 +1,73 @@
+{
+  "atUTC": "2026-10-31T12:58:10.357438+00:00",
+  "scope": "Requested legal input defaults match at 40deg/right/70 and both ordinary host keyboard paths charge for10s. Initial rotation phase/spin/wall frame times and physical/assets revision do not match; distance differences cannot be assigned solely to the known ceiling sign backport.",
+  "rows": [
+    {
+      "variant": "reconstructionR1",
+      "distanceM": 168.43846130371094,
+      "actualDestructions": 24,
+      "stopReason": "settled",
+      "physicsFault": "",
+      "targetPower": 70,
+      "actualPower": 70,
+      "angle": 40,
+      "spin": 26.09282112121582,
+      "phase": 45.907470703125,
+      "direction": 1,
+      "supportBelowM": 0.0001857280731201172
+    },
+    {
+      "variant": "reconstructionR1",
+      "distanceM": 209.6536865234375,
+      "actualDestructions": 27,
+      "stopReason": "settled",
+      "physicsFault": "",
+      "targetPower": 70,
+      "actualPower": 70,
+      "angle": 40,
+      "spin": 26.09282112121582,
+      "phase": 278.19134521484375,
+      "direction": 1,
+      "supportBelowM": 0.00855255126953125
+    },
+    {
+      "variant": "existingR49",
+      "distanceM": 195.2352752685547,
+      "actualDestructions": 22,
+      "stopReason": "settled",
+      "physicsFault": "",
+      "targetPower": 70,
+      "actualPower": 70,
+      "angle": 40,
+      "spin": 26.298316955566406,
+      "phase": 59.36871337890625,
+      "direction": 1,
+      "supportBelowM": 0.0023255348205566406
+    },
+    {
+      "variant": "existingR49",
+      "distanceM": 183.804931640625,
+      "actualDestructions": 29,
+      "stopReason": "settled",
+      "physicsFault": "",
+      "targetPower": 70,
+      "actualPower": 70,
+      "angle": 40,
+      "spin": 26.09282112121582,
+      "phase": 138.18563842773438,
+      "direction": 1,
+      "supportBelowM": 0.010859370231628418
+    }
+  ],
+  "functionalLoop": "Both variants reach title, ready, launch, result, retry and second result; 0 browsererrors each",
+  "fullR49Equivalence": false,
+  "missingFeatures": "Original r33-r48 added runtime, A background/life targets/r42 gacha/hero detail/contact/recovery changes are not recreated from the five-file patch.",
+  "build": {
+    "version": "kani-recon-r32-ceiling49-r1",
+    "classification": "Partial reconstruction from actual r32, not original or equivalent r49",
+    "result": "Succeeded",
+    "errors": 0,
+    "warnings": 15,
+    "bytes": 50834079
+  }
+}

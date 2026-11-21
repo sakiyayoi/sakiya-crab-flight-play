@@ -1,0 +1,47 @@
+{
+  "state": "UNACCEPTED_PREVIEW_VERIFIED",
+  "version": "kani-v0.5-floor-r30",
+  "nativeCommit": "6a8bdc2c0279484c3e1d5eb004d67d9f72b8d451",
+  "nativeSourceSHA256": "aeddbbb7e33d050c88ac19a0d3dd8c3cc89e6174446881d84ea74f750ba00e78",
+  "publicCommit": "5b8035a5ceb81253ec179b9630da3b2c513bbfe6",
+  "trialURL": "https://sakiyayoi.github.io/sakiya-crab-flight-play/preview/r30/",
+  "latestURL": "https://sakiyayoi.github.io/sakiya-crab-flight-play/preview/latest/",
+  "downloadURL": "https://raw.githubusercontent.com/sakiyayoi/sakiya-crab-flight-play/5b8035a5ceb81253ec179b9630da3b2c513bbfe6/preview/r30/CrabFlight-kani-v0.5-floor-r30-WebGL.zip",
+  "ZIPbytes": 20238312,
+  "ZIPsha256": "0d905116298c0f424fa9e8548e273134f346ec5c675f420174e9d67e18495489",
+  "testCommand": "npx playwright test -c qa/final-r27.playwright.config.js",
+  "passed": 36,
+  "failed": 0,
+  "strong": 20,
+  "weak": 20,
+  "oldGPower": {
+    "passed": 4,
+    "failed": 36,
+    "cause": "accepted launch target scaled again after release"
+  },
+  "newGPower": {
+    "passed": 40,
+    "failed": 0,
+    "maxDifference": 0,
+    "threshold": 5
+  },
+  "minSupport_m": -0.021335840225219727,
+  "majorAssetsWholeReadback": 11,
+  "publicErrorCount": 0,
+  "formalTopUnchanged": true,
+  "stableSaveFixtureUnchanged": true,
+  "M14limits": "1445Native counter windows with full Canvas PNG,69 flash triplets reviewed; undocumented counter is not GPU Present certification; DOM popup state checked",
+  "physicalPhone": false,
+  "humanListening": false,
+  "accepted": false,
+  "receipts": "existing Mac HANDOFF and flight-floor-first-r21/evidence/r30; raw all40JSON/NativeXML/PNGs/3movies kept; no raw private paths or logs in public assets",
+  "remaining": [
+    "2.13cm transient support floor intrusion",
+    "7.34mm visible-point/Collider approximation",
+    "TGS strong2 distance tradeoff",
+    "result panel partly covers hero",
+    "M17 physical iPhone/listening",
+    "F05 value consultation and formal acceptance",
+    "legacy mall repetition remains"
+  ]
+}

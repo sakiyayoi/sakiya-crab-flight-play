@@ -1,0 +1,1 @@
+mergeInto(LibraryManager.library,{FlightTuningReport:function(json){var state=JSON.parse(UTF8ToString(json));window.flightTuningState=state;window.dispatchEvent(new CustomEvent('flight-tuning-report',{detail:state}));}});

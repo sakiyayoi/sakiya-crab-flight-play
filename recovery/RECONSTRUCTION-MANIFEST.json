@@ -1,0 +1,194 @@
+{
+  "request": "Isolated reconstruction from actual r32 plus saved r49 five-file diff; owner model direction changed to king-crab traits + size/boldness/impact, not applied in this restoration phase.",
+  "atUTC": "2026-10-31T12:43:06.921344+00:00",
+  "baseCommit": "49a260853a127e9e5be8184e9a1dbe1fcff493a7",
+  "candidateVersion": "kani-recon-r32-ceiling49-r1",
+  "classification": "PARTIAL RECONSTRUCTION, NOT original r49 source and NOT r49-equivalent",
+  "patchCheckExitCode": 1,
+  "patchAppliedWholesale": false,
+  "restoredExactPostimageFiles": [
+    {
+      "name": "host.js",
+      "bytes": 32540,
+      "SHA256": "5d6c5e4ce2710da173b07353f015a63a091fe7c493e90c9fdda8474ae183ef04",
+      "gitBlobSHA1": "f0afbc414e8877b4dd431b835d3955d70301f66f",
+      "role": "archived distributed text, not adopted into candidate frontend"
+    },
+    {
+      "name": "index.html",
+      "bytes": 19789,
+      "SHA256": "bfc5878dd0b3de0eb41a1b39ca25258b726362bf2c0fa38d7b99940f7c83ddb0",
+      "gitBlobSHA1": "b3bfcc0aa1bcc261a70f5bce03805a6a4dbf9999",
+      "role": "archived distributed text, not adopted into candidate frontend"
+    }
+  ],
+  "archivedDistributedText": [
+    {
+      "name": "CREDITS.md",
+      "bytes": 4449,
+      "SHA256": "cca189626c094a28fe091e3adbee12da15b8b2c58fdd843cd715a42be6ab0a3c",
+      "gitBlobSHA1": "2b01af5f4ba5f51cad4efcac8ba138781d78b75f",
+      "role": "archived distributed text, not adopted into candidate frontend"
+    },
+    {
+      "name": "README.md",
+      "bytes": 2976,
+      "SHA256": "d4986e04527baef8395b74be39f2cd8e2d9157847fdafabfb4d3ed86ba1119c7",
+      "gitBlobSHA1": "0c36314b6a5eefc5a8928e02d76d1faf9c3d0c6f",
+      "role": "archived distributed text, not adopted into candidate frontend"
+    },
+    {
+      "name": "a-direction-r33.css",
+      "bytes": 4713,
+      "SHA256": "2a5e2d9a0d461f99ddce0340f7e5577ec59c07df1109782593ce64d502305824",
+      "gitBlobSHA1": "bfeaf4da04639476d6ab21987f974c90813862fc",
+      "role": "archived distributed text, not adopted into candidate frontend"
+    },
+    {
+      "name": "credits.js",
+      "bytes": 3437,
+      "SHA256": "32e8a71e8ef2386c55330593b15c992296b647787e4c96e2eef0512210e4b173",
+      "gitBlobSHA1": "1229eb393d6cb24f450094582923b39e28676d36",
+      "role": "archived distributed text, not adopted into candidate frontend"
+    },
+    {
+      "name": "developer-tools.js",
+      "bytes": 3348,
+      "SHA256": "04c0059c8e85b97c1b6290e105354c940327838d2bc079358b3b6560aace79fd",
+      "gitBlobSHA1": "f45da5cc869995ff8338ec70de221016f601f50b",
+      "role": "archived distributed text, not adopted into candidate frontend"
+    },
+    {
+      "name": "feel.js",
+      "bytes": 12036,
+      "SHA256": "74484594f5761b39c20d475ef80d5709342e01f0ef9533f706a9e16ef57d836c",
+      "gitBlobSHA1": "395a2e40894d3264fd5916556bcfffead431b4b9",
+      "role": "archived distributed text, not adopted into candidate frontend"
+    },
+    {
+      "name": "flight-cues.js",
+      "bytes": 2086,
+      "SHA256": "3a50c746d02527d4dec4481c71df280292b16fdb81604769659188e160c0775f",
+      "gitBlobSHA1": "f41a49e3d342a7b89f4132e1aa95050c680c7cc4",
+      "role": "archived distributed text, not adopted into candidate frontend"
+    },
+    {
+      "name": "game-ui.css",
+      "bytes": 14719,
+      "SHA256": "cc43675421e2542396869dbf8c9c2204092b9a4dfd918975f904fa8ff178bcf0",
+      "gitBlobSHA1": "fa808323b61fcafd7723d7f106932a1aa8d3b968",
+      "role": "archived distributed text, not adopted into candidate frontend"
+    },
+    {
+      "name": "host.js",
+      "bytes": 32540,
+      "SHA256": "5d6c5e4ce2710da173b07353f015a63a091fe7c493e90c9fdda8474ae183ef04",
+      "gitBlobSHA1": "f0afbc414e8877b4dd431b835d3955d70301f66f",
+      "role": "archived distributed text, not adopted into candidate frontend"
+    },
+    {
+      "name": "index.html",
+      "bytes": 19789,
+      "SHA256": "bfc5878dd0b3de0eb41a1b39ca25258b726362bf2c0fa38d7b99940f7c83ddb0",
+      "gitBlobSHA1": "b3bfcc0aa1bcc261a70f5bce03805a6a4dbf9999",
+      "role": "archived distributed text, not adopted into candidate frontend"
+    },
+    {
+      "name": "launch-input.js",
+      "bytes": 3961,
+      "SHA256": "6266c6b88bf0b2331922ac7edd94f1b84c8d85043583e461b75d7cf205948a8f",
+      "gitBlobSHA1": "0b76d9db479573c971adfc697c623dd7d2cba29e",
+      "role": "archived distributed text, not adopted into candidate frontend"
+    },
+    {
+      "name": "launch_steps.md",
+      "bytes": 664,
+      "SHA256": "8240840cb27de39be648ec9b1f7c64cad1fe4f22d48ecb56249125d3daf600fb",
+      "gitBlobSHA1": "fd072c6c1a50278ae0a6406d9a6189b301bb4cec",
+      "role": "archived distributed text, not adopted into candidate frontend"
+    },
+    {
+      "name": "loadout.js",
+      "bytes": 995,
+      "SHA256": "95733a69f5e76c0016cd524e37d666a891ce89a0dbd05123ee230063b44983d9",
+      "gitBlobSHA1": "3de0edd75b5ae7994154c661f2528f0378acb88c",
+      "role": "archived distributed text, not adopted into candidate frontend"
+    },
+    {
+      "name": "progression.js",
+      "bytes": 6576,
+      "SHA256": "1a43ca26fdf97011631807dcda45215be8ecd4b41265d06b8976271779b3a1fb",
+      "gitBlobSHA1": "8e8b6988a10600c35ae6664f78a5fb05645b443a",
+      "role": "archived distributed text, not adopted into candidate frontend"
+    },
+    {
+      "name": "result-overview.js",
+      "bytes": 3898,
+      "SHA256": "839e0c21f02750d5157ce87d78ba659f079e3823fa16a176a755893e780371ec",
+      "gitBlobSHA1": "b24c4658f29593df114a1659e8605b9c23459a4e",
+      "role": "archived distributed text, not adopted into candidate frontend"
+    },
+    {
+      "name": "sound-pack.js",
+      "bytes": 8702,
+      "SHA256": "137e8d83c8cc0da53b345cda705ea01c2ab0495b878bbffcbe909e0f0974118b",
+      "gitBlobSHA1": "a5d3cbb301d63c239f7e84101be3231dc09bf94a",
+      "role": "archived distributed text, not adopted into candidate frontend"
+    },
+    {
+      "name": "sound.js",
+      "bytes": 5769,
+      "SHA256": "c8713981eadca796db3f59b4714e5f0427d243c64433baa112ab5846ebb7d11f",
+      "gitBlobSHA1": "d3fb150e9ede94966adef128a0adaf487ace8bf3",
+      "role": "archived distributed text, not adopted into candidate frontend"
+    },
+    {
+      "name": "voice.js",
+      "bytes": 3667,
+      "SHA256": "ecd8f7c3d89a9461acc80d6c6d9412bb5865f36b41ebc553e4352ce67a0234e3",
+      "gitBlobSHA1": "ffc48d6b47394ff5a8b7d0b029bdc6bea07f4c3d",
+      "role": "archived distributed text, not adopted into candidate frontend"
+    }
+  ],
+  "knownFunctionalBackport": "Only existing locked-ceiling redirect horizontal sign now uses incoming.x as in saved r49 patch; unchanged guard/speed magnitude/vertical rule/finite energy. No missing classes/assets synthesized.",
+  "candidateFrontend": "Original r32 frontend with honest reconstruction version metadata, not recovered r49 frontend connected to an incompatible r32 runtime.",
+  "requiredOriginalFiles": [
+    {
+      "path": "games/flight/crab-flight/Assets/Editor/FloorBuildR10.cs",
+      "missingPreimage": "921cc10",
+      "missingR49Postimage": "3f87a8f",
+      "actualR32Blob": "fb3136d6cbf35821832044e41e0f7d4cfb4bfd04",
+      "gap": "r33-r48 build entries/conditions not provided; separate reconstruction build entry is new and explicit."
+    },
+    {
+      "path": "games/flight/crab-flight/Assets/Scripts/CrabFlightGame.cs",
+      "missingPreimage": "851b971",
+      "missingR49Postimage": "4c71178",
+      "actualR32Blob": "6878dbcbe2750434217118b010f13eb2d3ba9e67",
+      "gap": "r49 FlightState references JoyViewR42/lifeTargets/joyR42/ceiling diagnostics absent in r32; original owning file paths not recoverable from this patch."
+    },
+    {
+      "path": "games/flight/crab-flight/Assets/Scripts/RestaurantPhysics.cs",
+      "missingPreimage": "0e562a2",
+      "missingR49Postimage": "49f13af",
+      "actualR32Blob": "4021e4f9b04162980b8d677fcbcbfa479902632d",
+      "gap": "r34-r48 world recovery/contact changes absent; only the exact existing ceiling-redirect statement supports the known r49 sign backport."
+    }
+  ],
+  "unrecoverableFromGivenInputs": [
+    "Original r33-r48 added/changed Unity source and Assets are not contained in this five-file patch.",
+    "Definitions behind JoyViewR42 and WallRecoveryR34 are known missing symbols; original file names unknown, not invented.",
+    "Original A-background/life-actor/r42-gacha/hero visual assets and collider edits cannot be recovered as Unity source from compiled .data/WASM. Exact original file list unavailable in this inspection archive."
+  ],
+  "v4Applied": false,
+  "originalSourceRecovered": false,
+  "publicPush": false,
+  "publicReadback": {
+    "latest": "https://sakiyayoi.github.io/sakiya-crab-flight-play/preview/latest/",
+    "HTTP": 200,
+    "redirectMarkup": "../r33/",
+    "r33HTTP": 200,
+    "version": "kani-v0.8-overhaul-A-r33",
+    "newModelReflected": false
+  }
+}

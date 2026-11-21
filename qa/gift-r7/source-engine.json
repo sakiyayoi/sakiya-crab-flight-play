@@ -1,0 +1,10 @@
+{
+  "engineCommit": "4e7f91cda4256944a495f62e80f6e45e38947d38",
+  "CSharpSHA256": "bf539d256ce5520b4aceb55805a6d4f987ff7b63441d6c0f7ef808eff78aa10c",
+  "version": "kani-gift-r7",
+  "inputSource": "1b56e13a6c25af2c83782c79107ae6df16b43430",
+  "provisionalEngine": "d6eb07ca69fb74b0edc56e1e0159c2f9d6b2d9d2",
+  "changeFromProvisional": "Editor-only build identity update; gameplay/visual assets unchanged",
+  "legacyPathPartsCSharpSHA256": "8b17e4f70ded8f96b71e7d3ac3ef60de6b5ef4f7e7a097285f066ebc94e927e3",
+  "hashAlgorithm": "SHA256 concatenated Assets/**/*.cs bytes in ordinal full POSIX path-string order; distinct from legacy Python Path-part ordering"
+}

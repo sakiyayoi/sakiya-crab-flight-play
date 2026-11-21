@@ -1,0 +1,41 @@
+/* Selected A: quiet illustrated depth, warm red hero, clear ink and cream foreground UI. */
+:root{--paper:#fff8e7;--ink:#243a3b;--hot:#dc4c32;--gold:#f2b834}
+body{color:var(--ink);background:#e9eee4}
+button{border-radius:12px;border:1px solid #7d979080;background:#fff8e7f2;color:var(--ink);box-shadow:0 2px 0 #2a4b3b21;font-weight:800}
+button:active{transform:translateY(1px);box-shadow:none}.primary{background:var(--hot);color:#fffaf0;border:1px solid #bd402b;box-shadow:0 3px 0 #9f3826}
+button:focus-visible{outline:3px solid #17715f;outline-offset:3px}
+#brand{color:#28423b;text-shadow:0 1px 0 #fff8;font-size:12px;letter-spacing:0}
+#topbar{align-items:flex-start}#sound,#pauseButton{background:#fff8e7eb;border-color:#7c999267;min-height:42px}
+#title{background:linear-gradient(0deg,#f9f2dfe8,transparent 76%)}
+#title h1{color:#c6452e;text-shadow:0 2px 0 #fff9;letter-spacing:-.065em}
+#title .title-copy{transform:none}#title .title-copy p,#title .title-actions .muted{color:#2d4941;text-shadow:none}
+#title .title-actions{gap:14px}#start{letter-spacing:.04em;border-radius:14px}
+#aimNumbers,#spinValue,#height,#distance,#distanceLabel,#distanceUnit,#destructionReadout,#rotorStatus{color:var(--ink);text-shadow:0 1px 1px #fff9}
+#spinValue{color:#c6452e}#aimNumbers{gap:0}#aimNumbers>span:nth-child(3){letter-spacing:.08em}
+#flightHUD{width:min(350px,calc(100% - 40px));padding:0 8px 10px 0;background:radial-gradient(ellipse at 20% 10%,#fff9e7db,transparent 72%)}
+#distance{font-weight:900;font-size:clamp(56px,19vw,76px);letter-spacing:-.075em}
+#flightMotion{gap:8px}#destructionReadout{margin-left:0}#rotorPercent{color:#b54727}
+#rotorReserve{accent-color:#da6d35}#acceleration{color:#b34027;text-shadow:0 1px #fff9}
+body[data-accelerating=true] #distance,body[data-accelerating=true] #height{color:#bf4329}
+#chargeGauge{border:1px solid #d5a04b;background:#fff6d5;color:var(--ink);transform:none;border-radius:14px;box-shadow:0 3px 0 #7d6d4320}
+#chargeFill{background:#eeab3e}body[data-charged=true] #chargeGauge{background:#efbb4d;color:#3c3424}
+#launchZone{border-radius:20px;border:0;border-bottom:2px solid #7e9b8780;background:linear-gradient(0deg,#fff8e75c,transparent 85%);color:#2d4d42;text-shadow:0 1px #fff9}
+#launchZone:before{color:#cf573a;font-size:52px}#helpButton,#customButton,#cancelAim{background:#fff8e7eb;color:#294338;border-color:#79978b80}
+#aimHint{background:#fff8e7e8;color:var(--ink);text-shadow:none;border-radius:10px}
+#pauseMenu .panel,#options .panel,#custom .panel{background:#fff8e7f7;border:1px solid #8d9f8c80;border-radius:18px;color:var(--ink);box-shadow:0 10px 35px #17322b28}
+.overlay{background:#dce7dc52}.muted{color:#596d61}output,.eyebrow{color:#a44c2e}
+#gearChoices button[aria-pressed=true]{outline:2px solid #da6d35;background:#f7e4bc}
+#result .panel-scroll,body[data-result-layout=split] #result .panel-scroll{background:#fff8e7ed;border:1px solid #a3b3a485;border-radius:16px;color:var(--ink);box-shadow:0 3px 14px #27483314;padding:12px 15px}
+#resultTitle,#distanceResult,#resultCause,#firstContactResult,#bestDifference{color:var(--ink)}
+#distanceResult{letter-spacing:-.065em}#distanceResultValue{font-weight:900}#distanceTraceR33{display:block;font-size:11px;font-weight:650;letter-spacing:0;line-height:1.5;color:#6a6d55;margin-top:4px}
+#coinResult{color:#a45426}#resultJourney,#journeySections{background:#fff8e7ed;border:1px solid #a3b3a485;border-radius:12px;color:var(--ink)}
+.journey-scale{color:#63776d}.journey-key,#journeyDetails summary{color:#9d532e}#resultViewCaption{color:#28483b;text-shadow:0 1px 1px #fff9}
+#resultCustom{background:#fff8e7eb;color:var(--ink);border-radius:10px}#kick{border-radius:14px;background:#efbd50;color:#3b3524;box-shadow:0 3px 0 #b88939}#kick:disabled{background:#dedfcf;color:#596854;box-shadow:none}
+#kickFeedback{color:#b84c2d;text-shadow:0 1px #fff9;transform:none;font-size:22px}
+@media(orientation:landscape) and (max-height:440px){#flightHUD{top:58px}#flightMotion{font-size:11px}#height{font-size:16px}#rotorStatus{width:105px}#distanceTraceR33{margin-top:1px;font-size:10px}}
+@media(prefers-reduced-motion:reduce){button:active{transform:none}}
+#gesture line{stroke:#c35438;stroke-width:4}#gesture circle{fill:#efbc4c;stroke:#fff8e7;stroke-width:3}#gesture[data-valid=false] line{stroke:#6b8476}
+
+#loading .panel{background:#fff8e7f7;color:var(--ink);border:1px solid #8d9f8c80;border-radius:18px;box-shadow:0 10px 35px #17322b28}
+
+#lifeScoreResultR33{display:inline-block;vertical-align:middle;max-width:84px;margin-left:10px;font-size:12px;font-weight:850;line-height:1.3;letter-spacing:0;color:#9e4025;background:#f8e6ad;border-radius:8px;padding:4px 7px}#lifeScoreResultR33[hidden]{display:none}

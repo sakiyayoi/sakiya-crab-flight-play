@@ -1,0 +1,6 @@
+{
+  "name": "CrabFlight.Measurement.PlayMode",
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

@@ -1,0 +1,877 @@
+{
+  "source": "flight-floor-first-r21/evidence/r32/fixed-normal01/result.json",
+  "sourceSHA256": "00131ea98befc66bceff8fb652835ec3e9c8aeb0153c5f37ea882034678b0596",
+  "state": "COMPLETED_STRICT_GATE_FAIL",
+  "version": "kani-v0.7-retry-r32",
+  "zipSHA256": "af2011d7ed7b4188ba2a4a252dc754b1f5cf5342d6b7f31d7dc831e63b747329",
+  "errors": [],
+  "failThrows": [
+    2,
+    8,
+    9,
+    10
+  ],
+  "rows": [
+    {
+      "i": 1,
+      "meanFrameMs": 17.39623498864005,
+      "worstFrameMs": 233.29999999999563,
+      "heavierThanFirst": false,
+      "samples": 3081,
+      "auditTraffic": {
+        "ready": {
+          "reports": 462,
+          "auditCharsMax": 0,
+          "auditCharsSum": 0
+        },
+        "flight": {
+          "reports": 840,
+          "auditCharsMax": 99383,
+          "auditCharsSum": 99383
+        },
+        "result": {
+          "reports": 1,
+          "auditCharsMax": 185677,
+          "auditCharsSum": 185677
+        }
+      },
+      "nativeBefore": {
+        "sceneCount": 2,
+        "liveObjects": 5615,
+        "meshes": 903,
+        "materials": 246,
+        "physicsMaterials": 9,
+        "rigidbodies": 1,
+        "colliders": 2331,
+        "visualProxies": 0,
+        "scaleRestores": 0,
+        "flashQueue": 0,
+        "eventWindow": 1,
+        "auditInputs": 5,
+        "auditTicks": 0,
+        "drawing": {
+          "particles": 0,
+          "rings": 0,
+          "ghosts": 0,
+          "speedLines": 0,
+          "residue": 0,
+          "maxRemainingSeconds": 0
+        },
+        "realtime": 2.618000030517578
+      },
+      "nativeAfter": {
+        "sceneCount": 2,
+        "liveObjects": 5703,
+        "meshes": 903,
+        "materials": 253,
+        "physicsMaterials": 9,
+        "rigidbodies": 39,
+        "colliders": 2369,
+        "visualProxies": 33,
+        "scaleRestores": 0,
+        "flashQueue": 0,
+        "eventWindow": 32,
+        "auditInputs": 260,
+        "auditTicks": 2792,
+        "drawing": {
+          "particles": 162,
+          "rings": 0,
+          "ghosts": 0,
+          "speedLines": 0,
+          "residue": 0,
+          "maxRemainingSeconds": 0.8012003898620605
+        },
+        "realtime": 56.4630012512207
+      },
+      "jsHeap": {
+        "used": 30357190,
+        "total": 37125470
+      },
+      "wasm": 250085376,
+      "timers": {
+        "RAF": 3,
+        "timeouts": 0,
+        "intervals": 1,
+        "unknownTimers": 0,
+        "timeoutDelays": []
+      },
+      "popups": 0,
+      "archives": 1
+    },
+    {
+      "i": 2,
+      "meanFrameMs": 18.237171717171716,
+      "worstFrameMs": 416.6999999999971,
+      "heavierThanFirst": true,
+      "samples": 1485,
+      "auditTraffic": {
+        "result": {
+          "reports": 2,
+          "auditCharsMax": 126064,
+          "auditCharsSum": 126064
+        },
+        "ready": {
+          "reports": 462,
+          "auditCharsMax": 0,
+          "auditCharsSum": 0
+        },
+        "flight": {
+          "reports": 301,
+          "auditCharsMax": 99697,
+          "auditCharsSum": 99697
+        }
+      },
+      "nativeBefore": {
+        "sceneCount": 2,
+        "liveObjects": 5703,
+        "meshes": 903,
+        "materials": 253,
+        "physicsMaterials": 9,
+        "rigidbodies": 39,
+        "colliders": 2369,
+        "visualProxies": 33,
+        "scaleRestores": 0,
+        "flashQueue": 0,
+        "eventWindow": 32,
+        "auditInputs": 260,
+        "auditTicks": 2792,
+        "drawing": {
+          "particles": 158,
+          "rings": 0,
+          "ghosts": 0,
+          "speedLines": 0,
+          "residue": 0,
+          "maxRemainingSeconds": 0.6812014579772949
+        },
+        "realtime": 56.58300018310547
+      },
+      "nativeAfter": {
+        "sceneCount": 2,
+        "liveObjects": 5769,
+        "meshes": 916,
+        "materials": 253,
+        "physicsMaterials": 9,
+        "rigidbodies": 49,
+        "colliders": 2377,
+        "visualProxies": 63,
+        "scaleRestores": 0,
+        "flashQueue": 0,
+        "eventWindow": 32,
+        "auditInputs": 259,
+        "auditTicks": 1210,
+        "drawing": {
+          "particles": 12,
+          "rings": 0,
+          "ghosts": 0,
+          "speedLines": 0,
+          "residue": 11,
+          "maxRemainingSeconds": 6.3899993896484375
+        },
+        "realtime": 83.77899932861328
+      },
+      "jsHeap": {
+        "used": 25630480,
+        "total": 29396416
+      },
+      "wasm": 300154880,
+      "timers": {
+        "RAF": 3,
+        "timeouts": 0,
+        "intervals": 1,
+        "unknownTimers": 0,
+        "timeoutDelays": []
+      },
+      "popups": 0,
+      "archives": 2
+    },
+    {
+      "i": 3,
+      "meanFrameMs": 17.001959686450167,
+      "worstFrameMs": 166.6999999999971,
+      "heavierThanFirst": false,
+      "samples": 1786,
+      "auditTraffic": {
+        "result": {
+          "reports": 2,
+          "auditCharsMax": 138542,
+          "auditCharsSum": 138542
+        },
+        "ready": {
+          "reports": 462,
+          "auditCharsMax": 0,
+          "auditCharsSum": 0
+        },
+        "flight": {
+          "reports": 397,
+          "auditCharsMax": 98001,
+          "auditCharsSum": 98001
+        }
+      },
+      "nativeBefore": {
+        "sceneCount": 2,
+        "liveObjects": 5769,
+        "meshes": 916,
+        "materials": 253,
+        "physicsMaterials": 9,
+        "rigidbodies": 49,
+        "colliders": 2377,
+        "visualProxies": 63,
+        "scaleRestores": 0,
+        "flashQueue": 0,
+        "eventWindow": 32,
+        "auditInputs": 259,
+        "auditTicks": 1210,
+        "drawing": {
+          "particles": 4,
+          "rings": 0,
+          "ghosts": 0,
+          "speedLines": 0,
+          "residue": 11,
+          "maxRemainingSeconds": 6.2050018310546875
+        },
+        "realtime": 83.96399688720703
+      },
+      "nativeAfter": {
+        "sceneCount": 2,
+        "liveObjects": 5711,
+        "meshes": 916,
+        "materials": 251,
+        "physicsMaterials": 9,
+        "rigidbodies": 43,
+        "colliders": 2377,
+        "visualProxies": 37,
+        "scaleRestores": 0,
+        "flashQueue": 0,
+        "eventWindow": 32,
+        "auditInputs": 259,
+        "auditTicks": 1539,
+        "drawing": {
+          "particles": 0,
+          "rings": 0,
+          "ghosts": 0,
+          "speedLines": 0,
+          "residue": 4,
+          "maxRemainingSeconds": 4.680000305175781
+        },
+        "realtime": 114.46099853515625
+      },
+      "jsHeap": {
+        "used": 33967330,
+        "total": 39741710
+      },
+      "wasm": 300154880,
+      "timers": {
+        "RAF": 3,
+        "timeouts": 0,
+        "intervals": 1,
+        "unknownTimers": 0,
+        "timeoutDelays": []
+      },
+      "popups": 0,
+      "archives": 3
+    },
+    {
+      "i": 4,
+      "meanFrameMs": 16.813837965700767,
+      "worstFrameMs": 150.10000000000582,
+      "heavierThanFirst": false,
+      "samples": 1691,
+      "auditTraffic": {
+        "result": {
+          "reports": 2,
+          "auditCharsMax": 134305,
+          "auditCharsSum": 134305
+        },
+        "ready": {
+          "reports": 460,
+          "auditCharsMax": 0,
+          "auditCharsSum": 0
+        },
+        "flight": {
+          "reports": 363,
+          "auditCharsMax": 98020,
+          "auditCharsSum": 98020
+        }
+      },
+      "nativeBefore": {
+        "sceneCount": 2,
+        "liveObjects": 5711,
+        "meshes": 916,
+        "materials": 251,
+        "physicsMaterials": 9,
+        "rigidbodies": 43,
+        "colliders": 2377,
+        "visualProxies": 37,
+        "scaleRestores": 0,
+        "flashQueue": 0,
+        "eventWindow": 32,
+        "auditInputs": 259,
+        "auditTicks": 1539,
+        "drawing": {
+          "particles": 0,
+          "rings": 0,
+          "ghosts": 0,
+          "speedLines": 0,
+          "residue": 4,
+          "maxRemainingSeconds": 4.430999755859375
+        },
+        "realtime": 114.70999908447266
+      },
+      "nativeAfter": {
+        "sceneCount": 2,
+        "liveObjects": 5712,
+        "meshes": 916,
+        "materials": 251,
+        "physicsMaterials": 9,
+        "rigidbodies": 43,
+        "colliders": 2374,
+        "visualProxies": 37,
+        "scaleRestores": 0,
+        "flashQueue": 0,
+        "eventWindow": 32,
+        "auditInputs": 259,
+        "auditTicks": 1426,
+        "drawing": {
+          "particles": 0,
+          "rings": 0,
+          "ghosts": 0,
+          "speedLines": 0,
+          "residue": 1,
+          "maxRemainingSeconds": 6.072998046875
+        },
+        "realtime": 143.23899841308594
+      },
+      "jsHeap": {
+        "used": 35899599,
+        "total": 48952879
+      },
+      "wasm": 300154880,
+      "timers": {
+        "RAF": 3,
+        "timeouts": 0,
+        "intervals": 1,
+        "unknownTimers": 0,
+        "timeoutDelays": []
+      },
+      "popups": 0,
+      "archives": 4
+    },
+    {
+      "i": 5,
+      "meanFrameMs": 17.216021602160215,
+      "worstFrameMs": 166.60000000000582,
+      "heavierThanFirst": false,
+      "samples": 3333,
+      "auditTraffic": {
+        "ready": {
+          "reports": 461,
+          "auditCharsMax": 0,
+          "auditCharsSum": 0
+        },
+        "flight": {
+          "reports": 925,
+          "auditCharsMax": 98046,
+          "auditCharsSum": 98046
+        },
+        "result": {
+          "reports": 1,
+          "auditCharsMax": 189715,
+          "auditCharsSum": 189715
+        }
+      },
+      "nativeBefore": {
+        "sceneCount": 2,
+        "liveObjects": 5712,
+        "meshes": 916,
+        "materials": 251,
+        "physicsMaterials": 9,
+        "rigidbodies": 43,
+        "colliders": 2374,
+        "visualProxies": 37,
+        "scaleRestores": 0,
+        "flashQueue": 0,
+        "eventWindow": 32,
+        "auditInputs": 259,
+        "auditTicks": 1426,
+        "drawing": {
+          "particles": 0,
+          "rings": 0,
+          "ghosts": 0,
+          "speedLines": 0,
+          "residue": 1,
+          "maxRemainingSeconds": 5.7949981689453125
+        },
+        "realtime": 143.51699829101562
+      },
+      "nativeAfter": {
+        "sceneCount": 2,
+        "liveObjects": 5704,
+        "meshes": 916,
+        "materials": 257,
+        "physicsMaterials": 9,
+        "rigidbodies": 38,
+        "colliders": 2368,
+        "visualProxies": 34,
+        "scaleRestores": 0,
+        "flashQueue": 0,
+        "eventWindow": 32,
+        "auditInputs": 259,
+        "auditTicks": 2896,
+        "drawing": {
+          "particles": 0,
+          "rings": 0,
+          "ghosts": 0,
+          "speedLines": 0,
+          "residue": 1,
+          "maxRemainingSeconds": 2.8509979248046875
+        },
+        "realtime": 201.13099670410156
+      },
+      "jsHeap": {
+        "used": 38090706,
+        "total": 54810590
+      },
+      "wasm": 300154880,
+      "timers": {
+        "RAF": 3,
+        "timeouts": 0,
+        "intervals": 1,
+        "unknownTimers": 0,
+        "timeoutDelays": []
+      },
+      "popups": 0,
+      "archives": 5
+    },
+    {
+      "i": 6,
+      "meanFrameMs": 17.35301204819276,
+      "worstFrameMs": 199.89999999999418,
+      "heavierThanFirst": false,
+      "samples": 1577,
+      "auditTraffic": {
+        "ready": {
+          "reports": 460,
+          "auditCharsMax": 0,
+          "auditCharsSum": 0
+        },
+        "flight": {
+          "reports": 331,
+          "auditCharsMax": 97653,
+          "auditCharsSum": 97653
+        },
+        "result": {
+          "reports": 1,
+          "auditCharsMax": 129819,
+          "auditCharsSum": 129819
+        }
+      },
+      "nativeBefore": {
+        "sceneCount": 2,
+        "liveObjects": 5704,
+        "meshes": 916,
+        "materials": 257,
+        "physicsMaterials": 9,
+        "rigidbodies": 38,
+        "colliders": 2368,
+        "visualProxies": 34,
+        "scaleRestores": 0,
+        "flashQueue": 0,
+        "eventWindow": 32,
+        "auditInputs": 259,
+        "auditTicks": 2896,
+        "drawing": {
+          "particles": 0,
+          "rings": 0,
+          "ghosts": 0,
+          "speedLines": 0,
+          "residue": 1,
+          "maxRemainingSeconds": 2.4850006103515625
+        },
+        "realtime": 201.4969940185547
+      },
+      "nativeAfter": {
+        "sceneCount": 2,
+        "liveObjects": 5721,
+        "meshes": 916,
+        "materials": 257,
+        "physicsMaterials": 9,
+        "rigidbodies": 48,
+        "colliders": 2378,
+        "visualProxies": 42,
+        "scaleRestores": 0,
+        "flashQueue": 0,
+        "eventWindow": 32,
+        "auditInputs": 259,
+        "auditTicks": 1307,
+        "drawing": {
+          "particles": 0,
+          "rings": 0,
+          "ghosts": 0,
+          "speedLines": 0,
+          "residue": 9,
+          "maxRemainingSeconds": 4.72900390625
+        },
+        "realtime": 228.9759979248047
+      },
+      "jsHeap": {
+        "used": 37352120,
+        "total": 63264932
+      },
+      "wasm": 300154880,
+      "timers": {
+        "RAF": 3,
+        "timeouts": 0,
+        "intervals": 1,
+        "unknownTimers": 0,
+        "timeoutDelays": []
+      },
+      "popups": 0,
+      "archives": 6
+    },
+    {
+      "i": 7,
+      "meanFrameMs": 17.353194381513365,
+      "worstFrameMs": 166.70000000001164,
+      "heavierThanFirst": false,
+      "samples": 2207,
+      "auditTraffic": {
+        "result": {
+          "reports": 2,
+          "auditCharsMax": 148987,
+          "auditCharsSum": 148987
+        },
+        "ready": {
+          "reports": 461,
+          "auditCharsMax": 0,
+          "auditCharsSum": 0
+        },
+        "flight": {
+          "reports": 546,
+          "auditCharsMax": 97360,
+          "auditCharsSum": 97360
+        }
+      },
+      "nativeBefore": {
+        "sceneCount": 2,
+        "liveObjects": 5721,
+        "meshes": 916,
+        "materials": 257,
+        "physicsMaterials": 9,
+        "rigidbodies": 48,
+        "colliders": 2378,
+        "visualProxies": 42,
+        "scaleRestores": 0,
+        "flashQueue": 0,
+        "eventWindow": 32,
+        "auditInputs": 259,
+        "auditTicks": 1307,
+        "drawing": {
+          "particles": 0,
+          "rings": 0,
+          "ghosts": 0,
+          "speedLines": 0,
+          "residue": 7,
+          "maxRemainingSeconds": 4.2960052490234375
+        },
+        "realtime": 229.40899658203125
+      },
+      "nativeAfter": {
+        "sceneCount": 2,
+        "liveObjects": 5710,
+        "meshes": 916,
+        "materials": 251,
+        "physicsMaterials": 9,
+        "rigidbodies": 43,
+        "colliders": 2372,
+        "visualProxies": 37,
+        "scaleRestores": 0,
+        "flashQueue": 0,
+        "eventWindow": 32,
+        "auditInputs": 259,
+        "auditTicks": 1816,
+        "drawing": {
+          "particles": 0,
+          "rings": 0,
+          "ghosts": 0,
+          "speedLines": 0,
+          "residue": 3,
+          "maxRemainingSeconds": 4.8590087890625
+        },
+        "realtime": 267.86199951171875
+      },
+      "jsHeap": {
+        "used": 30009133,
+        "total": 63560065
+      },
+      "wasm": 300154880,
+      "timers": {
+        "RAF": 3,
+        "timeouts": 0,
+        "intervals": 1,
+        "unknownTimers": 0,
+        "timeoutDelays": []
+      },
+      "popups": 0,
+      "archives": 7
+    },
+    {
+      "i": 8,
+      "meanFrameMs": 17.553633360858804,
+      "worstFrameMs": 199.90000000002328,
+      "heavierThanFirst": true,
+      "samples": 2422,
+      "auditTraffic": {
+        "result": {
+          "reports": 3,
+          "auditCharsMax": 156680,
+          "auditCharsSum": 156680
+        },
+        "ready": {
+          "reports": 461,
+          "auditCharsMax": 0,
+          "auditCharsSum": 0
+        },
+        "flight": {
+          "reports": 619,
+          "auditCharsMax": 98091,
+          "auditCharsSum": 98091
+        }
+      },
+      "nativeBefore": {
+        "sceneCount": 2,
+        "liveObjects": 5710,
+        "meshes": 916,
+        "materials": 251,
+        "physicsMaterials": 9,
+        "rigidbodies": 43,
+        "colliders": 2372,
+        "visualProxies": 37,
+        "scaleRestores": 0,
+        "flashQueue": 0,
+        "eventWindow": 32,
+        "auditInputs": 259,
+        "auditTicks": 1816,
+        "drawing": {
+          "particles": 0,
+          "rings": 0,
+          "ghosts": 0,
+          "speedLines": 0,
+          "residue": 3,
+          "maxRemainingSeconds": 4.39300537109375
+        },
+        "realtime": 268.3280029296875
+      },
+      "nativeAfter": {
+        "sceneCount": 2,
+        "liveObjects": 5721,
+        "meshes": 916,
+        "materials": 257,
+        "physicsMaterials": 9,
+        "rigidbodies": 48,
+        "colliders": 2377,
+        "visualProxies": 42,
+        "scaleRestores": 0,
+        "flashQueue": 0,
+        "eventWindow": 32,
+        "auditInputs": 259,
+        "auditTicks": 2019,
+        "drawing": {
+          "particles": 0,
+          "rings": 0,
+          "ghosts": 0,
+          "speedLines": 0,
+          "residue": 1,
+          "maxRemainingSeconds": 3.527984619140625
+        },
+        "realtime": 311.01300048828125
+      },
+      "jsHeap": {
+        "used": 52973759,
+        "total": 72146243
+      },
+      "wasm": 300154880,
+      "timers": {
+        "RAF": 3,
+        "timeouts": 0,
+        "intervals": 1,
+        "unknownTimers": 0,
+        "timeoutDelays": []
+      },
+      "popups": 0,
+      "archives": 8
+    },
+    {
+      "i": 9,
+      "meanFrameMs": 17.36463414634148,
+      "worstFrameMs": 233.40000000002328,
+      "heavierThanFirst": true,
+      "samples": 1312,
+      "auditTraffic": {
+        "result": {
+          "reports": 2,
+          "auditCharsMax": 122844,
+          "auditCharsSum": 122844
+        },
+        "ready": {
+          "reports": 459,
+          "auditCharsMax": 0,
+          "auditCharsSum": 0
+        },
+        "flight": {
+          "reports": 241,
+          "auditCharsMax": 97927,
+          "auditCharsSum": 97927
+        }
+      },
+      "nativeBefore": {
+        "sceneCount": 2,
+        "liveObjects": 5721,
+        "meshes": 916,
+        "materials": 257,
+        "physicsMaterials": 9,
+        "rigidbodies": 48,
+        "colliders": 2377,
+        "visualProxies": 42,
+        "scaleRestores": 0,
+        "flashQueue": 0,
+        "eventWindow": 32,
+        "auditInputs": 259,
+        "auditTicks": 2019,
+        "drawing": {
+          "particles": 0,
+          "rings": 0,
+          "ghosts": 0,
+          "speedLines": 0,
+          "residue": 1,
+          "maxRemainingSeconds": 2.98199462890625
+        },
+        "realtime": 311.5589904785156
+      },
+      "nativeAfter": {
+        "sceneCount": 2,
+        "liveObjects": 5723,
+        "meshes": 916,
+        "materials": 251,
+        "physicsMaterials": 9,
+        "rigidbodies": 48,
+        "colliders": 2381,
+        "visualProxies": 42,
+        "scaleRestores": 0,
+        "flashQueue": 0,
+        "eventWindow": 32,
+        "auditInputs": 259,
+        "auditTicks": 1115,
+        "drawing": {
+          "particles": 4,
+          "rings": 0,
+          "ghosts": 0,
+          "speedLines": 0,
+          "residue": 13,
+          "maxRemainingSeconds": 6.6409912109375
+        },
+        "realtime": 334.4490051269531
+      },
+      "jsHeap": {
+        "used": 43236602,
+        "total": 88243982
+      },
+      "wasm": 300154880,
+      "timers": {
+        "RAF": 3,
+        "timeouts": 0,
+        "intervals": 1,
+        "unknownTimers": 0,
+        "timeoutDelays": []
+      },
+      "popups": 0,
+      "archives": 9
+    },
+    {
+      "i": 10,
+      "meanFrameMs": 17.418365253077972,
+      "worstFrameMs": 183.40000000002328,
+      "heavierThanFirst": true,
+      "samples": 2924,
+      "auditTraffic": {
+        "result": {
+          "reports": 3,
+          "auditCharsMax": 175412,
+          "auditCharsSum": 175412
+        },
+        "ready": {
+          "reports": 462,
+          "auditCharsMax": 0,
+          "auditCharsSum": 0
+        },
+        "flight": {
+          "reports": 789,
+          "auditCharsMax": 98436,
+          "auditCharsSum": 98436
+        }
+      },
+      "nativeBefore": {
+        "sceneCount": 2,
+        "liveObjects": 5723,
+        "meshes": 916,
+        "materials": 251,
+        "physicsMaterials": 9,
+        "rigidbodies": 48,
+        "colliders": 2381,
+        "visualProxies": 42,
+        "scaleRestores": 0,
+        "flashQueue": 0,
+        "eventWindow": 32,
+        "auditInputs": 259,
+        "auditTicks": 1115,
+        "drawing": {
+          "particles": 0,
+          "rings": 0,
+          "ghosts": 0,
+          "speedLines": 0,
+          "residue": 12,
+          "maxRemainingSeconds": 6.052001953125
+        },
+        "realtime": 335.0379943847656
+      },
+      "nativeAfter": {
+        "sceneCount": 2,
+        "liveObjects": 5715,
+        "meshes": 916,
+        "materials": 251,
+        "physicsMaterials": 9,
+        "rigidbodies": 43,
+        "colliders": 2372,
+        "visualProxies": 39,
+        "scaleRestores": 0,
+        "flashQueue": 0,
+        "eventWindow": 32,
+        "auditInputs": 259,
+        "auditTicks": 2511,
+        "drawing": {
+          "particles": 0,
+          "rings": 0,
+          "ghosts": 0,
+          "speedLines": 0,
+          "residue": 4,
+          "maxRemainingSeconds": 3.555999755859375
+        },
+        "realtime": 386.1969909667969
+      },
+      "jsHeap": {
+        "used": 32171320,
+        "total": 93961580
+      },
+      "wasm": 300154880,
+      "timers": {
+        "RAF": 3,
+        "timeouts": 0,
+        "intervals": 1,
+        "unknownTimers": 0,
+        "timeoutDelays": []
+      },
+      "popups": 0,
+      "archives": 10
+    }
+  ],
+  "explanation": "Strict raw mean OR worst > throw1; no tolerance or discarded later frames. Trajectories differ because normal recharge/input timing/phase is recorded, not fixed/replayed. Not a controlled identical-trajectory before-after performance claim."
+}

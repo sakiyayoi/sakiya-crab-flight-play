@@ -1,0 +1,6 @@
+{
+  "name": "RuntimeInspector.Runtime",
+  "references": [
+    "UnityEngine.UI"
+  ]
+}

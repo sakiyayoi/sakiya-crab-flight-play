@@ -1,0 +1,223 @@
+{
+  "revision": "city-density-r2",
+  "implemented": false,
+  "profile": "Dense",
+  "maximumSecondaryBreaksPerPrimary": 2,
+  "maximumPropagationDistanceM": 10,
+  "minimumSecondaryImpulseFractionSuggestion": 0.25,
+  "reuseGlobalPhysicsFragmentCap": 48,
+  "environmentShareCap": 20,
+  "hitStop": "Primary material impact only, group debounce85ms, global per-second cap120ms; no per-fragment stacking. Values are proposals for host tuning, not applied here.",
+  "links": [
+    {
+      "source": "contact-214-blade_sign",
+      "next": "contact-215-market_stall",
+      "separationM": 7,
+      "lightSecondaryCandidate": true,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-215-market_stall",
+      "next": "contact-216-street_awning",
+      "separationM": 8,
+      "lightSecondaryCandidate": true,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-216-street_awning",
+      "next": "contact-217-crate_stack",
+      "separationM": 7,
+      "lightSecondaryCandidate": true,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-217-crate_stack",
+      "next": "contact-218-delivery_van",
+      "separationM": 8,
+      "lightSecondaryCandidate": false,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-218-delivery_van",
+      "next": "contact-219-blade_sign",
+      "separationM": 7,
+      "lightSecondaryCandidate": true,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-219-blade_sign",
+      "next": "contact-220-steel_drum",
+      "separationM": 7,
+      "lightSecondaryCandidate": true,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-220-steel_drum",
+      "next": "contact-221-market_crate",
+      "separationM": 6,
+      "lightSecondaryCandidate": true,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-221-market_crate",
+      "next": "contact-222-market_stall",
+      "separationM": 7,
+      "lightSecondaryCandidate": true,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-222-market_stall",
+      "next": "contact-223-street_bench",
+      "separationM": 9,
+      "lightSecondaryCandidate": true,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-223-street_bench",
+      "next": "contact-224-hvac_unit",
+      "separationM": 9,
+      "lightSecondaryCandidate": false,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-224-hvac_unit",
+      "next": "contact-225-road_barrier",
+      "separationM": 9,
+      "lightSecondaryCandidate": true,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-225-road_barrier",
+      "next": "contact-226-junction_cabinet",
+      "separationM": 10,
+      "lightSecondaryCandidate": false,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-226-junction_cabinet",
+      "next": "contact-227-street_awning",
+      "separationM": 11,
+      "lightSecondaryCandidate": false,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-227-street_awning",
+      "next": "contact-228-delivery_van",
+      "separationM": 12,
+      "lightSecondaryCandidate": false,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-228-delivery_van",
+      "next": "contact-229-crate_stack",
+      "separationM": 13,
+      "lightSecondaryCandidate": false,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-230-blade_sign",
+      "next": "contact-231-market_stall",
+      "separationM": 7,
+      "lightSecondaryCandidate": true,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-231-market_stall",
+      "next": "contact-232-street_awning",
+      "separationM": 8,
+      "lightSecondaryCandidate": true,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-232-street_awning",
+      "next": "contact-233-crate_stack",
+      "separationM": 7,
+      "lightSecondaryCandidate": true,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-233-crate_stack",
+      "next": "contact-234-delivery_van",
+      "separationM": 8,
+      "lightSecondaryCandidate": false,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-234-delivery_van",
+      "next": "contact-235-blade_sign",
+      "separationM": 7,
+      "lightSecondaryCandidate": true,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-235-blade_sign",
+      "next": "contact-236-steel_drum",
+      "separationM": 7,
+      "lightSecondaryCandidate": true,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-236-steel_drum",
+      "next": "contact-237-market_crate",
+      "separationM": 6,
+      "lightSecondaryCandidate": true,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-237-market_crate",
+      "next": "contact-238-market_stall",
+      "separationM": 7,
+      "lightSecondaryCandidate": true,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-238-market_stall",
+      "next": "contact-239-street_bench",
+      "separationM": 9,
+      "lightSecondaryCandidate": true,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-239-street_bench",
+      "next": "contact-240-hvac_unit",
+      "separationM": 9,
+      "lightSecondaryCandidate": false,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-240-hvac_unit",
+      "next": "contact-241-road_barrier",
+      "separationM": 9,
+      "lightSecondaryCandidate": true,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-241-road_barrier",
+      "next": "contact-242-junction_cabinet",
+      "separationM": 10,
+      "lightSecondaryCandidate": false,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-242-junction_cabinet",
+      "next": "contact-243-street_awning",
+      "separationM": 11,
+      "lightSecondaryCandidate": false,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-243-street_awning",
+      "next": "contact-244-delivery_van",
+      "separationM": 12,
+      "lightSecondaryCandidate": false,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    },
+    {
+      "source": "contact-244-delivery_van",
+      "next": "contact-245-crate_stack",
+      "separationM": 13,
+      "lightSecondaryCandidate": false,
+      "condition": "Only an actual fragment contact above the destination threshold may propagate. Proximity alone never breaks it; no energy or acceleration bonus."
+    }
+  ]
+}

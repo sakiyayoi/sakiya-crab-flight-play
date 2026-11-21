@@ -1,0 +1,21 @@
+=== KANI GATE ===
+TARGET: PF01
+SCOPE-ITEMS: PF01
+RUN-AT: 2026-10-29 09:11 JST
+VERSION: kani-v0.7-retry-r32m
+ZIP: ../../../Users/konomichiharu/Documents/Codex/2026-10-21/task-4/flight-floor-first-r21/evidence/r32/CrabFlight-kani-v0.7-retry-r32m-WebGL.zip
+ZIP-SHA256: 1a83622598414620a2d43e1fd0479d7908cbd1fc4c09752c465e89a29c745a18
+ZIP-URL: (なし)
+GIT-COMMIT: 25dfd28ab3e92264ecac52d7b62948940c565225
+GIT-DIRTY: no
+| チェック | 中身 | 対応 | 結果 | くわしく |
+|---|---|---|---|---|
+| G-PLAN | PLAN.md の状態表が正しく、この項目が作業中 | 全部 | ◯ | ok |
+| G-GIT | コミット済み（作業中の変更が残っていない） | 全部 | ◯ | 25dfd28ab3e9 |
+| G-VER | VERSION に版名が 1 つ | M2 | ◯ | kani-v0.7-retry-r32m |
+| G-ZIP | ZIP があり、名前に版名、中に index.html | M2・M3 | ◯ | CrabFlight-kani-v0.7-retry-r32m-WebGL.zip（88 ファイル） |
+| G-LINK | ZIP のリンクが GitHub／Drive | M3 | ✕ | harness/evidence/links.json の "zip" が空 |
+| G-PERF10 | 同一版10連投、後続の平均・最悪が1投目を一度も超えない | 本人22:56・毎版 | ✕ | 投6が1投目より重い:平均18.02834224598931ms／最悪183.29999999998836ms；投10が1投目より重い:平均17.758890290037815ms／最悪166.70000000001164ms |
+CHECKS: 6 ran, 4 ◯, 2 ✕
+NOT-IN-SCOPE: G-SUITE-RAN, G-SUITE-PASS, G-40-LAUNCH, G-40-STOP, G-POWER, G-T-3RUNS, G-VIDEO-PLAY, G-T-START, G-T-ERR, G-T-BOOT15, G-VOICE, G-NOTICE, G-CR-VOICEPLAY, G-LICENSE, G-CREDITS, G-CR-SCREEN, G-README, G-F-HOOK, G-FEELJSON, G-F-DEF, G-F-MATCH, G-F-UI, G-S-FLASH, G-S-SHAKEOFF, G-S-REDUCED, G-F-OFF, G-FEEL-RECORD, G-F-FUTSUU, G-F-TS, G-F-M1, G-F-M2, G-F-M3, G-F-M4, G-F-M5, G-F-M6, G-F-M7, G-F-STRONGER, G-F-GLASS, G-F-REAL, G-FPS, G-VIDEO-CMP, G-M14-LOG, G-CHECKLIST
+GATE-RESULT: FAIL 2

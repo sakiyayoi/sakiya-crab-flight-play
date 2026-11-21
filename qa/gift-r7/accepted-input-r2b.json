@@ -1,0 +1,17 @@
+{
+  "source": "release",
+  "settingsJson": "{\"claw\":45.0,\"shell\":45.0,\"legs\":45.0,\"angle\":40.0,\"power\":70.0,\"upgradeLevel\":0,\"gear\":0}",
+  "bodyJson": "{\"bodyBits\":[864026624,1085670195,872415232,1015122580,1060513442,-1132361070,1060358686,1103483078,1101397159,0,0,1110845800,-1021566083,1084898672],\"inertiaBits\":[-1115539658,1060704794,-1087229603,1034659749,1034659749,1034659749,0,0,0,1065353216],\"shapeBits\":[],\"shapeSHA256\":\"b43e922b79162f98406a759d7920356640851eabeac888ff5fdbe897e956b344\",\"fragments\":0,\"cityFragments\":0,\"breaks\":0,\"shapeIDs\":[\"carapace\",\"claw_L\",\"claw_L\",\"claw_R\",\"claw_R\",\"leg_L_0\",\"leg_L_1\",\"leg_L_2\",\"leg_L_3\",\"leg_R_0\",\"leg_R_1\",\"leg_R_2\",\"leg_R_3\"]}",
+  "angle": 40,
+  "targetPower": 70,
+  "power": 70,
+  "spin": 25.885662078857422,
+  "charge": 0.8520944118499756,
+  "phase": 2.669647216796875,
+  "direction": 1,
+  "upgrade": 0,
+  "serial": 1,
+  "reduced": false,
+  "jointBits": [],
+  "jointSHA256": "dd260cb18afa4d2cc9866683245b8e2a1533167517f4d6ee680df802e7d29d24"
+}
