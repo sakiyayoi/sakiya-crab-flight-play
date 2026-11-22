@@ -318,3 +318,9 @@ R18 timing continuation 2026-11-04: 私的な診断WebGL c86cec4をビルド成�
 | stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
 |---|---|---|---|---|---|---|
 | blender-pilot | モール x=28〜135 の22家族74個をBlender製へ差替え | Codex（単独書込） | placement-fix 5b3e627、判別監査・世界brief | 全家族blend/FBX/コンタクトシート、Native照準/飛行、seed42043 accepted-inputで2500m/96以上、従来物理署名一致、配置/他区画/UI不変、Playwright、commit | 指定なし | 22家族74配置の実装・Native確認済み。3220.0815m/145粉砕、基準と軌跡/破壊イベント/1407物理署名一致、他1333描画署名一致。Playwright4PASS/0FAIL。既存FlightField.unityを保護。通常ブラウザ操作・game-playtestはNOT_RUN（現catalog未接続）、ゲーム全体の完成判定なし |
+
+## Blender全区間展開（2026-11-23 本人直接指示）
+
+| stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
+|---|---|---|---|---|---|---|
+| blender-rollout | 全区画・両方向の有効家族をBlenderへ展開 | Codex（単独書込） | blender-pilot f3911b0・現行実体棚卸し | 区画別未モデル0、同入力route/events完全一致、全City物理署名一致、blend/FBX/画像、Playwright、報告とcommit | 指定なし | City実効41家族1407件（新規19家族）を9区画・両方向へ実装し区分別未モデル0。seed42043は3220.08154296875m/145粉砕/3668ticks、pilotとのroute/events全文・1407物理署名一致。Playwright6PASS/0FAIL。19blend/FBX・9区画コンタクトシート・Native18区分を保存。別系統40+34件は未変更、通常操作/game-playtestはNOT_RUN。既存Scene差分保護、報告・commitを保存する |

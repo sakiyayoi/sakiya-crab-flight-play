@@ -1,0 +1,340 @@
+{
+  "blender": "4.2.23 LTS",
+  "models": [
+    {
+      "family": "cargo_container_neon6",
+      "triangles": 480,
+      "vertices": 1440,
+      "parts": 3,
+      "dimensions": [
+        2.9,
+        1.9,
+        1.745
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/../evidence/blender-rollout/fbx-staging/cargo_container_neon6.fbx",
+      "features": "波板の縦リブ、両開き扉、扉線、ロック棒と取っ手、角金具",
+      "installedFBX": "games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/cargo_container_neon6.fbx",
+      "installedSha256": "bcc30ca9fa20754544e056e290311503b6069388ad92c38ea7b321a8f23d0a75"
+    },
+    {
+      "family": "crate_stack",
+      "triangles": 972,
+      "vertices": 2916,
+      "parts": 3,
+      "dimensions": [
+        2.3499999999999996,
+        2.47,
+        1.532
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/../evidence/blender-rollout/fbx-staging/crate_stack.fbx",
+      "features": "独立した木箱3個、板の隙間、斜め補強、上下の積み重なり",
+      "installedFBX": "games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/crate_stack.fbx",
+      "installedSha256": "b2cf950aa1491f38c725bd23fb3de7a05b4ed9907d3b8549e965b6850482aaff"
+    },
+    {
+      "family": "dish_antenna_neon6",
+      "triangles": 1096,
+      "vertices": 3288,
+      "parts": 3,
+      "dimensions": [
+        2.3,
+        3.15,
+        1.9500000000000002
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/../evidence/blender-rollout/fbx-staging/dish_antenna_neon6.fbx",
+      "features": "本物の凹面のお椀、縁、中心受信棒と受信部、傾斜ヒンジ",
+      "installedFBX": "games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/dish_antenna_neon6.fbx",
+      "installedSha256": "16acd72502fcfe59ede500db90f3c47e4c900fb5661ccc790d737c6b8b9fe9d8"
+    },
+    {
+      "family": "farm_fence_neon6",
+      "triangles": 72,
+      "vertices": 216,
+      "parts": 3,
+      "dimensions": [
+        2.6,
+        1.6,
+        0.28
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/../evidence/blender-rollout/fbx-staging/farm_fence_neon6.fbx",
+      "features": "尖った支柱、横木2段、斜めの木の補強",
+      "installedFBX": "games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/farm_fence_neon6.fbx",
+      "installedSha256": "47066e40811bf96ccf0ddd8d51a7d59edf98aa394ecb0e156f4445cdda35acc8"
+    },
+    {
+      "family": "flywheel_accumulator_r12",
+      "triangles": 4084,
+      "vertices": 12252,
+      "parts": 4,
+      "dimensions": [
+        1.72,
+        2.975,
+        1.73
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/../evidence/blender-rollout/fbx-staging/flywheel_accumulator_r12.fbx",
+      "features": "開いた軸穴、スポーク付き重い輪、巻きばね、軸受支柱（蓄力機の家族意味を保持）",
+      "installedFBX": "games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/flywheel_accumulator_r12.fbx",
+      "installedSha256": "f59ad488cd29fc909cd2844b02ab37da73816471167ecdbf589246f9c08e3bdb"
+    },
+    {
+      "family": "harbor_buoy_neon6",
+      "triangles": 1242,
+      "vertices": 3726,
+      "parts": 3,
+      "dimensions": [
+        1.7,
+        2.585,
+        1.616796
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/../evidence/blender-rollout/fbx-staging/harbor_buoy_neon6.fbx",
+      "features": "浮体、錆朱と白の横縞、上部の小ライトとケージ、係留環",
+      "installedFBX": "games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/harbor_buoy_neon6.fbx",
+      "installedSha256": "a55e38252b717aee710f63d311bb1ae94e603aab561460e839c3562b50bc20c9"
+    },
+    {
+      "family": "hay_roll_neon6",
+      "triangles": 4044,
+      "vertices": 12132,
+      "parts": 3,
+      "dimensions": [
+        1.8,
+        1.8,
+        1.395
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/../evidence/blender-rollout/fbx-staging/hay_roll_neon6.fbx",
+      "features": "両端面の太い渦巻き、黄土の藁色、結束バンド2本、藁の筋",
+      "installedFBX": "games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/hay_roll_neon6.fbx",
+      "installedSha256": "0f794401194cb4c4ccf23579d945b559e288b7628eea0b1fb1a6f77181c5c8af"
+    },
+    {
+      "family": "irrigation_tank_r12",
+      "triangles": 1592,
+      "vertices": 4776,
+      "parts": 4,
+      "dimensions": [
+        3.52,
+        3.925,
+        2.84
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/../evidence/blender-rollout/fbx-staging/irrigation_tank_r12.fbx",
+      "features": "給水口、給水タンクのドーム、ポンプ、垂れたホース、水位計",
+      "installedFBX": "games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/irrigation_tank_r12.fbx",
+      "installedSha256": "03ea88d8332de947f66ea469f271176c818946248e982449f9c56a65d3b56462"
+    },
+    {
+      "family": "market_stall",
+      "triangles": 1508,
+      "vertices": 4524,
+      "parts": 6,
+      "dimensions": [
+        3.62,
+        4.11,
+        2.2275
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/../evidence/blender-rollout/fbx-staging/market_stall.fbx",
+      "features": "縞の日除け、柱、商品トレイ、カウンター（pilotと共通）",
+      "installedFBX": "games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/market_stall.fbx",
+      "installedSha256": "e8fcd4f8d8bb24d8e3890ad8b1ae3ed4a0d123fce2e88b1af8920070388d51aa"
+    },
+    {
+      "family": "oxygen_tank_neon6",
+      "triangles": 2388,
+      "vertices": 7164,
+      "parts": 3,
+      "dimensions": [
+        1.5,
+        2.175,
+        0.8
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/../evidence/blender-rollout/fbx-staging/oxygen_tank_neon6.fbx",
+      "features": "2本の肩付きボンベ、細い首、手回しバルブ、固定帯、O表示",
+      "installedFBX": "games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/oxygen_tank_neon6.fbx",
+      "installedSha256": "089021e696eaa47c4dac49ac13b2ebdda9c1bc45f162812e58311bfa1ff428e5"
+    },
+    {
+      "family": "port_lattice_loader_r10",
+      "triangles": 552,
+      "vertices": 1656,
+      "parts": 6,
+      "dimensions": [
+        6.5,
+        6.165,
+        0.9874999999999999
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/../evidence/blender-rollout/fbx-staging/port_lattice_loader_r10.fbx",
+      "features": "トラスの門形クレーン、斜材、巻上げ台車、ケーブルとフック",
+      "installedFBX": "games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/port_lattice_loader_r10.fbx",
+      "installedSha256": "58c56c59159dc4abf86edb6d9591d27039837a9e73c3346730b4c52b14c159dd"
+    },
+    {
+      "family": "propellant_tank_neon6",
+      "triangles": 1464,
+      "vertices": 4392,
+      "parts": 3,
+      "dimensions": [
+        1.45,
+        2.8,
+        1.45
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/../evidence/blender-rollout/fbx-staging/propellant_tank_neon6.fbx",
+      "features": "丸い肩、手回しバルブ、圧力計、黄と藍の警告帯",
+      "installedFBX": "games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/propellant_tank_neon6.fbx",
+      "installedSha256": "258fe173b0a13d99a69fcdbd285a5955c72209c0e8f9f3fdfb25e1757cc92da1"
+    },
+    {
+      "family": "rail_glass_planter_display_r10",
+      "triangles": 7224,
+      "vertices": 21672,
+      "parts": 6,
+      "dimensions": [
+        3.82,
+        2.93,
+        1.42
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/../evidence/blender-rollout/fbx-staging/rail_glass_planter_display_r10.fbx",
+      "features": "ガラス枠、斜めの反射線、鉢、土、大きな葉、2段棚",
+      "installedFBX": "games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/rail_glass_planter_display_r10.fbx",
+      "installedSha256": "bcbb35a692381b09b86738166ed2d4a362bf4a519a090af8b14e49b2ec44bbf6"
+    },
+    {
+      "family": "road_sign_neon6",
+      "triangles": 85,
+      "vertices": 255,
+      "parts": 3,
+      "dimensions": [
+        2.4,
+        3.325,
+        0.6
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/../evidence/blender-rollout/fbx-staging/road_sign_neon6.fbx",
+      "features": "道路標識の枠と支柱、意味のある大きな方向矢印1個",
+      "installedFBX": "games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/road_sign_neon6.fbx",
+      "installedSha256": "b36a4c45e77e87935133b6a6c31dc33774300faaf3710bbc8efb9e328c4acd2a"
+    },
+    {
+      "family": "traffic_signal_neon6",
+      "triangles": 1012,
+      "vertices": 3036,
+      "parts": 3,
+      "dimensions": [
+        0.85,
+        3.625,
+        0.895
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/../evidence/blender-rollout/fbx-staging/traffic_signal_neon6.fbx",
+      "features": "3色の丸い灯器、各灯の庇、縦長の筐体と支柱",
+      "installedFBX": "games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/traffic_signal_neon6.fbx",
+      "installedSha256": "0e465c9775cd8cb726a5f8715db422e1853b3bbf6e921b62644e00771194305d"
+    },
+    {
+      "family": "delivery_van",
+      "triangles": 1708,
+      "vertices": 5124,
+      "parts": 9,
+      "dimensions": [
+        5.65,
+        2.7150000000000003,
+        3.008
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/delivery_van.fbx",
+      "features": "荷室と運転席、窓、4輪、ドア取手、カップ印（pilotと共通）",
+      "installedFBX": "games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/delivery_van.fbx",
+      "installedSha256": "0da06d4ce5d4b4d39cb49aad1301d887f6f53e0a20b947fe4ef95ecb695323cd"
+    },
+    {
+      "family": "junction_cabinet",
+      "triangles": 350,
+      "vertices": 1050,
+      "parts": 5,
+      "dimensions": [
+        1.65,
+        2.51,
+        1.1
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/junction_cabinet.fbx",
+      "features": "扉とヒンジ、通気口、取手、稲妻入り電気警告表示",
+      "installedFBX": "games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/junction_cabinet.fbx",
+      "installedSha256": "0d366eb593beb8df9c293f3ac876e19b7a73b4ad73e79dc8dd85ebe22d2040a4"
+    },
+    {
+      "family": "satellite_neon6",
+      "triangles": 2508,
+      "vertices": 7524,
+      "parts": 3,
+      "dimensions": [
+        3.85,
+        2.0250000000000004,
+        0.9
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/satellite_neon6.fbx",
+      "features": "金色の機器本体、両翼の太陽電池格子、通信アンテナ",
+      "installedFBX": "games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/satellite_neon6.fbx",
+      "installedSha256": "874a1ff5619d71f224e180a98d8133d2b1d4f27d82f15246d912fa20fd78528c"
+    },
+    {
+      "family": "solar_array_r12",
+      "triangles": 2232,
+      "vertices": 6696,
+      "parts": 4,
+      "dimensions": [
+        7.7,
+        6.0,
+        1.4
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/solar_array_r12.fbx",
+      "features": "支柱、左右のパネル、太陽電池セルと導体線",
+      "installedFBX": "games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/solar_array_r12.fbx",
+      "installedSha256": "87cf46a2f56de451bc079171f8be136366adf8f51b35d42d6e17d4e960306f27"
+    }
+  ],
+  "palette": {
+    "ink": "173942",
+    "navy": "2A1650",
+    "cream": "FAE6B5",
+    "mint": "66C4A3",
+    "gold": "FABA29",
+    "wood": "955C36",
+    "glass": "60959E",
+    "white": "FFF8E3",
+    "straw": "D6B568",
+    "rust": "C66B4E"
+  }
+}

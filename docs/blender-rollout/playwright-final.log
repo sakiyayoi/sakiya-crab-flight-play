@@ -1,0 +1,14 @@
+
+Running 6 tests using 1 worker
+
+(node:70777) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 qa/blender-rollout/rollout.spec.cjs:8:1 › same pilot replay: exact distance, all route bytes, break events, result and retry (102ms)
+  ✓  2 qa/blender-rollout/rollout.spec.cjs:15:1 › every actual registered City target retains physics and gains exactly one Blender intact renderer (7.3s)
+  ✓  3 qa/blender-rollout/rollout.spec.cjs:25:1 › all sectors and directions have zero unmodelled effective families, counted from current entities (2.9s)
+  ✓  4 qa/blender-rollout/rollout.spec.cjs:34:1 › all family FBX metre dimensions, bottom centre origins, legacy shard IDs and blend sources (202ms)
+
+  ✓  5 qa/blender-rollout/rollout.spec.cjs:41:1 › protected placement, physics, feel, UI, scene and original pilot models remain byte-identical (55.0s)
+  ✓  6 qa/blender-rollout/rollout.spec.cjs:48:1 › native sector screenshots cover both directions; Blender sheets and real replay portraits exist (266ms)
+
+  6 passed (1.1m)

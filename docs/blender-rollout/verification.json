@@ -1,0 +1,50 @@
+{
+  "baseCommit": "f3911b0473d84b7aece4f08c493c3dcd170abb11",
+  "candidate": "native-final02",
+  "sourceContentManifestSha256": "57b078b0c78c1f5af3a287baf82d613b59eb52d0b057325262fae7303560f543",
+  "sceneSha256": "058be0b3456083199edfc5b9650b233cbb63209249d00f4c1a764443c68fb5bb",
+  "acceptedInputSha256": "c952b51c82b3ceb7838471da2d5f2bc93f4aa007f1e8cc560c046bf1036b4125",
+  "seed": 42043,
+  "distance": 3220.08154296875,
+  "breaks": 145,
+  "ticks": 3668,
+  "totalRegistered": 1481,
+  "legacyCityAggregateIncludingLifeContacts": 1441,
+  "actualCityModels": 1407,
+  "familyCount": 41,
+  "newFamilyCount": 19,
+  "newFamilyInstances": 624,
+  "unmodelledCityFamilies": [],
+  "physicsMismatchIds": [],
+  "placementMismatchIds": [],
+  "invalidBlenderInstanceIds": [],
+  "originalPilotAppearanceMismatchIds": [],
+  "routeSha256": "797e6958bca944205255cc15675eee82a8895944b7e66bd54e17941656dc1892",
+  "routeBytesEqual": true,
+  "breakEventsSha256": "a86c7bbc8086731ae5ee2dc85bfb07af1919b36a4378b2d4dedb28bf0bd896ae",
+  "breakEventsBytesEqual": true,
+  "playwright": {
+    "startTime": "2026-11-22T18:10:40.137Z",
+    "duration": 67040.799,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "unchangedProtectedFiles": 356,
+  "outOfMechanism": {
+    "restaurantCoreOverdrive": 40,
+    "lifeContactsPeople": 22,
+    "lifeContactsBirds": 12
+  },
+  "notRun": [
+    "normal browser swipe/tap",
+    "Game Studio game-playtest (not connected in current catalog)",
+    "new WebGL distribution",
+    "physical iPhone",
+    "listening",
+    "measured FPS",
+    "40 weak/strong throws (no physics changes)"
+  ],
+  "existingUnityEditModeDestroyDiagnostics": 76
+}
