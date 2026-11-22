@@ -21,6 +21,7 @@ using UnityEngine;
  public NeonSignSector[] signSectors;
 }
 public sealed partial class CrabFlightGame {
+ bool portAtmosphereBuilt;
  NeonSectorArt neonSectorArt;
  NeonCrabVisual neonCrab;NeonSectionArt neonSection;NeonBackdropDarken neonBackdrop;NeonSpinVortex neonVortex;int neonGeneration=-1,neonEvent;
  void AttachNeon(){
@@ -30,6 +31,7 @@ public sealed partial class CrabFlightGame {
   if(neonSection==null)neonSection=new NeonSectionArt(transform,cam);
   if(neonSectorArt==null)neonSectorArt=NeonSectorArt.Build(transform);
   if(neonBackdrop==null&&NeonBackdropDarken.Ready(transform))neonBackdrop=new NeonBackdropDarken(transform);
+  if(!portAtmosphereBuilt){PortAtmosphere.Build(transform);portAtmosphereBuilt=true;}
   neonCrab=new NeonCrabVisual(crab,transform,cam);neonVortex=new NeonSpinVortex(transform,crab.Root,cam);neonGeneration=-1;neonEvent=0;
  }
  void TickNeon(float dt){

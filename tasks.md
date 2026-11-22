@@ -330,3 +330,9 @@ R18 timing continuation 2026-11-04: 私的な診断WebGL c86cec4をビルド成�
 | stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
 |---|---|---|---|---|---|---|
 | blender-panels | Restaurant/Core/Overdriveの実体を棚卸しし全破壊対象の外観をBlender化 | Codex（単独書込） | blender-rollout 8fb3d25、現行実体 | 同入力route/events完全一致、全City物理署名一致、系統別未モデル0、Native画像、Playwright、報告・commit | 指定なし | 実装・保存済み、Native必須検証BLOCKED（Unity license、起動exit198）。ソース20+16+4=40、19無傷+6破片モデル、25原稿読戻しPASS、C# errors0、Playwright2PASS/0FAIL/6SKIP。Native登録/物理署名/同入力/画像/残数0は未確認。Scene既存差分保護。正規ライセンス復旧後README-panels手順で再開 |
+
+## 港区画プロトタイプ（2026-11-23 本人直接指示）
+
+| stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
+|---|---|---|---|---|---|---|
+| port-prototype | +x港の8ビート再配置・役・C1〜C8カメラ・視覚v2 | Codex（単独書込） | blender-panels 539acb1、briefs全5点 | 全登録数/他区画/Scene保護、接地・密度・高度・量子化監査、C#型検査、UnityなしPlaywright、報告・commit | 指定なし | 実装・オフライン検証済み。港145→145/世界1481、接地0、CV0.565054、顔39.3103%/相方20%/高度24.8276%、他区画・−x配置/Scene不変。C# errors0/warnings18、純粋計算30PASS、Playwright9PASS/0FAIL/4SKIP。Unity依存の映像/固定入力/WebGL/game-playtestは本人指示でライセンス待ち。報告はdocs/port-prototypeと親フォルダ。作品合格/採用/公開ではない |

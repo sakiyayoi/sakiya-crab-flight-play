@@ -10,6 +10,8 @@ public sealed partial class CrabFlightGame {
 #if UNITY_EDITOR
   if(!ReviewFlightCameraR19Enabled)return;
 #endif
+  if(!cameraFollowingR29)steadyFlightSpeedR3=Mathf.Abs(simulation.Body.linearVelocity.x);
+  if(FramePortCamera(ref size,ref lead,ref centerY))return;
   float aspect=Mathf.Max(.3f,cam.aspect),narrow=Mathf.InverseLerp(1.4f,.55f,aspect);
   // Launch calls UpdateCamera before the first simulation step updates Vx.
   // Read the already-launched body once, preserving the calm constant zoom.
@@ -25,6 +27,7 @@ public sealed partial class CrabFlightGame {
   centerY=Mathf.Lerp(centerY,framedY,enter);
  }
  void FollowFlightCameraR29(Vector3 target,float size,float dt,bool snap){
+  if(FollowPortCamera(target,size,dt,snap))return;
   float f=snap?1:1-Mathf.Exp(-dt*3),zoom=snap?1:1-Mathf.Exp(-dt*2.5f);
   cam.orthographicSize=Mathf.Lerp(cam.orthographicSize,size,zoom);
   if(phase=="flight"){

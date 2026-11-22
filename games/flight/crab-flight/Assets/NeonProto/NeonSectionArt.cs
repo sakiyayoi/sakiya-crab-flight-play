@@ -33,6 +33,7 @@ public sealed class NeonSectionArt {
      signs[index].transform.localPosition=NeonPlacementSupports.Vector(sign.p);
      signs[index].transform.localScale=NeonPlacementSupports.Vector(sign.size);
     }
+    if(PortLayout.Enabled&&(sector.id=="port"||sector.id=="tank"))signs[index].enabled=false;
     irregular[index]=j==(mall?5:counts[s]/2);
    }
   }

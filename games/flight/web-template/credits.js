@@ -9,6 +9,7 @@
   '声ファイルはゲームコード・自作素材のライセンスの対象外です。ずんだもん音源利用ガイドラインとVOICEVOXソフトウェア利用規約に従います。詳しくは同梱のvoice/NOTICE.mdをご覧ください。',
   '効果音：本案件のCrab Kitchen sound pack r1（数式・固定seedによる合成、Python/NumPy・Web Audio・FFmpeg）。',
   '3D・エフェクト：本案件で制作したモデルとコード（Unity・Blender・C#・Python）。全素材の作者と道具の一覧はCREDITS.mdをご覧ください。',
+  '書体：M PLUS Rounded 1c（M+ FONTS PROJECT / SIL Open Font License 1.1）。原文は fonts/OFL-MPLUSRounded1c.txt。',
   '第三者3D：Kenney「Food Kit 2.0」（CC0、料理・皿）／methodical pixel「Crab low poly animated 3d model」（CC0、比較用データ）。',
   '第三者コード：RuntimeInspector（Süleyman Yasir KULA / MIT）、ColorWheel（Felix Kate / BSD 3-Clause）。原文のNOTICEをlicenses/へ同梱。'
  ];

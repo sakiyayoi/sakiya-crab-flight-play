@@ -51,12 +51,18 @@ public sealed partial class CrabFlightGame {
    Vector3 center=crab.Root.position+new Vector3(towardBreak,size*(portrait?.22f:.12f),0);
    center.z=0;
    float reveal=snap?1:Mathf.SmoothStep(0,1,Mathf.InverseLerp(.22f,1.22f,resultAge));
+   if(usePortCamera){
+    float last=direction*resultOverview.lastBreak;
+    float left=Mathf.Min(crab.Root.position.x,last),right=Mathf.Max(crab.Root.position.x,last);
+    if(resultOverview.broken>0){center.x=(left+right)*.5f;size=Mathf.Max(size,(right-left+8)/(2*Mathf.Max(.3f,cam.aspect)));}
+    size=Mathf.Max(size,resultStartSize*1.08f);reveal=snap?1:Mathf.SmoothStep(0,1,resultAge/.8f);
+   }
    Vector3 target=center+new Vector3(0,5.3f,-16);
    float bottom=target.y-size*cam.transform.up.y;target-=cam.transform.forward*Mathf.Max(0,(.5f-bottom)/-cam.transform.forward.y);
    cam.transform.position=Vector3.Lerp(resultStartCamera,target,reveal);
    cam.orthographicSize=Mathf.Lerp(resultStartSize,size,reveal);
   }
-  resultOverview.stage=hold?"stop":resultAge<1.22f?"pullback":"overview";
+  resultOverview.stage=hold?"stop":resultAge<(usePortCamera?.8f:1.22f)?"pullback":"overview";
   // The inset is the current rendered X interval, in the same metres as the strip.
   float a=direction*(cam.transform.position.x-cam.orthographicSize*cam.aspect);
   float b=direction*(cam.transform.position.x+cam.orthographicSize*cam.aspect);

@@ -37,7 +37,8 @@ public sealed class NeonSpinVortex {
  }
  public void Reset(){Audit=new NeonSparkAudit();Active=false;Strength=0;Sparks=0;emission=0;serial=0;Root.gameObject.SetActive(false);for(int i=0;i<SparkLimit;i++){lifetimes[i]=0;sparks[i].enabled=false;}}
  public void Sample(float dt,string phase,float spinRps,float angle,bool reduced,bool effects,bool aimingOrCharging=false){
-  bool show=NeonProto.SpinGate(phase,spinRps,reduced,effects,aimingOrCharging);
+  bool portVisual=PortLayout.Enabled&&(phase=="ready"||phase=="charge"||aimingOrCharging||PortLayout.InPort(source.position.x));
+  bool show=!portVisual&&NeonProto.SpinGate(phase,spinRps,reduced,effects,aimingOrCharging);
   if(!show){if(Active)Reset();return;}
   Active=true;Root.gameObject.SetActive(true);Strength=Mathf.Clamp01(Mathf.Abs(spinRps)/28);
   dt=Mathf.Clamp(dt,0,.08f);float sense=Mathf.Sign(spinRps);

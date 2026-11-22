@@ -127,7 +127,7 @@ window.receiveFlightState=s=>{
 
  if(s.throwAudit&&s.throwAudit!==savedThrowAuditR21){savedThrowAuditR21=s.throwAudit;const entry=JSON.parse(s.throwAudit);auditStoreR21.then(db=>{const tx=db.transaction('throws','readwrite');tx.objectStore('throws').put(entry);tx.onerror=()=>{document.body.dataset.throwReceipt='storage-error';};tx.oncomplete=()=>{document.body.dataset.throwReceipt=entry.status;};},()=>{document.body.dataset.throwReceipt='storage-unavailable';});}
 
- if(window.FlightFeel)window.FlightFeel.update(s);if(window.FlightCues)window.FlightCues.update(s);
+ if(window.FlightFeel)window.FlightFeel.update(s);if(window.PortPresentation)window.PortPresentation.update(s);if(window.FlightCues)window.FlightCues.update(s);
  if(window.FlightResult)window.FlightResult.update(s);
  if(window.FlightSound.update)window.FlightSound.update(s);
  lastState=s;runtimeReady=s.runtimeReady===true;document.body.dataset.runtimeReady=String(runtimeReady);$('start').disabled=!loaded||!runtimeReady;

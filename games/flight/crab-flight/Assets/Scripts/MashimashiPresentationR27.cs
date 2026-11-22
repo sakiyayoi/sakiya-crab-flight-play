@@ -5,7 +5,7 @@ public sealed partial class MashimashiPresentationR27:MonoBehaviour {
  readonly List<Mark> marks=new List<Mark>();readonly List<Vector3> vertices=new List<Vector3>();readonly List<Color> colors=new List<Color>();readonly List<int> triangles=new List<int>();Mesh mesh;Material ink;FeelConfig cfg;bool flash;Color flashColor;Vector3 flashPosition;Vector3 rotorPosition;float rotorAngle,rotorStrength;bool rotor;
  public int Active=>marks.Count;
  public bool RotorVisible=>rotor;
- public FeelResourcesR32 ReadResources(float now){var r=new FeelResourcesR32();foreach(var m in marks){if(m.kind==0)r.particles++;else if(m.kind==1)r.rings++;else if(m.kind==2)r.ghosts++;else if(m.kind==3)r.speedLines++;else if(m.kind==4)r.residue++;r.maxRemainingSeconds=Mathf.Max(r.maxRemainingSeconds,m.life-(now-m.born));}return r;}
+ public FeelResourcesR32 ReadResources(float now){var r=new FeelResourcesR32();foreach(var m in marks){if(m.kind==0||m.kind==5||m.kind==6)r.particles++;else if(m.kind==1)r.rings++;else if(m.kind==2)r.ghosts++;else if(m.kind==3)r.speedLines++;else if(m.kind==4)r.residue++;r.maxRemainingSeconds=Mathf.Max(r.maxRemainingSeconds,m.life-(now-m.born));}return r;}
  public void Initialize(Shader shader,FeelConfig config){cfg=config;mesh=new Mesh{name="Crab r28 comic impact mesh"};mesh.indexFormat=IndexFormat.UInt32;mesh.MarkDynamic();ink=new Material(shader);ink.renderQueue=3050;gameObject.AddComponent<MeshFilter>().sharedMesh=mesh;gameObject.AddComponent<MeshRenderer>().sharedMaterial=ink;GetComponent<MeshRenderer>().shadowCastingMode=ShadowCastingMode.Off;}
  public void Clear(){marks.Clear();rotor=flash=false;if(mesh)mesh.Clear();}
  int MaterialID(string kind)=>kind=="glass"?1:kind=="metal"?2:kind=="wood"?3:kind=="dust"?4:kind=="water"||kind=="bubble"?5:kind=="confetti"?6:kind=="food"?8:kind=="star"?9:7;
@@ -36,7 +36,8 @@ public sealed partial class MashimashiPresentationR27:MonoBehaviour {
   for(int i=marks.Count-1;i>=0;i--){var m=marks[i];float age=now-m.born;if(age>m.life){marks.RemoveAt(i);continue;}float t=Mathf.Clamp01(age/m.life);var p=m.p+m.v*age+front;if(m.kind==0)p-=v*(m.material==4?.2f:4.8f)*age*age;var c=m.color;c.a*=Mathf.Pow(1-t,.7f);
    if(m.kind==1){float radius=m.size*(.22f+t*.85f);if(t<.52f&&!NeonSkipImpactFans){Color dark=new Color(.055f,.12f,.13f,c.a*.78f);Fan(p,u,v,radius*.82f,9,.4f,dark,m.angle);Fan(p,u,v,radius*.65f,9,.35f,c,m.angle);}for(int k=0;k<3;k++)Arc(p,u,v,radius,.08f*(1-t)+.02f,m.angle+k*2.094f,1.35f,c);}
    else if(m.kind==2){if(!NeonSkipGhosts)CrabShadow(p,u,v,m.size,m.angle,c);}
-   else if(m.kind==3){Tri(p-u*m.size,p+u*m.size,p+u*m.size*.15f+v*.045f,c);}
+   else if(m.kind==3){if(PortLayout.InPort(m.p.x)){c=new Color(1,1,1,c.a*.28f);Quad(p,u*m.size,v*.10f,c);Fan(p-u*m.size,u,v,.10f,10,.98f,c);Fan(p+u*m.size,u,v,.10f,10,.98f,c);}else Tri(p-u*m.size,p+u*m.size,p+u*m.size*.15f+v*.045f,c);}
+   else if(m.kind==5||m.kind==6)PortPuff(p,u,v,m,c,t);
    else if(!(NeonSkipBubbles&&m.material==5))Shard(p,u,v,m,c,t);
   }
   if(rotor){var p=rotorPosition+front;var c=new Color(.2f,.85f,.94f,.24f+rotorStrength*.1f);for(int i=0;i<3;i++)Arc(p,u,v,1.5f+i*.12f,.04f+i*.008f,rotorAngle+i*2.094f,1.25f,c);}

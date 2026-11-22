@@ -1,0 +1,18 @@
+Assets/Scripts/CrabModelR3.cs(42,2): warning CS0162: Unreachable code detected
+Assets/Scripts/CrabModelR3.cs(48,77): warning CS0162: Unreachable code detected
+Assets/Scripts/CrabModelR3.cs(51,570): warning CS0162: Unreachable code detected
+Assets/Scripts/CrabModelR3.cs(67,23): warning CS0162: Unreachable code detected
+Assets/Scripts/City2Contacts.cs(36,36): warning CS0618: 'ContactPair.colliderInstanceID' is obsolete: 'colliderInstanceID is deprecated, use colliderEntityId instead.'
+Assets/Scripts/City2Contacts.cs(36,78): warning CS0618: 'ContactPair.otherColliderInstanceID' is obsolete: 'otherColliderInstanceID is deprecated, use otherColliderEntityId instead.'
+Assets/Scripts/City2Contacts.cs(36,144): warning CS0618: 'ContactPair.otherColliderInstanceID' is obsolete: 'otherColliderInstanceID is deprecated, use otherColliderEntityId instead.'
+Assets/Scripts/City2Contacts.cs(36,191): warning CS0618: 'ContactPair.colliderInstanceID' is obsolete: 'colliderInstanceID is deprecated, use colliderEntityId instead.'
+Assets/Scripts/RigidCrabFlight.cs(86,242): warning CS0618: 'ContactPair.colliderInstanceID' is obsolete: 'colliderInstanceID is deprecated, use colliderEntityId instead.'
+Assets/Scripts/RigidCrabFlight.cs(86,266): warning CS0618: 'ContactPair.otherColliderInstanceID' is obsolete: 'otherColliderInstanceID is deprecated, use otherColliderEntityId instead.'
+Assets/Scripts/RigidCrabFlight.cs(88,57): warning CS0618: 'ContactPairHeader.bodyInstanceID' is obsolete: 'bodyInstanceID is deprecated, use bodyEntityId instead.'
+Assets/Scripts/RigidCrabFlight.cs(88,97): warning CS0618: 'ContactPairHeader.otherBodyInstanceID' is obsolete: 'otherBodyInstanceID is deprecated, use otherBodyEntityId instead.'
+Assets/Scripts/RigidCrabFlight.cs(89,148): warning CS0618: 'ContactPair.colliderInstanceID' is obsolete: 'colliderInstanceID is deprecated, use colliderEntityId instead.'
+Assets/Scripts/RigidCrabFlight.cs(89,215): warning CS0618: 'ContactPair.otherColliderInstanceID' is obsolete: 'otherColliderInstanceID is deprecated, use otherColliderEntityId instead.'
+Assets/Scripts/RigidCrabFlight.cs(90,24): warning CS0618: 'ContactPair.otherColliderInstanceID' is obsolete: 'otherColliderInstanceID is deprecated, use otherColliderEntityId instead.'
+Assets/Scripts/RigidCrabFlight.cs(90,53): warning CS0618: 'ContactPair.colliderInstanceID' is obsolete: 'colliderInstanceID is deprecated, use colliderEntityId instead.'
+Assets/Scripts/FeelDirectorR27.cs(10,308): warning CS0414: The field 'CrabFlightGame.feelNextLineR27' is assigned but its value is never used
+Assets/Scripts/ThrowAuditR21.cs(12,153): warning CS0414: The field 'CrabFlightGame.auditReportDirtyR32' is assigned but its value is never used

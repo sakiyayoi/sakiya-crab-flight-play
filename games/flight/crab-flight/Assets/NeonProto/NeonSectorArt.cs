@@ -30,6 +30,7 @@ public sealed class NeonSectorArt:MonoBehaviour {
   for(int i=0;i<5;i++){
    var info=new NeonSectorArtInfo{id=ids[i],motif=motifs[i],start=starts[i],end=ends[i]};Sectors.Add(info);
    foreach(float side in new[]{1f,-1f}){
+    if(PortLayout.Enabled&&i==0&&side>0)continue;
     var b=new Brush(side);var g=new Brush(side);Color neon=tones[i];
     b.Box((starts[i]+ends[i])*.5f,70,ends[i]-starts[i],190,Sky,8.9f);
     // Recessed horizon, no opaque front geometry: all contacts remain in front.

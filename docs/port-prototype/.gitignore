@@ -1,0 +1,5 @@
+managed-compile/*.dll
+managed-compile/*.pdb
+contract-tests/*.dll
+contract-tests/*.pdb
+playwright-artifacts/
