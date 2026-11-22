@@ -1,0 +1,4 @@
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+No valid Unity Editor license found. Please activate your license.

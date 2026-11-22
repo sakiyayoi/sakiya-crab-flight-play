@@ -1,0 +1,20 @@
+{
+  "status": "BLOCKED",
+  "stage": "Native baseline before game loading",
+  "exitCode": 198,
+  "reason": "No valid Unity Editor license found. Please activate your license.",
+  "nativeRegistry": "NOT_RUN",
+  "sameInputReplay": "NOT_RUN",
+  "cityPhysicsSignatures": "NOT_RUN",
+  "nativeScreenshots": "NOT_RUN",
+  "unmodelledRuntimeRemainder": "UNVERIFIED",
+  "independentStages": {
+    "sourceEnumeration": 40,
+    "blenderFiles": 25,
+    "managedCompilerErrors": 0,
+    "playwrightPassed": 2,
+    "playwrightFailed": 0,
+    "playwrightSkipped": 6
+  },
+  "resume": "Restore the existing license through normal Unity Hub, then run tools/blender/run_native_panels.py baseline/candidate; no authentication changes made."
+}

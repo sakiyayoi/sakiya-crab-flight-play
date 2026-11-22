@@ -1,0 +1,364 @@
+{
+  "entries": [
+    {
+      "id": "ceiling--1",
+      "model": "panel_ceiling",
+      "offset": {
+        "x": 0,
+        "y": -0.225,
+        "z": 0
+      }
+    },
+    {
+      "id": "ceiling-1",
+      "model": "panel_ceiling",
+      "offset": {
+        "x": 0,
+        "y": -0.225,
+        "z": 0
+      }
+    },
+    {
+      "id": "core-mall-glass--1",
+      "model": "panel_core_mall_glass",
+      "offset": {
+        "x": 0,
+        "y": -2.4375,
+        "z": 0
+      }
+    },
+    {
+      "id": "core-mall-glass-1",
+      "model": "panel_core_mall_glass",
+      "offset": {
+        "x": 0,
+        "y": -2.4375,
+        "z": 0
+      }
+    },
+    {
+      "id": "core-office-glass--1",
+      "model": "panel_core_office_glass",
+      "offset": {
+        "x": 0,
+        "y": -2.5375,
+        "z": 0
+      }
+    },
+    {
+      "id": "core-office-glass-1",
+      "model": "panel_core_office_glass",
+      "offset": {
+        "x": 0,
+        "y": -2.5375,
+        "z": 0
+      }
+    },
+    {
+      "id": "dish-stack--1",
+      "model": "panel_dish_stack",
+      "offset": {
+        "x": 0,
+        "y": -1.3900000000000001,
+        "z": 0
+      }
+    },
+    {
+      "id": "dish-stack-1",
+      "model": "panel_dish_stack",
+      "offset": {
+        "x": 0,
+        "y": -1.3900000000000001,
+        "z": 0
+      }
+    },
+    {
+      "id": "food-tray--1",
+      "model": "panel_food_tray",
+      "offset": {
+        "x": 0,
+        "y": -0.52125,
+        "z": 0
+      }
+    },
+    {
+      "id": "food-tray-1",
+      "model": "panel_food_tray",
+      "offset": {
+        "x": 0,
+        "y": -0.52125,
+        "z": 0
+      }
+    },
+    {
+      "id": "metal-kitchen--1",
+      "model": "panel_metal_kitchen",
+      "offset": {
+        "x": 0,
+        "y": -2.3,
+        "z": 0
+      }
+    },
+    {
+      "id": "metal-kitchen-1",
+      "model": "panel_metal_kitchen",
+      "offset": {
+        "x": 0,
+        "y": -2.3,
+        "z": 0
+      }
+    },
+    {
+      "id": "outer-wall--1-0",
+      "model": "panel_outer_wall_low",
+      "offset": {
+        "x": 0,
+        "y": -2.25,
+        "z": 0
+      }
+    },
+    {
+      "id": "outer-wall--1-1",
+      "model": "panel_outer_wall_upper",
+      "offset": {
+        "x": 0,
+        "y": -2.25,
+        "z": 0
+      }
+    },
+    {
+      "id": "outer-wall--1-2",
+      "model": "panel_outer_wall_upper",
+      "offset": {
+        "x": 0,
+        "y": -2.25,
+        "z": 0
+      }
+    },
+    {
+      "id": "outer-wall-1-0",
+      "model": "panel_outer_wall_low",
+      "offset": {
+        "x": 0,
+        "y": -2.25,
+        "z": 0
+      }
+    },
+    {
+      "id": "outer-wall-1-1",
+      "model": "panel_outer_wall_upper",
+      "offset": {
+        "x": 0,
+        "y": -2.25,
+        "z": 0
+      }
+    },
+    {
+      "id": "outer-wall-1-2",
+      "model": "panel_outer_wall_upper",
+      "offset": {
+        "x": 0,
+        "y": -2.25,
+        "z": 0
+      }
+    },
+    {
+      "id": "r5-restaurant-chair-food--1",
+      "model": "panel_r5_restaurant_chair_food",
+      "offset": {
+        "x": 0,
+        "y": -0.23890625000000001,
+        "z": 0
+      }
+    },
+    {
+      "id": "r5-restaurant-chair-food-1",
+      "model": "panel_r5_restaurant_chair_food",
+      "offset": {
+        "x": 0,
+        "y": -0.23890625000000001,
+        "z": 0
+      }
+    },
+    {
+      "id": "r5-restaurant-dish-tower--1",
+      "model": "panel_r5_restaurant_dish_tower",
+      "offset": {
+        "x": 0,
+        "y": -0.47781250000000003,
+        "z": 0
+      }
+    },
+    {
+      "id": "r5-restaurant-dish-tower-1",
+      "model": "panel_r5_restaurant_dish_tower",
+      "offset": {
+        "x": 0,
+        "y": -0.47781250000000003,
+        "z": 0
+      }
+    },
+    {
+      "id": "r5-restaurant-entry-dishes--1",
+      "model": "panel_r5_restaurant_entry_dishes",
+      "offset": {
+        "x": 0,
+        "y": -0.34750000000000003,
+        "z": 0
+      }
+    },
+    {
+      "id": "r5-restaurant-entry-dishes-1",
+      "model": "panel_r5_restaurant_entry_dishes",
+      "offset": {
+        "x": 0,
+        "y": -0.34750000000000003,
+        "z": 0
+      }
+    },
+    {
+      "id": "r5-restaurant-exit-table--1",
+      "model": "panel_r5_restaurant_exit_table",
+      "offset": {
+        "x": 0,
+        "y": -1.6,
+        "z": 0
+      }
+    },
+    {
+      "id": "r5-restaurant-exit-table-1",
+      "model": "panel_r5_restaurant_exit_table",
+      "offset": {
+        "x": 0,
+        "y": -1.6,
+        "z": 0
+      }
+    },
+    {
+      "id": "r5-restaurant-kitchen-food--1",
+      "model": "panel_r5_restaurant_kitchen_food",
+      "offset": {
+        "x": 0,
+        "y": -0.2171875,
+        "z": 0
+      }
+    },
+    {
+      "id": "r5-restaurant-kitchen-food-1",
+      "model": "panel_r5_restaurant_kitchen_food",
+      "offset": {
+        "x": 0,
+        "y": -0.2171875,
+        "z": 0
+      }
+    },
+    {
+      "id": "r5-restaurant-service-food--1",
+      "model": "panel_r5_restaurant_service_food",
+      "offset": {
+        "x": 0,
+        "y": -0.23890625000000001,
+        "z": 0
+      }
+    },
+    {
+      "id": "r5-restaurant-service-food-1",
+      "model": "panel_r5_restaurant_service_food",
+      "offset": {
+        "x": 0,
+        "y": -0.23890625000000001,
+        "z": 0
+      }
+    },
+    {
+      "id": "r5-restaurant-service-table--1",
+      "model": "panel_r5_restaurant_service_table",
+      "offset": {
+        "x": 0,
+        "y": -1.45,
+        "z": 0
+      }
+    },
+    {
+      "id": "r5-restaurant-service-table-1",
+      "model": "panel_r5_restaurant_service_table",
+      "offset": {
+        "x": 0,
+        "y": -1.45,
+        "z": 0
+      }
+    },
+    {
+      "id": "r5-restaurant-table-dishes--1",
+      "model": "panel_r5_restaurant_table_dishes",
+      "offset": {
+        "x": 0,
+        "y": -0.3909375,
+        "z": 0
+      }
+    },
+    {
+      "id": "r5-restaurant-table-dishes-1",
+      "model": "panel_r5_restaurant_table_dishes",
+      "offset": {
+        "x": 0,
+        "y": -0.3909375,
+        "z": 0
+      }
+    },
+    {
+      "id": "tank-glass--1",
+      "model": "panel_tank_glass",
+      "offset": {
+        "x": 0,
+        "y": -3.2875,
+        "z": 0
+      }
+    },
+    {
+      "id": "tank-glass-1",
+      "model": "panel_tank_glass",
+      "offset": {
+        "x": 0,
+        "y": -3.2875,
+        "z": 0
+      }
+    },
+    {
+      "id": "wood-chair--1",
+      "model": "panel_wood_chair",
+      "offset": {
+        "x": 0,
+        "y": -1.7,
+        "z": 0
+      }
+    },
+    {
+      "id": "wood-chair-1",
+      "model": "panel_wood_chair",
+      "offset": {
+        "x": 0,
+        "y": -1.7,
+        "z": 0
+      }
+    },
+    {
+      "id": "wood-table--1",
+      "model": "panel_wood_table",
+      "offset": {
+        "x": 0,
+        "y": -2.1,
+        "z": 0
+      }
+    },
+    {
+      "id": "wood-table-1",
+      "model": "panel_wood_table",
+      "offset": {
+        "x": 0,
+        "y": -2.1,
+        "z": 0
+      }
+    }
+  ]
+}

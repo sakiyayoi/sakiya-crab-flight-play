@@ -1,0 +1,486 @@
+{
+  "config": {
+    "argv": [
+      "/usr/local/bin/node",
+      "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/placement-fix-qa/runtime/node_modules/.bin/playwright",
+      "test",
+      "--config",
+      "qa/blender-panels/playwright.config.cjs"
+    ],
+    "configFile": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-panels/playwright.config.cjs",
+    "rootDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-panels",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/blender-panels-qa/results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-panels",
+        "testIgnore": [],
+        "testMatch": [
+          "panels.spec.cjs"
+        ],
+        "timeout": 180000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/evidence/blender-panels/playwright.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "panels.spec.cjs",
+      "file": "panels.spec.cjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "rollout -> panels: same fixed input, distance, every route byte and break event, result and retry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "BLOCKED: Unity Editor license unavailable; Native registry/replay/import/screenshots have not run.",
+                  "location": {
+                    "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-panels/panels.spec.cjs",
+                    "line": 8,
+                    "column": 27
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 4,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T21:31:53.044Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "BLOCKED: Unity Editor license unavailable; Native registry/replay/import/screenshots have not run.",
+                      "location": {
+                        "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-panels/panels.spec.cjs",
+                        "line": 8,
+                        "column": 27
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "1c514d2a610961618a5a-b4e8023d09ac3588d106",
+          "file": "panels.spec.cjs",
+          "line": 11,
+          "column": 1
+        },
+        {
+          "title": "all registered objects and City targets preserve physical signatures, positions and scales",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "BLOCKED: Unity Editor license unavailable; Native registry/replay/import/screenshots have not run.",
+                  "location": {
+                    "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-panels/panels.spec.cjs",
+                    "line": 8,
+                    "column": 27
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 1,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T21:31:53.102Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "BLOCKED: Unity Editor license unavailable; Native registry/replay/import/screenshots have not run.",
+                      "location": {
+                        "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-panels/panels.spec.cjs",
+                        "line": 8,
+                        "column": 27
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "1c514d2a610961618a5a-d9a9bf6e66b0674e36c9",
+          "file": "panels.spec.cjs",
+          "line": 21,
+          "column": 1
+        },
+        {
+          "title": "independent full registry census: no non-Blender destructible system, explicit people/bird exclusions",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "BLOCKED: Unity Editor license unavailable; Native registry/replay/import/screenshots have not run.",
+                  "location": {
+                    "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-panels/panels.spec.cjs",
+                    "line": 8,
+                    "column": 27
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 1,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T21:31:53.115Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "BLOCKED: Unity Editor license unavailable; Native registry/replay/import/screenshots have not run.",
+                      "location": {
+                        "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-panels/panels.spec.cjs",
+                        "line": 8,
+                        "column": 27
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "1c514d2a610961618a5a-dd2a970d4773374dd646",
+          "file": "panels.spec.cjs",
+          "line": 28,
+          "column": 1
+        },
+        {
+          "title": "panel FBX meshes use metres, bottom centre, vertex colours, no collider/body and actual blend sources",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "BLOCKED: Unity Editor license unavailable; Native registry/replay/import/screenshots have not run.",
+                  "location": {
+                    "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-panels/panels.spec.cjs",
+                    "line": 8,
+                    "column": 27
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 1,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T21:31:53.132Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "BLOCKED: Unity Editor license unavailable; Native registry/replay/import/screenshots have not run.",
+                      "location": {
+                        "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-panels/panels.spec.cjs",
+                        "line": 8,
+                        "column": 27
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "1c514d2a610961618a5a-339b91949ff309c866d8",
+          "file": "panels.spec.cjs",
+          "line": 38,
+          "column": 1
+        },
+        {
+          "title": "real replay panel debris also uses Blender; legacy body sizes and mass/damping stay identical",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "BLOCKED: Unity Editor license unavailable; Native registry/replay/import/screenshots have not run.",
+                  "location": {
+                    "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-panels/panels.spec.cjs",
+                    "line": 8,
+                    "column": 27
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 1,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T21:31:53.144Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "BLOCKED: Unity Editor license unavailable; Native registry/replay/import/screenshots have not run.",
+                      "location": {
+                        "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-panels/panels.spec.cjs",
+                        "line": 8,
+                        "column": 27
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "1c514d2a610961618a5a-4ddb24544c625e759142",
+          "file": "panels.spec.cjs",
+          "line": 46,
+          "column": 1
+        },
+        {
+          "title": "only two display hooks change the existing runtime; physical/UI/placement/scene files protected",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 425,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2026-11-22T21:31:53.163Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c514d2a610961618a5a-de70ec66931d48fcef47",
+          "file": "panels.spec.cjs",
+          "line": 52,
+          "column": 1
+        },
+        {
+          "title": "Native target-sector evidence includes both directions and real result/retry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "BLOCKED: Unity Editor license unavailable; Native registry/replay/import/screenshots have not run.",
+                  "location": {
+                    "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-panels/panels.spec.cjs",
+                    "line": 8,
+                    "column": 27
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 2,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T21:31:53.600Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "BLOCKED: Unity Editor license unavailable; Native registry/replay/import/screenshots have not run.",
+                      "location": {
+                        "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-panels/panels.spec.cjs",
+                        "line": 8,
+                        "column": 27
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "1c514d2a610961618a5a-b82b48dd4e8617ab12aa",
+          "file": "panels.spec.cjs",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "source enumeration covers 40 IDs and 19 authored variants; 25 blend files reopened with exact metre bounds",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 55,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T21:31:53.615Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c514d2a610961618a5a-2958eb3676123ced9658",
+          "file": "panels.spec.cjs",
+          "line": 68,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-22T21:31:52.320Z",
+    "duration": 1397.9759999999999,
+    "expected": 2,
+    "skipped": 6,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

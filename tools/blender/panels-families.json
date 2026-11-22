@@ -1,0 +1,1907 @@
+{
+  "status": "SOURCE_ENUMERATION_NATIVE_PENDING",
+  "sceneFlags": {
+    "cityLayout": 2,
+    "useOverdrive": 1,
+    "useOverdriveRoute": 1,
+    "useCoreDestruction": 1
+  },
+  "sourceHashes": {
+    "RestaurantPhysics.cs": "578fe7d5425d55de6fd60c871f7b8c074398003c27f59428de9d52b6ae9feedb",
+    "OverdriveRoute.cs": "8ef0014578fd92e18339317ef5bacf9a69f208d2ad650a6d99e4481788ecc7da",
+    "CoreDistrictContactsR7.cs": "2114c7de3fafe475558606ee27a1aeef2b038603a8af007e43c9c3b8bfc6ad13"
+  },
+  "sceneSha256": "058be0b3456083199edfc5b9650b233cbb63209249d00f4c1a764443c68fb5bb",
+  "total": 40,
+  "counts": {
+    "Restaurant": 20,
+    "Overdrive": 16,
+    "Core": 4
+  },
+  "targets": [
+    {
+      "id": "ceiling--1",
+      "type": "wall",
+      "system": "Restaurant",
+      "position": [
+        -12.5,
+        13.5,
+        0
+      ],
+      "size": [
+        24,
+        0.45,
+        7
+      ],
+      "color": [
+        0.8,
+        0.72,
+        0.56
+      ],
+      "threshold": 2.6,
+      "source": "RestaurantPhysics.cs",
+      "line": 41,
+      "model": "panel_ceiling",
+      "legacyBottomAfterGroundShift": -0.225
+    },
+    {
+      "id": "ceiling-1",
+      "type": "wall",
+      "system": "Restaurant",
+      "position": [
+        12.5,
+        13.5,
+        0
+      ],
+      "size": [
+        24,
+        0.45,
+        7
+      ],
+      "color": [
+        0.8,
+        0.72,
+        0.56
+      ],
+      "threshold": 2.6,
+      "source": "RestaurantPhysics.cs",
+      "line": 41,
+      "model": "panel_ceiling",
+      "legacyBottomAfterGroundShift": -0.225
+    },
+    {
+      "id": "core-mall-glass--1",
+      "type": "glass",
+      "system": "Core",
+      "position": [
+        -112,
+        7.2,
+        0
+      ],
+      "size": [
+        0.14,
+        4.8,
+        3.2
+      ],
+      "color": [
+        0.58,
+        0.84,
+        0.88
+      ],
+      "threshold": 0.55,
+      "source": "CoreDistrictContactsR7.cs",
+      "line": 13,
+      "model": "panel_core_mall_glass",
+      "legacyBottomAfterGroundShift": -2.4375
+    },
+    {
+      "id": "core-mall-glass-1",
+      "type": "glass",
+      "system": "Core",
+      "position": [
+        112,
+        7.2,
+        0
+      ],
+      "size": [
+        0.14,
+        4.8,
+        3.2
+      ],
+      "color": [
+        0.58,
+        0.84,
+        0.88
+      ],
+      "threshold": 0.55,
+      "source": "CoreDistrictContactsR7.cs",
+      "line": 13,
+      "model": "panel_core_mall_glass",
+      "legacyBottomAfterGroundShift": -2.4375
+    },
+    {
+      "id": "core-office-glass--1",
+      "type": "glass",
+      "system": "Core",
+      "position": [
+        -205,
+        3.5,
+        0
+      ],
+      "size": [
+        0.16,
+        5.0,
+        3.4
+      ],
+      "color": [
+        0.68,
+        0.82,
+        0.88
+      ],
+      "threshold": 0.65,
+      "source": "CoreDistrictContactsR7.cs",
+      "line": 14,
+      "model": "panel_core_office_glass",
+      "legacyBottomAfterGroundShift": -2.5375
+    },
+    {
+      "id": "core-office-glass-1",
+      "type": "glass",
+      "system": "Core",
+      "position": [
+        205,
+        3.5,
+        0
+      ],
+      "size": [
+        0.16,
+        5.0,
+        3.4
+      ],
+      "color": [
+        0.68,
+        0.82,
+        0.88
+      ],
+      "threshold": 0.65,
+      "source": "CoreDistrictContactsR7.cs",
+      "line": 14,
+      "model": "panel_core_office_glass",
+      "legacyBottomAfterGroundShift": -2.5375
+    },
+    {
+      "id": "dish-stack--1",
+      "type": "tableware",
+      "system": "Restaurant",
+      "position": [
+        -13.5,
+        1.6,
+        0
+      ],
+      "size": [
+        1.7,
+        3.2,
+        3.6
+      ],
+      "color": [
+        0.88,
+        0.86,
+        0.72
+      ],
+      "threshold": 0.65,
+      "source": "RestaurantPhysics.cs",
+      "line": 38,
+      "model": "panel_dish_stack",
+      "legacyBottomAfterGroundShift": -1.3900000000000001
+    },
+    {
+      "id": "dish-stack-1",
+      "type": "tableware",
+      "system": "Restaurant",
+      "position": [
+        13.5,
+        1.6,
+        0
+      ],
+      "size": [
+        1.7,
+        3.2,
+        3.6
+      ],
+      "color": [
+        0.88,
+        0.86,
+        0.72
+      ],
+      "threshold": 0.65,
+      "source": "RestaurantPhysics.cs",
+      "line": 38,
+      "model": "panel_dish_stack",
+      "legacyBottomAfterGroundShift": -1.3900000000000001
+    },
+    {
+      "id": "food-tray--1",
+      "type": "food",
+      "system": "Restaurant",
+      "position": [
+        -7.5,
+        1.9,
+        0
+      ],
+      "size": [
+        1.4,
+        1.2,
+        3
+      ],
+      "color": [
+        0.81,
+        0.54,
+        0.28
+      ],
+      "threshold": 0.25,
+      "source": "RestaurantPhysics.cs",
+      "line": 42,
+      "model": "panel_food_tray",
+      "legacyBottomAfterGroundShift": -0.52125
+    },
+    {
+      "id": "food-tray-1",
+      "type": "food",
+      "system": "Restaurant",
+      "position": [
+        7.5,
+        1.9,
+        0
+      ],
+      "size": [
+        1.4,
+        1.2,
+        3
+      ],
+      "color": [
+        0.81,
+        0.54,
+        0.28
+      ],
+      "threshold": 0.25,
+      "source": "RestaurantPhysics.cs",
+      "line": 42,
+      "model": "panel_food_tray",
+      "legacyBottomAfterGroundShift": -0.52125
+    },
+    {
+      "id": "metal-kitchen--1",
+      "type": "metal",
+      "system": "Restaurant",
+      "position": [
+        -21.5,
+        2.3,
+        0
+      ],
+      "size": [
+        1.6,
+        4.6,
+        3
+      ],
+      "color": [
+        0.4,
+        0.46,
+        0.47
+      ],
+      "threshold": 1.6,
+      "source": "RestaurantPhysics.cs",
+      "line": 45,
+      "model": "panel_metal_kitchen",
+      "legacyBottomAfterGroundShift": -2.3
+    },
+    {
+      "id": "metal-kitchen-1",
+      "type": "metal",
+      "system": "Restaurant",
+      "position": [
+        21.5,
+        2.3,
+        0
+      ],
+      "size": [
+        1.6,
+        4.6,
+        3
+      ],
+      "color": [
+        0.4,
+        0.46,
+        0.47
+      ],
+      "threshold": 1.6,
+      "source": "RestaurantPhysics.cs",
+      "line": 45,
+      "model": "panel_metal_kitchen",
+      "legacyBottomAfterGroundShift": -2.3
+    },
+    {
+      "id": "outer-wall--1-0",
+      "type": "wall",
+      "system": "Restaurant",
+      "position": [
+        -25,
+        2.25,
+        0
+      ],
+      "size": [
+        0.55,
+        4.5,
+        7
+      ],
+      "color": [
+        0.68,
+        0.39,
+        0.25
+      ],
+      "threshold": 3.2,
+      "source": "RestaurantPhysics.cs",
+      "line": 40,
+      "model": "panel_outer_wall_low",
+      "legacyBottomAfterGroundShift": -2.25
+    },
+    {
+      "id": "outer-wall--1-1",
+      "type": "wall",
+      "system": "Restaurant",
+      "position": [
+        -25,
+        6.75,
+        0
+      ],
+      "size": [
+        0.55,
+        4.5,
+        7
+      ],
+      "color": [
+        0.68,
+        0.39,
+        0.25
+      ],
+      "threshold": 3.2,
+      "source": "RestaurantPhysics.cs",
+      "line": 40,
+      "model": "panel_outer_wall_upper",
+      "legacyBottomAfterGroundShift": -2.25
+    },
+    {
+      "id": "outer-wall--1-2",
+      "type": "wall",
+      "system": "Restaurant",
+      "position": [
+        -25,
+        11.25,
+        0
+      ],
+      "size": [
+        0.55,
+        4.5,
+        7
+      ],
+      "color": [
+        0.68,
+        0.39,
+        0.25
+      ],
+      "threshold": 3.2,
+      "source": "RestaurantPhysics.cs",
+      "line": 40,
+      "model": "panel_outer_wall_upper",
+      "legacyBottomAfterGroundShift": -2.25
+    },
+    {
+      "id": "outer-wall-1-0",
+      "type": "wall",
+      "system": "Restaurant",
+      "position": [
+        25,
+        2.25,
+        0
+      ],
+      "size": [
+        0.55,
+        4.5,
+        7
+      ],
+      "color": [
+        0.68,
+        0.39,
+        0.25
+      ],
+      "threshold": 3.2,
+      "source": "RestaurantPhysics.cs",
+      "line": 40,
+      "model": "panel_outer_wall_low",
+      "legacyBottomAfterGroundShift": -2.25
+    },
+    {
+      "id": "outer-wall-1-1",
+      "type": "wall",
+      "system": "Restaurant",
+      "position": [
+        25,
+        6.75,
+        0
+      ],
+      "size": [
+        0.55,
+        4.5,
+        7
+      ],
+      "color": [
+        0.68,
+        0.39,
+        0.25
+      ],
+      "threshold": 3.2,
+      "source": "RestaurantPhysics.cs",
+      "line": 40,
+      "model": "panel_outer_wall_upper",
+      "legacyBottomAfterGroundShift": -2.25
+    },
+    {
+      "id": "outer-wall-1-2",
+      "type": "wall",
+      "system": "Restaurant",
+      "position": [
+        25,
+        11.25,
+        0
+      ],
+      "size": [
+        0.55,
+        4.5,
+        7
+      ],
+      "color": [
+        0.68,
+        0.39,
+        0.25
+      ],
+      "threshold": 3.2,
+      "source": "RestaurantPhysics.cs",
+      "line": 40,
+      "model": "panel_outer_wall_upper",
+      "legacyBottomAfterGroundShift": -2.25
+    },
+    {
+      "id": "r5-restaurant-chair-food--1",
+      "type": "food",
+      "system": "Overdrive",
+      "position": [
+        -8.7,
+        0.275,
+        0
+      ],
+      "size": [
+        0.65,
+        0.55,
+        2.4
+      ],
+      "color": [
+        0.81,
+        0.54,
+        0.28
+      ],
+      "threshold": 0.25,
+      "source": "OverdriveRoute.cs",
+      "line": 15,
+      "model": "panel_r5_restaurant_chair_food",
+      "legacyBottomAfterGroundShift": -0.275
+    },
+    {
+      "id": "r5-restaurant-chair-food-1",
+      "type": "food",
+      "system": "Overdrive",
+      "position": [
+        8.7,
+        0.275,
+        0
+      ],
+      "size": [
+        0.65,
+        0.55,
+        2.4
+      ],
+      "color": [
+        0.81,
+        0.54,
+        0.28
+      ],
+      "threshold": 0.25,
+      "source": "OverdriveRoute.cs",
+      "line": 15,
+      "model": "panel_r5_restaurant_chair_food",
+      "legacyBottomAfterGroundShift": -0.275
+    },
+    {
+      "id": "r5-restaurant-dish-tower--1",
+      "type": "tableware",
+      "system": "Overdrive",
+      "position": [
+        -11.7,
+        0.55,
+        0
+      ],
+      "size": [
+        1.3,
+        1.1,
+        2.8
+      ],
+      "color": [
+        0.88,
+        0.86,
+        0.72
+      ],
+      "threshold": 0.65,
+      "source": "OverdriveRoute.cs",
+      "line": 16,
+      "model": "panel_r5_restaurant_dish_tower",
+      "legacyBottomAfterGroundShift": -0.55
+    },
+    {
+      "id": "r5-restaurant-dish-tower-1",
+      "type": "tableware",
+      "system": "Overdrive",
+      "position": [
+        11.7,
+        0.55,
+        0
+      ],
+      "size": [
+        1.3,
+        1.1,
+        2.8
+      ],
+      "color": [
+        0.88,
+        0.86,
+        0.72
+      ],
+      "threshold": 0.65,
+      "source": "OverdriveRoute.cs",
+      "line": 16,
+      "model": "panel_r5_restaurant_dish_tower",
+      "legacyBottomAfterGroundShift": -0.55
+    },
+    {
+      "id": "r5-restaurant-entry-dishes--1",
+      "type": "tableware",
+      "system": "Overdrive",
+      "position": [
+        -6,
+        0.4,
+        0
+      ],
+      "size": [
+        0.9,
+        0.8,
+        2.4
+      ],
+      "color": [
+        0.88,
+        0.86,
+        0.72
+      ],
+      "threshold": 0.65,
+      "source": "OverdriveRoute.cs",
+      "line": 14,
+      "model": "panel_r5_restaurant_entry_dishes",
+      "legacyBottomAfterGroundShift": -0.4
+    },
+    {
+      "id": "r5-restaurant-entry-dishes-1",
+      "type": "tableware",
+      "system": "Overdrive",
+      "position": [
+        6,
+        0.4,
+        0
+      ],
+      "size": [
+        0.9,
+        0.8,
+        2.4
+      ],
+      "color": [
+        0.88,
+        0.86,
+        0.72
+      ],
+      "threshold": 0.65,
+      "source": "OverdriveRoute.cs",
+      "line": 14,
+      "model": "panel_r5_restaurant_entry_dishes",
+      "legacyBottomAfterGroundShift": -0.4
+    },
+    {
+      "id": "r5-restaurant-exit-table--1",
+      "type": "wood",
+      "system": "Overdrive",
+      "position": [
+        -23.5,
+        1.6,
+        0
+      ],
+      "size": [
+        1.2,
+        3.2,
+        3
+      ],
+      "color": [
+        0.4,
+        0.29,
+        0.16
+      ],
+      "threshold": 0.65,
+      "source": "OverdriveRoute.cs",
+      "line": 23,
+      "model": "panel_r5_restaurant_exit_table",
+      "legacyBottomAfterGroundShift": -1.6
+    },
+    {
+      "id": "r5-restaurant-exit-table-1",
+      "type": "wood",
+      "system": "Overdrive",
+      "position": [
+        23.5,
+        1.6,
+        0
+      ],
+      "size": [
+        1.2,
+        3.2,
+        3
+      ],
+      "color": [
+        0.4,
+        0.29,
+        0.16
+      ],
+      "threshold": 0.65,
+      "source": "OverdriveRoute.cs",
+      "line": 23,
+      "model": "panel_r5_restaurant_exit_table",
+      "legacyBottomAfterGroundShift": -1.6
+    },
+    {
+      "id": "r5-restaurant-kitchen-food--1",
+      "type": "food",
+      "system": "Overdrive",
+      "position": [
+        -22.625,
+        0.25,
+        0
+      ],
+      "size": [
+        0.5,
+        0.5,
+        2.5
+      ],
+      "color": [
+        0.81,
+        0.54,
+        0.28
+      ],
+      "threshold": 0.25,
+      "source": "OverdriveRoute.cs",
+      "line": 21,
+      "model": "panel_r5_restaurant_kitchen_food",
+      "legacyBottomAfterGroundShift": -0.25
+    },
+    {
+      "id": "r5-restaurant-kitchen-food-1",
+      "type": "food",
+      "system": "Overdrive",
+      "position": [
+        22.625,
+        0.25,
+        0
+      ],
+      "size": [
+        0.5,
+        0.5,
+        2.5
+      ],
+      "color": [
+        0.81,
+        0.54,
+        0.28
+      ],
+      "threshold": 0.25,
+      "source": "OverdriveRoute.cs",
+      "line": 21,
+      "model": "panel_r5_restaurant_kitchen_food",
+      "legacyBottomAfterGroundShift": -0.25
+    },
+    {
+      "id": "r5-restaurant-service-food--1",
+      "type": "food",
+      "system": "Overdrive",
+      "position": [
+        -14.8,
+        0.275,
+        0
+      ],
+      "size": [
+        0.6,
+        0.55,
+        2.6
+      ],
+      "color": [
+        0.81,
+        0.54,
+        0.28
+      ],
+      "threshold": 0.25,
+      "source": "OverdriveRoute.cs",
+      "line": 19,
+      "model": "panel_r5_restaurant_service_food",
+      "legacyBottomAfterGroundShift": -0.275
+    },
+    {
+      "id": "r5-restaurant-service-food-1",
+      "type": "food",
+      "system": "Overdrive",
+      "position": [
+        14.8,
+        0.275,
+        0
+      ],
+      "size": [
+        0.6,
+        0.55,
+        2.6
+      ],
+      "color": [
+        0.81,
+        0.54,
+        0.28
+      ],
+      "threshold": 0.25,
+      "source": "OverdriveRoute.cs",
+      "line": 19,
+      "model": "panel_r5_restaurant_service_food",
+      "legacyBottomAfterGroundShift": -0.275
+    },
+    {
+      "id": "r5-restaurant-service-table--1",
+      "type": "wood",
+      "system": "Overdrive",
+      "position": [
+        -15.7,
+        1.45,
+        0
+      ],
+      "size": [
+        1.1,
+        2.9,
+        3
+      ],
+      "color": [
+        0.48,
+        0.29,
+        0.12
+      ],
+      "threshold": 0.7,
+      "source": "OverdriveRoute.cs",
+      "line": 18,
+      "model": "panel_r5_restaurant_service_table",
+      "legacyBottomAfterGroundShift": -1.45
+    },
+    {
+      "id": "r5-restaurant-service-table-1",
+      "type": "wood",
+      "system": "Overdrive",
+      "position": [
+        15.7,
+        1.45,
+        0
+      ],
+      "size": [
+        1.1,
+        2.9,
+        3
+      ],
+      "color": [
+        0.48,
+        0.29,
+        0.12
+      ],
+      "threshold": 0.7,
+      "source": "OverdriveRoute.cs",
+      "line": 18,
+      "model": "panel_r5_restaurant_service_table",
+      "legacyBottomAfterGroundShift": -1.45
+    },
+    {
+      "id": "r5-restaurant-table-dishes--1",
+      "type": "tableware",
+      "system": "Overdrive",
+      "position": [
+        -20.15,
+        0.45,
+        0
+      ],
+      "size": [
+        0.65,
+        0.9,
+        2.8
+      ],
+      "color": [
+        0.88,
+        0.86,
+        0.72
+      ],
+      "threshold": 0.65,
+      "source": "OverdriveRoute.cs",
+      "line": 20,
+      "model": "panel_r5_restaurant_table_dishes",
+      "legacyBottomAfterGroundShift": -0.45
+    },
+    {
+      "id": "r5-restaurant-table-dishes-1",
+      "type": "tableware",
+      "system": "Overdrive",
+      "position": [
+        20.15,
+        0.45,
+        0
+      ],
+      "size": [
+        0.65,
+        0.9,
+        2.8
+      ],
+      "color": [
+        0.88,
+        0.86,
+        0.72
+      ],
+      "threshold": 0.65,
+      "source": "OverdriveRoute.cs",
+      "line": 20,
+      "model": "panel_r5_restaurant_table_dishes",
+      "legacyBottomAfterGroundShift": -0.45
+    },
+    {
+      "id": "tank-glass--1",
+      "type": "glass",
+      "system": "Restaurant",
+      "position": [
+        -4.5,
+        3.25,
+        0
+      ],
+      "size": [
+        0.13,
+        6.5,
+        5.2
+      ],
+      "color": [
+        0.44,
+        0.77,
+        0.81
+      ],
+      "threshold": 1.1,
+      "source": "RestaurantPhysics.cs",
+      "line": 37,
+      "model": "panel_tank_glass",
+      "legacyBottomAfterGroundShift": -3.2875
+    },
+    {
+      "id": "tank-glass-1",
+      "type": "glass",
+      "system": "Restaurant",
+      "position": [
+        4.5,
+        3.25,
+        0
+      ],
+      "size": [
+        0.13,
+        6.5,
+        5.2
+      ],
+      "color": [
+        0.44,
+        0.77,
+        0.81
+      ],
+      "threshold": 1.1,
+      "source": "RestaurantPhysics.cs",
+      "line": 37,
+      "model": "panel_tank_glass",
+      "legacyBottomAfterGroundShift": -3.2875
+    },
+    {
+      "id": "wood-chair--1",
+      "type": "wood",
+      "system": "Restaurant",
+      "position": [
+        -10,
+        1.7,
+        0
+      ],
+      "size": [
+        1.6,
+        3.4,
+        3
+      ],
+      "color": [
+        0.34,
+        0.2,
+        0.1
+      ],
+      "threshold": 0.45,
+      "source": "RestaurantPhysics.cs",
+      "line": 43,
+      "model": "panel_wood_chair",
+      "legacyBottomAfterGroundShift": -1.7
+    },
+    {
+      "id": "wood-chair-1",
+      "type": "wood",
+      "system": "Restaurant",
+      "position": [
+        10,
+        1.7,
+        0
+      ],
+      "size": [
+        1.6,
+        3.4,
+        3
+      ],
+      "color": [
+        0.34,
+        0.2,
+        0.1
+      ],
+      "threshold": 0.45,
+      "source": "RestaurantPhysics.cs",
+      "line": 43,
+      "model": "panel_wood_chair",
+      "legacyBottomAfterGroundShift": -1.7
+    },
+    {
+      "id": "wood-table--1",
+      "type": "wood",
+      "system": "Restaurant",
+      "position": [
+        -18,
+        2.1,
+        0
+      ],
+      "size": [
+        3.3,
+        4.2,
+        4
+      ],
+      "color": [
+        0.48,
+        0.29,
+        0.12
+      ],
+      "threshold": 0.7,
+      "source": "RestaurantPhysics.cs",
+      "line": 44,
+      "model": "panel_wood_table",
+      "legacyBottomAfterGroundShift": -2.1
+    },
+    {
+      "id": "wood-table-1",
+      "type": "wood",
+      "system": "Restaurant",
+      "position": [
+        18,
+        2.1,
+        0
+      ],
+      "size": [
+        3.3,
+        4.2,
+        4
+      ],
+      "color": [
+        0.48,
+        0.29,
+        0.12
+      ],
+      "threshold": 0.7,
+      "source": "RestaurantPhysics.cs",
+      "line": 44,
+      "model": "panel_wood_table",
+      "legacyBottomAfterGroundShift": -2.1
+    }
+  ],
+  "inactiveLayoutObjects": [
+    {
+      "id": "wood-street-crate--1",
+      "type": "wood",
+      "system": "Restaurant",
+      "position": [
+        -39,
+        1.7,
+        0
+      ],
+      "size": [
+        2.4,
+        3.4,
+        3
+      ],
+      "color": [
+        0.4,
+        0.29,
+        0.16
+      ],
+      "threshold": 0.65,
+      "source": "RestaurantPhysics.cs",
+      "line": 46,
+      "reason": "ActiveCityLayout == 0 is false"
+    },
+    {
+      "id": "wood-street-crate-1",
+      "type": "wood",
+      "system": "Restaurant",
+      "position": [
+        39,
+        1.7,
+        0
+      ],
+      "size": [
+        2.4,
+        3.4,
+        3
+      ],
+      "color": [
+        0.4,
+        0.29,
+        0.16
+      ],
+      "threshold": 0.65,
+      "source": "RestaurantPhysics.cs",
+      "line": 46,
+      "reason": "ActiveCityLayout == 0 is false"
+    },
+    {
+      "id": "metal-street-bin--1",
+      "type": "metal",
+      "system": "Restaurant",
+      "position": [
+        -53,
+        1.8,
+        0
+      ],
+      "size": [
+        1.5,
+        3.6,
+        3
+      ],
+      "color": [
+        0.26,
+        0.34,
+        0.32
+      ],
+      "threshold": 1.15,
+      "source": "RestaurantPhysics.cs",
+      "line": 47,
+      "reason": "ActiveCityLayout == 0 is false"
+    },
+    {
+      "id": "metal-street-bin-1",
+      "type": "metal",
+      "system": "Restaurant",
+      "position": [
+        53,
+        1.8,
+        0
+      ],
+      "size": [
+        1.5,
+        3.6,
+        3
+      ],
+      "color": [
+        0.26,
+        0.34,
+        0.32
+      ],
+      "threshold": 1.15,
+      "source": "RestaurantPhysics.cs",
+      "line": 47,
+      "reason": "ActiveCityLayout == 0 is false"
+    }
+  ],
+  "models": {
+    "panel_tank_glass": {
+      "kind": "glass",
+      "min": [
+        -0.065,
+        0,
+        -2.6
+      ],
+      "max": [
+        0.065,
+        6.5,
+        2.6
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -0.065,
+            0,
+            -2.6
+          ],
+          "max": [
+            0.065,
+            6.5,
+            2.6
+          ]
+        }
+      ],
+      "ids": [
+        "tank-glass--1",
+        "tank-glass-1"
+      ]
+    },
+    "panel_dish_stack": {
+      "kind": "dishes",
+      "min": [
+        -0.85,
+        0,
+        -1.8
+      ],
+      "max": [
+        0.85,
+        3.2,
+        1.8
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -0.85,
+            0,
+            -1.8
+          ],
+          "max": [
+            0.85,
+            3.2,
+            1.8
+          ]
+        }
+      ],
+      "ids": [
+        "dish-stack--1",
+        "dish-stack-1"
+      ]
+    },
+    "panel_outer_wall_low": {
+      "kind": "wall_low",
+      "min": [
+        -0.275,
+        0,
+        -3.5
+      ],
+      "max": [
+        0.275,
+        4.5,
+        3.5
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -0.275,
+            0,
+            -3.5
+          ],
+          "max": [
+            0.275,
+            4.5,
+            3.5
+          ]
+        }
+      ],
+      "ids": [
+        "outer-wall--1-0",
+        "outer-wall-1-0"
+      ]
+    },
+    "panel_outer_wall_upper": {
+      "kind": "wall",
+      "min": [
+        -0.275,
+        0,
+        -3.5
+      ],
+      "max": [
+        0.275,
+        4.5,
+        3.5
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -0.275,
+            0,
+            -3.5
+          ],
+          "max": [
+            0.275,
+            4.5,
+            3.5
+          ]
+        }
+      ],
+      "ids": [
+        "outer-wall--1-1",
+        "outer-wall--1-2",
+        "outer-wall-1-1",
+        "outer-wall-1-2"
+      ]
+    },
+    "panel_ceiling": {
+      "kind": "ceiling",
+      "min": [
+        -12.0,
+        0,
+        -3.5
+      ],
+      "max": [
+        12.0,
+        0.45,
+        3.5
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -12.0,
+            0,
+            -3.5
+          ],
+          "max": [
+            12.0,
+            0.45,
+            3.5
+          ]
+        }
+      ],
+      "ids": [
+        "ceiling--1",
+        "ceiling-1"
+      ]
+    },
+    "panel_food_tray": {
+      "kind": "food",
+      "min": [
+        -0.7,
+        0,
+        -1.5
+      ],
+      "max": [
+        0.7,
+        1.2,
+        1.5
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -0.7,
+            0,
+            -1.5
+          ],
+          "max": [
+            0.7,
+            1.2,
+            1.5
+          ]
+        }
+      ],
+      "ids": [
+        "food-tray--1",
+        "food-tray-1"
+      ]
+    },
+    "panel_wood_chair": {
+      "kind": "chair",
+      "min": [
+        -0.8,
+        0,
+        -1.5
+      ],
+      "max": [
+        0.8,
+        3.4,
+        1.5
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -0.8,
+            0,
+            -1.5
+          ],
+          "max": [
+            0.8,
+            3.4,
+            1.5
+          ]
+        }
+      ],
+      "ids": [
+        "wood-chair--1",
+        "wood-chair-1"
+      ]
+    },
+    "panel_wood_table": {
+      "kind": "table",
+      "min": [
+        -1.65,
+        0,
+        -2.0
+      ],
+      "max": [
+        1.65,
+        4.2,
+        2.0
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -1.65,
+            0,
+            -2.0
+          ],
+          "max": [
+            1.65,
+            4.2,
+            2.0
+          ]
+        }
+      ],
+      "ids": [
+        "wood-table--1",
+        "wood-table-1"
+      ]
+    },
+    "panel_metal_kitchen": {
+      "kind": "kitchen",
+      "min": [
+        -0.8,
+        0,
+        -1.5
+      ],
+      "max": [
+        0.8,
+        4.6,
+        1.5
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -0.8,
+            0,
+            -1.5
+          ],
+          "max": [
+            0.8,
+            4.6,
+            1.5
+          ]
+        }
+      ],
+      "ids": [
+        "metal-kitchen--1",
+        "metal-kitchen-1"
+      ]
+    },
+    "panel_r5_restaurant_entry_dishes": {
+      "kind": "dishes",
+      "min": [
+        -0.45,
+        0,
+        -1.2
+      ],
+      "max": [
+        0.45,
+        0.8,
+        1.2
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -0.45,
+            0,
+            -1.2
+          ],
+          "max": [
+            0.45,
+            0.8,
+            1.2
+          ]
+        }
+      ],
+      "ids": [
+        "r5-restaurant-entry-dishes--1",
+        "r5-restaurant-entry-dishes-1"
+      ]
+    },
+    "panel_r5_restaurant_chair_food": {
+      "kind": "food",
+      "min": [
+        -0.325,
+        0,
+        -1.2
+      ],
+      "max": [
+        0.325,
+        0.55,
+        1.2
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -0.325,
+            0,
+            -1.2
+          ],
+          "max": [
+            0.325,
+            0.55,
+            1.2
+          ]
+        }
+      ],
+      "ids": [
+        "r5-restaurant-chair-food--1",
+        "r5-restaurant-chair-food-1"
+      ]
+    },
+    "panel_r5_restaurant_dish_tower": {
+      "kind": "dishes",
+      "min": [
+        -0.65,
+        0,
+        -1.4
+      ],
+      "max": [
+        0.65,
+        1.1,
+        1.4
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -0.65,
+            0,
+            -1.4
+          ],
+          "max": [
+            0.65,
+            1.1,
+            1.4
+          ]
+        }
+      ],
+      "ids": [
+        "r5-restaurant-dish-tower--1",
+        "r5-restaurant-dish-tower-1"
+      ]
+    },
+    "panel_r5_restaurant_service_table": {
+      "kind": "table",
+      "min": [
+        -0.55,
+        0,
+        -1.5
+      ],
+      "max": [
+        0.55,
+        2.9,
+        1.5
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -0.55,
+            0,
+            -1.5
+          ],
+          "max": [
+            0.55,
+            2.9,
+            1.5
+          ]
+        }
+      ],
+      "ids": [
+        "r5-restaurant-service-table--1",
+        "r5-restaurant-service-table-1"
+      ]
+    },
+    "panel_r5_restaurant_service_food": {
+      "kind": "food",
+      "min": [
+        -0.3,
+        0,
+        -1.3
+      ],
+      "max": [
+        0.3,
+        0.55,
+        1.3
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -0.3,
+            0,
+            -1.3
+          ],
+          "max": [
+            0.3,
+            0.55,
+            1.3
+          ]
+        }
+      ],
+      "ids": [
+        "r5-restaurant-service-food--1",
+        "r5-restaurant-service-food-1"
+      ]
+    },
+    "panel_r5_restaurant_table_dishes": {
+      "kind": "dishes",
+      "min": [
+        -0.325,
+        0,
+        -1.4
+      ],
+      "max": [
+        0.325,
+        0.9,
+        1.4
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -0.325,
+            0,
+            -1.4
+          ],
+          "max": [
+            0.325,
+            0.9,
+            1.4
+          ]
+        }
+      ],
+      "ids": [
+        "r5-restaurant-table-dishes--1",
+        "r5-restaurant-table-dishes-1"
+      ]
+    },
+    "panel_r5_restaurant_kitchen_food": {
+      "kind": "food",
+      "min": [
+        -0.25,
+        0,
+        -1.25
+      ],
+      "max": [
+        0.25,
+        0.5,
+        1.25
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -0.25,
+            0,
+            -1.25
+          ],
+          "max": [
+            0.25,
+            0.5,
+            1.25
+          ]
+        }
+      ],
+      "ids": [
+        "r5-restaurant-kitchen-food--1",
+        "r5-restaurant-kitchen-food-1"
+      ]
+    },
+    "panel_r5_restaurant_exit_table": {
+      "kind": "table",
+      "min": [
+        -0.6,
+        0,
+        -1.5
+      ],
+      "max": [
+        0.6,
+        3.2,
+        1.5
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -0.6,
+            0,
+            -1.5
+          ],
+          "max": [
+            0.6,
+            3.2,
+            1.5
+          ]
+        }
+      ],
+      "ids": [
+        "r5-restaurant-exit-table--1",
+        "r5-restaurant-exit-table-1"
+      ]
+    },
+    "panel_core_mall_glass": {
+      "kind": "glass",
+      "min": [
+        -0.07,
+        0,
+        -1.6
+      ],
+      "max": [
+        0.07,
+        4.8,
+        1.6
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -0.07,
+            0,
+            -1.6
+          ],
+          "max": [
+            0.07,
+            4.8,
+            1.6
+          ]
+        }
+      ],
+      "ids": [
+        "core-mall-glass--1",
+        "core-mall-glass-1"
+      ]
+    },
+    "panel_core_office_glass": {
+      "kind": "glass",
+      "min": [
+        -0.08,
+        0,
+        -1.7
+      ],
+      "max": [
+        0.08,
+        5.0,
+        1.7
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -0.08,
+            0,
+            -1.7
+          ],
+          "max": [
+            0.08,
+            5.0,
+            1.7
+          ]
+        }
+      ],
+      "ids": [
+        "core-office-glass--1",
+        "core-office-glass-1"
+      ]
+    },
+    "panel_fragment_glass": {
+      "kind": "fragment_glass",
+      "min": [
+        -0.5,
+        0,
+        -0.5
+      ],
+      "max": [
+        0.5,
+        1,
+        0.5
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -0.5,
+            0,
+            -0.5
+          ],
+          "max": [
+            0.5,
+            1,
+            0.5
+          ]
+        }
+      ],
+      "ids": []
+    },
+    "panel_fragment_wall": {
+      "kind": "fragment_wall",
+      "min": [
+        -0.5,
+        0,
+        -0.5
+      ],
+      "max": [
+        0.5,
+        1,
+        0.5
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -0.5,
+            0,
+            -0.5
+          ],
+          "max": [
+            0.5,
+            1,
+            0.5
+          ]
+        }
+      ],
+      "ids": []
+    },
+    "panel_fragment_tableware": {
+      "kind": "fragment_tableware",
+      "min": [
+        -0.5,
+        0,
+        -0.5
+      ],
+      "max": [
+        0.5,
+        1,
+        0.5
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -0.5,
+            0,
+            -0.5
+          ],
+          "max": [
+            0.5,
+            1,
+            0.5
+          ]
+        }
+      ],
+      "ids": []
+    },
+    "panel_fragment_food": {
+      "kind": "fragment_food",
+      "min": [
+        -0.5,
+        0,
+        -0.5
+      ],
+      "max": [
+        0.5,
+        1,
+        0.5
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -0.5,
+            0,
+            -0.5
+          ],
+          "max": [
+            0.5,
+            1,
+            0.5
+          ]
+        }
+      ],
+      "ids": []
+    },
+    "panel_fragment_wood": {
+      "kind": "fragment_wood",
+      "min": [
+        -0.5,
+        0,
+        -0.5
+      ],
+      "max": [
+        0.5,
+        1,
+        0.5
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -0.5,
+            0,
+            -0.5
+          ],
+          "max": [
+            0.5,
+            1,
+            0.5
+          ]
+        }
+      ],
+      "ids": []
+    },
+    "panel_fragment_metal": {
+      "kind": "fragment_metal",
+      "min": [
+        -0.5,
+        0,
+        -0.5
+      ],
+      "max": [
+        0.5,
+        1,
+        0.5
+      ],
+      "shards": [
+        {
+          "id": 0,
+          "min": [
+            -0.5,
+            0,
+            -0.5
+          ],
+          "max": [
+            0.5,
+            1,
+            0.5
+          ]
+        }
+      ],
+      "ids": []
+    }
+  }
+}
