@@ -1,0 +1,11 @@
+
+Running 4 tests using 1 worker
+
+(node:58075) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 qa/blender-pilot/pilot.spec.cjs:7:1 › native fixed-input replay reaches result and retry with unchanged route and destruction (61ms)
+  ✓  2 qa/blender-pilot/pilot.spec.cjs:14:1 › 74 mall placements only, all 22 families, all collider/mass/threshold signatures unchanged (10.8s)
+  ✓  3 qa/blender-pilot/pilot.spec.cjs:23:1 › FBX dimensions and bottom-centre origins match legacy metre dimensions (178ms)
+  ✓  4 qa/blender-pilot/pilot.spec.cjs:32:1 › protected placements, physics, feel, UI and preexisting scene bytes retained (654ms)
+
+  4 passed (12.9s)

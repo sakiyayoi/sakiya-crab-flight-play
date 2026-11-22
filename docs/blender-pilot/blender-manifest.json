@@ -1,0 +1,323 @@
+{
+  "blender": "4.2.23 LTS",
+  "models": [
+    {
+      "family": "blade_sign",
+      "triangles": 460,
+      "vertices": 1380,
+      "parts": 7,
+      "dimensions": [
+        2.16,
+        5.4,
+        0.5820000000000001
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/blade_sign.fbx"
+    },
+    {
+      "family": "hvac_unit",
+      "triangles": 513,
+      "vertices": 1539,
+      "parts": 7,
+      "dimensions": [
+        3.107063,
+        1.825,
+        1.7189999999999999
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/hvac_unit.fbx"
+    },
+    {
+      "family": "market_crate",
+      "triangles": 324,
+      "vertices": 972,
+      "parts": 7,
+      "dimensions": [
+        2.26,
+        1.465,
+        1.842
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/market_crate.fbx"
+    },
+    {
+      "family": "vending_unit",
+      "triangles": 2668,
+      "vertices": 8004,
+      "parts": 5,
+      "dimensions": [
+        1.9,
+        3.4,
+        1.5495
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/vending_unit.fbx"
+    },
+    {
+      "family": "road_barrier",
+      "triangles": 70,
+      "vertices": 210,
+      "parts": 6,
+      "dimensions": [
+        3.0,
+        1.675,
+        0.85
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/road_barrier.fbx"
+    },
+    {
+      "family": "facade_break_panel",
+      "triangles": 644,
+      "vertices": 1932,
+      "parts": 6,
+      "dimensions": [
+        4.48,
+        2.9800000000000004,
+        0.252
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/facade_break_panel.fbx"
+    },
+    {
+      "family": "street_awning",
+      "triangles": 216,
+      "vertices": 648,
+      "parts": 7,
+      "dimensions": [
+        5.84,
+        4.9875,
+        2.02
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/street_awning.fbx"
+    },
+    {
+      "family": "steel_drum",
+      "triangles": 1624,
+      "vertices": 4872,
+      "parts": 4,
+      "dimensions": [
+        1.360104,
+        1.52,
+        1.360104
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/steel_drum.fbx"
+    },
+    {
+      "family": "street_bench",
+      "triangles": 316,
+      "vertices": 948,
+      "parts": 5,
+      "dimensions": [
+        3.7,
+        2.05,
+        1.359035
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/street_bench.fbx"
+    },
+    {
+      "family": "mall_r5_gift_large",
+      "triangles": 20448,
+      "vertices": 61344,
+      "parts": 6,
+      "dimensions": [
+        5.400000095367432,
+        5.854999989271164,
+        2.0999999046325684
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/mall_r5_gift_large.fbx"
+    },
+    {
+      "family": "mall_r5_gift_small",
+      "triangles": 4088,
+      "vertices": 12264,
+      "parts": 2,
+      "dimensions": [
+        1.506500005722046,
+        2.2834999561309814,
+        1.600000023841858
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/mall_r5_gift_small.fbx"
+    },
+    {
+      "family": "mall_r5_sweets_large",
+      "triangles": 6656,
+      "vertices": 19968,
+      "parts": 6,
+      "dimensions": [
+        5.099999904632568,
+        5.108500003814697,
+        2.1200000047683716
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/mall_r5_sweets_large.fbx"
+    },
+    {
+      "family": "mall_r5_sweets_small",
+      "triangles": 1316,
+      "vertices": 3948,
+      "parts": 2,
+      "dimensions": [
+        1.3200000524520874,
+        3.0900001525878906,
+        1.7549999952316284
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/mall_r5_sweets_small.fbx"
+    },
+    {
+      "family": "mall_r5_capsule_large",
+      "triangles": 4284,
+      "vertices": 12852,
+      "parts": 6,
+      "dimensions": [
+        5.199999809265137,
+        5.309999942779541,
+        2.394999861717224
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/mall_r5_capsule_large.fbx"
+    },
+    {
+      "family": "mall_r5_capsule_small",
+      "triangles": 2136,
+      "vertices": 6408,
+      "parts": 2,
+      "dimensions": [
+        1.600000023841858,
+        2.299999952316284,
+        1.600000023841858
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/mall_r5_capsule_small.fbx"
+    },
+    {
+      "family": "mall_r5_density_can",
+      "triangles": 1624,
+      "vertices": 4872,
+      "parts": 4,
+      "dimensions": [
+        1.360104,
+        1.52,
+        1.360104
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/mall_r5_density_can.fbx"
+    },
+    {
+      "family": "mall_r5_density_crate",
+      "triangles": 324,
+      "vertices": 972,
+      "parts": 7,
+      "dimensions": [
+        2.26,
+        1.465,
+        1.842
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/mall_r5_density_crate.fbx"
+    },
+    {
+      "family": "mall_r5_density_vending",
+      "triangles": 2668,
+      "vertices": 8004,
+      "parts": 5,
+      "dimensions": [
+        1.9,
+        3.4,
+        1.5495
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/mall_r5_density_vending.fbx"
+    },
+    {
+      "family": "mall_r5_density_stall",
+      "triangles": 1508,
+      "vertices": 4524,
+      "parts": 6,
+      "dimensions": [
+        3.62,
+        4.11,
+        2.2275
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/mall_r5_density_stall.fbx"
+    },
+    {
+      "family": "mall_r5_density_van",
+      "triangles": 1272,
+      "vertices": 3816,
+      "parts": 9,
+      "dimensions": [
+        5.65,
+        2.7150000000000003,
+        3.008
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/mall_r5_density_van.fbx"
+    },
+    {
+      "family": "mall_r5_density_vertical_sign2",
+      "triangles": 1196,
+      "vertices": 3588,
+      "parts": 7,
+      "dimensions": [
+        3.456,
+        14.000000000000002,
+        0.507
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/mall_r5_density_vertical_sign2.fbx"
+    },
+    {
+      "family": "mall_r5_density_hanging_sign2",
+      "triangles": 448,
+      "vertices": 1344,
+      "parts": 7,
+      "dimensions": [
+        4.32,
+        2.8000000000000003,
+        0.507
+      ],
+      "origin": "bottom centre",
+      "units": "metres",
+      "fbx": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/mall_r5_density_hanging_sign2.fbx"
+    }
+  ],
+  "palette": {
+    "ink": "173942",
+    "navy": "2A1650",
+    "cream": "FAE6B5",
+    "mint": "66C4A3",
+    "gold": "FABA29",
+    "wood": "955C36",
+    "glass": "60959E",
+    "white": "FFF8E3"
+  }
+}
