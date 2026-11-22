@@ -323,4 +323,4 @@ R18 timing continuation 2026-11-04: 私的な診断WebGL c86cec4をビルド成�
 
 | stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
 |---|---|---|---|---|---|---|
-| blender-rollout | 全区画・両方向の有効家族をBlenderへ展開 | Codex（単独書込） | blender-pilot f3911b0・現行実体棚卸し | 区画別未モデル0、同入力route/events完全一致、全City物理署名一致、blend/FBX/画像、Playwright、報告とcommit | 指定なし | City実効41家族1407件（新規19家族）を9区画・両方向へ実装し区分別未モデル0。seed42043は3220.08154296875m/145粉砕/3668ticks、pilotとのroute/events全文・1407物理署名一致。Playwright6PASS/0FAIL。19blend/FBX・9区画コンタクトシート・Native18区分を保存。別系統40+34件は未変更、通常操作/game-playtestはNOT_RUN。既存Scene差分保護、報告・commitを保存する |
+| blender-rollout | 全区画・両方向の有効家族をBlenderへ展開 | Codex（単独書込） | blender-pilot f3911b0・現行実体棚卸し | 区画別未モデル0、同入力route/events完全一致、全City物理署名一致、blend/FBX/画像、Playwright、報告とcommit | 指定なし | City実効41家族1407件（新規19家族）を9区画・両方向へ実装し区分別未モデル0。seed42043は3220.08154296875m/145粉砕/3668ticks、pilotとのroute/events全文・1407物理署名一致。Playwright6PASS/0FAIL。19blend/FBX・9区画コンタクトシート・Native18区分を保存。別系統40+34件は未変更、通常操作/game-playtestはNOT_RUN。既存Scene差分保護。実装commit 825a34f、報告は ../NEON-REPORT-BLENDERROLLOUT-by-codex.md と docs/blender-rollout に保存 |
