@@ -5,9 +5,11 @@ using C2=CrabCityDensityR2;
 
 // Render-only override. Legacy Geometry/Proposals remain the physics authority.
 public static class BlenderFamilyOverride {
- public const string Revision="blender-pilot-1";
+ public const string Revision="blender-rollout-1";
  public static bool Enabled=true;
- public static bool InScope(float x)=>x>=28f&&x<=135f;
+ // Every effective City family, in every sector and both travel directions.
+ // CityVisualBreakable exists only on active destructible placements, not scenery.
+ public static bool InScope(float x)=>true;
  public static void Apply(GameObject root){
   if(!Enabled)return;
   var material=Resources.Load<Material>("BlenderModels/PilotFlat");

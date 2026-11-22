@@ -1,0 +1,19 @@
+{
+  "command": [
+    "/Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/MacOS/Unity",
+    "-batchmode",
+    "-quit",
+    "-forgetProjectPath",
+    "-projectPath",
+    "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/games/flight/crab-flight",
+    "-executeMethod",
+    "BlenderRolloutReview.Run",
+    "-logFile",
+    "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/evidence/blender-rollout-final02/unity.log"
+  ],
+  "startedUTC": "2026-11-22T18:09:24.034292+00:00",
+  "state": "TERMINAL",
+  "pid": 70597,
+  "exitCode": 0,
+  "endedUTC": "2026-11-22T18:10:04.178216+00:00"
+}

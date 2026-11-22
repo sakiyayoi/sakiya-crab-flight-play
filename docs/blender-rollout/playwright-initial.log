@@ -1,0 +1,37 @@
+
+Running 6 tests using 1 worker
+
+(node:67863) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 qa/blender-rollout/rollout.spec.cjs:8:1 › same pilot replay: exact distance, all route bytes, break events, result and retry (105ms)
+  ✘  2 qa/blender-rollout/rollout.spec.cjs:15:1 › every actual registered City target retains physics and gains exactly one Blender intact renderer (6.8s)
+(node:67867) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 qa/blender-rollout/rollout.spec.cjs:22:1 › all sectors and directions have zero unmodelled effective families, counted from current entities (2.9s)
+  ✓  4 qa/blender-rollout/rollout.spec.cjs:31:1 › all family FBX metre dimensions, bottom centre origins, legacy shard IDs and blend sources (192ms)
+
+  ✓  5 qa/blender-rollout/rollout.spec.cjs:38:1 › protected placement, physics, feel, UI, scene and original pilot models remain byte-identical (1.4m)
+  ✓  6 qa/blender-rollout/rollout.spec.cjs:45:1 › native sector screenshots cover both directions; Blender sheets and real replay portraits exist (140ms)
+
+
+  1) qa/blender-rollout/rollout.spec.cjs:15:1 › every actual registered City target retains physics and gains exactly one Blender intact renderer 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1407
+    Received: 1441
+
+      17 |  const old=new Map(a.map(x=>[x.id,x]));expect(old.size).toBe(a.length);expect(b.length).toBe(a.length);expect(new Set(b.map(x=>x.id)).size).toBe(b.length);
+      18 |  for(const r of b){const q=old.get(r.id);expect(q,r.id).toBeDefined();expect(r.physics,r.id).toBe(q.physics);expect(r.asset).toBe(q.asset);expect(r.position).toEqual(q.position);expect(r.scale).toEqual(q.scale);expect(r.blenderParts,r.id).toBe(1);if(q.blenderParts===1)expect(r.appearance,r.id).toBe(q.appearance);}
+    > 19 |  const world=read(path.join(candidate,'world.json'));expect(world.cityBreakTargets).toBe(b.length);expect(world.targets.length).toBe(b.length);expect(world.targets.every(t=>t.registered)).toBe(true);
+         |                                                                                     ^
+      20 |  expect(b.length).toBe(inventory().total);expect(new Set(b.map(r=>r.asset)).size).toBe(inventory().familyCount);
+      21 | });
+      22 | test('all sectors and directions have zero unmodelled effective families, counted from current entities',()=>{
+        at /Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-rollout/rollout.spec.cjs:19:85
+
+    Error Context: .git/blender-rollout-qa/results/rollout-every-actual-regis-8b91b-one-Blender-intact-renderer/error-context.md
+
+  1 failed
+    qa/blender-rollout/rollout.spec.cjs:15:1 › every actual registered City target retains physics and gains exactly one Blender intact renderer 
+  5 passed (1.6m)

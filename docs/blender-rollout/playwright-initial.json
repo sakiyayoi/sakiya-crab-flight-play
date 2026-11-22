@@ -1,0 +1,454 @@
+{
+  "config": {
+    "argv": [
+      "/usr/local/bin/node",
+      "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/placement-fix-qa/runtime/node_modules/.bin/playwright",
+      "test",
+      "--config",
+      "qa/blender-rollout/playwright.config.cjs"
+    ],
+    "configFile": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-rollout/playwright.config.cjs",
+    "rootDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-rollout",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/blender-rollout-qa/results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-rollout",
+        "testIgnore": [],
+        "testMatch": [
+          "rollout.spec.cjs"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/evidence/blender-rollout/playwright.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "rollout.spec.cjs",
+      "file": "rollout.spec.cjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "same pilot replay: exact distance, all route bytes, break events, result and retry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 105,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T18:03:42.362Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6ac2c8c0f137726e75f3-025d259c4d1c9b47493d",
+          "file": "rollout.spec.cjs",
+          "line": 8,
+          "column": 1
+        },
+        {
+          "title": "every actual registered City target retains physics and gains exactly one Blender intact renderer",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6821,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1407\u001b[39m\nReceived: \u001b[31m1441\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1407\u001b[39m\nReceived: \u001b[31m1441\u001b[39m\n    at /Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-rollout/rollout.spec.cjs:19:85",
+                    "location": {
+                      "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-rollout/rollout.spec.cjs",
+                      "column": 85,
+                      "line": 19
+                    },
+                    "snippet": "  17 |  const old=new Map(a.map(x=>[x.id,x]));expect(old.size).toBe(a.length);expect(b.length).toBe(a.length);expect(new Set(b.map(x=>x.id)).size).toBe(b.length);\n  18 |  for(const r of b){const q=old.get(r.id);expect(q,r.id).toBeDefined();expect(r.physics,r.id).toBe(q.physics);expect(r.asset).toBe(q.asset);expect(r.position).toEqual(q.position);expect(r.scale).toEqual(q.scale);expect(r.blenderParts,r.id).toBe(1);if(q.blenderParts===1)expect(r.appearance,r.id).toBe(q.appearance);}\n> 19 |  const world=read(path.join(candidate,'world.json'));expect(world.cityBreakTargets).toBe(b.length);expect(world.targets.length).toBe(b.length);expect(world.targets.every(t=>t.registered)).toBe(true);\n     |                                                                                     ^\n  20 |  expect(b.length).toBe(inventory().total);expect(new Set(b.map(r=>r.asset)).size).toBe(inventory().familyCount);\n  21 | });\n  22 | test('all sectors and directions have zero unmodelled effective families, counted from current entities',()=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-rollout/rollout.spec.cjs",
+                        "column": 85,
+                        "line": 19
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1407\u001b[39m\nReceived: \u001b[31m1441\u001b[39m\n\n  17 |  const old=new Map(a.map(x=>[x.id,x]));expect(old.size).toBe(a.length);expect(b.length).toBe(a.length);expect(new Set(b.map(x=>x.id)).size).toBe(b.length);\n  18 |  for(const r of b){const q=old.get(r.id);expect(q,r.id).toBeDefined();expect(r.physics,r.id).toBe(q.physics);expect(r.asset).toBe(q.asset);expect(r.position).toEqual(q.position);expect(r.scale).toEqual(q.scale);expect(r.blenderParts,r.id).toBe(1);if(q.blenderParts===1)expect(r.appearance,r.id).toBe(q.appearance);}\n> 19 |  const world=read(path.join(candidate,'world.json'));expect(world.cityBreakTargets).toBe(b.length);expect(world.targets.length).toBe(b.length);expect(world.targets.every(t=>t.registered)).toBe(true);\n     |                                                                                     ^\n  20 |  expect(b.length).toBe(inventory().total);expect(new Set(b.map(r=>r.asset)).size).toBe(inventory().familyCount);\n  21 | });\n  22 | test('all sectors and directions have zero unmodelled effective families, counted from current entities',()=>{\n    at /Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-rollout/rollout.spec.cjs:19:85"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T18:03:42.519Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/blender-rollout-qa/results/rollout-every-actual-regis-8b91b-one-Blender-intact-renderer/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-rollout/rollout.spec.cjs",
+                    "column": 85,
+                    "line": 19
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6ac2c8c0f137726e75f3-1d594f3cf0260707078f",
+          "file": "rollout.spec.cjs",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "all sectors and directions have zero unmodelled effective families, counted from current entities",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2866,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T18:03:50.060Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6ac2c8c0f137726e75f3-b9ba3456c4a24073b88e",
+          "file": "rollout.spec.cjs",
+          "line": 22,
+          "column": 1
+        },
+        {
+          "title": "all family FBX metre dimensions, bottom centre origins, legacy shard IDs and blend sources",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 192,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T18:03:52.979Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6ac2c8c0f137726e75f3-53ad2b3467b4badf7c76",
+          "file": "rollout.spec.cjs",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "protected placement, physics, feel, UI, scene and original pilot models remain byte-identical",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 82665,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2026-11-22T18:03:53.184Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6ac2c8c0f137726e75f3-1cae144435a311037d50",
+          "file": "rollout.spec.cjs",
+          "line": 38,
+          "column": 1
+        },
+        {
+          "title": "native sector screenshots cover both directions; Blender sheets and real replay portraits exist",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 140,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T18:05:15.863Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6ac2c8c0f137726e75f3-92f46c835a3bb388f314",
+          "file": "rollout.spec.cjs",
+          "line": 45,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-22T18:03:41.609Z",
+    "duration": 94629.481,
+    "expected": 5,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
