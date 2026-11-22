@@ -7,7 +7,7 @@
 ## 版・保存状態
 
 - 基準branch：`blender-rollout`、commit `8fb3d25c26e2d1f8a7bdf6e26ec77b2826606932`。
-- 候補版名：`blender-panels-1`。実装・25原稿・25FBX・再生成/検証スクリプト・本報告の写しを`blender-panels`へコミットする。確定commitは同フォルダの`commit-receipt.json`と最終応答に記録。
+- 候補版名：`blender-panels-1`。実装・25原稿・25FBX・再生成/検証スクリプトのcommit：`58f6b7efe528cd49dd7fa958dd242e054af1740f`。91ファイルをGitから読み戻し、保存SHAとの不一致0を確認。本報告と保存確認の更新は後続commit。`evidence/blender-panels/commit-receipt.json`にも記録。
 - Unity `6000.3.23f1` / Built-in Render Pipeline。実際に生成・開き直したBlenderは `4.2.23 LTS`。
 - 原稿・再生成：`source/tools/blender/panel_*.blend`、`build_panels.py`、`inventory_panels.py`、`review_panels.py`。
 - Unity表示資産：`source/games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_*.fbx`。
