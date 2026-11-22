@@ -335,4 +335,4 @@ R18 timing continuation 2026-11-04: 私的な診断WebGL c86cec4をビルド成�
 
 | stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
 |---|---|---|---|---|---|---|
-| port-prototype | +x港の8ビート再配置・役・C1〜C8カメラ・視覚v2 | Codex（単独書込） | blender-panels 539acb1、briefs全5点 | 全登録数/他区画/Scene保護、接地・密度・高度・量子化監査、C#型検査、UnityなしPlaywright、報告・commit | 指定なし | 実装・オフライン検証済み。港145→145/世界1481、接地0、CV0.565054、顔39.3103%/相方20%/高度24.8276%、他区画・−x配置/Scene不変。C# errors0/warnings18、純粋計算30PASS、Playwright9PASS/0FAIL/4SKIP。Unity依存の映像/固定入力/WebGL/game-playtestは本人指示でライセンス待ち。報告はdocs/port-prototypeと親フォルダ。作品合格/採用/公開ではない |
+| port-prototype | +x港の8ビート再配置・役・C1〜C8カメラ・視覚v2 | Codex（単独書込） | blender-panels 539acb1、briefs全5点 | 全登録数/他区画/Scene保護、接地・密度・高度・量子化監査、C#型検査、UnityなしPlaywright、報告・commit | 指定なし | 実装・オフライン検証済み。港145→145/世界1481、接地0、CV0.565054、顔39.3103%/相方20%/高度24.8276%、他区画・−x配置/Scene不変。C# errors0/warnings18、純粋計算30PASS、Playwright9PASS/0FAIL/4SKIP。Unity依存の映像/固定入力/WebGL/game-playtestは本人指示でライセンス待ち。実装commit 6609e17、報告はdocs/port-prototypeと親フォルダ。作品合格/採用/公開ではない |
