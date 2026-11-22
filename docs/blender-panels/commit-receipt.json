@@ -1,0 +1,9 @@
+{
+  "implementationCommit": "58f6b7efe528cd49dd7fa958dd242e054af1740f",
+  "branch": "blender-panels",
+  "validatedFiles": 91,
+  "readbackMismatches": [],
+  "reportSha256": "6ae09bc9b87e4d2faa6459151ee2ba95b48870da493c526c22c5f834ab072259",
+  "state": "IMPLEMENTED_NATIVE_BLOCKED",
+  "sceneExcluded": true
+}
