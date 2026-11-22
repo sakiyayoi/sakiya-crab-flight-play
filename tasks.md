@@ -324,3 +324,9 @@ R18 timing continuation 2026-11-04: 私的な診断WebGL c86cec4をビルド成�
 | stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
 |---|---|---|---|---|---|---|
 | blender-rollout | 全区画・両方向の有効家族をBlenderへ展開 | Codex（単独書込） | blender-pilot f3911b0・現行実体棚卸し | 区画別未モデル0、同入力route/events完全一致、全City物理署名一致、blend/FBX/画像、Playwright、報告とcommit | 指定なし | City実効41家族1407件（新規19家族）を9区画・両方向へ実装し区分別未モデル0。seed42043は3220.08154296875m/145粉砕/3668ticks、pilotとのroute/events全文・1407物理署名一致。Playwright6PASS/0FAIL。19blend/FBX・9区画コンタクトシート・Native18区分を保存。別系統40+34件は未変更、通常操作/game-playtestはNOT_RUN。既存Scene差分保護。実装commit 825a34f、報告は ../NEON-REPORT-BLENDERROLLOUT-by-codex.md と docs/blender-rollout に保存 |
+
+## Blender別系統パネル（2026-11-23 本人直接指示）
+
+| stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
+|---|---|---|---|---|---|---|
+| blender-panels | Restaurant/Core/Overdriveの実体を棚卸しし全破壊対象の外観をBlender化 | Codex（単独書込） | blender-rollout 8fb3d25、現行実体 | 同入力route/events完全一致、全City物理署名一致、系統別未モデル0、Native画像、Playwright、報告・commit | 指定なし | 実装・保存済み、Native必須検証BLOCKED（Unity license、起動exit198）。ソース20+16+4=40、19無傷+6破片モデル、25原稿読戻しPASS、C# errors0、Playwright2PASS/0FAIL/6SKIP。Native登録/物理署名/同入力/画像/残数0は未確認。Scene既存差分保護。正規ライセンス復旧後README-panels手順で再開 |

@@ -1,0 +1,256 @@
+{
+  "models": [
+    {
+      "family": "panel_tank_glass",
+      "vertices": 432,
+      "triangles": 144,
+      "boundsError": 9.536743172944284e-08,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_dish_stack",
+      "vertices": 8208,
+      "triangles": 2736,
+      "boundsError": 4.768371586472142e-08,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_outer_wall_low",
+      "vertices": 756,
+      "triangles": 252,
+      "boundsError": 5.960464455334602e-09,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_outer_wall_upper",
+      "vertices": 612,
+      "triangles": 204,
+      "boundsError": 5.960464455334602e-09,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_ceiling",
+      "vertices": 360,
+      "triangles": 120,
+      "boundsError": 1.1920928966180355e-08,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_food_tray",
+      "vertices": 3540,
+      "triangles": 1180,
+      "boundsError": 4.768371586472142e-08,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_wood_chair",
+      "vertices": 876,
+      "triangles": 292,
+      "boundsError": 9.536743172944284e-08,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_wood_table",
+      "vertices": 876,
+      "triangles": 292,
+      "boundsError": 1.9073486345888568e-07,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_metal_kitchen",
+      "vertices": 4656,
+      "triangles": 1552,
+      "boundsError": 9.536743128535363e-08,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_r5_restaurant_entry_dishes",
+      "vertices": 5520,
+      "triangles": 1840,
+      "boundsError": 4.768371586472142e-08,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_r5_restaurant_chair_food",
+      "vertices": 3540,
+      "triangles": 1180,
+      "boundsError": 4.768371586472142e-08,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_r5_restaurant_dish_tower",
+      "vertices": 5520,
+      "triangles": 1840,
+      "boundsError": 2.384185793236071e-08,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_r5_restaurant_service_table",
+      "vertices": 876,
+      "triangles": 292,
+      "boundsError": 9.536743172944284e-08,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_r5_restaurant_service_food",
+      "vertices": 3540,
+      "triangles": 1180,
+      "boundsError": 4.768371586472142e-08,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_r5_restaurant_table_dishes",
+      "vertices": 5520,
+      "triangles": 1840,
+      "boundsError": 2.384185793236071e-08,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_r5_restaurant_kitchen_food",
+      "vertices": 3540,
+      "triangles": 1180,
+      "boundsError": 0.0,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_r5_restaurant_exit_table",
+      "vertices": 876,
+      "triangles": 292,
+      "boundsError": 4.7683715642676816e-08,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_core_mall_glass",
+      "vertices": 432,
+      "triangles": 144,
+      "boundsError": 1.9073486345888568e-07,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_core_office_glass",
+      "vertices": 432,
+      "triangles": 144,
+      "boundsError": 4.768371586472142e-08,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_fragment_glass",
+      "vertices": 42,
+      "triangles": 14,
+      "boundsError": 0.0,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_fragment_wall",
+      "vertices": 132,
+      "triangles": 44,
+      "boundsError": 0.0,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_fragment_tableware",
+      "vertices": 1344,
+      "triangles": 448,
+      "boundsError": 0.0,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_fragment_food",
+      "vertices": 3540,
+      "triangles": 1180,
+      "boundsError": 0.0,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_fragment_wood",
+      "vertices": 168,
+      "triangles": 56,
+      "boundsError": 0.0,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    },
+    {
+      "family": "panel_fragment_metal",
+      "vertices": 132,
+      "triangles": 44,
+      "boundsError": 0.0,
+      "metres": true,
+      "bottomCentre": true,
+      "vertexColours": true,
+      "blendReopened": true
+    }
+  ],
+  "status": "PASS",
+  "nativeUnity": "NOT_RUN"
+}

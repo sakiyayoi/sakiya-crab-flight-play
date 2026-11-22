@@ -1,0 +1,17 @@
+
+Running 8 tests using 1 worker
+
+(node:86639) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  -  1 qa/blender-panels/panels.spec.cjs:11:1 › rollout -> panels: same fixed input, distance, every route byte and break event, result and retry
+  -  2 qa/blender-panels/panels.spec.cjs:21:1 › all registered objects and City targets preserve physical signatures, positions and scales
+  -  3 qa/blender-panels/panels.spec.cjs:28:1 › independent full registry census: no non-Blender destructible system, explicit people/bird exclusions
+  -  4 qa/blender-panels/panels.spec.cjs:38:1 › panel FBX meshes use metres, bottom centre, vertex colours, no collider/body and actual blend sources
+  -  5 qa/blender-panels/panels.spec.cjs:46:1 › real replay panel debris also uses Blender; legacy body sizes and mass/damping stay identical
+
+  ✓  6 qa/blender-panels/panels.spec.cjs:52:1 › only two display hooks change the existing runtime; physical/UI/placement/scene files protected (425ms)
+  -  7 qa/blender-panels/panels.spec.cjs:60:1 › Native target-sector evidence includes both directions and real result/retry
+  ✓  8 qa/blender-panels/panels.spec.cjs:68:1 › source enumeration covers 40 IDs and 19 authored variants; 25 blend files reopened with exact metre bounds (55ms)
+
+  6 skipped
+  2 passed (1.4s)

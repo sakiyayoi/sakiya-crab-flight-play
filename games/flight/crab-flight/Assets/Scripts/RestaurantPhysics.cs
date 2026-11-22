@@ -51,7 +51,7 @@ public sealed partial class RigidCrabFlight {
 
  void AddPanel(string id,string type,Vector3 position,Vector3 size,Color color,float threshold){
   var panel=new BreakPanel{id=id,type=type,position=position,size=size,color=color,threshold=threshold};
-  panel.visual=RestaurantVisuals.CreateBreakableVisual(type,position,size,color);panel.visual.name=id;
+  panel.visual=RestaurantVisuals.CreateBreakableVisual(type,position,size,color);panel.visual.name=id;BlenderPanelOverride.Apply(panel.visual,id);
   SceneManager.MoveGameObjectToScene(panel.visual,Scene);if(type=="wood"){AddPanelShape(panel,new Vector3(0,size.y*.36f,0),new Vector3(size.x,size.y*.28f,size.z));for(int sign=-1;sign<=1;sign+=2)AddPanelShape(panel,new Vector3(sign*size.x*.31f,-size.y*.14f,0),new Vector3(size.x*.15f,size.y*.72f,size.z*.75f));}else AddPanelShape(panel,Vector3.zero,size);panels.Add(panel);
  }
  void AddPanelShape(BreakPanel panel,Vector3 center,Vector3 size){bool traced=CityShapeSplitProbeR18.BeforeCreate(center,size);var c=panel.visual.AddComponent<BoxCollider>();c.center=center;c.size=size;c.providesContacts=true;c.sharedMaterial=debrisMaterial;c.contactOffset=.008f;panel.shapes.Add(c);panel.collider=c;surfaces[c.GetInstanceID()]=panel.type;breakByCollider[c.GetInstanceID()]=panel;var proxy=MirrorDebrisStaticCalmR4(c);if(proxy)breakByCollider[proxy.GetInstanceID()]=panel;CityShapeSplitProbeR18.AfterCreate(traced,proxy!=null);PrepareUnitTimelineR18.Created(proxy!=null);}
@@ -83,6 +83,7 @@ public sealed partial class RigidCrabFlight {
     // Debris reacts to the body but is not a second damage/record or chain trigger.
     var rb=obj.AddComponent<Rigidbody>();rb.mass=p.type=="food"?.06f:p.type=="glass"?.08f:p.type=="metal"?1.1f:p.type=="wood"?.32f:.12f;rb.collisionDetectionMode=CollisionDetectionMode.ContinuousSpeculative;rb.linearDamping=.3f;rb.angularDamping=.6f;
     rb.linearVelocity=Vector3.ClampMagnitude(Body.linearVelocity*.22f+new Vector3(direction*1.3f,1.1f,(i%2==0?-1:1)*1.4f),18);rb.angularVelocity=new Vector3(i+1,2-i,1)*2;
+    BlenderPanelOverride.ApplyFragment(obj,p.id,p.type);
     fragments.Add(obj);
    }
   }
