@@ -20,7 +20,7 @@ public sealed partial class CrabFlightGame {
  void StreamReset(){if(farLifeR10)farLifeR10.ResetVisuals();hitStop.Reset();generation++;eventSequence=readBreaks=readImpacts=readBursts=0;outsideSent=false;exitSource="";lastWorkCue=-100;eventStream.Clear();if(effects){effects.ResetRun();effects.SetPaused(paused);}Emit("reset","","",crab.Root.position,Vector3.up,Vector3.zero,0);}
  void Emit(string type,string objectId,string material,Vector3 point,Vector3 normal,Vector3 velocity,float strength,bool secondary=false,float weight=.5f){
   var e=new FlightGameEvent{generation=generation,id=++eventSequence,type=type,objectId=objectId,material=material,position=point,normal=normal,velocity=velocity,strength=Mathf.Clamp01(strength),secondary=secondary,weight=weight,physicsTime=simulation!=null?simulation.Time:0};eventStream.Add(e);if(eventStream.Count>32)eventStream.RemoveAt(0);
-  ObserveFeelEventR27(e);if(!FeelOnR27&&useHitStop&&!secondary)hitStop.Request(generation,e.id,type,material,e.strength,ReducedMotion,e.weight);
+  ObservePortCamera(e);ObserveFeelEventR27(e);if(!FeelOnR27&&useHitStop&&!secondary)hitStop.Request(generation,e.id,type,material,e.strength,ReducedMotion,e.weight);
   if(FeelOnR27||!effects)return;
   if(type=="launch")effects.EmitLaunch(point,velocity,launchChargeEnergy);
   else if(type=="destruction")effects.EmitBreak(e.id,CrabVfxRig.SurfaceFromId(material),point,velocity,normal,BreakVisualStrength(e));

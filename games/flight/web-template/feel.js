@@ -1,14 +1,14 @@
  'use strict';
 (function(root){
  const test=new URLSearchParams(location.search).get('test')==='1',events=[],media=matchMedia('(prefers-reduced-motion: reduce)'),key='crab-flight-feel-v2-calm';
- let config,preset='mashimashi',shake=false,ready=false,occ=200000,camMax=0,state=null,lastFps=performance.now(),fpsSum=0,fpsMin=Infinity,fpsNow=0,fpsSamples=0;
+ let config,preset='mashimashi',shake=true,shakeExplicit=false,ready=false,occ=200000,camMax=0,state=null,lastFps=performance.now(),fpsSum=0,fpsMin=Infinity,fpsNow=0,fpsSamples=0;
  const panel=document.createElement('div');panel.id='feelOverlay';panel.setAttribute('aria-hidden','true');panel.style.cssText='position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:8';document.getElementById('stage').append(panel);
- try{const own=localStorage.getItem(key),old=JSON.parse(own||localStorage.getItem('crab-flight-feel-v1')||'null');if(old){if(['mashimashi','futsuu','off'].includes(old.preset))preset=old.preset;else if(old.preset==='normal')preset='futsuu';if(own&&typeof old.shake==='boolean')shake=old.shake;}}catch{}
- const settings=()=>({preset,shake,reducedMotion:media.matches});
+ try{const own=localStorage.getItem(key),old=JSON.parse(own||localStorage.getItem('crab-flight-feel-v1')||'null');if(old){if(['mashimashi','futsuu','off'].includes(old.preset))preset=old.preset;else if(old.preset==='normal')preset='futsuu';if(own&&typeof old.shake==='boolean'){shake=old.shake;shakeExplicit=old.shakeExplicit!==false;}}}catch{}
+ const settings=()=>({preset,shake,shakeExplicit,reducedMotion:media.matches});
  function push(e){if(!test)return;events.push({...e,t:performance.now(),unityTime:e.t});if(events.length>5000)events.shift();}
  root.__kaniTestPush=push;
  function apply(){const s=settings();if(root.FlightFeel.mountDone){for(const b of document.querySelectorAll('#fxPreset [data-value]'))b.setAttribute('aria-checked',String(b.dataset.value===preset));document.getElementById('shakeToggle').setAttribute('aria-checked',String(shake));document.getElementById('shakeToggle').textContent='画面揺れ：'+(shake?'弱':'オフ');}if(ready){send('SetFeelR27',JSON.stringify(s));send('SetReducedMotion',media.matches||preset==='off'?'1':'0');}document.body.dataset.reduced=String(media.matches||preset==='off');document.getElementById('kickFeedback')?.classList.add('hidden');if(preset==='off')panel.replaceChildren();}
- function setSettings(next){if(next.preset!==undefined&&['mashimashi','futsuu','off'].includes(next.preset))preset=next.preset;if(typeof next.shake==='boolean')shake=next.shake;try{localStorage.setItem(key,JSON.stringify({preset,shake}));}catch{}apply();}
+ function setSettings(next){if(next.preset!==undefined&&['mashimashi','futsuu','off'].includes(next.preset))preset=next.preset;if(typeof next.shake==='boolean'){shake=next.shake;shakeExplicit=true;}try{localStorage.setItem(key,JSON.stringify({preset,shake,shakeExplicit}));}catch{}apply();}
  // Match Mathf.RoundToInt: midpoint ties go to the even integer.
  function drawCount(n){const whole=Math.floor(n),f=n-whole;return f>.5?whole+1:f<.5?whole:whole+(whole%2);}
  function resolved(p=preset){const m=config.presets[p],out={};for(const [event,k] of Object.entries({charge_stroke:'charge',charge_ready:'ready',launch:'launch',glass_break:'tankGlass',break:'destruction',chain_2:'chain2',chain_4:'chain4',chain_7:'chain7',ground_hit:'landing',push_perfect:'perfect',push_good:'good',push_miss:'miss',new_record:'newRecord'})){const c=config.events[k];out[event]={hitstopFrames:Math.min(Math.floor((c.stopFrames||0)*m.hitStopMultiplier),p==='mashimashi'&&c.maxMashimashiStopFrames?c.maxMashimashiStopFrames:Infinity),shakeAmp:Math.min(.025,(c.shakeM||0)*m.shakeMultiplier),shakeDecayMs:c.shakeMs||0,kick:0,flash:p!=='off'&&(c.flashPhases||0)>0,particles:drawCount((c.particles||c.confetti||0)*m.particleMultiplier),squashPct:Math.min(.3,(c.squash||0)*m.squashMultiplier)*100,slowmoSec:(c.slowMs||0)/1000,slowmoTimeScale:c.slowScale||1};if(event==='launch')out[event].fovTo=config.camera.fovBase;}return out;}
@@ -46,7 +46,7 @@
    el.style.left=(parseFloat(el.style.left)+Math.max(16-left,Math.min(0,innerWidth-16-right)))+'px';
    requestAnimationFrame(frame);}frame();
  }
- function cue(c){if(c.event==='result'){panel.replaceChildren();return;}if(c.event==='reset'){panel.replaceChildren();return;}if(preset==='off')return;
+ function cue(c){if(c.event==='result'){panel.replaceChildren();return;}if(c.event==='reset'){panel.replaceChildren();return;}if(preset==='off'||root.PortPresentation?.handles(c))return;
   if(c.event==='glass_break')popup({...c,value:1,headline:true},'生簀、退場！ +1',0);else if(c.event==='break')popup({...c,value:1},c.material==='person'?'人間ボウリング！ +1':c.material==='bird'?'鳥、緊急発進！ +1':'+1',0);
   if(c.event==='chain'){popup(c,(state?.gear===1?'棚ごと返品！':state?.gear===2?'鉄鍋、営業終了！':state?.gear===3?'脚から大惨事！':c.chain>=7?'まとめて解散！':c.chain>=4?'カニ、営業妨害！':'大盛り粉砕！')+' '+c.chain+'連鎖',c.chain);}
   if(c.event==='push_perfect'||c.event==='push_good'||c.event==='push_miss')popup(c,c.event==='push_perfect'?'PERFECT!':c.event==='push_good'?'GOOD!':'MISS',0);

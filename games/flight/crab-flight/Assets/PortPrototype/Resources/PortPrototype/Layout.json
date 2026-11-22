@@ -1,0 +1,3781 @@
+{
+  "revision": "port-prototype-1",
+  "baseline": "539acb1264739e52dc236d0260bda105431910a6",
+  "resourceReserve": [
+    683,
+    0,
+    0
+  ],
+  "instances": [
+    {
+      "key": "S1-crane-00",
+      "asset": "port_lattice_loader_r10",
+      "beat": "S1",
+      "p": [
+        608.17,
+        0.0,
+        0.013
+      ],
+      "s": [
+        1.7,
+        2.2,
+        1.5
+      ],
+      "yaw": 90,
+      "band": "near",
+      "breakable": true,
+      "chunk": 15,
+      "chainGroup": 0,
+      "support": "",
+      "role": "landmark",
+      "chain": "",
+      "tier": 0,
+      "variant": 0,
+      "id": "far-r10-new-1-752-port_lattice_loader_r10"
+    },
+    {
+      "key": "S1-container-00",
+      "asset": "cargo_container_neon6",
+      "beat": "S1",
+      "p": [
+        611.35,
+        0.0,
+        -4.87
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 15,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0254"
+    },
+    {
+      "key": "S1-container-01",
+      "asset": "cargo_container_neon6",
+      "beat": "S1",
+      "p": [
+        611.81,
+        0.0,
+        0.63
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 15,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0256"
+    },
+    {
+      "key": "S1-container-02",
+      "asset": "cargo_container_neon6",
+      "beat": "S1",
+      "p": [
+        612.72,
+        0.0,
+        4.61
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 15,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0260"
+    },
+    {
+      "key": "S1-crate-00",
+      "asset": "market_crate",
+      "beat": "S1",
+      "p": [
+        600.94,
+        -0.1116,
+        -0.31
+      ],
+      "s": [
+        0.72,
+        0.72,
+        0.72
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 15,
+      "chainGroup": 0,
+      "support": "",
+      "role": "boost45",
+      "chain": "gate",
+      "tier": 0,
+      "variant": 1,
+      "id": "far-r10-+1-00-1-market_crate"
+    },
+    {
+      "key": "S1-crate-01",
+      "asset": "market_crate",
+      "beat": "S1",
+      "p": [
+        602.33,
+        -0.1116,
+        1.53
+      ],
+      "s": [
+        0.72,
+        0.72,
+        0.72
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 15,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "gate",
+      "tier": 0,
+      "variant": 2,
+      "id": "far-r10-+1-01-1-market_crate"
+    },
+    {
+      "key": "S1-crate-02",
+      "asset": "market_crate",
+      "beat": "S1",
+      "p": [
+        603.58,
+        -0.1116,
+        -0.47
+      ],
+      "s": [
+        0.72,
+        0.72,
+        0.72
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 15,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "gate",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0225"
+    },
+    {
+      "key": "S1-crate-03",
+      "asset": "market_crate",
+      "beat": "S1",
+      "p": [
+        604.87,
+        -0.1116,
+        1.41
+      ],
+      "s": [
+        0.72,
+        0.72,
+        0.72
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 15,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "gate",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0229"
+    },
+    {
+      "key": "S1-drum-00",
+      "asset": "steel_drum",
+      "beat": "S1",
+      "p": [
+        602.14,
+        -0.09,
+        -2.66
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 15,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 2,
+      "id": "far-r10-+1-00-2-steel_drum"
+    },
+    {
+      "key": "S1-drum-01",
+      "asset": "steel_drum",
+      "beat": "S1",
+      "p": [
+        604.39,
+        -0.09,
+        3.37
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 15,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 0,
+      "id": "far-r10-+1-01-2-steel_drum"
+    },
+    {
+      "key": "S2-buoy-00",
+      "asset": "harbor_buoy_neon6",
+      "beat": "S2",
+      "p": [
+        624.23,
+        -0.018,
+        -5.17
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 15,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0255"
+    },
+    {
+      "key": "S3-stall-00",
+      "asset": "market_stall",
+      "beat": "S3",
+      "p": [
+        635.21,
+        -0.007,
+        -3.43
+      ],
+      "s": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 15,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 2,
+      "id": "far-r10-+1-00-0-delivery_van"
+    },
+    {
+      "key": "S3-stall-01",
+      "asset": "market_stall",
+      "beat": "S3",
+      "p": [
+        643.38,
+        -0.007,
+        3.72
+      ],
+      "s": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 16,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 0,
+      "id": "far-r10-+1-02-1-facade_break_panel"
+    },
+    {
+      "key": "S3-stall-02",
+      "asset": "market_stall",
+      "beat": "S3",
+      "p": [
+        652.13,
+        -0.007,
+        -3.81
+      ],
+      "s": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 16,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 1,
+      "id": "far-r10-+1-02-2-road_barrier"
+    },
+    {
+      "key": "S3-stall-03",
+      "asset": "market_stall",
+      "beat": "S3",
+      "p": [
+        661.49,
+        -0.007,
+        3.46
+      ],
+      "s": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 16,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 2,
+      "id": "far-r10-+1-03-0-street_awning"
+    },
+    {
+      "key": "S3-shelf-00",
+      "asset": "rail_glass_planter_display_r10",
+      "beat": "S3",
+      "p": [
+        640.17,
+        -0.021,
+        -4.89
+      ],
+      "s": [
+        1.05,
+        1.05,
+        1.05
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 16,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 0,
+      "id": "far-r10-new-1-940-rail_glass_planter_display_r10"
+    },
+    {
+      "key": "S3-shelf-01",
+      "asset": "rail_glass_planter_display_r10",
+      "beat": "S3",
+      "p": [
+        650.31,
+        -0.021,
+        4.93
+      ],
+      "s": [
+        1.05,
+        1.05,
+        1.05
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 16,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 1,
+      "id": "r29-port-1-2-rail_glass_planter_display_r10"
+    },
+    {
+      "key": "S3-shelf-02",
+      "asset": "rail_glass_planter_display_r10",
+      "beat": "S3",
+      "p": [
+        659.28,
+        -0.021,
+        -4.43
+      ],
+      "s": [
+        1.05,
+        1.05,
+        1.05
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 16,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0227"
+    },
+    {
+      "key": "S3-crate-00",
+      "asset": "market_crate",
+      "beat": "S3",
+      "p": [
+        634.0986161090073,
+        -0.13175,
+        0.7401483443723292
+      ],
+      "s": [
+        0.85,
+        0.85,
+        0.85
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 15,
+      "chainGroup": 0,
+      "support": "",
+      "role": "boost30",
+      "chain": "market",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0233"
+    },
+    {
+      "key": "S3-crate-01",
+      "asset": "market_crate",
+      "beat": "S3",
+      "p": [
+        637.5917484768381,
+        -0.13175,
+        -0.7846652135762737
+      ],
+      "s": [
+        0.85,
+        0.85,
+        0.85
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 15,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "market",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0237"
+    },
+    {
+      "key": "S3-crate-02",
+      "asset": "market_crate",
+      "beat": "S3",
+      "p": [
+        641.4340842013515,
+        -0.13175,
+        0.7717536431945763
+      ],
+      "s": [
+        0.85,
+        0.85,
+        0.85
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 16,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "market",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0241"
+    },
+    {
+      "key": "S3-crate-03",
+      "asset": "market_crate",
+      "beat": "S3",
+      "p": [
+        644.9890424788516,
+        -0.13175,
+        -0.8381285513009054
+      ],
+      "s": [
+        0.85,
+        0.85,
+        0.85
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 16,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "market",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0245"
+    },
+    {
+      "key": "S3-crate-04",
+      "asset": "market_crate",
+      "beat": "S3",
+      "p": [
+        649.5252579629378,
+        -0.13175,
+        0.8208250618806605
+      ],
+      "s": [
+        0.85,
+        0.85,
+        0.85
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 16,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "market",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0249"
+    },
+    {
+      "key": "S3-crate-05",
+      "asset": "market_crate",
+      "beat": "S3",
+      "p": [
+        653.4074236380188,
+        -0.13175,
+        -0.8439008115828539
+      ],
+      "s": [
+        0.85,
+        0.85,
+        0.85
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 16,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "market",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0259"
+    },
+    {
+      "key": "S3-crate-06",
+      "asset": "market_crate",
+      "beat": "S3",
+      "p": [
+        657.2460841982385,
+        -0.13175,
+        0.7392134735255954
+      ],
+      "s": [
+        0.85,
+        0.85,
+        0.85
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 16,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "market",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0265"
+    },
+    {
+      "key": "S3-crate-07",
+      "asset": "market_crate",
+      "beat": "S3",
+      "p": [
+        660.5421767382963,
+        -0.13175,
+        -0.8878830825827246
+      ],
+      "s": [
+        0.85,
+        0.85,
+        0.85
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 16,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "market",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0271"
+    },
+    {
+      "key": "S3-crate-08",
+      "asset": "market_crate",
+      "beat": "S3",
+      "p": [
+        640.183,
+        2.9711,
+        -4.872999999999999
+      ],
+      "s": [
+        0.68,
+        0.68,
+        0.68
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 16,
+      "chainGroup": 0,
+      "support": "S3-shelf-00",
+      "role": "",
+      "chain": "market",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0277"
+    },
+    {
+      "key": "S3-crate-09",
+      "asset": "market_crate",
+      "beat": "S3",
+      "p": [
+        650.3359999999999,
+        2.9711,
+        4.947
+      ],
+      "s": [
+        0.68,
+        0.68,
+        0.68
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 16,
+      "chainGroup": 0,
+      "support": "S3-shelf-01",
+      "role": "",
+      "chain": "market",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0283"
+    },
+    {
+      "key": "S3-drum-00",
+      "asset": "steel_drum",
+      "beat": "S3",
+      "p": [
+        636.71,
+        -0.09,
+        1.71
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 15,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "market",
+      "tier": 0,
+      "variant": 1,
+      "id": "r29-port-1-1-steel_drum"
+    },
+    {
+      "key": "S3-drum-01",
+      "asset": "steel_drum",
+      "beat": "S3",
+      "p": [
+        642.29,
+        -0.09,
+        -1.64
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 16,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "market",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0224"
+    },
+    {
+      "key": "S3-drum-02",
+      "asset": "steel_drum",
+      "beat": "S3",
+      "p": [
+        647.66,
+        -0.09,
+        1.81
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 16,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "market",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0228"
+    },
+    {
+      "key": "S3-drum-03",
+      "asset": "steel_drum",
+      "beat": "S3",
+      "p": [
+        655.02,
+        -0.09,
+        -1.63
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 16,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "market",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0232"
+    },
+    {
+      "key": "S3-drum-04",
+      "asset": "steel_drum",
+      "beat": "S3",
+      "p": [
+        659.0,
+        -0.09,
+        1.64
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 16,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "market",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0236"
+    },
+    {
+      "key": "S3-drum-05",
+      "asset": "steel_drum",
+      "beat": "S3",
+      "p": [
+        665.12,
+        -0.09,
+        -0.53
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 16,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "market",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0240"
+    },
+    {
+      "key": "S3-sign-00",
+      "asset": "blade_sign",
+      "beat": "S3",
+      "p": [
+        635.49,
+        0.0,
+        -4.72
+      ],
+      "s": [
+        0.95,
+        0.95,
+        0.95
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 15,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 1,
+      "id": "far-r10-+1-02-0-blade_sign"
+    },
+    {
+      "key": "S3-sign-01",
+      "asset": "blade_sign",
+      "beat": "S3",
+      "p": [
+        661.73,
+        0.0,
+        4.67
+      ],
+      "s": [
+        0.95,
+        0.95,
+        0.95
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 16,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 2,
+      "id": "far-r10-+1-03-1-blade_sign"
+    },
+    {
+      "key": "S4-buoy-00",
+      "asset": "harbor_buoy_neon6",
+      "beat": "S4",
+      "p": [
+        669.14,
+        -0.018,
+        -5.42
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 16,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0257"
+    },
+    {
+      "key": "S4-buoy-01",
+      "asset": "harbor_buoy_neon6",
+      "beat": "S4",
+      "p": [
+        677.91,
+        -0.018,
+        -4.72
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 16,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0261"
+    },
+    {
+      "key": "S4-buoy-02",
+      "asset": "harbor_buoy_neon6",
+      "beat": "S4",
+      "p": [
+        686.28,
+        -0.018,
+        -5.68
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 17,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0263"
+    },
+    {
+      "key": "S4-buoy-03",
+      "asset": "harbor_buoy_neon6",
+      "beat": "S4",
+      "p": [
+        696.17,
+        -0.018,
+        -4.61
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 17,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0267"
+    },
+    {
+      "key": "S5-container-00",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        701.21,
+        0.0,
+        -3.93
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 17,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-sub",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0262"
+    },
+    {
+      "key": "S5-container-01",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        704.74,
+        0.0,
+        1.38
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 17,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-sub",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0266"
+    },
+    {
+      "key": "S5-container-02",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        707.16,
+        0.0,
+        -3.71
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 17,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-sub",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0268"
+    },
+    {
+      "key": "S5-container-03",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        710.83,
+        0.0,
+        1.56
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 17,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-sub",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0272"
+    },
+    {
+      "key": "S5-container-04",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        712.81,
+        0.0,
+        -3.83
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 17,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-sub",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0274"
+    },
+    {
+      "key": "S5-container-05",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        716.37,
+        0.0,
+        1.71
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 17,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-sub",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0278"
+    },
+    {
+      "key": "S5-container-06",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        719.02,
+        0.0,
+        -3.61
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 17,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-sub",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0280"
+    },
+    {
+      "key": "S5-container-07",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        721.24,
+        0.0,
+        1.49
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-sub",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0284"
+    },
+    {
+      "key": "S5-container-08",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        734.57,
+        0.0,
+        -4.57
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0286"
+    },
+    {
+      "key": "S5-container-09",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        734.663,
+        0.0,
+        -1.6090000000000002
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0290"
+    },
+    {
+      "key": "S5-container-10",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        734.787,
+        0.0,
+        1.3920000000000001
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0292"
+    },
+    {
+      "key": "S5-container-11",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        734.931,
+        0.0,
+        4.413
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0296"
+    },
+    {
+      "key": "S5-container-12",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        739.06,
+        0.0,
+        -4.533
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0298"
+    },
+    {
+      "key": "S5-container-13",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        739.1719999999999,
+        0.0,
+        -1.5720000000000003
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0302"
+    },
+    {
+      "key": "S5-container-14",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        739.3149999999999,
+        0.0,
+        1.429
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0304"
+    },
+    {
+      "key": "S5-container-15",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        739.478,
+        0.0,
+        4.45
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0308"
+    },
+    {
+      "key": "S5-container-16",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        743.49,
+        0.0,
+        -4.496
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0310"
+    },
+    {
+      "key": "S5-container-17",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        743.621,
+        0.0,
+        -1.5350000000000001
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0314"
+    },
+    {
+      "key": "S5-container-18",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        743.783,
+        0.0,
+        1.4660000000000002
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0316"
+    },
+    {
+      "key": "S5-container-19",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        743.965,
+        0.0,
+        4.487
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0320"
+    },
+    {
+      "key": "S5-container-20",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        748.09,
+        0.0,
+        -4.4590000000000005
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0322"
+    },
+    {
+      "key": "S5-container-21",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        748.24,
+        0.0,
+        -1.4980000000000002
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0326"
+    },
+    {
+      "key": "S5-container-22",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        748.421,
+        0.0,
+        1.5030000000000001
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0328"
+    },
+    {
+      "key": "S5-container-23",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        748.6220000000001,
+        0.0,
+        4.524
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0332"
+    },
+    {
+      "key": "S5-container-24",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        704.61,
+        2.85,
+        1.3909999999999998
+      ],
+      "s": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 17,
+      "chainGroup": 0,
+      "support": "S5-container-01",
+      "role": "",
+      "chain": "yard-sub",
+      "tier": 1,
+      "variant": 1,
+      "id": "neon-density-port-s6-0334"
+    },
+    {
+      "key": "S5-container-25",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        710.724,
+        2.85,
+        1.571
+      ],
+      "s": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 17,
+      "chainGroup": 0,
+      "support": "S5-container-03",
+      "role": "",
+      "chain": "yard-sub",
+      "tier": 1,
+      "variant": 2,
+      "id": "neon-density-port-s6-0338"
+    },
+    {
+      "key": "S5-container-26",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        716.288,
+        2.85,
+        1.7209999999999999
+      ],
+      "s": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 17,
+      "chainGroup": 0,
+      "support": "S5-container-05",
+      "role": "",
+      "chain": "yard-sub",
+      "tier": 1,
+      "variant": 0,
+      "id": "neon-density-port-s6-0340"
+    },
+    {
+      "key": "S5-container-27",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        734.5120000000001,
+        2.85,
+        -4.559
+      ],
+      "s": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "S5-container-08",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 1,
+      "variant": 1,
+      "id": "neon-density-port-s6-0344"
+    },
+    {
+      "key": "S5-container-28",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        734.629,
+        2.85,
+        -1.5980000000000003
+      ],
+      "s": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "S5-container-09",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 1,
+      "variant": 2,
+      "id": "neon-density-port-s6-0346"
+    },
+    {
+      "key": "S5-container-29",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        734.777,
+        2.85,
+        1.403
+      ],
+      "s": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "S5-container-10",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 1,
+      "variant": 0,
+      "id": "neon-density-port-s6-0347"
+    },
+    {
+      "key": "S5-container-30",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        734.945,
+        2.85,
+        4.424
+      ],
+      "s": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "S5-container-11",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 1,
+      "variant": 1,
+      "id": "far-r10-+1-03-2-hvac_unit"
+    },
+    {
+      "key": "S5-container-31",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        739.098,
+        2.85,
+        -4.522
+      ],
+      "s": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "S5-container-12",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 1,
+      "variant": 2,
+      "id": "far-r10-+1-04-1-street_bench"
+    },
+    {
+      "key": "S5-container-32",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        739.2339999999999,
+        2.85,
+        -1.5610000000000004
+      ],
+      "s": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "S5-container-13",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 1,
+      "variant": 0,
+      "id": "far-r10-+1-04-2-road_barrier"
+    },
+    {
+      "key": "S5-container-33",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        739.401,
+        2.85,
+        1.44
+      ],
+      "s": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "S5-container-14",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 1,
+      "variant": 1,
+      "id": "r29-port-1-0-port_lattice_loader_r10"
+    },
+    {
+      "key": "S5-container-34",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        739.588,
+        2.85,
+        4.461
+      ],
+      "s": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "S5-container-15",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 1,
+      "variant": 2,
+      "id": "neon-density-port-s6-0226"
+    },
+    {
+      "key": "S5-container-35",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        734.4380000000001,
+        5.51,
+        -4.55
+      ],
+      "s": [
+        1.34,
+        1.34,
+        1.34
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "S5-container-27",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 2,
+      "variant": 0,
+      "id": "neon-density-port-s6-0230"
+    },
+    {
+      "key": "S5-container-36",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        734.582,
+        5.51,
+        -1.5890000000000004
+      ],
+      "s": [
+        1.34,
+        1.34,
+        1.34
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "S5-container-28",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 2,
+      "variant": 1,
+      "id": "neon-density-port-s6-0231"
+    },
+    {
+      "key": "S5-container-37",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        734.7570000000001,
+        5.51,
+        1.412
+      ],
+      "s": [
+        1.34,
+        1.34,
+        1.34
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "S5-container-29",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 2,
+      "variant": 2,
+      "id": "neon-density-port-s6-0234"
+    },
+    {
+      "key": "S5-container-38",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        734.952,
+        5.51,
+        4.433000000000001
+      ],
+      "s": [
+        1.34,
+        1.34,
+        1.34
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "S5-container-30",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 2,
+      "variant": 0,
+      "id": "neon-density-port-s6-0235"
+    },
+    {
+      "key": "S5-container-39",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        739.132,
+        5.51,
+        -4.513
+      ],
+      "s": [
+        1.34,
+        1.34,
+        1.34
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "S5-container-31",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 2,
+      "variant": 1,
+      "id": "neon-density-port-s6-0238"
+    },
+    {
+      "key": "S5-container-40",
+      "asset": "cargo_container_neon6",
+      "beat": "S5",
+      "p": [
+        739.295,
+        5.51,
+        -1.5520000000000005
+      ],
+      "s": [
+        1.34,
+        1.34,
+        1.34
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "S5-container-32",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 2,
+      "variant": 2,
+      "id": "neon-density-port-s6-0239"
+    },
+    {
+      "key": "S5-crate-00",
+      "asset": "market_crate",
+      "beat": "S5",
+      "p": [
+        699.13,
+        -0.1116,
+        -0.21
+      ],
+      "s": [
+        0.72,
+        0.72,
+        0.72
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 17,
+      "chainGroup": 0,
+      "support": "",
+      "role": "boost60",
+      "chain": "yard-sub",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0289"
+    },
+    {
+      "key": "S5-crate-01",
+      "asset": "market_crate",
+      "beat": "S5",
+      "p": [
+        706.13,
+        -0.1116,
+        -1.1
+      ],
+      "s": [
+        0.72,
+        0.72,
+        0.72
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 17,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-sub",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0295"
+    },
+    {
+      "key": "S5-crate-02",
+      "asset": "market_crate",
+      "beat": "S5",
+      "p": [
+        714.24,
+        -0.1116,
+        -0.44
+      ],
+      "s": [
+        0.72,
+        0.72,
+        0.72
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 17,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-sub",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0301"
+    },
+    {
+      "key": "S5-crate-03",
+      "asset": "market_crate",
+      "beat": "S5",
+      "p": [
+        725.31,
+        -0.1116,
+        0.71
+      ],
+      "s": [
+        0.72,
+        0.72,
+        0.72
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-sub",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0307"
+    },
+    {
+      "key": "S5-crate-04",
+      "asset": "market_crate",
+      "beat": "S5",
+      "p": [
+        731.42,
+        -0.1116,
+        -0.23
+      ],
+      "s": [
+        0.72,
+        0.72,
+        0.72
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "",
+      "role": "jackpot",
+      "chain": "yard-main",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0313"
+    },
+    {
+      "key": "S5-crate-05",
+      "asset": "market_crate",
+      "beat": "S5",
+      "p": [
+        738.21,
+        -0.1116,
+        6.28
+      ],
+      "s": [
+        0.72,
+        0.72,
+        0.72
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0319"
+    },
+    {
+      "key": "S5-crate-06",
+      "asset": "market_crate",
+      "beat": "S5",
+      "p": [
+        701.2370000000001,
+        2.7415,
+        -3.9090000000000003
+      ],
+      "s": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 17,
+      "chainGroup": 0,
+      "support": "S5-container-00",
+      "role": "",
+      "chain": "yard-sub",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0325"
+    },
+    {
+      "key": "S5-crate-07",
+      "asset": "market_crate",
+      "beat": "S5",
+      "p": [
+        743.9920000000001,
+        2.7415,
+        4.508
+      ],
+      "s": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "S5-container-19",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0331"
+    },
+    {
+      "key": "S5-drum-00",
+      "asset": "steel_drum",
+      "beat": "S5",
+      "p": [
+        702.43,
+        -0.09,
+        -1.1
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 17,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-sub",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0244"
+    },
+    {
+      "key": "S5-drum-01",
+      "asset": "steel_drum",
+      "beat": "S5",
+      "p": [
+        718.67,
+        -0.09,
+        -1.05
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 17,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-sub",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0248"
+    },
+    {
+      "key": "S5-drum-02",
+      "asset": "steel_drum",
+      "beat": "S5",
+      "p": [
+        731.71,
+        -0.09,
+        1.42
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "yard-main",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0258"
+    },
+    {
+      "key": "S5-drum-03",
+      "asset": "steel_drum",
+      "beat": "S5",
+      "p": [
+        751.12,
+        -0.09,
+        -0.61
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "",
+      "role": "hazard",
+      "chain": "",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0264"
+    },
+    {
+      "key": "S5-crane-00",
+      "asset": "port_lattice_loader_r10",
+      "beat": "S5",
+      "p": [
+        754.13,
+        0.0,
+        0.047
+      ],
+      "s": [
+        1.7,
+        2.2,
+        1.5
+      ],
+      "yaw": 90,
+      "band": "near",
+      "breakable": true,
+      "chunk": 18,
+      "chainGroup": 0,
+      "support": "",
+      "role": "landmark",
+      "chain": "",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0242"
+    },
+    {
+      "key": "S6-buoy-00",
+      "asset": "harbor_buoy_neon6",
+      "beat": "S6",
+      "p": [
+        769.31,
+        -0.018,
+        -5.13
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 19,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0269"
+    },
+    {
+      "key": "S6-fence-00",
+      "asset": "farm_fence_neon6",
+      "beat": "S6",
+      "p": [
+        764.87,
+        0.0,
+        4.17
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 19,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0243"
+    },
+    {
+      "key": "S6-fence-01",
+      "asset": "farm_fence_neon6",
+      "beat": "S6",
+      "p": [
+        779.19,
+        0.0,
+        4.73
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 19,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0246"
+    },
+    {
+      "key": "S7-container-00",
+      "asset": "cargo_container_neon6",
+      "beat": "S7",
+      "p": [
+        784.71,
+        0.0,
+        -3.67
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 19,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0247"
+    },
+    {
+      "key": "S7-container-01",
+      "asset": "cargo_container_neon6",
+      "beat": "S7",
+      "p": [
+        791.13,
+        0.0,
+        3.43
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 19,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0250"
+    },
+    {
+      "key": "S7-container-02",
+      "asset": "cargo_container_neon6",
+      "beat": "S7",
+      "p": [
+        798.31,
+        0.0,
+        -4.01
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 19,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0251"
+    },
+    {
+      "key": "S7-container-03",
+      "asset": "cargo_container_neon6",
+      "beat": "S7",
+      "p": [
+        805.49,
+        0.0,
+        3.71
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0252"
+    },
+    {
+      "key": "S7-container-04",
+      "asset": "cargo_container_neon6",
+      "beat": "S7",
+      "p": [
+        812.17,
+        0.0,
+        -3.81
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0253"
+    },
+    {
+      "key": "S7-container-05",
+      "asset": "cargo_container_neon6",
+      "beat": "S7",
+      "p": [
+        819.57,
+        0.0,
+        3.39
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0270"
+    },
+    {
+      "key": "S7-container-06",
+      "asset": "cargo_container_neon6",
+      "beat": "S7",
+      "p": [
+        826.11,
+        0.0,
+        -4.13
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0273"
+    },
+    {
+      "key": "S7-container-07",
+      "asset": "cargo_container_neon6",
+      "beat": "S7",
+      "p": [
+        834.19,
+        0.0,
+        3.53
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0275"
+    },
+    {
+      "key": "S7-container-08",
+      "asset": "cargo_container_neon6",
+      "beat": "S7",
+      "p": [
+        842.41,
+        0.0,
+        -3.63
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 21,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0276"
+    },
+    {
+      "key": "S7-container-09",
+      "asset": "cargo_container_neon6",
+      "beat": "S7",
+      "p": [
+        805.573,
+        2.85,
+        3.722
+      ],
+      "s": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "S7-container-03",
+      "role": "",
+      "chain": "",
+      "tier": 1,
+      "variant": 1,
+      "id": "neon-density-port-s6-0279"
+    },
+    {
+      "key": "S7-container-10",
+      "asset": "cargo_container_neon6",
+      "beat": "S7",
+      "p": [
+        812.284,
+        2.85,
+        -3.798
+      ],
+      "s": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "S7-container-04",
+      "role": "",
+      "chain": "",
+      "tier": 1,
+      "variant": 2,
+      "id": "neon-density-port-s6-0281"
+    },
+    {
+      "key": "S7-crate-00",
+      "asset": "market_crate",
+      "beat": "S7",
+      "p": [
+        783.21,
+        -0.13175,
+        -0.49
+      ],
+      "s": [
+        0.85,
+        0.85,
+        0.85
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 19,
+      "chainGroup": 0,
+      "support": "",
+      "role": "boost30",
+      "chain": "warehouse",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0337"
+    },
+    {
+      "key": "S7-crate-01",
+      "asset": "market_crate",
+      "beat": "S7",
+      "p": [
+        786.73,
+        -0.13175,
+        0.87
+      ],
+      "s": [
+        0.85,
+        0.85,
+        0.85
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 19,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "warehouse",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0343"
+    },
+    {
+      "key": "S7-crate-02",
+      "asset": "market_crate",
+      "beat": "S7",
+      "p": [
+        790.11,
+        -0.13175,
+        -0.37
+      ],
+      "s": [
+        0.85,
+        0.85,
+        0.85
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 19,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "warehouse",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0282"
+    },
+    {
+      "key": "S7-crate-03",
+      "asset": "market_crate",
+      "beat": "S7",
+      "p": [
+        793.57,
+        -0.13175,
+        0.73
+      ],
+      "s": [
+        0.85,
+        0.85,
+        0.85
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 19,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "warehouse",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0285"
+    },
+    {
+      "key": "S7-crate-04",
+      "asset": "market_crate",
+      "beat": "S7",
+      "p": [
+        800.89,
+        -0.13175,
+        -0.41
+      ],
+      "s": [
+        0.85,
+        0.85,
+        0.85
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0287"
+    },
+    {
+      "key": "S7-crate-05",
+      "asset": "market_crate",
+      "beat": "S7",
+      "p": [
+        820.21,
+        -0.13175,
+        -0.59
+      ],
+      "s": [
+        0.85,
+        0.85,
+        0.85
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0288"
+    },
+    {
+      "key": "S7-crate-06",
+      "asset": "market_crate",
+      "beat": "S7",
+      "p": [
+        838.31,
+        -0.13175,
+        0.89
+      ],
+      "s": [
+        0.85,
+        0.85,
+        0.85
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0291"
+    },
+    {
+      "key": "S7-drum-00",
+      "asset": "steel_drum",
+      "beat": "S7",
+      "p": [
+        787.93,
+        -0.09,
+        -1.73
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 19,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "warehouse",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0294"
+    },
+    {
+      "key": "S7-drum-01",
+      "asset": "steel_drum",
+      "beat": "S7",
+      "p": [
+        795.2,
+        -0.09,
+        0.1
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 19,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "warehouse",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0300"
+    },
+    {
+      "key": "S7-drum-02",
+      "asset": "steel_drum",
+      "beat": "S7",
+      "p": [
+        803.91,
+        -0.09,
+        -0.81
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0306"
+    },
+    {
+      "key": "S7-drum-03",
+      "asset": "steel_drum",
+      "beat": "S7",
+      "p": [
+        823.77,
+        -0.09,
+        0.71
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0312"
+    },
+    {
+      "key": "S7-drum-04",
+      "asset": "steel_drum",
+      "beat": "S7",
+      "p": [
+        844.13,
+        -0.09,
+        -0.31
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 21,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0318"
+    },
+    {
+      "key": "S7-stall-00",
+      "asset": "market_stall",
+      "beat": "S7",
+      "p": [
+        788.23,
+        -0.007,
+        -4.51
+      ],
+      "s": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 19,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0321"
+    },
+    {
+      "key": "S7-stall-01",
+      "asset": "market_stall",
+      "beat": "S7",
+      "p": [
+        801.79,
+        -0.007,
+        4.63
+      ],
+      "s": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0323"
+    },
+    {
+      "key": "S7-stall-02",
+      "asset": "market_stall",
+      "beat": "S7",
+      "p": [
+        821.91,
+        -0.007,
+        -4.57
+      ],
+      "s": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0324"
+    },
+    {
+      "key": "S7-stall-03",
+      "asset": "market_stall",
+      "beat": "S7",
+      "p": [
+        839.37,
+        -0.007,
+        4.39
+      ],
+      "s": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0327"
+    },
+    {
+      "key": "S7-shelf-00",
+      "asset": "rail_glass_planter_display_r10",
+      "beat": "S7",
+      "p": [
+        795.37,
+        -0.021,
+        4.31
+      ],
+      "s": [
+        1.05,
+        1.05,
+        1.05
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 19,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0309"
+    },
+    {
+      "key": "S7-shelf-01",
+      "asset": "rail_glass_planter_display_r10",
+      "beat": "S7",
+      "p": [
+        830.59,
+        -0.021,
+        -4.43
+      ],
+      "s": [
+        1.05,
+        1.05,
+        1.05
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0311"
+    },
+    {
+      "key": "S7-sign-00",
+      "asset": "blade_sign",
+      "beat": "S7",
+      "p": [
+        789.01,
+        0.0,
+        -5.71
+      ],
+      "s": [
+        0.95,
+        0.95,
+        0.95
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 19,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0315"
+    },
+    {
+      "key": "S7-sign-01",
+      "asset": "blade_sign",
+      "beat": "S7",
+      "p": [
+        839.71,
+        0.0,
+        5.63
+      ],
+      "s": [
+        0.95,
+        0.95,
+        0.95
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0317"
+    },
+    {
+      "key": "S7-fence-00",
+      "asset": "farm_fence_neon6",
+      "beat": "S7",
+      "p": [
+        782.93,
+        0.0,
+        5.43
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 19,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0297"
+    },
+    {
+      "key": "S7-fence-01",
+      "asset": "farm_fence_neon6",
+      "beat": "S7",
+      "p": [
+        815.79,
+        0.0,
+        -5.71
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0299"
+    },
+    {
+      "key": "S7-fence-02",
+      "asset": "farm_fence_neon6",
+      "beat": "S7",
+      "p": [
+        846.19,
+        0.0,
+        4.91
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 21,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0303"
+    },
+    {
+      "key": "S7-van-00",
+      "asset": "delivery_van",
+      "beat": "S7",
+      "p": [
+        809.13,
+        -0.01,
+        -0.17
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "",
+      "role": "redirect30",
+      "chain": "",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0333"
+    },
+    {
+      "key": "S7-flywheel_accumulator_r12-00",
+      "asset": "flywheel_accumulator_r12",
+      "beat": "S7",
+      "p": [
+        816.31,
+        -0.025,
+        0.31
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "",
+      "role": "resource",
+      "chain": "",
+      "tier": 0,
+      "variant": 0,
+      "id": "r12-flywheel-1-760"
+    },
+    {
+      "key": "S7-flywheel_accumulator_r12-01",
+      "asset": "flywheel_accumulator_r12",
+      "beat": "S7",
+      "p": [
+        829.13,
+        -0.025,
+        0.53
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "",
+      "role": "resource",
+      "chain": "",
+      "tier": 0,
+      "variant": 1,
+      "id": "r12-flywheel-1-870"
+    },
+    {
+      "key": "S7-facade_break_panel-00",
+      "asset": "facade_break_panel",
+      "beat": "S7",
+      "p": [
+        833.17,
+        -0.009,
+        4.89
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0293"
+    },
+    {
+      "key": "S7-street_awning-00",
+      "asset": "street_awning",
+      "beat": "S7",
+      "p": [
+        817.13,
+        0.0,
+        -3.41
+      ],
+      "s": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0329"
+    },
+    {
+      "key": "S7-hvac_unit-00",
+      "asset": "hvac_unit",
+      "beat": "S7",
+      "p": [
+        836.79,
+        0.0,
+        -2.71
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0305"
+    },
+    {
+      "key": "S7-street_bench-00",
+      "asset": "street_bench",
+      "beat": "S7",
+      "p": [
+        825.51,
+        0.0,
+        4.57
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 20,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0330"
+    },
+    {
+      "key": "S8-container-00",
+      "asset": "cargo_container_neon6",
+      "beat": "S8",
+      "p": [
+        850.37,
+        0.0,
+        -3.39
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 21,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0336"
+    },
+    {
+      "key": "S8-container-01",
+      "asset": "cargo_container_neon6",
+      "beat": "S8",
+      "p": [
+        853.59,
+        0.0,
+        1.19
+      ],
+      "s": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 21,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0342"
+    },
+    {
+      "key": "S8-road-00",
+      "asset": "road_sign_neon6",
+      "beat": "S8",
+      "p": [
+        858.31,
+        0.0,
+        3.81
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 21,
+      "chainGroup": 0,
+      "support": "",
+      "role": "preview",
+      "chain": "",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0345"
+    },
+    {
+      "key": "S8-road-01",
+      "asset": "road_sign_neon6",
+      "beat": "S8",
+      "p": [
+        880.73,
+        0.0,
+        4.19
+      ],
+      "s": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 22,
+      "chainGroup": 0,
+      "support": "",
+      "role": "preview",
+      "chain": "",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0348"
+    },
+    {
+      "key": "S8-buoy-00",
+      "asset": "harbor_buoy_neon6",
+      "beat": "S8",
+      "p": [
+        859.17,
+        -0.018,
+        -5.33
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 21,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 1,
+      "id": "neon-density-port-s6-0335"
+    },
+    {
+      "key": "S8-buoy-01",
+      "asset": "harbor_buoy_neon6",
+      "beat": "S8",
+      "p": [
+        875.91,
+        -0.018,
+        -4.87
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 21,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 2,
+      "id": "neon-density-port-s6-0339"
+    },
+    {
+      "key": "S8-buoy-02",
+      "asset": "harbor_buoy_neon6",
+      "beat": "S8",
+      "p": [
+        893.21,
+        -0.018,
+        -5.61
+      ],
+      "s": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 0,
+      "band": "near",
+      "breakable": true,
+      "chunk": 22,
+      "chainGroup": 0,
+      "support": "",
+      "role": "",
+      "chain": "",
+      "tier": 0,
+      "variant": 0,
+      "id": "neon-density-port-s6-0341"
+    }
+  ]
+}

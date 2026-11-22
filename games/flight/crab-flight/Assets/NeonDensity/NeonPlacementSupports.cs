@@ -30,6 +30,7 @@ public sealed class NeonPlacementSupports : MonoBehaviour {
   var vertices=new List<Vector3>();var colors=new List<Color>();var triangles=new List<int>();
   var faces=new[]{0,2,1,0,3,2,4,5,6,4,6,7,0,1,5,0,5,4,3,7,6,3,6,2,0,4,7,0,7,3,1,2,6,1,6,5};
   foreach(var s in Data.supports) {
+   if(PortLayout.Find(s.target)!=null)continue;
    if(!NeonDensity.Enabled&&s.target!="Neon sign orbit 0")continue;
    if(s.p==null||s.size==null||s.p.Length!=3||s.size.Length!=3||s.breakable||s.collision
       ||s.size[0]<=0||s.size[1]<=0||s.size[2]<=0||Mathf.Abs(s.p[1]-s.size[1]/2)>0.00001f

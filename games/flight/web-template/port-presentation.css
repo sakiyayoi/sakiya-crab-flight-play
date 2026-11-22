@@ -1,0 +1,21 @@
+@font-face{font-family:PortRounded;src:url('fonts/MPLUSRounded1c-ExtraBold.ttf') format('truetype');font-weight:800;font-display:swap}
+@font-face{font-family:PortRounded;src:url('fonts/MPLUSRounded1c-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+body,button,input{font-family:PortRounded,'Hiragino Maru Gothic ProN',sans-serif;font-weight:500}
+#destructionValue,#destructionResultValue,.port-number{font-weight:800;color:#fff;-webkit-text-stroke:1.5px #2a1e17;paint-order:stroke fill;text-shadow:0 2px 0 #2a1e17;letter-spacing:-.045em}
+.primary,#retry{background:#ff3131;color:#fff3d6;border:2px solid #241e2e;box-shadow:0 4px 0 #7c252a;font-weight:800}
+body[data-result-layout=split] #result .panel{padding:12px;background-color:#1d2539;background-image:repeating-linear-gradient(1deg,transparent 0 7px,#fff3d606 8px,transparent 9px 27px),repeating-linear-gradient(90deg,transparent 0 83px,#131c3a88 84px 87px);border:3px solid #4a3941;border-radius:20px;box-shadow:inset 0 0 0 2px #fff3d620,0 8px 0 #241e2e;color:#fff3d6}
+body[data-result-layout=split] #result .panel-scroll{position:relative;background:transparent;border:0;padding:8px 4px}
+body[data-result-layout=split] #result .panel-scroll::before{content:'';position:absolute;top:12px;right:8px;width:16px;height:23px;background:repeating-linear-gradient(0deg,#ffb347 0 4px,#ff9a3d 5px 6px);border:2px solid #241e2e;border-radius:7px;box-shadow:0 -3px 0 #ffb347,0 3px 0 #ffb347}
+#resultActions,#resultDetails{background:#131c3a80;border-radius:10px}
+#portNextLandmark{font-size:12px;line-height:1.5;margin:6px 0 12px;color:#fff3d6}
+#portPreview{position:absolute;z-index:5;right:12px;top:calc(78px + env(safe-area-inset-top));width:min(245px,50vw);padding:8px 10px;border:1px solid #fff3d655;border-radius:12px;background:#131c3ad9;color:#fff3d6;font-size:11px;line-height:1.55;pointer-events:none}
+#portPreview[hidden]{display:none}
+.port-roles{display:flex;flex-wrap:wrap;gap:3px 8px;margin-top:5px;color:#ffb347;font-weight:800}
+.port-special{margin-top:5px;font-size:10px;color:#c2c9da}
+.port-special[data-ready=true]{color:#ffb347}
+body[data-port=true] #rotorStatus{width:min(152px,calc(50vw - 36px))}
+body[data-port=true] #destructionValue{font-size:clamp(48px,15vw,64px)}
+#portNumbers{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:8}
+.port-number{position:absolute;font-size:32px;line-height:1;white-space:nowrap;will-change:transform,opacity}
+@media(max-width:360px){#portPreview{top:calc(70px + env(safe-area-inset-top));right:8px;width:47vw;font-size:10px;padding:6px}.port-special{font-size:9px}}
+@media(orientation:landscape) and (max-height:540px){#portPreview{top:calc(12px + env(safe-area-inset-top));right:110px;width:260px}.port-special{font-size:10px}#portNextLandmark{margin:3px 0 8px}}

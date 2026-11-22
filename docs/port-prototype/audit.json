@@ -1,0 +1,130 @@
+{
+  "baseline": "539acb1264739e52dc236d0260bda105431910a6",
+  "inventorySource": "historical Native inventory + current unchanged source; not a new Unity receipt",
+  "before": {
+    "count": 145,
+    "families": {
+      "delivery_van": 1,
+      "market_crate": 24,
+      "steel_drum": 25,
+      "port_lattice_loader_r10": 2,
+      "blade_sign": 11,
+      "facade_break_panel": 1,
+      "road_barrier": 2,
+      "street_awning": 1,
+      "hvac_unit": 1,
+      "rail_glass_planter_display_r10": 9,
+      "street_bench": 1,
+      "flywheel_accumulator_r12": 2,
+      "cargo_container_neon6": 33,
+      "harbor_buoy_neon6": 32
+    },
+    "bins50m": [
+      22,
+      26,
+      23,
+      25,
+      26,
+      23
+    ],
+    "densityCV": 0.06506193884176968,
+    "faceRate": 0.22758620689655173,
+    "partnerRate": 0.16551724137931034,
+    "reaching3m": 26,
+    "reaching3mRate": 0.1793103448275862,
+    "modeGapMetres": 3.2,
+    "modeGapCount": 44,
+    "modeGapRate": 0.3055555555555556,
+    "consecutiveSameZ": 3
+  },
+  "after": {
+    "count": 145,
+    "families": {
+      "port_lattice_loader_r10": 2,
+      "cargo_container_neon6": 57,
+      "market_crate": 29,
+      "steel_drum": 17,
+      "harbor_buoy_neon6": 9,
+      "market_stall": 8,
+      "rail_glass_planter_display_r10": 5,
+      "blade_sign": 4,
+      "farm_fence_neon6": 5,
+      "delivery_van": 1,
+      "flywheel_accumulator_r12": 2,
+      "facade_break_panel": 1,
+      "street_awning": 1,
+      "hvac_unit": 1,
+      "street_bench": 1,
+      "road_sign_neon6": 2
+    },
+    "bins50m": [
+      24,
+      17,
+      51,
+      18,
+      28,
+      7
+    ],
+    "densityCV": 0.5650544784485335,
+    "faceRate": 0.3931034482758621,
+    "partnerRate": 0.2,
+    "reaching3m": 36,
+    "reaching3mRate": 0.2482758620689655,
+    "modeGapMetres": 0.01,
+    "modeGapCount": 5,
+    "modeGapRate": 0.034722222222222224,
+    "consecutiveSameZ": 0
+  },
+  "beatCounts": {
+    "S1": 10,
+    "S2": 1,
+    "S3": 25,
+    "S4": 4,
+    "S5": 54,
+    "S6": 3,
+    "S7": 41,
+    "S8": 7
+  },
+  "groundingViolations": [],
+  "altitudeViolations": [],
+  "chains": {
+    "gate": {
+      "count": 4,
+      "reachableWithin8m": 4,
+      "trigger": "S1-crate-00"
+    },
+    "market": {
+      "count": 16,
+      "reachableWithin8m": 16,
+      "trigger": "S3-crate-00"
+    },
+    "warehouse": {
+      "count": 6,
+      "reachableWithin8m": 6,
+      "trigger": "S7-crate-00"
+    },
+    "yard-main": {
+      "count": 34,
+      "reachableWithin8m": 34,
+      "trigger": "S5-crate-04"
+    },
+    "yard-sub": {
+      "count": 18,
+      "reachableWithin8m": 18,
+      "trigger": "S5-crate-00"
+    }
+  },
+  "gapCorridorCounts": {
+    "S2": 0,
+    "S4": 0,
+    "S6": 0
+  },
+  "rolling100mCorridorPeak": 38,
+  "corridorLimit": 63.55,
+  "worldCityBefore": 1407,
+  "worldCityAfter": 1407,
+  "worldTotalBefore": 1481,
+  "worldTotalAfter": 1481,
+  "protectedBeforeSHA256": "51aa4a5a1c0ade638d2b51d856ff74ab86ee1363c035f29d510adba1c7944903",
+  "protectedAfterSHA256": "51aa4a5a1c0ade638d2b51d856ff74ab86ee1363c035f29d510adba1c7944903"
+}

@@ -1,0 +1,168 @@
+{
+  "scope": "offline source geometry; no Native, shader import, contact solver or FPS evidence",
+  "aabbOverlapPairs": [],
+  "groundToleranceMetres": 1e-05,
+  "yardPhysicalCrackMetres": 4.482800000000111,
+  "internalCorridorMaxGaps": {
+    "S1": 1.725149999999985,
+    "S3": 3.005276461703602,
+    "S5": 4.482800000000111,
+    "S7": 7.359499999999912
+  },
+  "standaloneSideObjects": [],
+  "thirdTierMaxTopMetres": 8.056,
+  "chainPhysics": {
+    "cargo_container_neon6": {
+      "unchangedMassKg": 54,
+      "unchangedFullThreshold": 1,
+      "authoredWaveImpulsePerCrabMass": 2
+    },
+    "market_crate": {
+      "unchangedMassKg": 12,
+      "unchangedFullThreshold": 0.4,
+      "authoredWaveImpulsePerCrabMass": 2
+    },
+    "steel_drum": {
+      "unchangedMassKg": 18,
+      "unchangedFullThreshold": 0.7,
+      "authoredWaveImpulsePerCrabMass": 2
+    }
+  },
+  "resourceIds": [
+    "r12-flywheel-1-760",
+    "r12-flywheel-1-870"
+  ],
+  "sceneSHA256": "058be0b3456083199edfc5b9650b233cbb63209249d00f4c1a764443c68fb5bb",
+  "protectedSourceCount": 36,
+  "protectedSources": {
+    "games/flight/crab-flight/Assets/CrabCityDensity/Data/CityContactProposals.json": "cb606f132fccd4813012d87837a54cdff723db6400cf6ccd13dce997f7de184a",
+    "games/flight/crab-flight/Assets/CrabCityDensity/Data/CityGeometry.json": "818f060e886c4371f81a464547c2e59b0a38b5fd8e50cdab6fa8da6b0fd422c3",
+    "games/flight/crab-flight/Assets/CrabCityDensity/Data/CityPlacement.json": "85104b4c67038620213cf1886217b64150844d5a96d9fb123604b2024422706d",
+    "games/flight/crab-flight/Assets/CrabCityDensityR2/Data/CityDestructionProposals.json": "baa8e89fa3f71e9edc6fc64a2a7b85258b56e2c1a8f56001186c39ef1b840cf8",
+    "games/flight/crab-flight/Assets/CrabCityDensityR2/Data/CityGeometryR2.json": "0d4f63b3972a4b32c15cbb7d8c793b47bc74892ede02d5b59e37d97b059435a0",
+    "games/flight/crab-flight/Assets/CrabCityDensityR2/Data/CityGeometryR2Compact.json": "76143405775351fa0cac1d05be213fb79c27ddaf4dd81b3829eefa9becafcb74",
+    "games/flight/crab-flight/Assets/CrabCityDensityR2/Data/CityPlacementDense.json": "e9cbcdcc6219886cf8c7d653a798861ece0923d91348c749cad71a03d59a57a8",
+    "games/flight/crab-flight/Assets/CrabCityDensityR2/Data/CityPlacementReadable.json": "7649297ec34d688426e28b494728a4d0ba2f3e32992f657a4aedf6dde76bf9e5",
+    "games/flight/crab-flight/Assets/MallAreasR5/Resources/MallAreasR5/Geometry.json": "257b2c303a9468a58a2311f80d840cbf7d5525a3dcf5db748fe25f89e79f3c02",
+    "games/flight/crab-flight/Assets/MallAreasR5/Resources/MallAreasR5/Proposals.json": "da16a38dbcb6e09ac02cef9db3af8f8ae5d9c4ce3f66041df0de9efcc0f044ca",
+    "games/flight/crab-flight/Assets/MallDensityProto/Resources/MallDensityProto/Geometry.json": "9c77db637c3e51dacf40df80253ad73ed4509b4987d01e5144dc4932f24a4652",
+    "games/flight/crab-flight/Assets/MallDensityProto/Resources/MallDensityProto/Placements.json": "0e46cf74da625b161c54be952caea984cc8c57a78a879511b51b86a7042f72ef",
+    "games/flight/crab-flight/Assets/MallDensityProto/Resources/MallDensityProto/Proposals.json": "09eaff5d840ea9fc2ee4a0df3c9c53af7eeb632d021e785415a72a093cc04216",
+    "games/flight/crab-flight/Assets/NeonDensity/Resources/NeonDensity/Placements.json": "510c2dffde875a67b86a32acafaf6f96636d2bbae9332678aba70e277923b2c4",
+    "games/flight/crab-flight/Assets/NeonDensity/Resources/NeonDensity/Supports.json": "861c3cff98680483db307256d17bfb9fc38e6409dbd1361df1371d3fafa2eb8d",
+    "games/flight/crab-flight/Assets/Resources/CityDensity/CityContactProposals.json": "cb606f132fccd4813012d87837a54cdff723db6400cf6ccd13dce997f7de184a",
+    "games/flight/crab-flight/Assets/Resources/CityDensity/CityGeometry.json": "818f060e886c4371f81a464547c2e59b0a38b5fd8e50cdab6fa8da6b0fd422c3",
+    "games/flight/crab-flight/Assets/Resources/CityDensity/CityPlacement.json": "85104b4c67038620213cf1886217b64150844d5a96d9fb123604b2024422706d",
+    "games/flight/crab-flight/Assets/Resources/CityDensityR2/CityDestructionProposals.json": "baa8e89fa3f71e9edc6fc64a2a7b85258b56e2c1a8f56001186c39ef1b840cf8",
+    "games/flight/crab-flight/Assets/Resources/CityDensityR2/CityGeometryR2Compact.json": "76143405775351fa0cac1d05be213fb79c27ddaf4dd81b3829eefa9becafcb74",
+    "games/flight/crab-flight/Assets/Resources/CityDensityR2/CityPlacementAtrium.json": "76a8dff1c2b0af43d9599b3f2a81f03e9939fcbe92047447ec81509ff81334c0",
+    "games/flight/crab-flight/Assets/Resources/CityDensityR2/CityPlacementCore.json": "cc7c5e3233be773f17f42426b4d2d6a508e314a8000de214839d60e3946ef60a",
+    "games/flight/crab-flight/Assets/Resources/CityDensityR2/CityPlacementDense.json": "b5e8f21e183e3ce1c9a371e4f839045700e597bd3d203f0ec4e5c3acde2a73c3",
+    "games/flight/crab-flight/Assets/Resources/CityDensityR2/CityPlacementReadable.json": "7649297ec34d688426e28b494728a4d0ba2f3e32992f657a4aedf6dde76bf9e5",
+    "games/flight/crab-flight/Assets/Resources/FarWorldR10/Geometry.json": "134ff32e935da18614b1426fe3010c170554055b0a6bc55b07c9424fad36a53d",
+    "games/flight/crab-flight/Assets/Resources/FarWorldR10/Placements.json": "5325bd41832f464a03ab2c2f5ae58a3899444d6bc5da109a8fdc1ad3e2d11dd3",
+    "games/flight/crab-flight/Assets/Resources/FarWorldR10/PlacementsR11.json": "8e3c98fca2b5e17d49ab289111fda7fc998f3333151c5b9eb4aaf8fbf594efec",
+    "games/flight/crab-flight/Assets/Resources/FarWorldR10/Proposals.json": "3f6acb52263e622b0d7c3f49e2130df03723838f46f313b6513a08e16da305b9",
+    "games/flight/crab-flight/Assets/Resources/RouteR12/Geometry.json": "5593cc670848fb6796068df0598bff2639f3f3181aa0e69fb4c821f83ce90681",
+    "games/flight/crab-flight/Assets/Resources/RouteR12/Placements.json": "943d8c12a905938811e61a9d438d5a59af635ba79ddd54a5b0f002d3222bd425",
+    "games/flight/crab-flight/Assets/Resources/RouteR12/Proposals.json": "c2ecdfc91b859039a9007757800c6a654dbcf4fefdfe86719cff6e34fe4739aa",
+    "games/flight/crab-flight/Assets/Resources/RouteR29/Placements.json": "64bd1c91d085e8dfc98ba945f5eb0e47091fda4a6f11d212da3e3cded4e8cf82",
+    "games/flight/crab-flight/Assets/StreamingAssets/feel.json": "bf519b53590c95e463357487f2608b44097626e3589e7f5af460fb6fff6c08a7",
+    "games/flight/crab-flight/Assets/Scripts/City2Contacts.cs": "b409c12d896e58d2da76301330a7aa708d606ca839d2d810fe8494c6951efbfc",
+    "games/flight/crab-flight/Assets/Scripts/RigidCrabFlight.cs": "14350b31a085da1ad62d63e5cdf38046c8f75e8c6da0ab180dc570ab4897a761",
+    "games/flight/crab-flight/Assets/Scripts/CrabModelR3.cs": "4a456fed1a54c732f24bb384a74881fbcab1d47a225088673b630634cc3e3f9a"
+  },
+  "roles": [
+    {
+      "key": "S1-crane-00",
+      "id": "far-r10-new-1-752-port_lattice_loader_r10",
+      "x": 608.17,
+      "role": "landmark",
+      "chain": ""
+    },
+    {
+      "key": "S1-crate-00",
+      "id": "far-r10-+1-00-1-market_crate",
+      "x": 600.94,
+      "role": "boost45",
+      "chain": "gate"
+    },
+    {
+      "key": "S3-crate-00",
+      "id": "neon-density-port-s6-0233",
+      "x": 634.0986161090073,
+      "role": "boost30",
+      "chain": "market"
+    },
+    {
+      "key": "S5-crate-00",
+      "id": "neon-density-port-s6-0289",
+      "x": 699.13,
+      "role": "boost60",
+      "chain": "yard-sub"
+    },
+    {
+      "key": "S5-crate-04",
+      "id": "neon-density-port-s6-0313",
+      "x": 731.42,
+      "role": "jackpot",
+      "chain": "yard-main"
+    },
+    {
+      "key": "S5-drum-03",
+      "id": "neon-density-port-s6-0264",
+      "x": 751.12,
+      "role": "hazard",
+      "chain": ""
+    },
+    {
+      "key": "S5-crane-00",
+      "id": "neon-density-port-s6-0242",
+      "x": 754.13,
+      "role": "landmark",
+      "chain": ""
+    },
+    {
+      "key": "S7-crate-00",
+      "id": "neon-density-port-s6-0337",
+      "x": 783.21,
+      "role": "boost30",
+      "chain": "warehouse"
+    },
+    {
+      "key": "S7-van-00",
+      "id": "neon-density-port-s6-0333",
+      "x": 809.13,
+      "role": "redirect30",
+      "chain": ""
+    },
+    {
+      "key": "S7-flywheel_accumulator_r12-00",
+      "id": "r12-flywheel-1-760",
+      "x": 816.31,
+      "role": "resource",
+      "chain": ""
+    },
+    {
+      "key": "S7-flywheel_accumulator_r12-01",
+      "id": "r12-flywheel-1-870",
+      "x": 829.13,
+      "role": "resource",
+      "chain": ""
+    },
+    {
+      "key": "S8-road-00",
+      "id": "neon-density-port-s6-0345",
+      "x": 858.31,
+      "role": "preview",
+      "chain": ""
+    },
+    {
+      "key": "S8-road-01",
+      "id": "neon-density-port-s6-0348",
+      "x": 880.73,
+      "role": "preview",
+      "chain": ""
+    }
+  ]
+}

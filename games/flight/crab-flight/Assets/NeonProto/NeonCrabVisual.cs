@@ -14,6 +14,7 @@ public sealed class NeonCrabVisual {
  readonly Dictionary<Transform,Transform> map=new Dictionary<Transform,Transform>();
  readonly MeshRenderer glow;
  readonly Camera camera;
+ readonly PortHeroVisual portHero;
  readonly float glowSize;
  readonly float[] legAngles,legSpeeds;
  float clock,flapPhase,launchAge=100,landAge=100;
@@ -28,6 +29,13 @@ public sealed class NeonCrabVisual {
   SpinCoreBlend=Mathf.Lerp(SpinCoreBlend,target,1-Mathf.Exp(-10*Mathf.Clamp(dt,0,.08f)));
   if(Mathf.Abs(SpinCoreBlend-target)<.0001f)SpinCoreBlend=target;
   ApplyCoreColor();
+  SamplePort(phase,aimingOrCharging);
+ }
+ void SamplePort(string phase,bool aiming){
+  glow.enabled=!portHero.Sample(phase,aiming);
+#if UNITY_EDITOR
+  if(reviewNoGlow)glow.enabled=false;
+#endif
  }
  void ApplyCoreColor(){
   core.color=Color.Lerp(NeonProto.CrabCore,NeonProto.CrabRed,SpinCoreBlend);
@@ -61,6 +69,7 @@ public sealed class NeonCrabVisual {
   foreach(var r in body.GetComponentsInChildren<Renderer>()){if(first){bounds=r.bounds;first=false;}else bounds.Encapsulate(r.bounds);}
   glowSize=Mathf.Max(bounds.size.x,Mathf.Max(bounds.size.y,bounds.size.z))*2;
   glow=NeonGlowTexture.Quad("Neon crab back glow",owner,NeonProto.CrabRed);
+  portHero=new PortHeroVisual(Root,body,camera,owner);
   Sample(0,"ready",0,Vector3.zero,false,true);
  }
  void Copy(Transform src,Transform parent){
@@ -101,6 +110,7 @@ public sealed class NeonCrabVisual {
   var away=camera?camera.transform.forward:Vector3.forward;
   glow.transform.position=body.position+away*.65f;glow.transform.rotation=camera?camera.transform.rotation:Quaternion.identity;glow.transform.localScale=Vector3.one*glowSize;
   glow.sharedMaterial.color=new Color(1,1,1,.61f);
+  SamplePort(phase,false);
  }
- public void Dispose(){foreach(var r in hidden)if(r)r.enabled=true;if(Root)NeonProto.Release(Root.gameObject);if(glow){NeonProto.Release(glow.sharedMaterial);NeonProto.Release(glow.gameObject);}NeonProto.Release(core);NeonProto.Release(red);NeonProto.Release(tip);}
+ public void Dispose(){portHero.Dispose();foreach(var r in hidden)if(r)r.enabled=true;if(Root)NeonProto.Release(Root.gameObject);if(glow){NeonProto.Release(glow.sharedMaterial);NeonProto.Release(glow.gameObject);}NeonProto.Release(core);NeonProto.Release(red);NeonProto.Release(tip);}
 }
