@@ -1,0 +1,11 @@
+{
+  "pass_": false,
+  "errors": [
+    "Receipt is not current layout: 613 position/scale/asset mismatches",
+    "Orbit sign0 visibility/pixel contribution failed (original threshold .01)"
+  ],
+  "distance": 2798.212646484375,
+  "breaks": 96,
+  "currentPlacementsSha256": "510c2dffde875a67b86a32acafaf6f96636d2bbae9332678aba70e277923b2c4",
+  "scope": "Native receipt gates only. Inspect fresh sector/portrait/landscape screenshots separately."
+}

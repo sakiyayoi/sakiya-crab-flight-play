@@ -1,0 +1,62 @@
+"""Deterministic +x-only density gradient; immutable baseline measured in Native stage5.
+Generalizes author-neon-density.py; all thresholds and host physics untouched.
+"""
+from pathlib import Path
+from collections import Counter
+import json, math
+root=Path(__file__).resolve().parents[1];assets=root/'source/games/flight/crab-flight/Assets'
+sectors=[('tank',0,4.5,3,55,70),('restaurant',4.5,28,14,55,70),('mall',28,135,68,0,0),('office',135,600,233,45,55),('port',600,900,135,40,50),('viaduct',900,1300,160,35,45),('country',1300,2050,263,30,40),('launchrange',2050,2680,189,25,35),('orbit',2680,3220,130,20,28)]
+families={
+ 'tank':['steel_drum'],'restaurant':['steel_drum','market_crate','blade_sign','vending_unit'],
+ 'office':['blade_sign','market_crate','steel_drum','vending_unit'],
+ 'port':['cargo_container_neon6','harbor_buoy_neon6','cargo_container_neon6','harbor_buoy_neon6','steel_drum','market_crate'],
+ 'viaduct':['road_sign_neon6','traffic_signal_neon6','road_sign_neon6','traffic_signal_neon6','steel_drum','blade_sign'],
+ 'country':['hay_roll_neon6','farm_fence_neon6','hay_roll_neon6','farm_fence_neon6','market_crate','irrigation_tank_r12'],
+ 'launchrange':['propellant_tank_neon6','dish_antenna_neon6','propellant_tank_neon6','dish_antenna_neon6','steel_drum','solar_array_r12'],
+ 'orbit':['satellite_neon6','oxygen_tank_neon6','satellite_neon6','oxygen_tank_neon6','steel_drum','solar_array_r12']}
+audit=json.loads((root/'evidence/stage5-native-shots02/stage5-density-audit.json').read_text());base=audit['before']['targets'];old=audit['after']['targets'];geo={}
+for f in ['CityDensityR2/CityGeometryR2Compact','FarWorldR10/Geometry','RouteR12/Geometry']:
+ geo.update({a['id']:a for a in json.loads((assets/('Resources/'+f+'.json')).read_text())['assets']})
+legacy=json.loads((root/'evidence/stage6-baseline/source/games/flight/crab-flight/Assets/NeonDensity/Resources/NeonDensity/Placements.json').read_text())['instances']
+placements=[];summary=[]
+# Check groups across existing layouts; reserve an unused explicit range.
+groups=set()
+for p in (assets/'Resources').rglob('*.json'):
+ try:d=json.loads(p.read_text())
+ except (ValueError,UnicodeDecodeError):continue
+ if isinstance(d,dict):groups.update(i['chainGroup'] for i in d.get('instances',[]) if 'chainGroup' in i)
+for sector,start,end,target,lo,hi in sectors:
+ baseline=[t for t in base if start<=t['position']['x']<end];before=[t for t in old if start<=t['position']['x']<end];flight=sum(t['position']['y']<20 for t in baseline)
+ keep=[p for p in legacy if start<=p['p'][0]<end]
+ count=max(0,target-flight-sum(p['p'][1]<20 for p in keep)) if sector!='mall' else 0;rows=[]
+ def add(asset,x,y,z,scale):
+  i=len(placements);a=geo[asset];assert a['breakable'];c,s=[a['collisionEnvelopeSuggestion'][k] for k in ('center','size')]
+  assert start<x+(c[0]-s[0]/2)*scale and x+(c[0]+s[0]/2)*scale<end,(sector,asset,x)
+  row=dict(id=f'neon-density-{sector}-s6-{i:04d}',asset=asset,band='near',p=[round(x,4),y,z],s=[scale]*3,yaw=0,breakable=True,chunk=math.floor(x/32),chainGroup=18000+i)
+  assert row['chainGroup'] not in groups
+  placements.append(row);rows.append(row)
+ for oldrow in keep: add(oldrow['asset'],*oldrow['p'],oldrow['s'][0])
+ for i in range(count):
+  x=start+(end-start)*(i+.5)/count if sector=='tank' else start+1.2+(end-start-2.4)*(i+.5)/count
+  asset=families[sector][i%len(families[sector])]
+  y=5.5+(i%3)*1.5 if i%5==3 else 0
+  z=[-4.6,4.5,-4.1,4.7,-4.5,4.2,4.6][i%7]
+  scale=.8 if asset=='solar_array_r12' else .9
+  if sector in ('tank','restaurant'):scale=.52 if asset=='blade_sign' else .62;y=5.5 if sector=='restaurant' and i%5==3 else 0
+  if sector=='tank':z=[-4.5,4.5,-4.5][i]
+  c,s=[geo[asset]['collisionEnvelopeSuggestion'][k] for k in ('center','size')]
+  x=max(start+.05-(c[0]-s[0]/2)*scale,min(x,end-.05-(c[0]+s[0]/2)*scale))
+  add(asset,x,y,z,scale)
+ for i in range(count//40):
+  x=start+5+(end-start-10)*(i+.5)/(count//40)
+  add(families[sector][i%len(families[sector])],x,21+(i%3)*2,4.5,.8)
+ low=sum(p['p'][1]<20 for p in rows);density=(flight+low)*100/(end-start)
+ if sector not in ('mall','tank'):assert lo<=density<=hi
+ summary.append(dict(sector=sector,start=start,end=end,targetBand=[lo,hi],baselineTotal=len(baseline),baselineFlight=flight,baselineDensity=flight*100/(end-start),stage5Total=len(before),stage5Density=sum(t['position']['y']<20 for t in before)*100/(end-start),additions=len(rows),groundAdded=sum(p['p'][1]<2 for p in rows),midAdded=sum(2<=p['p'][1]<20 for p in rows),highAdded=sum(p['p'][1]>=20 for p in rows),flightTotal=flight+low,total=len(baseline)+len(rows),density=density,newFlight=sum(p['p'][1]<20 and p['asset'].endswith('_neon6') for p in rows),familiesAdded=dict(sorted(Counter(p['asset'] for p in rows).items()))))
+by={s['sector']:s for s in summary};assert by['restaurant']['density']<=by['mall']['density']
+seq=[by[s]['density'] for s in ['mall','office','port','viaduct','country','launchrange','orbit']];assert all(a>b for a,b in zip(seq,seq[1:]))
+assert len({p['chainGroup'] for p in placements})==len(placements)
+assert all(by[s]['newFlight']/by[s]['flightTotal']>=.2 for s in ['port','viaduct','country','launchrange','orbit'])
+(assets/'NeonDensity/Resources/NeonDensity/Placements.json').write_text(json.dumps(dict(revision='city-density-r2',instances=placements),indent=2)+'\n')
+(root/'evidence/stage6-density-design.json').write_text(json.dumps(dict(sectors=summary,totalAdditions=len(placements),globalBreakTargets=422+len(placements),route='+x only; mall unchanged; positions staggered in x/y/z; no physics tuning'),indent=2)+'\n')
+print(json.dumps([{k:s[k] for k in ['sector','baselineDensity','stage5Density','density','additions','newFlight']} for s in summary],indent=2))
