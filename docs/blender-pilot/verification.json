@@ -1,0 +1,42 @@
+{
+  "baselineCommit": "5b3e6272be86a23faa853554c426e42a18fd7cae",
+  "revision": "blender-pilot-1",
+  "seed": 42043,
+  "inputSha256": "c952b51c82b3ceb7838471da2d5f2bc93f4aa007f1e8cc560c046bf1036b4125",
+  "baselineDistance": 3220.08154296875,
+  "finalDistance": 3220.08154296875,
+  "baselineBreaks": 145,
+  "finalBreaks": 145,
+  "baselineTicks": 3668,
+  "finalTicks": 3668,
+  "replayPass": true,
+  "retryReady": true,
+  "physicsTargetsCompared": 1407,
+  "physicsExact": true,
+  "outsideTargets": 1333,
+  "outsideAppearanceExact": true,
+  "overridden": 74,
+  "routeExact": true,
+  "breakEventsExact": true,
+  "protectedChanges": [
+    "games/flight/crab-flight/Assets/Scripts/City2Data.cs"
+  ],
+  "validatedFileHashMismatches": [],
+  "validatedContentSha256": "c496f3c8b45b3536a3402970fafd05e86e360f4b5dee5d9dab41a74f8bd9a92c",
+  "nativeSource": {
+    "sha256": "728fb5475ea103d27bd0f5113d0cc3fd967a58ce587dcef66f130caa32c30b87",
+    "files": 280
+  },
+  "nativeExit": 0,
+  "preexistingScenePreserved": true,
+  "editModeDestroyWarnings": {
+    "blender-pilot-baseline01": 76,
+    "blender-pilot-final": 76
+  },
+  "playwright": {
+    "passed": 4,
+    "failed": 0,
+    "skipped": 0,
+    "scope": "Native receipts and source protection; no browser input"
+  }
+}

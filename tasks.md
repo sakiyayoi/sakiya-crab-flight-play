@@ -312,3 +312,9 @@ R18 timing continuation 2026-11-04: 私的な診断WebGL c86cec4をビルド成�
 | stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
 |---|---|---|---|---|---|---|
 | placement-fix | 監査準拠の支持面スナップ・回廊・孤立・orbit看板修正 | Codex（今回の直接依頼、単独書込） | ../PLACEMENT-AUDIT.md全文、ui-simplify d288db2 clean | Unity外再生成・同条件前後集計・浮遊0/孤立0/密度上限・保護差分確認・commit。Unity/固定入力/実画面はクロエ別工程 | 指定なし | ソース修正・再生成・静的検査完了。支持なし0、孤立0、回廊302/1059。Python9PASS、Playwright2PASS、C#型検査error0/warning17。2144既存ファイル/既存stage65の85ファイル不変。Unity/固定入力/新実画面NOT_RUN、ゲーム合格は留保。報告は ../NEON-REPORT-PLACEMENTFIX-by-codex.md |
+
+## Blenderモデル差し替えパイロット（2026-11-23 本人直接指示）
+
+| stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
+|---|---|---|---|---|---|---|
+| blender-pilot | モール x=28〜135 の22家族74個をBlender製へ差替え | Codex（単独書込） | placement-fix 5b3e627、判別監査・世界brief | 全家族blend/FBX/コンタクトシート、Native照準/飛行、seed42043 accepted-inputで2500m/96以上、従来物理署名一致、配置/他区画/UI不変、Playwright、commit | 指定なし | 22家族74配置の実装・Native確認済み。3220.0815m/145粉砕、基準と軌跡/破壊イベント/1407物理署名一致、他1333描画署名一致。Playwright4PASS/0FAIL。既存FlightField.unityを保護。通常ブラウザ操作・game-playtestはNOT_RUN（現catalog未接続）、ゲーム全体の完成判定なし |

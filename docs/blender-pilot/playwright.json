@@ -1,0 +1,223 @@
+{
+  "config": {
+    "argv": [
+      "/usr/local/bin/node",
+      "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/placement-fix-qa/runtime/node_modules/.bin/playwright",
+      "test",
+      "--config",
+      "qa/blender-pilot/playwright.config.cjs"
+    ],
+    "configFile": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-pilot/playwright.config.cjs",
+    "rootDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-pilot",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/blender-pilot-qa/results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/blender-pilot",
+        "testIgnore": [],
+        "testMatch": [
+          "pilot.spec.cjs"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/evidence/blender-pilot/playwright.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "pilot.spec.cjs",
+      "file": "pilot.spec.cjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "native fixed-input replay reaches result and retry with unchanged route and destruction",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 61,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T17:01:31.286Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f53ed946aafa36a81ea-67d649b70ab5686f0f6d",
+          "file": "pilot.spec.cjs",
+          "line": 7,
+          "column": 1
+        },
+        {
+          "title": "74 mall placements only, all 22 families, all collider/mass/threshold signatures unchanged",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10788,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T17:01:31.409Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f53ed946aafa36a81ea-a8b20e26f8552d8537e6",
+          "file": "pilot.spec.cjs",
+          "line": 14,
+          "column": 1
+        },
+        {
+          "title": "FBX dimensions and bottom-centre origins match legacy metre dimensions",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 178,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T17:01:42.220Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f53ed946aafa36a81ea-441bbc8a5822a52de4b4",
+          "file": "pilot.spec.cjs",
+          "line": 23,
+          "column": 1
+        },
+        {
+          "title": "protected placements, physics, feel, UI and preexisting scene bytes retained",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 654,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T17:01:42.425Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f53ed946aafa36a81ea-1b51046be7c6b5461324",
+          "file": "pilot.spec.cjs",
+          "line": 32,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-22T17:01:30.217Z",
+    "duration": 12926.618999999999,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
