@@ -15,6 +15,7 @@ public sealed class NeonSectionArt {
  public NeonSectionArt(Transform owner,Camera camera){
   camera.backgroundColor=NeonProto.Background;
   Root=new GameObject("Neon world signs render only").transform;Root.SetParent(owner,false);
+  var supports=NeonPlacementSupports.Build(Root);
   var sectors=WorldRouteR11.Data.sectors;Sectors=new NeonSignSector[sectors.Length];
   int[] counts={1,3,12,10,8,8,8,8,6};int[] palette={3,5,-1,2,4,1,5,0,3};int index=0;
   for(int s=0;s<sectors.Length;s++){
@@ -27,6 +28,11 @@ public sealed class NeonSectionArt {
     float width=sector.id=="tank"?3:7;
     signs[index].transform.localPosition=new Vector3(x,3.5f+(j*3%7),6.5f);
     signs[index].transform.localScale=new Vector3(width,sector.id=="tank"?3:5,1);
+    if(sector.id=="orbit"&&j==0){
+     var sign=supports.Data.orbitSign0;
+     signs[index].transform.localPosition=NeonPlacementSupports.Vector(sign.p);
+     signs[index].transform.localScale=NeonPlacementSupports.Vector(sign.size);
+    }
     irregular[index]=j==(mall?5:counts[s]/2);
    }
   }

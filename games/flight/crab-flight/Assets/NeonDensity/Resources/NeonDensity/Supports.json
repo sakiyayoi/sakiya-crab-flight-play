@@ -1,0 +1,72 @@
+{
+  "revision": "neon-placement-fix-1",
+  "supports": [
+    {
+      "id": "support-neon-density-orbit-s6-1024",
+      "target": "neon-density-orbit-s6-1024",
+      "p": [
+        2947.0,
+        3.5,
+        1.8
+      ],
+      "size": [
+        1.65,
+        7,
+        1.02
+      ],
+      "top": 7,
+      "bottom": 0.0,
+      "breakable": false,
+      "collision": false
+    },
+    {
+      "id": "support-neon-density-orbit-s6-1026",
+      "target": "neon-density-orbit-s6-1026",
+      "p": [
+        2951.0,
+        7.0,
+        1.8
+      ],
+      "size": [
+        1.65,
+        14,
+        1.02
+      ],
+      "top": 14,
+      "bottom": 0.0,
+      "breakable": false,
+      "collision": false
+    },
+    {
+      "id": "support-orbit-sign0",
+      "target": "Neon sign orbit 0",
+      "p": [
+        2725,
+        8.75,
+        6.5
+      ],
+      "size": [
+        0.6,
+        17.5,
+        0.6
+      ],
+      "top": 17.5,
+      "bottom": 0.0,
+      "breakable": false,
+      "collision": false
+    }
+  ],
+  "orbitSign0": {
+    "p": [
+      2725,
+      20,
+      6.5
+    ],
+    "size": [
+      7,
+      5,
+      1
+    ],
+    "support": "support-orbit-sign0"
+  }
+}

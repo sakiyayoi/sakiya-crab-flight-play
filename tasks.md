@@ -306,3 +306,9 @@ R18 timing continuation 2026-11-04: 私的な診断WebGL c86cec4をビルド成�
 | stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
 |---|---|---|---|---|---|---|
 | NEON stage65 tune | ?tune=1 の19スライダー、実送信、JSON書出し、WebGLと実画確認 | Codex（今回の直接依頼） | 旧feeltest中止・原値復元の実測一致 | native差0、build errors0、通常タッチ結果、粒子40→96、書出し6、物理反映、Revision復元 | 指定なし | 工程実行・報告書作成終了、合格留保。Native初回差0、修正版build02 errors0、通常A PASS、物理60実投/再投確認、B粒子全件96 assert FAIL（既存上限512）。Revision stage6復元・配布tune維持。NEON-REPORT-STAGE65-TUNE.md参照 |
+
+## NEON 配置修正（2026-11-22）
+
+| stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
+|---|---|---|---|---|---|---|
+| placement-fix | 監査準拠の支持面スナップ・回廊・孤立・orbit看板修正 | Codex（今回の直接依頼、単独書込） | ../PLACEMENT-AUDIT.md全文、ui-simplify d288db2 clean | Unity外再生成・同条件前後集計・浮遊0/孤立0/密度上限・保護差分確認・commit。Unity/固定入力/実画面はクロエ別工程 | 指定なし | ソース修正・再生成・静的検査完了。支持なし0、孤立0、回廊302/1059。Python9PASS、Playwright2PASS、C#型検査error0/warning17。2144既存ファイル/既存stage65の85ファイル不変。Unity/固定入力/新実画面NOT_RUN、ゲーム合格は留保。報告は ../NEON-REPORT-PLACEMENTFIX-by-codex.md |

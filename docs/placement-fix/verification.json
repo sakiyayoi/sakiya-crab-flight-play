@@ -1,0 +1,45 @@
+{
+  "baseCommit": "d288db27c604ba716c2ef7af921ea0975e28efe1",
+  "playwright": {
+    "startTime": "2026-11-22T14:34:16.059Z",
+    "duration": 10563.479000000001,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "offlineUnitTests": {
+    "passed": 9,
+    "failed": 0
+  },
+  "typecheck": {
+    "exitCode": 0,
+    "errors": 0,
+    "warnings": 17,
+    "scope": "Standalone Roslyn with cached Unity player references, not Editor/build/runtime"
+  },
+  "protectedSourceFiles": {
+    "base": "d288db27c604ba716c2ef7af921ea0975e28efe1",
+    "checked": 2144,
+    "pass": true,
+    "scope": "all baseline tracked files except 3 authorized modifications"
+  },
+  "stage65": {
+    "files": 85,
+    "historicalManifestMatch": true,
+    "manifestSha256": "93437c043f0a569a8e1fbfabf419ee65c359cd6c7491f0867de8fac933e4aa6c"
+  },
+  "runtime": {
+    "unityEditor": "NOT_RUN - user prohibited",
+    "unityBuild": "NOT_RUN - user delegated to Chloe",
+    "fixedInputReplay": "NOT_RUN",
+    "newScreenshots": "NOT_RUN",
+    "gamePlaytest": "NOT_RUN"
+  },
+  "setupFailures": [
+    "First test launch: @playwright/test unavailable in old runtime folder; no tests ran.",
+    "Second launch: npx requested unavailable playwright@1.65.1; offline no-install rejected; no tests ran.",
+    "Third launch: runtime prefix had no executable shim; no tests ran.",
+    "Resolved by local .git symlinks to existing playwright 1.62.1; no package install or network access."
+  ]
+}

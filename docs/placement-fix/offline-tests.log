@@ -1,0 +1,14 @@
+test_final_support_chain_and_density (__main__.PlacementTests.test_final_support_chain_and_density) ... ok
+test_floating_negative_control (__main__.PlacementTests.test_floating_negative_control) ... ok
+test_missing_geometry_fails_closed (__main__.PlacementTests.test_missing_geometry_fails_closed) ... ok
+test_new_airborne_exception_rejected (__main__.PlacementTests.test_new_airborne_exception_rejected) ... ok
+test_original_audit_reproduced (__main__.PlacementTests.test_original_audit_reproduced) ... ok
+test_planter_geometry_resolves_unknowns (__main__.PlacementTests.test_planter_geometry_resolves_unknowns) ... ok
+test_regeneration_matches_committed_outputs (__main__.PlacementTests.test_regeneration_matches_committed_outputs) ... ok
+test_satellites_and_mall_preserved (__main__.PlacementTests.test_satellites_and_mall_preserved) ... ok
+test_support_must_be_grounded_and_cover_footprint (__main__.PlacementTests.test_support_must_be_grounded_and_cover_footprint) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 8.488s
+
+OK
