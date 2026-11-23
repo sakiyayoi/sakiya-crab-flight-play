@@ -126,3 +126,25 @@ BLENDER_PANELS_NATIVE_BLOCKED=license NODE_PATH='/Users/konomichiharu/.cache/cod
 リスク：今回のUnity未実行によるimport/向き/動的登録漏れ（起きやすさ2＋影響3=5）は必須確認待ち。既存の巨大家具寸法・店内浮き・Collider近似残差・床一時侵入・モール反復FAILは解消扱いにしない。実聴・物理iPhone・実FPS・本人の手触り採用も未確認。モデル制作・ソース保存と、ゲーム全体完成・採用・公開を分ける。
 
 案件のKB参照禁止を維持しTEAMは未確認。Studio入口も現catalogでは未接続。状態は既存HANDOFF一箇所とtasks.mdへ記録し、外部送信・Linear更新は行っていない。
+
+
+## 追記（2026-11-23 13:5x、クロエ）：Native検証 完了
+
+Unityライセンス復旧後に検証チェーンを実行し、**全項目合格**でパネルBlender化のNative検証を完了した。
+
+- 実行：`licensed-baseline06` / `licensed-candidate06`（いずれも rc=0）。正本証拠は `evidence/blender-panels/native-baseline` / `native-final`（スクリプト自身が複製）。
+- リプレイ同一性：固定入力（seed 42043）で距離 3220.08154296875m / 粉砕 145 / ticks 3668 が基準（blender-rollout final02）と完全一致。route.csv と break-events.jsonl はバイト単位で一致。
+- Playwright 8件すべて合格：物理署名・位置・スケールの全件保存、全登録オブジェクトの棚卸し（City 1407 / Core 4 / Life 34 / Restaurant 20 / Overdrive 16、人22・鳥12は対象外として明示）、パネル破片のBlender表示と物理同一、保護ファイルの一致、両方向の実リザルト／リトライ証拠、40 ID・19バリエーション・25 blend の実寸照合。
+
+### 検証過程で見つけて直したもの（すべて検証側・表示側のみ、ゲームの物理・配置・UIは無変更）
+
+1. ハーネスの棚卸しがリトライ後に落ちる（ReviewSimulation が null に戻る設計のため）。`world` 側を見るよう修正（4127de5）。
+2. 破片の記録で Collider を JsonUtility に渡して落ちる。コライダの項目を文字列化する方式に修正（852d2e9）。
+3. パネルの見た目オブジェクト名が一律「Blender Intact」で、どのモデルが付いているか棚卸しで証明できなかった。モデル名で名付けるよう変更（f3dd72a、BlenderPanelOverride）。
+4. 天井の破片は演出システム（R27）がBlender破片を複製して光らせるため、複製側の名前で数えると「旧式」と誤判定した。R27複製もBlenderとして数えるよう記録方法を修正し、破片チェックの適用範囲をパネル由来の破片に限定（f3dd72a）。City・Life の破片は別系統として、名前と物理の同一性チェックは全件継続。
+5. ProjectSettings/DynamicsManager.asset の m_SimulationMode（0→2）は、エディタを開いた際の未コミットの書き換えノイズと判定し、コミット済みの値へ復元した。リプレイ結果がバイト単位で同一であることが、実行時にコード側で制御されている裏付け。
+
+### 注意（次回以降の検証実行者へ）
+
+- `run_native_panels.py` の candidate は「現在のチェックアウト先ブランチの HEAD」を使う。港試作ブランチで実行すると港の変更まで混入して物理が変わる（licensed-candidate04 で実際に発生）。candidate は必ず blender-panels の先端で実行すること。
+- 同スクリプトは成功時に `evidence/blender-panels/native-baseline` / `native-final` へ複製する。既存フォルダがあると assert で止まる（実行自体は成功している）。再実行時は先に両フォルダを退避／削除する。
