@@ -31,6 +31,7 @@ public sealed class NeonCrabVisual {
   ApplyCoreColor();
   SamplePort(phase,aimingOrCharging);
  }
+ public void SyncTankVisibility(string phase)=>portHero.SyncTankVisibility(phase);
  void SamplePort(string phase,bool aiming){
   glow.enabled=!portHero.Sample(phase,aiming);
 #if UNITY_EDITOR

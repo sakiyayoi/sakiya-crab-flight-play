@@ -1,0 +1,222 @@
+[
+  {
+    "path": "games/flight/crab-flight/Assets/PortPrototype 2.meta",
+    "sha256": "1580b41e1b458c7457b480efaa2d85a98fdf6d8217e495b1512d6f891bfcab54"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/PortPrototype/PortAtmosphere 2.cs",
+    "sha256": "c1e0b2d560730e2b829d82be9d9652d9dd7c4f3fa18104b8f7164c44e0e075cd"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/PortPrototype/PortAtmosphere.cs 2.meta",
+    "sha256": "96d8f1b4850444bec26ca63d9d8d624bc107d340f3d896090fe7a3fd4f513ddb"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/PortPrototype/PortCamera 2.cs",
+    "sha256": "030c6d2ecf2fabb205dabd2abc58188d0fd64250f4bf7a9e3d6bd7732e87e5f9"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/PortPrototype/PortCamera.cs 2.meta",
+    "sha256": "9e45ca1c164283680cebbcb5bc7b47a3fdcdda26086b8133203a052e1338b7c3"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/PortPrototype/PortHeroVisual 2.cs",
+    "sha256": "b255461e5f7801f944134ba0549fb2911769f39bf8cf044377ff84980c57ea48"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/PortPrototype/PortHeroVisual.cs 2.meta",
+    "sha256": "a4b1a39a2ed15bb66196e612c5537494c334adec06a4a9e5beebee998ebf34d0"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/PortPrototype/PortLayout 2.cs",
+    "sha256": "3d306b7a49fefd0a4cb930c2d66d75765e871ce155d6153f47051b1facf12a29"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/PortPrototype/PortLayout.cs 2.meta",
+    "sha256": "0adce2c1c7dffc841b3cfe7e3ca0571b0bb7d2ef846a477631c2ee7dd68abc79"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/PortPrototype/PortParticles 2.cs",
+    "sha256": "9266b8e1feb6f44ad54fa21d0608c21717b09ae312eb33fdb6a1c9bc7130d482"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/PortPrototype/PortParticles.cs 2.meta",
+    "sha256": "04835e88d58c5f39ee31363cc0d47badd1ec348dc083f53fbfcce1b771c0a7c6"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/PortPrototype/PortRoles 2.cs",
+    "sha256": "64db5cd14a29bdb053362e264a7c96a61768f0972f902c1e5538dfc8d8839453"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/PortPrototype/PortRoles.cs 2.meta",
+    "sha256": "81f7912bcd2eb39cc433bb5d6ea6c3e58984fb758770703f29ef15f1118627f9"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/PortPrototype/PortRules 2.cs",
+    "sha256": "9d2df502ce6d48b734859a33181463995df8e9d4c6e67060d32064f2d7a4c2ba"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/PortPrototype/PortRules.cs 2.meta",
+    "sha256": "6ea761f313fabf48d3b71ca14a2a6c0a0bbdf0246d6dd059f351f7c6e106baee"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/PortPrototype/PortVisuals 2.cs",
+    "sha256": "11c37705b29ecf04fd1e327537fedd962b05ae3ee586db14d98b9c7407ade851"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/PortPrototype/PortVisuals.cs 2.meta",
+    "sha256": "8252b33159ffed2e402e62c1ab2983907dbc1ea55ca9ea62d8ba9e2aa04fe511"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/PortPrototype/Resources 2.meta",
+    "sha256": "e1b6b3582e2cfa7ce556ddf73f40a86a4f8805c939c75d5f1f80f82113951c2f"
+  },
+  {
+    "path": "docs/port-prototype/.gitignore 2",
+    "trackedOriginal": "docs/port-prototype/.gitignore"
+  },
+  {
+    "path": "docs/port-prototype/NEON-REPORT-PORTPROTO-by-codex 2.md",
+    "trackedOriginal": "docs/port-prototype/NEON-REPORT-PORTPROTO-by-codex.md"
+  },
+  {
+    "path": "docs/port-prototype/artifact-sha256 2.json",
+    "trackedOriginal": "docs/port-prototype/artifact-sha256.json"
+  },
+  {
+    "path": "docs/port-prototype/audit 2.json",
+    "trackedOriginal": "docs/port-prototype/audit.json"
+  },
+  {
+    "path": "docs/port-prototype/contract-tests/result 2.log",
+    "trackedOriginal": "docs/port-prototype/contract-tests/result.log"
+  },
+  {
+    "path": "docs/port-prototype/contract-tests/rules.runtimeconfig 2.json",
+    "trackedOriginal": "docs/port-prototype/contract-tests/rules.runtimeconfig.json"
+  },
+  {
+    "path": "docs/port-prototype/managed-compile/Assembly-CSharp 2.rsp",
+    "trackedOriginal": "docs/port-prototype/managed-compile/Assembly-CSharp.rsp"
+  },
+  {
+    "path": "docs/port-prototype/managed-compile/Assembly-CSharp-Editor 2.rsp",
+    "trackedOriginal": "docs/port-prototype/managed-compile/Assembly-CSharp-Editor.rsp"
+  },
+  {
+    "path": "docs/port-prototype/managed-compile/editor-result 2.json",
+    "trackedOriginal": "docs/port-prototype/managed-compile/editor-result.json"
+  },
+  {
+    "path": "docs/port-prototype/managed-compile/editor-sources 2.json",
+    "trackedOriginal": "docs/port-prototype/managed-compile/editor-sources.json"
+  },
+  {
+    "path": "docs/port-prototype/managed-compile/editor-typecheck 2.log",
+    "trackedOriginal": "docs/port-prototype/managed-compile/editor-typecheck.log"
+  },
+  {
+    "path": "docs/port-prototype/managed-compile/result 2.json",
+    "trackedOriginal": "docs/port-prototype/managed-compile/result.json"
+  },
+  {
+    "path": "docs/port-prototype/managed-compile/sources 2.json",
+    "trackedOriginal": "docs/port-prototype/managed-compile/sources.json"
+  },
+  {
+    "path": "docs/port-prototype/managed-compile/typecheck 2.log",
+    "trackedOriginal": "docs/port-prototype/managed-compile/typecheck.log"
+  },
+  {
+    "path": "docs/port-prototype/playwright 2.json",
+    "trackedOriginal": "docs/port-prototype/playwright.json"
+  },
+  {
+    "path": "docs/port-prototype/source-audit 2.json",
+    "trackedOriginal": "docs/port-prototype/source-audit.json"
+  },
+  {
+    "path": "docs/port-prototype/start 2.json",
+    "trackedOriginal": "docs/port-prototype/start.json"
+  },
+  {
+    "path": "docs/port-prototype/ui-fixture-flight-landscape 2.png",
+    "trackedOriginal": "docs/port-prototype/ui-fixture-flight-landscape.png"
+  },
+  {
+    "path": "docs/port-prototype/ui-fixture-flight-portrait 2.png",
+    "trackedOriginal": "docs/port-prototype/ui-fixture-flight-portrait.png"
+  },
+  {
+    "path": "docs/port-prototype/ui-fixture-flight-small 2.png",
+    "trackedOriginal": "docs/port-prototype/ui-fixture-flight-small.png"
+  },
+  {
+    "path": "docs/port-prototype/ui-fixture-result-landscape 2.png",
+    "trackedOriginal": "docs/port-prototype/ui-fixture-result-landscape.png"
+  },
+  {
+    "path": "docs/port-prototype/ui-fixture-result-portrait 2.png",
+    "trackedOriginal": "docs/port-prototype/ui-fixture-result-portrait.png"
+  },
+  {
+    "path": "docs/port-prototype/ui-fixture-result-small 2.png",
+    "trackedOriginal": "docs/port-prototype/ui-fixture-result-small.png"
+  },
+  {
+    "path": "games/flight/web-template/fonts/MPLUSRounded1c-ExtraBold 2.ttf",
+    "trackedOriginal": "games/flight/web-template/fonts/MPLUSRounded1c-ExtraBold.ttf"
+  },
+  {
+    "path": "games/flight/web-template/fonts/MPLUSRounded1c-Medium 2.ttf",
+    "trackedOriginal": "games/flight/web-template/fonts/MPLUSRounded1c-Medium.ttf"
+  },
+  {
+    "path": "games/flight/web-template/fonts/OFL-MPLUSRounded1c 2.txt",
+    "trackedOriginal": "games/flight/web-template/fonts/OFL-MPLUSRounded1c.txt"
+  },
+  {
+    "path": "games/flight/web-template/port-presentation 2.css",
+    "trackedOriginal": "games/flight/web-template/port-presentation.css"
+  },
+  {
+    "path": "games/flight/web-template/port-presentation 2.js",
+    "trackedOriginal": "games/flight/web-template/port-presentation.js"
+  },
+  {
+    "path": "qa/port-prototype/RulesContract 2.cs",
+    "trackedOriginal": "qa/port-prototype/RulesContract.cs"
+  },
+  {
+    "path": "qa/port-prototype/playwright.config 2.cjs",
+    "trackedOriginal": "qa/port-prototype/playwright.config.cjs"
+  },
+  {
+    "path": "qa/port-prototype/port.spec 2.cjs",
+    "trackedOriginal": "qa/port-prototype/port.spec.cjs"
+  },
+  {
+    "path": "tools/port-prototype/.gitignore 2",
+    "trackedOriginal": "tools/port-prototype/.gitignore"
+  },
+  {
+    "path": "tools/port-prototype/author 2.py",
+    "trackedOriginal": "tools/port-prototype/author.py"
+  },
+  {
+    "path": "tools/port-prototype/bake_cards 2.py",
+    "trackedOriginal": "tools/port-prototype/bake_cards.py"
+  },
+  {
+    "path": "tools/port-prototype/contracts 2.py",
+    "trackedOriginal": "tools/port-prototype/contracts.py"
+  },
+  {
+    "path": "tools/port-prototype/inspect 2.py",
+    "trackedOriginal": "tools/port-prototype/inspect.py"
+  },
+  {
+    "path": "tools/port-prototype/typecheck 2.py",
+    "trackedOriginal": "tools/port-prototype/typecheck.py"
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "base": "5be0ca45214150e58981d0e947ec56c6a7708011",
+  "branch": "port-prototype",
+  "scope": "one render-only aquarium overlay fix",
+  "managedCompile": {
+    "sources": 121,
+    "errors": 0,
+    "warnings": 18,
+    "exitCode": 0
+  },
+  "playwright": {
+    "passed": 2,
+    "failed": 0,
+    "skipped": 0,
+    "scope": "offline compiler-source identity and protected-input checks; not browser gameplay",
+    "initialRun": "1 passed / 1 failed: Node spawnSync git ENOBUFS on large JSON; switched to streaming Git blob hashes; no product change"
+  },
+  "protectedSourceShaderJsonFiles": 364,
+  "preExistingDirtyFilesPreserved": 26,
+  "removedUntrackedDuplicates": 55,
+  "nativeReview": "NOT_RUN: PortNativeReview not present in source tree; optional isolated validation copy stalled on Library/Artifacts/ab/abe0fab1bf33270f71556ab48be0ce43, then Assets/ThirdPartyNotices/RuntimeInspector-MIT.txt. Both owned copy processes stopped before Unity launch. This is not a license failure.",
+  "batchmode": "NOT_RUN: isolated copy preparation did not complete; managed compile succeeded instead",
+  "replay": {
+    "status": "NOT_RUN; render-only diff argument, no measured result asserted",
+    "seed": 42043,
+    "expectedDistance": 3220.05712890625,
+    "expectedBreaks": 118,
+    "expectedTicks": 3738,
+    "acceptedInputSha256": "c952b51c82b3ceb7838471da2d5f2bc93f4aa007f1e8cc560c046bf1036b4125"
+  },
+  "visualReview": "NOT_RUN: no new Unity/WebGL screenshots or playtest"
+}

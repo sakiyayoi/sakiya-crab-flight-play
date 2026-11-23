@@ -1,0 +1,249 @@
+{
+  "config": {
+    "argv": [
+      "/usr/local/bin/node",
+      "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/placement-fix-qa/runtime/node_modules/.bin/playwright",
+      "test",
+      "--config",
+      "qa/port-prototype/waterfix.config.cjs"
+    ],
+    "configFile": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/port-prototype/waterfix.config.cjs",
+    "rootDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/port-prototype",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/docs/port-prototype/playwright-artifacts/waterfix",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/port-prototype",
+        "testIgnore": [],
+        "testMatch": [
+          "waterfix.spec.cjs"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/docs/port-prototype/waterfix/playwright.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "waterfix.spec.cjs",
+      "file": "waterfix.spec.cjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "waterfix: current runtime sources match the successful managed compile",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 133,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T12:19:23.365Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "918a42eae515a2fbbb26-cb17bbd39691a9596c4e",
+          "file": "waterfix.spec.cjs",
+          "line": 10,
+          "column": 1
+        },
+        {
+          "title": "waterfix: simulation, camera, roles, placement and static inlet inputs remain byte exact",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1914,
+                  "error": {
+                    "message": "Error: spawnSync git ENOBUFS",
+                    "stack": "Error: spawnSync git ENOBUFS\n    at original (/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/port-prototype/waterfix.spec.cjs:8:29)\n    at /Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/port-prototype/waterfix.spec.cjs:23:72",
+                    "location": {
+                      "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/port-prototype/waterfix.spec.cjs",
+                      "column": 29,
+                      "line": 8
+                    },
+                    "snippet": "   6 | const base = '5be0ca45214150e58981d0e947ec56c6a7708011';\n   7 | const sha = value => crypto.createHash('sha256').update(value).digest('hex');\n>  8 | const original = file => cp.execFileSync('git', ['show', base + ':' + file], {cwd: root});\n     |                             ^\n   9 |\n  10 | test('waterfix: current runtime sources match the successful managed compile', () => {\n  11 |   const receipt = JSON.parse(fs.readFileSync(path.join(root, 'docs/port-prototype/waterfix/compile.json')));"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/port-prototype/waterfix.spec.cjs",
+                        "column": 29,
+                        "line": 8
+                      },
+                      "message": "Error: spawnSync git ENOBUFS\n\n   6 | const base = '5be0ca45214150e58981d0e947ec56c6a7708011';\n   7 | const sha = value => crypto.createHash('sha256').update(value).digest('hex');\n>  8 | const original = file => cp.execFileSync('git', ['show', base + ':' + file], {cwd: root});\n     |                             ^\n   9 |\n  10 | test('waterfix: current runtime sources match the successful managed compile', () => {\n  11 |   const receipt = JSON.parse(fs.readFileSync(path.join(root, 'docs/port-prototype/waterfix/compile.json')));\n    at original (/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/port-prototype/waterfix.spec.cjs:8:29)\n    at /Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/port-prototype/waterfix.spec.cjs:23:72"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2026-11-23T12:19:23.545Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/docs/port-prototype/playwright-artifacts/waterfix/waterfix-waterfix-simulati-a68e5-et-inputs-remain-byte-exact/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/port-prototype/waterfix.spec.cjs",
+                    "column": 29,
+                    "line": 8
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "918a42eae515a2fbbb26-9ecc0f56f45bf4bec79e",
+          "file": "waterfix.spec.cjs",
+          "line": 18,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-23T12:19:22.723Z",
+    "duration": 2796.979,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
