@@ -18,7 +18,7 @@ public static class BlenderPanelOverride {
   var entry=Find(id);if(entry==null)return; // Inactive legacy layouts and explicit test fixtures stay outside this rollout.
   var mesh=Mesh(entry.model);var material=Material;if(!material)throw new InvalidOperationException("Blender panel material missing");
   foreach(var renderer in root.GetComponentsInChildren<Renderer>(true))renderer.enabled=false;
-  Draw(root,mesh,entry.offset,Vector3.one,material);
+  Draw(root,mesh,entry.model,entry.offset,Vector3.one,material);
  }
  static Mesh Mesh(string model){
   var prefab=Resources.Load<GameObject>("BlenderModels/"+model);
@@ -36,10 +36,10 @@ public static class BlenderPanelOverride {
   if(first)throw new InvalidOperationException("Panel fragment has no legacy display: "+id);
   var mesh=Mesh("panel_fragment_"+type);var material=Material;
   foreach(var renderer in root.GetComponentsInChildren<Renderer>(true))renderer.enabled=false;
-  Draw(root,mesh,new Vector3(bounds.center.x,bounds.min.y,bounds.center.z),bounds.size,material);
+  Draw(root,mesh,"panel_fragment_"+type,new Vector3(bounds.center.x,bounds.min.y,bounds.center.z),bounds.size,material);
  }
- static void Draw(GameObject root,Mesh mesh,Vector3 offset,Vector3 scale,Material material){
-  var child=new GameObject("Blender "+mesh.name);child.transform.SetParent(root.transform,false);child.transform.localPosition=offset;child.transform.localScale=scale;
+ static void Draw(GameObject root,Mesh mesh,string model,Vector3 offset,Vector3 scale,Material material){
+  var child=new GameObject("Blender "+model);child.transform.SetParent(root.transform,false);child.transform.localPosition=offset;child.transform.localScale=scale;
   child.AddComponent<MeshFilter>().sharedMesh=mesh;var r=child.AddComponent<MeshRenderer>();r.sharedMaterials=Enumerable.Repeat(material,mesh.subMeshCount).ToArray();r.shadowCastingMode=UnityEngine.Rendering.ShadowCastingMode.Off;r.receiveShadows=false;
  }
 }

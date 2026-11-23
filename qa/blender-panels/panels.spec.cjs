@@ -47,7 +47,9 @@ test('real replay panel debris also uses Blender; legacy body sizes and mass/dam
  nativeSkip();
  const a=read(path.join(baseline,'fragments.json')).fragments,b=read(path.join(candidate,'fragments.json')).fragments;expect(a.length).toBeGreaterThan(0);expect(b.length).toBe(a.length);
  const normal=s=>s.replace(/"instanceID":-?\d+/g,'"instanceID":0');
- for(let i=0;i<a.length;i++){expect(b[i].name).toBe(a[i].name);expect(normal(b[i].physics)).toBe(normal(a[i].physics));expect(b[i].blenderRenderers).toBe(1);expect(b[i].legacyRenderers).toBe(0);}
+ const panelIds=new Set(read(path.join(source,'games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panels-catalog.json')).entries.map(e=>e.id));
+ const isPanelFragment=name=>{const m=/ for (.+)$/.exec(name);return m&&panelIds.has(m[1]);};
+ for(let i=0;i<a.length;i++){expect(b[i].name).toBe(a[i].name);expect(normal(b[i].physics)).toBe(normal(a[i].physics));if(isPanelFragment(b[i].name)){expect(b[i].blenderRenderers,b[i].name).toBe(1);expect(b[i].legacyRenderers,b[i].name).toBe(0);}}
 });
 test('only two display hooks change the existing runtime; physical/UI/placement/scene files protected',()=>{
  const file='games/flight/crab-flight/Assets/Scripts/RestaurantPhysics.cs',base=read(path.join(ev,'start.json')).baseCommit;

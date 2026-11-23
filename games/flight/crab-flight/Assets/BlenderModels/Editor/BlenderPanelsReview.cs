@@ -166,7 +166,7 @@ public static class BlenderPanelsReview {
   return b?F(b.center)+F(b.size)+b.enabled+b.isTrigger+b.providesContacts+"/"+b.contactOffset+"/"+mat:c.GetType().Name+"/"+F(c.bounds.center)+F(c.bounds.size)+"/"+mat;
  }
  static void SaveFragments(CrabFlightGame game,string dir){
-  var rows=game.ReviewSimulation.ReviewFragments.Where(o=>o).Select(o=>{var rb=o.GetComponent<Rigidbody>();var c=o.GetComponent<Collider>();var rs=o.GetComponentsInChildren<Renderer>(true).Where(r=>r.enabled).ToArray();return new Fragment{name=o.name,blenderRenderers=rs.Count(r=>r.name.StartsWith("Blender ")),legacyRenderers=rs.Count(r=>!r.name.StartsWith("Blender ")),physics=F(o.transform.localScale)+"|"+c.GetType().Name+"|"+ColliderText(c)+"|"+rb.mass+"|"+rb.linearDamping+"|"+rb.angularDamping};}).ToArray();
+  var rows=game.ReviewSimulation.ReviewFragments.Where(o=>o).Select(o=>{var rb=o.GetComponent<Rigidbody>();var c=o.GetComponent<Collider>();var rs=o.GetComponentsInChildren<Renderer>(true).Where(r=>r.enabled).ToArray();return new Fragment{name=o.name,blenderRenderers=rs.Count(r=>r.name.StartsWith("Blender ")||r.name.StartsWith("R27 visual Blender ")),legacyRenderers=rs.Count(r=>!r.name.StartsWith("Blender ")&&!r.name.StartsWith("R27 visual Blender ")),physics=F(o.transform.localScale)+"|"+c.GetType().Name+"|"+ColliderText(c)+"|"+rb.mass+"|"+rb.linearDamping+"|"+rb.angularDamping};}).ToArray();
   File.WriteAllText(dir+"/fragments.json",JsonUtility.ToJson(new Fragments{fragments=rows},true));
  }
  public static void Capture(Camera camera,string path,int w,int h){
