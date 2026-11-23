@@ -127,7 +127,10 @@ public static class BlenderPanelsReview {
  [Serializable] public class PanelRows {public PanelRow[] targets;}
  static object Field(object obj,string name)=>obj.GetType().GetField(name,System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic).GetValue(obj);
  static PanelRow[] PanelInventory(CrabFlightGame game,string dir,string filename){
-  var sim=game.ReviewSimulation;var items=(System.Collections.IEnumerable)Field(sim,"panels");var rows=new List<PanelRow>();
+  // Prepare clears simulation after retry; the rebuilt world still owns the panels.
+  var sim=game.ReviewSimulation??(RigidCrabFlight)Field(game,"world");
+  if(sim==null)throw new InvalidOperationException("PanelInventory ("+filename+"): both CrabFlightGame.ReviewSimulation and world are null; no panel inventory is available.");
+  var items=(System.Collections.IEnumerable)Field(sim,"panels");var rows=new List<PanelRow>();
   foreach(var item in items){
    string id=(string)Field(item,"id"),type=(string)Field(item,"type");var go=(GameObject)Field(item,"visual");
    bool city2=(UnityEngine.Object)Field(item,"city2"),city=(UnityEngine.Object)Field(item,"city");bool life=Field(item,"life")!=null;
