@@ -107,7 +107,7 @@ CrabHeroVisualR2.Attach(crab);CrabGearR29.Apply(crab,settings.gear);
 PrepareCostProbeR15.Mark("rebuild.poseAndBounds");}
  void AttachCrabR18(){world.Attach(crab,settings,restHeight);AttachNeon();PrepareCostProbeR15.Mark("rebuild.afterAttach");}
  void Update(){SyncStampR8(0);feelRealDeltaR27=Time.unscaledDeltaTime;Tick(Mathf.Min(Time.unscaledDeltaTime,.08f));feelRealDeltaR27=-1;SyncStampR8(1);}
- void LateUpdate(){SyncStampR8(5);}
+ void LateUpdate(){SyncStampR8(5);neonCrab?.SyncTankVisibility(phase);}
  public void Tick(float dt){
   if(prepareWorkR18!=null){AdvancePrepareFrameR18();return;}
   if(!initialized||paused)return;PrimitiveColliderTraceR18.BeforeMain(world.Scene,world.Time,"frame");BeginCalmFrameR3(dt);BeginFeelFrameR27();AuditTick(dt);float gameplayDt=FeelOnR27?FilterFeelR27(dt):phase=="flight"&&useHitStop?hitStop.Filter(dt):dt;visualClock+=dt;

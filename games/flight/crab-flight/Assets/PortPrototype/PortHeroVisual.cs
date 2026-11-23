@@ -17,12 +17,18 @@ public sealed class PortHeroVisual {
   var w=PortVisuals.MeshObject("Port aquarium water and bubbles",owner,Vector3.zero,Vector3.one,new[]{new Vector3(-.5f,-.5f,0),new Vector3(.5f,-.5f,0),new Vector3(.5f,.5f,0),new Vector3(-.5f,.5f,0)},new[]{0,2,1,0,3,2},Color.white);
   NeonProto.Release(w.GetComponent<Renderer>().sharedMaterial);w.GetComponent<Renderer>().sharedMaterial=new Material(Resources.Load<Shader>("PortPrototype/Aquarium"));cards.Add(w);water=w.transform;
   var s=PortVisuals.Disc("Port underwater shadow",owner,Vector3.zero,Vector3.one,new Color(.10f,.22f,.30f));cards.Add(s);shadow=s.transform;
+  SyncTankVisibility(null);
+ }
+ public void SyncTankVisibility(string phase){
+  // Charge eligibility remains latched after launch; only the phase owns the tank.
+  bool visible=PortLayout.Enabled&&(phase=="ready"||phase=="charge");
+  water.gameObject.SetActive(visible);shadow.gameObject.SetActive(visible);
  }
  public bool Sample(string phase,bool aiming){
   bool tank=phase=="ready"||phase=="charge"||aiming,on=PortLayout.Enabled&&(tank||PortLayout.InPort(root.position.x));
   if(active!=on){active=on;for(int i=0;i<shells.Count;i++){if(on){var mats=new Material[previous[i].Length];for(int j=0;j<mats.Length;j++)mats[j]=hero;shells[i].sharedMaterials=mats;}else shells[i].sharedMaterials=previous[i];}}
   foreach(var e in eyes)e.gameObject.SetActive(on);
-  water.gameObject.SetActive(on&&tank);shadow.gameObject.SetActive(on&&tank);
+  SyncTankVisibility(phase);
   if(!on)return false;
   // A minimum screen-space face survives a wide flight camera, capped at a modest 1.5x.
   float scale=Mathf.Clamp(camera.orthographicSize/12,.8f,1.5f);
@@ -31,8 +37,10 @@ public sealed class PortHeroVisual {
    eyes[i].position=body.position-camera.transform.forward*(.88f+layer*.008f)+camera.transform.right*((i<3?-.19f:.19f)*scale+(layer==2?.025f:0))+camera.transform.up*(.17f*scale);
    eyes[i].rotation=camera.transform.rotation*Quaternion.Euler(90,0,0);eyes[i].localScale=new Vector3(radius,1,radius*1.15f);
   }
-  water.position=body.position+camera.transform.forward*4;water.rotation=camera.transform.rotation;water.localScale=new Vector3(camera.orthographicSize*camera.aspect*2.1f,camera.orthographicSize*2.1f,1);
-  shadow.position=body.position+camera.transform.forward*.7f-camera.transform.up*.7f;shadow.rotation=camera.transform.rotation*Quaternion.Euler(90,0,0);shadow.localScale=new Vector3(1.3f,1,.34f);
+  if(water.gameObject.activeSelf){
+   water.position=body.position+camera.transform.forward*4;water.rotation=camera.transform.rotation;water.localScale=new Vector3(camera.orthographicSize*camera.aspect*2.1f,camera.orthographicSize*2.1f,1);
+   shadow.position=body.position+camera.transform.forward*.7f-camera.transform.up*.7f;shadow.rotation=camera.transform.rotation*Quaternion.Euler(90,0,0);shadow.localScale=new Vector3(1.3f,1,.34f);
+  }
   return true;
  }
  public void Dispose(){foreach(var o in cards){NeonProto.Release(o.GetComponent<MeshFilter>().sharedMesh);NeonProto.Release(o.GetComponent<Renderer>().sharedMaterial);NeonProto.Release(o);}NeonProto.Release(hero);}
