@@ -126,3 +126,71 @@ BLENDER_PANELS_NATIVE_BLOCKED=license NODE_PATH='/Users/konomichiharu/.cache/cod
 リスク：今回のUnity未実行によるimport/向き/動的登録漏れ（起きやすさ2＋影響3=5）は必須確認待ち。既存の巨大家具寸法・店内浮き・Collider近似残差・床一時侵入・モール反復FAILは解消扱いにしない。実聴・物理iPhone・実FPS・本人の手触り採用も未確認。モデル制作・ソース保存と、ゲーム全体完成・採用・公開を分ける。
 
 案件のKB参照禁止を維持しTEAMは未確認。Studio入口も現catalogでは未接続。状態は既存HANDOFF一箇所とtasks.mdへ記録し、外部送信・Linear更新は行っていない。
+
+
+## 2026-11-23 追記：再投後のパネル検証ハーネス修正
+
+今回の依頼範囲（Editorハーネス修正・型検査・ローカルコミット・本報告追記）を実施した。Unity実走は依頼どおりクロエの担当として未実施。上記のライセンスBLOCKEDは初回制作時の履歴であり、復旧後の `licensed-baseline02` / `licensed-candidate02` はともにゲーム実行後、検証ハーネスの例外でexit 1になっている。ゲーム全体の合格やNative比較の合格は宣言しない。
+
+### 原因と修正
+
+- 両方の `unity.log` で `BlenderPanelsReview.Field:128` → `PanelInventory:130` → `Run:70` のNullReferenceExceptionを確認。`Run` の再投処理 `game.Prepare("")` 後の `panels-retry.json` 棚卸しで発生している。
+- `CrabFlightGame.Prepare` は `world` を再構築した後、設計どおり `simulation=null` に戻す。`ReviewSimulation` はその `simulation` を返し、パネル登録リストは `world` が保持する。従来ハーネスはnullを `Field(sim,"panels")` に渡していた。
+- `PanelInventory` の参照元を `game.ReviewSimulation ?? (RigidCrabFlight)Field(game,"world")` に変更した。飛行中の参照を優先し、nullのときだけ現在の `world` を読む。ゲーム側の状態・物理・配置・表示・UIには書き込まない。
+- 両方がnullなら `InvalidOperationException` で停止する。例外本文は `PanelInventory (panels-retry.json): both CrabFlightGame.ReviewSimulation and world are null; no panel inventory is available.`（括弧内は実際の棚卸しファイル名）。`Field` にnullを渡す前に原因を明示する。
+- 変更したコードは `games/flight/crab-flight/Assets/BlenderModels/Editor/BlenderPanelsReview.cs` の4行追加・1行削除のみ。
+
+### コミット先とbaseline / candidateへの反映
+
+修正コミット：`30d1a20c3195703cbea6081ca10dee809886ecbe`（`fix: retain panel inventory access after retry`）。branchは開始時の **`port-prototype`** のまま。修正ファイルのSHA256：`22ed98da6c332b98f48029eab4c5dcfa96875d5800f846ce137f42e2071fe9e8`。
+
+`tools/blender/run_native_panels.py` の複製方式を確認した。baselineは `start.json` の `baseCommit`（`8fb3d25c26e2d1f8a7bdf6e26ec77b2826606932`）を `git archive` で展開した後、**呼び出し元の現在のsourceから `BlenderPanelsReview.cs` を読み、revision文字列だけbaseline用に置換してコピーする**。candidateは現在のsourceを直接使用する。したがって、このsourceの `port-prototype` に修正を置けば、新しいbaselineとcandidateの両方が修正済みハーネスを使う。`blender-rollout` / `blender-panels` のbranchや既存実行コピーを変更する必要はない。Pythonランナーも変更していない。
+
+baselineの `execution.json.sourceCommit` は旧ゲーム本体のbaseCommitを示すため、使用した検証ハーネスの版は上記コミットとSHAで区別する。既存 `licensed-*-02` の失敗ログ・コピーは保持した。
+
+### 開始時から存在した未コミット差分
+
+- `panel_*.fbx.meta` は25ファイル。全件で元の `fileFormatVersion` とGUIDを維持し、同一の `ModelImporter` 設定109行だけが追加されていた（`serializedVersion: 24300`、`isReadable: 1`、`bakeAxisConversion: 1`、`preserveHierarchy: 1`、アニメーション・カメラ・ライト・Colliderのimport無効等）。既存 `BlenderPilotImport.OnPreprocessModel` の設定と一致し、Unityのimportによる設定の書き出しと整合する。GUIDの再生成やFBX本体の変更ではない。diffだけでは書込プロセスの同一性までは断定しない。
+- 別途、開始時から `FlightField.unity` にGameObject/FileIDの変更と `FlightTuningPanel` コンポーネント削除の差分があった。SHA256は既存報告と同じ `058be0b3456083199edfc5b9650b233cbb63209249d00f4c1a764443c68fb5bb`。
+- 以上26ファイルを破棄・stage・commitせず保持。修正後のSHA照合で開始時からの変更0件。今回の依頼の変更範囲に従い、tasks.mdや別の管理記録への書込みは追加せず、本追記に状態と再開手順をまとめた。
+
+### 今回の検証と範囲
+
+sourceで既存の型検査手順を順番に実行した。
+
+```sh
+python3 tools/port-prototype/typecheck.py
+python3 tools/port-prototype/typecheck.py --editor
+```
+
+- ランタイム：exit 0 / **errors 0 / warnings 18**（既存警告）。Editor参照DLLを先に生成するための実行で、ランタイムコードは変更していない。
+- Editor：exit 0 / **errors 0 / warnings 0**。コンパイル入力の `editor-sources.json` に、上記SHAの修正済み `BlenderPanelsReview.cs` が含まれることを確認。
+- `git diff --check`：変更したハーネスは問題なし。
+- 証拠は `evidence/blender-panels/harness-fix01/managed-compile/` と同フォルダの `runtime-command.log` / `editor-command.log`。型検査スクリプトの既定出力先にあった以前の記録は実行前のbyteへ戻し、今回分をこの別ディレクトリに保存した。
+
+追加で既存Playwrightのソース棚卸し1件を選択した（ブラウザ・Unityを起動しない検査）。
+
+```sh
+NODE_PATH='/Users/konomichiharu/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules' \
+  npx --offline --prefix .git/placement-fix-qa/runtime --no-install \
+  playwright test --config qa/blender-panels/playwright.config.cjs \
+  --grep 'source enumeration covers' --reporter list \
+  --output ../evidence/blender-panels/harness-fix01/playwright02-results
+```
+
+結果：**0 passed / 1 failed**。`panels-families.json.sourceHashes` が期待する `RestaurantPhysics.cs` のSHA `578fe7d5425d55de6fd60c871f7b8c074398003c27f59428de9d52b6ae9feedb` と、現行SHA `bc96138ed7d60b48667a48127704ed128ddacb892013141cfec48379b6d8fc15` が不一致。修正前の `8fa2855a4eaa624e5464289925e0e0857a9fc537` の同ファイルも現行と同SHAであり、**今回の変更前からある不一致**と確認した。証拠：`playwright02.log` / `preexisting-playwright-mismatch.json`。期待値やゲームコードは変更していない。
+
+初回の絞り込み `--grep '^source enumeration'` はフルテスト名に一致せず `No tests found`（exit 1）だったため、上記の絞り込みへ訂正した。初回ログも保存。全8件のsuiteは未実施、全件PASSとは扱わない。旧検証のライセンスSKIP指定も使っていない。
+
+### クロエへの再開情報
+
+今回の修正版についてUnity Native baseline / candidate、実画像・実操作は **NOT_RUN（依頼による担当分担）**。新しい実行名で、sourceから次を実行できる。
+
+```sh
+python3 tools/blender/run_native_panels.py baseline --name panels-harness-fixed-baseline03
+python3 tools/blender/run_native_panels.py candidate --name panels-harness-fixed-candidate03
+```
+
+確認対象は、再投後に `panels-retry.json` が生成され、当該NullReferenceExceptionがなく、receiptと実際の棚卸し件数が確認できること。candidateは既存の港試作を含む `port-prototype` なので、旧rolloutとの距離・軌跡・配置の完全一致検査は別途版の適用範囲を照合する必要がある。今回のnull参照修正だけをもって旧パネルsuite全件合格・ゲーム完成とはしない。
+
+push・外部送信・公開・Unityライセンス設定変更は行っていない。修正コミットはハーネス1ファイルのみ、本追記は後続の報告コミットに保存する。
