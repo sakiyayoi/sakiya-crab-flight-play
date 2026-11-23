@@ -160,8 +160,13 @@ public static class BlenderPanelsReview {
  }
  [Serializable] public class Fragment {public string name;public int blenderRenderers,legacyRenderers;public string physics;}
  [Serializable] public class Fragments {public Fragment[] fragments;}
+ static string ColliderText(Collider c){
+  string mat=c.sharedMaterial?c.sharedMaterial.name+"/"+c.sharedMaterial.dynamicFriction+"/"+c.sharedMaterial.staticFriction+"/"+c.sharedMaterial.bounciness+"/"+c.sharedMaterial.frictionCombine+"/"+c.sharedMaterial.bounceCombine:"null";
+  var b=c as BoxCollider;
+  return b?F(b.center)+F(b.size)+b.enabled+b.isTrigger+b.providesContacts+"/"+b.contactOffset+"/"+mat:c.GetType().Name+"/"+F(c.bounds.center)+F(c.bounds.size)+"/"+mat;
+ }
  static void SaveFragments(CrabFlightGame game,string dir){
-  var rows=game.ReviewSimulation.ReviewFragments.Where(o=>o).Select(o=>{var rb=o.GetComponent<Rigidbody>();var c=o.GetComponent<Collider>();var rs=o.GetComponentsInChildren<Renderer>(true).Where(r=>r.enabled).ToArray();return new Fragment{name=o.name,blenderRenderers=rs.Count(r=>r.name.StartsWith("Blender ")),legacyRenderers=rs.Count(r=>!r.name.StartsWith("Blender ")),physics=F(o.transform.localScale)+"|"+c.GetType().Name+"|"+JsonUtility.ToJson(c)+"|"+rb.mass+"|"+rb.linearDamping+"|"+rb.angularDamping};}).ToArray();
+  var rows=game.ReviewSimulation.ReviewFragments.Where(o=>o).Select(o=>{var rb=o.GetComponent<Rigidbody>();var c=o.GetComponent<Collider>();var rs=o.GetComponentsInChildren<Renderer>(true).Where(r=>r.enabled).ToArray();return new Fragment{name=o.name,blenderRenderers=rs.Count(r=>r.name.StartsWith("Blender ")),legacyRenderers=rs.Count(r=>!r.name.StartsWith("Blender ")),physics=F(o.transform.localScale)+"|"+c.GetType().Name+"|"+ColliderText(c)+"|"+rb.mass+"|"+rb.linearDamping+"|"+rb.angularDamping};}).ToArray();
   File.WriteAllText(dir+"/fragments.json",JsonUtility.ToJson(new Fragments{fragments=rows},true));
  }
  public static void Capture(Camera camera,string path,int w,int h){
