@@ -50,6 +50,7 @@ public sealed partial class RigidCrabFlight {
  }
 
  void AddPanel(string id,string type,Vector3 position,Vector3 size,Color color,float threshold){
+  position=OpeningLayout.PanelPosition(id,position); // Placement input only; contact/break rules below are unchanged.
   var panel=new BreakPanel{id=id,type=type,position=position,size=size,color=color,threshold=threshold};
   panel.visual=RestaurantVisuals.CreateBreakableVisual(type,position,size,color);panel.visual.name=id;BlenderPanelOverride.Apply(panel.visual,id);
   SceneManager.MoveGameObjectToScene(panel.visual,Scene);if(type=="wood"){AddPanelShape(panel,new Vector3(0,size.y*.36f,0),new Vector3(size.x,size.y*.28f,size.z));for(int sign=-1;sign<=1;sign+=2)AddPanelShape(panel,new Vector3(sign*size.x*.31f,-size.y*.14f,0),new Vector3(size.x*.15f,size.y*.72f,size.z*.75f));}else AddPanelShape(panel,Vector3.zero,size);panels.Add(panel);

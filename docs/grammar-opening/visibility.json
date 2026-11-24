@@ -1,0 +1,1882 @@
+{
+  "scope": "steady framing projection of actual landmark box coordinates; no occlusion, HUD, smoothing, Native or perceptual approval",
+  "historicalAltitudeContext": "unchanged prior route samples: restaurant 8.10\u201313.76m; mall 19.31\u201322.26m (not current-run measurements)",
+  "readyDefine": "CRAB_KING_BOLD_R2, as in existing Assets/csc.rsp",
+  "cases": [
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "direction": 1,
+      "nextSector": "restaurant",
+      "anchorX": 0,
+      "altitude": 0,
+      "framing": "ready",
+      "orthographicSize": 9.008076923076924,
+      "litFaceViewportBounds": [
+        [
+          0.8087087087087087,
+          1.02012012012012
+        ],
+        [
+          0.5397613495387604,
+          0.5996437729289227
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        74.6036036036036,
+        50.54076534129694
+      ]
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "direction": 1,
+      "nextSector": "mall",
+      "anchorX": 20,
+      "altitude": 8,
+      "framing": "ground-follow",
+      "orthographicSize": 18.44,
+      "litFaceViewportBounds": [
+        [
+          0.6311849936036487,
+          0.7344610378775236
+        ],
+        [
+          0.3134374526755713,
+          0.3800128212764994
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        40.277657266811225,
+        56.189611099183274
+      ]
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "direction": 1,
+      "nextSector": "mall",
+      "anchorX": 20,
+      "altitude": 8,
+      "framing": "high-follow",
+      "orthographicSize": 18.44,
+      "litFaceViewportBounds": [
+        [
+          0.6311849936036487,
+          0.7344610378775236
+        ],
+        [
+          0.45752098300326327,
+          0.5240963516041913
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        40.277657266811225,
+        56.189611099183274
+      ]
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "direction": 1,
+      "nextSector": "mall",
+      "anchorX": 20,
+      "altitude": 14,
+      "framing": "ground-follow",
+      "orthographicSize": 19.04,
+      "litFaceViewportBounds": [
+        [
+          0.6199606765783237,
+          0.7199822236586941
+        ],
+        [
+          0.30986274303243355,
+          0.37434014833711393
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        39.008403361344484,
+        54.41893007715024
+      ]
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "direction": 1,
+      "nextSector": "mall",
+      "anchorX": 20,
+      "altitude": 14,
+      "framing": "high-follow",
+      "orthographicSize": 19.04,
+      "litFaceViewportBounds": [
+        [
+          0.6199606765783237,
+          0.7199822236586941
+        ],
+        [
+          0.31086460877164673,
+          0.3753420140763271
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        39.008403361344484,
+        54.41893007715024
+      ]
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "direction": 1,
+      "nextSector": "office",
+      "anchorX": 123,
+      "altitude": 19,
+      "framing": "ground-follow",
+      "orthographicSize": 19.54,
+      "litFaceViewportBounds": [
+        [
+          0.8149181166837258,
+          0.9145953074561066
+        ],
+        [
+          0.21788392179300542,
+          0.4970188450993847
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        38.87410440122851,
+        235.58987527058412
+      ]
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "direction": 1,
+      "nextSector": "office",
+      "anchorX": 123,
+      "altitude": 19,
+      "framing": "high-follow",
+      "orthographicSize": 19.54,
+      "litFaceViewportBounds": [
+        [
+          0.8149181166837258,
+          0.9145953074561066
+        ],
+        [
+          0.10636335939286562,
+          0.3854982826992449
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        38.87410440122851,
+        235.58987527058412
+      ]
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "direction": 1,
+      "nextSector": "office",
+      "anchorX": 123,
+      "altitude": 24,
+      "framing": "ground-follow",
+      "orthographicSize": 20.04,
+      "litFaceViewportBounds": [
+        [
+          0.8014471057884234,
+          0.8986373407032098
+        ],
+        [
+          0.2174377161594474,
+          0.48960819527155575
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        37.904191616766695,
+        229.71188437061943
+      ]
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "direction": 1,
+      "nextSector": "office",
+      "anchorX": 123,
+      "altitude": 24,
+      "framing": "high-follow",
+      "orthographicSize": 20.04,
+      "litFaceViewportBounds": [
+        [
+          0.8014471057884234,
+          0.8986373407032098
+        ],
+        [
+          -0.0009903827563251255,
+          0.2711800963557832
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        37.904191616766695,
+        228.87600132428105
+      ]
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "direction": -1,
+      "nextSector": "restaurant",
+      "anchorX": 0,
+      "altitude": 0,
+      "framing": "ready",
+      "orthographicSize": 9.008076923076924,
+      "litFaceViewportBounds": [
+        [
+          -0.0201201201201201,
+          0.1912912912912913
+        ],
+        [
+          0.5397613495387604,
+          0.5996437729289227
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        74.6036036036036,
+        50.54076534129694
+      ]
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "direction": -1,
+      "nextSector": "mall",
+      "anchorX": -20,
+      "altitude": 8,
+      "framing": "ground-follow",
+      "orthographicSize": 18.44,
+      "litFaceViewportBounds": [
+        [
+          0.26553896212247635,
+          0.36881500639635134
+        ],
+        [
+          0.3134374526755713,
+          0.3800128212764994
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        40.27765726681125,
+        56.189611099183274
+      ]
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "direction": -1,
+      "nextSector": "mall",
+      "anchorX": -20,
+      "altitude": 8,
+      "framing": "high-follow",
+      "orthographicSize": 18.44,
+      "litFaceViewportBounds": [
+        [
+          0.26553896212247635,
+          0.36881500639635134
+        ],
+        [
+          0.45752098300326327,
+          0.5240963516041913
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        40.27765726681125,
+        56.189611099183274
+      ]
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "direction": -1,
+      "nextSector": "mall",
+      "anchorX": -20,
+      "altitude": 14,
+      "framing": "ground-follow",
+      "orthographicSize": 19.04,
+      "litFaceViewportBounds": [
+        [
+          0.28001777634130587,
+          0.38003932342167634
+        ],
+        [
+          0.30986274303243355,
+          0.37434014833711393
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        39.008403361344484,
+        54.41893007715024
+      ]
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "direction": -1,
+      "nextSector": "mall",
+      "anchorX": -20,
+      "altitude": 14,
+      "framing": "high-follow",
+      "orthographicSize": 19.04,
+      "litFaceViewportBounds": [
+        [
+          0.28001777634130587,
+          0.38003932342167634
+        ],
+        [
+          0.31086460877164673,
+          0.3753420140763271
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        39.008403361344484,
+        54.41893007715024
+      ]
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "direction": -1,
+      "nextSector": "office",
+      "anchorX": -123,
+      "altitude": 19,
+      "framing": "ground-follow",
+      "orthographicSize": 19.54,
+      "litFaceViewportBounds": [
+        [
+          0.08540469254389332,
+          0.18508188331627412
+        ],
+        [
+          0.21788392179300542,
+          0.4970188450993847
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        38.87410440122851,
+        235.58987527058412
+      ]
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "direction": -1,
+      "nextSector": "office",
+      "anchorX": -123,
+      "altitude": 19,
+      "framing": "high-follow",
+      "orthographicSize": 19.54,
+      "litFaceViewportBounds": [
+        [
+          0.08540469254389332,
+          0.18508188331627412
+        ],
+        [
+          0.10636335939286562,
+          0.3854982826992449
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        38.87410440122851,
+        235.58987527058412
+      ]
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "direction": -1,
+      "nextSector": "office",
+      "anchorX": -123,
+      "altitude": 24,
+      "framing": "ground-follow",
+      "orthographicSize": 20.04,
+      "litFaceViewportBounds": [
+        [
+          0.10136265929679028,
+          0.19855289421157668
+        ],
+        [
+          0.2174377161594474,
+          0.48960819527155575
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        37.904191616766695,
+        229.71188437061943
+      ]
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "direction": -1,
+      "nextSector": "office",
+      "anchorX": -123,
+      "altitude": 24,
+      "framing": "high-follow",
+      "orthographicSize": 20.04,
+      "litFaceViewportBounds": [
+        [
+          0.10136265929679028,
+          0.19855289421157668
+        ],
+        [
+          -0.0009903827563251255,
+          0.2711800963557832
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        37.904191616766695,
+        228.87600132428105
+      ]
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "direction": 1,
+      "nextSector": "restaurant",
+      "anchorX": 0,
+      "altitude": 0,
+      "framing": "ready",
+      "orthographicSize": 7.3884375,
+      "litFaceViewportBounds": [
+        [
+          0.8087087087087087,
+          1.02012012012012
+        ],
+        [
+          0.5484775428107097,
+          0.6214869546435691
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        61.213213213213216,
+        41.46934592106412
+      ]
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "direction": 1,
+      "nextSector": "mall",
+      "anchorX": 20,
+      "altitude": 8,
+      "framing": "ground-follow",
+      "orthographicSize": 18.44,
+      "litFaceViewportBounds": [
+        [
+          0.5671434381778743,
+          0.6518505965292841
+        ],
+        [
+          0.3134374526755713,
+          0.3800128212764994
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        27.106290672451152,
+        37.814809365327136
+      ]
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "direction": 1,
+      "nextSector": "mall",
+      "anchorX": 20,
+      "altitude": 8,
+      "framing": "high-follow",
+      "orthographicSize": 18.44,
+      "litFaceViewportBounds": [
+        [
+          0.5671434381778743,
+          0.6518505965292841
+        ],
+        [
+          0.45752098300326327,
+          0.5240963516041913
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        27.106290672451152,
+        37.814809365327136
+      ]
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "direction": 1,
+      "nextSector": "mall",
+      "anchorX": 20,
+      "altitude": 14,
+      "framing": "ground-follow",
+      "orthographicSize": 19.04,
+      "litFaceViewportBounds": [
+        [
+          0.5579372373949579,
+          0.6399750525210083
+        ],
+        [
+          0.30986274303243355,
+          0.37434014833711393
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        26.252100840336112,
+        36.623166213058454
+      ]
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "direction": 1,
+      "nextSector": "mall",
+      "anchorX": 20,
+      "altitude": 14,
+      "framing": "high-follow",
+      "orthographicSize": 19.04,
+      "litFaceViewportBounds": [
+        [
+          0.5579372373949579,
+          0.6399750525210083
+        ],
+        [
+          0.31086460877164673,
+          0.3753420140763271
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        26.252100840336112,
+        36.623166213058454
+      ]
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "direction": 1,
+      "nextSector": "office",
+      "anchorX": 123,
+      "altitude": 19,
+      "framing": "ground-follow",
+      "orthographicSize": 19.54,
+      "litFaceViewportBounds": [
+        [
+          0.7178416069600823,
+          0.7995969805527132
+        ],
+        [
+          0.21788392179300542,
+          0.4970188450993847
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        26.16171954964191,
+        158.54863643802344
+      ]
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "direction": 1,
+      "nextSector": "office",
+      "anchorX": 123,
+      "altitude": 19,
+      "framing": "high-follow",
+      "orthographicSize": 19.54,
+      "litFaceViewportBounds": [
+        [
+          0.7178416069600823,
+          0.7995969805527132
+        ],
+        [
+          0.10636335939286562,
+          0.3854982826992449
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        26.16171954964191,
+        158.54863643802344
+      ]
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "direction": 1,
+      "nextSector": "office",
+      "anchorX": 123,
+      "altitude": 24,
+      "framing": "ground-follow",
+      "orthographicSize": 20.04,
+      "litFaceViewportBounds": [
+        [
+          0.7067926646706588,
+          0.7865082335329348
+        ],
+        [
+          0.2174377161594474,
+          0.48960819527155575
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        25.508982035928298,
+        154.59283213567753
+      ]
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "direction": 1,
+      "nextSector": "office",
+      "anchorX": 123,
+      "altitude": 24,
+      "framing": "high-follow",
+      "orthographicSize": 20.04,
+      "litFaceViewportBounds": [
+        [
+          0.7067926646706588,
+          0.7865082335329348
+        ],
+        [
+          -0.0009903827563251255,
+          0.2711800963557832
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        25.508982035928298,
+        154.03029473008488
+      ]
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "direction": -1,
+      "nextSector": "restaurant",
+      "anchorX": 0,
+      "altitude": 0,
+      "framing": "ready",
+      "orthographicSize": 7.3884375,
+      "litFaceViewportBounds": [
+        [
+          -0.0201201201201201,
+          0.1912912912912913
+        ],
+        [
+          0.5484775428107097,
+          0.6214869546435691
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        61.213213213213216,
+        41.46934592106412
+      ]
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "direction": -1,
+      "nextSector": "mall",
+      "anchorX": -20,
+      "altitude": 8,
+      "framing": "ground-follow",
+      "orthographicSize": 18.44,
+      "litFaceViewportBounds": [
+        [
+          0.3481494034707159,
+          0.43285656182212573
+        ],
+        [
+          0.3134374526755713,
+          0.3800128212764994
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        27.106290672451152,
+        37.814809365327136
+      ]
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "direction": -1,
+      "nextSector": "mall",
+      "anchorX": -20,
+      "altitude": 8,
+      "framing": "high-follow",
+      "orthographicSize": 18.44,
+      "litFaceViewportBounds": [
+        [
+          0.3481494034707159,
+          0.43285656182212573
+        ],
+        [
+          0.45752098300326327,
+          0.5240963516041913
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        27.106290672451152,
+        37.814809365327136
+      ]
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "direction": -1,
+      "nextSector": "mall",
+      "anchorX": -20,
+      "altitude": 14,
+      "framing": "ground-follow",
+      "orthographicSize": 19.04,
+      "litFaceViewportBounds": [
+        [
+          0.3600249474789917,
+          0.44206276260504207
+        ],
+        [
+          0.30986274303243355,
+          0.37434014833711393
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        26.252100840336112,
+        36.623166213058454
+      ]
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "direction": -1,
+      "nextSector": "mall",
+      "anchorX": -20,
+      "altitude": 14,
+      "framing": "high-follow",
+      "orthographicSize": 19.04,
+      "litFaceViewportBounds": [
+        [
+          0.3600249474789917,
+          0.44206276260504207
+        ],
+        [
+          0.31086460877164673,
+          0.3753420140763271
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        26.252100840336112,
+        36.623166213058454
+      ]
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "direction": -1,
+      "nextSector": "office",
+      "anchorX": -123,
+      "altitude": 19,
+      "framing": "ground-follow",
+      "orthographicSize": 19.54,
+      "litFaceViewportBounds": [
+        [
+          0.20040301944728678,
+          0.28215839303991774
+        ],
+        [
+          0.21788392179300542,
+          0.4970188450993847
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        26.16171954964191,
+        158.54863643802344
+      ]
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "direction": -1,
+      "nextSector": "office",
+      "anchorX": -123,
+      "altitude": 19,
+      "framing": "high-follow",
+      "orthographicSize": 19.54,
+      "litFaceViewportBounds": [
+        [
+          0.20040301944728678,
+          0.28215839303991774
+        ],
+        [
+          0.10636335939286562,
+          0.3854982826992449
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        26.16171954964191,
+        158.54863643802344
+      ]
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "direction": -1,
+      "nextSector": "office",
+      "anchorX": -123,
+      "altitude": 24,
+      "framing": "ground-follow",
+      "orthographicSize": 20.04,
+      "litFaceViewportBounds": [
+        [
+          0.21349176646706525,
+          0.29320733532934123
+        ],
+        [
+          0.2174377161594474,
+          0.48960819527155575
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        25.508982035928316,
+        154.59283213567753
+      ]
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "direction": -1,
+      "nextSector": "office",
+      "anchorX": -123,
+      "altitude": 24,
+      "framing": "high-follow",
+      "orthographicSize": 20.04,
+      "litFaceViewportBounds": [
+        [
+          0.21349176646706525,
+          0.29320733532934123
+        ],
+        [
+          -0.0009903827563251255,
+          0.2711800963557832
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        25.508982035928316,
+        154.03029473008488
+      ]
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "direction": 1,
+      "nextSector": "restaurant",
+      "anchorX": 0,
+      "altitude": 0,
+      "framing": "ready",
+      "orthographicSize": 4.144000000000001,
+      "litFaceViewportBounds": [
+        [
+          0.6432865880436971,
+          0.7414128117623378
+        ],
+        [
+          0.5864317797322641,
+          0.7166020201373902
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        82.81853281853272,
+        50.766393757999154
+      ]
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "direction": 1,
+      "nextSector": "mall",
+      "anchorX": 20,
+      "altitude": 8,
+      "framing": "ground-follow",
+      "orthographicSize": 18.44,
+      "litFaceViewportBounds": [
+        [
+          0.42720402278171293,
+          0.449255816224774
+        ],
+        [
+          0.3134374526755713,
+          0.3800128212764994
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        18.611713665943547,
+        25.96439375436194
+      ]
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "direction": 1,
+      "nextSector": "mall",
+      "anchorX": 20,
+      "altitude": 8,
+      "framing": "high-follow",
+      "orthographicSize": 18.44,
+      "litFaceViewportBounds": [
+        [
+          0.42720402278171293,
+          0.449255816224774
+        ],
+        [
+          0.45752098300326327,
+          0.5240963516041913
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        18.611713665943547,
+        25.96439375436194
+      ]
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "direction": 1,
+      "nextSector": "mall",
+      "anchorX": 20,
+      "altitude": 14,
+      "framing": "ground-follow",
+      "orthographicSize": 19.04,
+      "litFaceViewportBounds": [
+        [
+          0.42949801366044044,
+          0.45085489764626224
+        ],
+        [
+          0.30986274303243355,
+          0.37434014833711393
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        18.025210084033603,
+        25.14618806882535
+      ]
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "direction": 1,
+      "nextSector": "mall",
+      "anchorX": 20,
+      "altitude": 14,
+      "framing": "high-follow",
+      "orthographicSize": 19.04,
+      "litFaceViewportBounds": [
+        [
+          0.42949801366044044,
+          0.45085489764626224
+        ],
+        [
+          0.31086460877164673,
+          0.3753420140763271
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        18.025210084033603,
+        25.14618806882535
+      ]
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "direction": 1,
+      "nextSector": "office",
+      "anchorX": 123,
+      "altitude": 19,
+      "framing": "ground-follow",
+      "orthographicSize": 19.54,
+      "litFaceViewportBounds": [
+        [
+          0.4748146953387632,
+          0.4960980513905128
+        ],
+        [
+          0.21788392179300542,
+          0.4970188450993847
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        17.963152507676647,
+        108.86262008948792
+      ]
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "direction": 1,
+      "nextSector": "office",
+      "anchorX": 123,
+      "altitude": 19,
+      "framing": "high-follow",
+      "orthographicSize": 19.54,
+      "litFaceViewportBounds": [
+        [
+          0.4748146953387632,
+          0.4960980513905128
+        ],
+        [
+          0.10636335939286562,
+          0.3854982826992449
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        17.963152507676647,
+        108.86262008948792
+      ]
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "direction": 1,
+      "nextSector": "office",
+      "anchorX": 123,
+      "altitude": 24,
+      "framing": "ground-follow",
+      "orthographicSize": 20.04,
+      "litFaceViewportBounds": [
+        [
+          0.4754430712035645,
+          0.49619540539773554
+        ],
+        [
+          0.2174377161594474,
+          0.48960819527155575
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        17.51497005988037,
+        106.14648685372225
+      ]
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "direction": 1,
+      "nextSector": "office",
+      "anchorX": 123,
+      "altitude": 24,
+      "framing": "high-follow",
+      "orthographicSize": 20.04,
+      "litFaceViewportBounds": [
+        [
+          0.4754430712035645,
+          0.49619540539773554
+        ],
+        [
+          -0.0009903827563251255,
+          0.2711800963557832
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        17.51497005988037,
+        105.76023757875545
+      ]
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "direction": -1,
+      "nextSector": "restaurant",
+      "anchorX": 0,
+      "altitude": 0,
+      "framing": "ready",
+      "orthographicSize": 4.144000000000001,
+      "litFaceViewportBounds": [
+        [
+          0.2585871882376622,
+          0.35671341195630296
+        ],
+        [
+          0.5864317797322641,
+          0.7166020201373902
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        82.81853281853282,
+        50.766393757999154
+      ]
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "direction": -1,
+      "nextSector": "mall",
+      "anchorX": -20,
+      "altitude": 8,
+      "framing": "ground-follow",
+      "orthographicSize": 18.44,
+      "litFaceViewportBounds": [
+        [
+          0.5507441837752259,
+          0.5727959772182871
+        ],
+        [
+          0.3134374526755713,
+          0.3800128212764994
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        18.61171366594364,
+        25.96439375436194
+      ]
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "direction": -1,
+      "nextSector": "mall",
+      "anchorX": -20,
+      "altitude": 8,
+      "framing": "high-follow",
+      "orthographicSize": 18.44,
+      "litFaceViewportBounds": [
+        [
+          0.5507441837752259,
+          0.5727959772182871
+        ],
+        [
+          0.45752098300326327,
+          0.5240963516041913
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        18.61171366594364,
+        25.96439375436194
+      ]
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "direction": -1,
+      "nextSector": "mall",
+      "anchorX": -20,
+      "altitude": 14,
+      "framing": "ground-follow",
+      "orthographicSize": 19.04,
+      "litFaceViewportBounds": [
+        [
+          0.5491451023537377,
+          0.5705019863395595
+        ],
+        [
+          0.30986274303243355,
+          0.37434014833711393
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        18.025210084033603,
+        25.14618806882535
+      ]
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "direction": -1,
+      "nextSector": "mall",
+      "anchorX": -20,
+      "altitude": 14,
+      "framing": "high-follow",
+      "orthographicSize": 19.04,
+      "litFaceViewportBounds": [
+        [
+          0.5491451023537377,
+          0.5705019863395595
+        ],
+        [
+          0.31086460877164673,
+          0.3753420140763271
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        18.025210084033603,
+        25.14618806882535
+      ]
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "direction": -1,
+      "nextSector": "office",
+      "anchorX": -123,
+      "altitude": 19,
+      "framing": "ground-follow",
+      "orthographicSize": 19.54,
+      "litFaceViewportBounds": [
+        [
+          0.5039019486094872,
+          0.5251853046612368
+        ],
+        [
+          0.21788392179300542,
+          0.4970188450993847
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        17.963152507676647,
+        108.86262008948792
+      ]
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "direction": -1,
+      "nextSector": "office",
+      "anchorX": -123,
+      "altitude": 19,
+      "framing": "high-follow",
+      "orthographicSize": 19.54,
+      "litFaceViewportBounds": [
+        [
+          0.5039019486094872,
+          0.5251853046612368
+        ],
+        [
+          0.10636335939286562,
+          0.3854982826992449
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        17.963152507676647,
+        108.86262008948792
+      ]
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "direction": -1,
+      "nextSector": "office",
+      "anchorX": -123,
+      "altitude": 24,
+      "framing": "ground-follow",
+      "orthographicSize": 20.04,
+      "litFaceViewportBounds": [
+        [
+          0.5038045946022645,
+          0.5245569287964356
+        ],
+        [
+          0.2174377161594474,
+          0.48960819527155575
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        17.514970059880415,
+        106.14648685372225
+      ]
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "direction": -1,
+      "nextSector": "office",
+      "anchorX": -123,
+      "altitude": 24,
+      "framing": "high-follow",
+      "orthographicSize": 20.04,
+      "litFaceViewportBounds": [
+        [
+          0.5038045946022645,
+          0.5245569287964356
+        ],
+        [
+          -0.0009903827563251255,
+          0.2711800963557832
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        17.514970059880415,
+        105.76023757875545
+      ]
+    },
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "direction": 1,
+      "nextSector": "restaurant",
+      "anchorX": 0,
+      "altitude": 0,
+      "framing": "ready",
+      "orthographicSize": 4.144000000000001,
+      "litFaceViewportBounds": [
+        [
+          0.6938042953667953,
+          0.826526303088803
+        ],
+        [
+          0.5864317797322641,
+          0.7166020201373902
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        169.88416988416986,
+        104.13619232410083
+      ]
+    },
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "direction": 1,
+      "nextSector": "mall",
+      "anchorX": 20,
+      "altitude": 8,
+      "framing": "ground-follow",
+      "orthographicSize": 18.44,
+      "litFaceViewportBounds": [
+        [
+          0.4015387744034707,
+          0.4313652386117136
+        ],
+        [
+          0.3134374526755713,
+          0.3800128212764994
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        38.17787418655094,
+        53.26029488074244
+      ]
+    },
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "direction": 1,
+      "nextSector": "mall",
+      "anchorX": 20,
+      "altitude": 8,
+      "framing": "high-follow",
+      "orthographicSize": 18.44,
+      "litFaceViewportBounds": [
+        [
+          0.4015387744034707,
+          0.4313652386117136
+        ],
+        [
+          0.45752098300326327,
+          0.5240963516041913
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        38.17787418655094,
+        53.26029488074244
+      ]
+    },
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "direction": 1,
+      "nextSector": "mall",
+      "anchorX": 20,
+      "altitude": 14,
+      "framing": "ground-follow",
+      "orthographicSize": 19.04,
+      "litFaceViewportBounds": [
+        [
+          0.404641544117647,
+          0.4335280987394957
+        ],
+        [
+          0.30986274303243355,
+          0.37434014833711393
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        36.974789915966326,
+        51.581924243744304
+      ]
+    },
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "direction": 1,
+      "nextSector": "mall",
+      "anchorX": 20,
+      "altitude": 14,
+      "framing": "high-follow",
+      "orthographicSize": 19.04,
+      "litFaceViewportBounds": [
+        [
+          0.404641544117647,
+          0.4335280987394957
+        ],
+        [
+          0.31086460877164673,
+          0.3753420140763271
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        36.974789915966326,
+        51.581924243744304
+      ]
+    },
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "direction": 1,
+      "nextSector": "office",
+      "anchorX": 123,
+      "altitude": 19,
+      "framing": "ground-follow",
+      "orthographicSize": 19.54,
+      "litFaceViewportBounds": [
+        [
+          0.4659352610030707,
+          0.4947223643807577
+        ],
+        [
+          0.21788392179300542,
+          0.4970188450993847
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        36.847492323439326,
+        223.30793864510343
+      ]
+    },
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "direction": 1,
+      "nextSector": "office",
+      "anchorX": 123,
+      "altitude": 19,
+      "framing": "high-follow",
+      "orthographicSize": 19.54,
+      "litFaceViewportBounds": [
+        [
+          0.4659352610030707,
+          0.4947223643807577
+        ],
+        [
+          0.10636335939286562,
+          0.3854982826992449
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        36.847492323439326,
+        223.30793864510343
+      ]
+    },
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "direction": 1,
+      "nextSector": "office",
+      "anchorX": 123,
+      "altitude": 24,
+      "framing": "ground-follow",
+      "orthographicSize": 20.04,
+      "litFaceViewportBounds": [
+        [
+          0.46678517964071864,
+          0.4948540419161679
+        ],
+        [
+          0.2174377161594474,
+          0.48960819527155575
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        35.928143712575036,
+        217.73638328968667
+      ]
+    },
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "direction": 1,
+      "nextSector": "office",
+      "anchorX": 123,
+      "altitude": 24,
+      "framing": "high-follow",
+      "orthographicSize": 20.04,
+      "litFaceViewportBounds": [
+        [
+          0.46678517964071864,
+          0.4948540419161679
+        ],
+        [
+          -0.0009903827563251255,
+          0.2711800963557832
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        35.928143712575036,
+        216.94407708462657
+      ]
+    },
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "direction": -1,
+      "nextSector": "restaurant",
+      "anchorX": 0,
+      "altitude": 0,
+      "framing": "ready",
+      "orthographicSize": 4.144000000000001,
+      "litFaceViewportBounds": [
+        [
+          0.17347369691119696,
+          0.30619570463320467
+        ],
+        [
+          0.5864317797322641,
+          0.7166020201373902
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        169.88416988416986,
+        104.13619232410083
+      ]
+    },
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "direction": -1,
+      "nextSector": "mall",
+      "anchorX": -20,
+      "altitude": 8,
+      "framing": "ground-follow",
+      "orthographicSize": 18.44,
+      "litFaceViewportBounds": [
+        [
+          0.5686347613882864,
+          0.5984612255965294
+        ],
+        [
+          0.3134374526755713,
+          0.3800128212764994
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        38.17787418655101,
+        53.26029488074244
+      ]
+    },
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "direction": -1,
+      "nextSector": "mall",
+      "anchorX": -20,
+      "altitude": 8,
+      "framing": "high-follow",
+      "orthographicSize": 18.44,
+      "litFaceViewportBounds": [
+        [
+          0.5686347613882864,
+          0.5984612255965294
+        ],
+        [
+          0.45752098300326327,
+          0.5240963516041913
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        38.17787418655101,
+        53.26029488074244
+      ]
+    },
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "direction": -1,
+      "nextSector": "mall",
+      "anchorX": -20,
+      "altitude": 14,
+      "framing": "ground-follow",
+      "orthographicSize": 19.04,
+      "litFaceViewportBounds": [
+        [
+          0.5664719012605043,
+          0.595358455882353
+        ],
+        [
+          0.30986274303243355,
+          0.37434014833711393
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        36.9747899159664,
+        51.581924243744304
+      ]
+    },
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "direction": -1,
+      "nextSector": "mall",
+      "anchorX": -20,
+      "altitude": 14,
+      "framing": "high-follow",
+      "orthographicSize": 19.04,
+      "litFaceViewportBounds": [
+        [
+          0.5664719012605043,
+          0.595358455882353
+        ],
+        [
+          0.31086460877164673,
+          0.3753420140763271
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        36.9747899159664,
+        51.581924243744304
+      ]
+    },
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "direction": -1,
+      "nextSector": "office",
+      "anchorX": -123,
+      "altitude": 19,
+      "framing": "ground-follow",
+      "orthographicSize": 19.54,
+      "litFaceViewportBounds": [
+        [
+          0.5052776356192423,
+          0.5340647389969293
+        ],
+        [
+          0.21788392179300542,
+          0.4970188450993847
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        36.847492323439326,
+        223.30793864510343
+      ]
+    },
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "direction": -1,
+      "nextSector": "office",
+      "anchorX": -123,
+      "altitude": 19,
+      "framing": "high-follow",
+      "orthographicSize": 19.54,
+      "litFaceViewportBounds": [
+        [
+          0.5052776356192423,
+          0.5340647389969293
+        ],
+        [
+          0.10636335939286562,
+          0.3854982826992449
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        36.847492323439326,
+        223.30793864510343
+      ]
+    },
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "direction": -1,
+      "nextSector": "office",
+      "anchorX": -123,
+      "altitude": 24,
+      "framing": "ground-follow",
+      "orthographicSize": 20.04,
+      "litFaceViewportBounds": [
+        [
+          0.5051459580838321,
+          0.5332148203592814
+        ],
+        [
+          0.2174377161594474,
+          0.48960819527155575
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        35.928143712575036,
+        217.73638328968667
+      ]
+    },
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "direction": -1,
+      "nextSector": "office",
+      "anchorX": -123,
+      "altitude": 24,
+      "framing": "high-follow",
+      "orthographicSize": 20.04,
+      "litFaceViewportBounds": [
+        [
+          0.5051459580838321,
+          0.5332148203592814
+        ],
+        [
+          -0.0009903827563251255,
+          0.2711800963557832
+        ]
+      ],
+      "litFaceVisiblePixels": [
+        35.928143712575036,
+        216.94407708462657
+      ]
+    }
+  ],
+  "passed": 72,
+  "minimumVisibleFaceWidthPixels": 17.51497005988037,
+  "minimumVisibleFaceHeightPixels": 25.14618806882535
+}

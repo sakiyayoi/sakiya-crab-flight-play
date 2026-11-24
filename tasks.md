@@ -343,3 +343,5 @@ R18 timing continuation 2026-11-04: 私的な診断WebGL c86cec4をビルド成�
 | stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
 |---|---|---|---|---|---|---|
 | port-waterfix | 発射後に水槽オーバーレイが追従する1件のみ修正 | Codex（単独書込） | port-prototype 5be0ca4 / WATERFIX依頼 | ready/charge限定・Sample欠落時もLateUpdateで非表示・描画のみ・C# compile・報告2部と同branch commit | 指定なし | 描画3ファイル修正・型検査121ソースerror0/warning18・Playwrightオフライン2PASS/0FAIL。保護364ソース/シェーダー/JSON・既存Scene/meta26件不変。Native/固定入力/実画面はNOT_RUN。実装6286e32・報告2部を保存、同branchへcommit。報告docs/port-prototype/NEON-REPORT-WATERFIX-by-codex.md参照 |
+
+| GRAMMAR-OPENING | 原方式の生簀・店・商業施設へ密度波・境界目印・倒壊目玉を配置 | Codex（単独書込） | port-prototype 2d0d849 / 本人確定の会議第一手 | 3区間CV>=0.4、総数±15%、floating/isolated=0、静止契約・型検査・既存契約PASS、他区間/物理/入力/カメラ/26保護対象不変、日本語レポートcommit | 時刻指定なし | ソース実装・配置監査・型検査完了。Playwrightオフライン4PASS/0FAIL、Native/buildは本人指定でクロエ別工程 |

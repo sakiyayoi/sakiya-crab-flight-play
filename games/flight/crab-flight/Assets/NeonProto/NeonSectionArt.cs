@@ -16,6 +16,7 @@ public sealed class NeonSectionArt {
   camera.backgroundColor=NeonProto.Background;
   Root=new GameObject("Neon world signs render only").transform;Root.SetParent(owner,false);
   var supports=NeonPlacementSupports.Build(Root);
+  OpeningLandmarks.Build(Root);
   var sectors=WorldRouteR11.Data.sectors;Sectors=new NeonSignSector[sectors.Length];
   int[] counts={1,3,12,10,8,8,8,8,6};int[] palette={3,5,-1,2,4,1,5,0,3};int index=0;
   for(int s=0;s<sectors.Length;s++){

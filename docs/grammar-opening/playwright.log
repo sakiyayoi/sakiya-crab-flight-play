@@ -1,0 +1,12 @@
+$ env NODE_PATH=/Users/konomichiharu/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules npx --offline --prefix ../source/.git/placement-fix-qa/runtime --no-install playwright test --config qa/grammar-opening/playwright.config.cjs
+
+Running 4 tests using 1 worker
+
+  ✓  1 qa/grammar-opening/opening.spec.cjs:11:2 › opening geometry, negative controls and protected source (4.6s)
+  ✓  2 qa/grammar-opening/opening.spec.cjs:11:2 › landmark projection at four viewport sizes (2.4s)
+  ✓  3 qa/grammar-opening/opening.spec.cjs:11:2 › existing placement-fix regression (9 tests) (10.7s)
+  ✓  4 qa/grammar-opening/opening.spec.cjs:11:2 › actual C# layout and existing port contracts (9.8s)
+
+  4 passed (29.1s)
+(node:7010) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)

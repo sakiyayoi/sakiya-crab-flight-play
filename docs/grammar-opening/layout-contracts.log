@@ -1,0 +1,21 @@
+PASS City world count remains 1407
+PASS exact opening inventory
+PASS all 1271 outside-opening entries remain original objects
+PASS input arrays not mutated
+PASS all 136 runtime overlays match authored data
+PASS stable identities on repeat
+PASS non-opening diagnostic fixture bypassed
+PASS partial opening inventory rejected
+PASS unknown opening identity rejected
+PASS restaurant panel dish-stack-1
+PASS restaurant panel r5-restaurant-service-food-1
+PASS restaurant panel r5-restaurant-service-table-1
+PASS restaurant panel wood-table-1
+PASS restaurant panel dish-stack--1
+PASS restaurant panel r5-restaurant-service-food--1
+PASS restaurant panel r5-restaurant-service-table--1
+PASS restaurant panel wood-table--1
+PASS office panel passthrough
+PASS wrong revision rejected
+PASS valid reload after rejected revision
+TOTAL 20 passed / 0 failed

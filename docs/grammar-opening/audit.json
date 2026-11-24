@@ -1,0 +1,680 @@
+{
+  "baseline": "2d0d849120b0bc0002173f49b2db0fd7f6f05987",
+  "scope": "offline placement/source contracts; no Unity/PhysX/native rendering",
+  "densityMethod": "six equal-width bins per sector; population standard deviation / mean (port: 300/6=50m)",
+  "sectors": {
+    "tank": {
+      "before": {
+        "count": 3,
+        "binWidthMetres": 0.75,
+        "bins": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1
+        ],
+        "densityCV": 1.0
+      },
+      "after": {
+        "count": 3,
+        "binWidthMetres": 0.75,
+        "bins": [
+          2,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "densityCV": 1.5275252316519468
+      },
+      "cityBefore": {
+        "count": 3,
+        "binWidthMetres": 0.75,
+        "bins": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1
+        ],
+        "densityCV": 1.0
+      },
+      "cityAfter": {
+        "count": 3,
+        "binWidthMetres": 0.75,
+        "bins": [
+          2,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "densityCV": 1.5275252316519468
+      }
+    },
+    "restaurant": {
+      "before": {
+        "count": 36,
+        "binWidthMetres": 3.9166666666666665,
+        "bins": [
+          4,
+          6,
+          9,
+          6,
+          7,
+          4
+        ],
+        "densityCV": 0.28867513459481287
+      },
+      "after": {
+        "count": 36,
+        "binWidthMetres": 3.9166666666666665,
+        "bins": [
+          11,
+          5,
+          2,
+          2,
+          7,
+          9
+        ],
+        "densityCV": 0.5610836076867821
+      },
+      "cityBefore": {
+        "count": 17,
+        "binWidthMetres": 3.9166666666666665,
+        "bins": [
+          1,
+          3,
+          4,
+          4,
+          4,
+          1
+        ],
+        "densityCV": 0.47425045578226754
+      },
+      "cityAfter": {
+        "count": 17,
+        "binWidthMetres": 3.9166666666666665,
+        "bins": [
+          6,
+          2,
+          0,
+          0,
+          3,
+          6
+        ],
+        "densityCV": 0.8744746321952062
+      }
+    },
+    "mall": {
+      "before": {
+        "count": 77,
+        "binWidthMetres": 17.833333333333332,
+        "bins": [
+          13,
+          15,
+          12,
+          12,
+          14,
+          11
+        ],
+        "densityCV": 0.10470464608179933
+      },
+      "after": {
+        "count": 77,
+        "binWidthMetres": 17.833333333333332,
+        "bins": [
+          18,
+          20,
+          0,
+          5,
+          22,
+          12
+        ],
+        "densityCV": 0.6272875156225102
+      },
+      "cityBefore": {
+        "count": 74,
+        "binWidthMetres": 17.833333333333332,
+        "bins": [
+          12,
+          14,
+          12,
+          12,
+          13,
+          11
+        ],
+        "densityCV": 0.07644397634449163
+      },
+      "cityAfter": {
+        "count": 74,
+        "binWidthMetres": 17.833333333333332,
+        "bins": [
+          17,
+          19,
+          0,
+          5,
+          21,
+          12
+        ],
+        "densityCV": 0.6169033627304501
+      }
+    }
+  },
+  "cityWorldBefore": 1407,
+  "cityWorldAfter": 1407,
+  "worldTotalBefore": 1481,
+  "worldTotalAfter": 1481,
+  "cityChangedPositive": 94,
+  "cityMirroredExistingNegative": 42,
+  "panelMoves": 8,
+  "floating": 0,
+  "isolated": 0,
+  "sideOutsideChain": [],
+  "aabbOverlaps": [],
+  "fixtureOverlaps": [],
+  "groundTolerance": 1e-05,
+  "chainDistance": 10,
+  "landmarks": [
+    {
+      "id": "restaurant-positive",
+      "boxes": 9,
+      "groundedParts": 1,
+      "disconnectedParts": [],
+      "minY": 0.0,
+      "bounds": [
+        [
+          2.5,
+          4.4
+        ],
+        [
+          0.0,
+          3.9
+        ],
+        [
+          -3.85,
+          -3.44
+        ]
+      ]
+    },
+    {
+      "id": "restaurant-negative",
+      "boxes": 9,
+      "groundedParts": 1,
+      "disconnectedParts": [],
+      "minY": 0.0,
+      "bounds": [
+        [
+          -4.4,
+          -2.5
+        ],
+        [
+          0.0,
+          3.9
+        ],
+        [
+          -3.85,
+          -3.44
+        ]
+      ]
+    },
+    {
+      "id": "mall-positive",
+      "boxes": 7,
+      "groundedParts": 1,
+      "disconnectedParts": [],
+      "minY": 0.0,
+      "bounds": [
+        [
+          26.0,
+          27.9
+        ],
+        [
+          0.0,
+          8.7
+        ],
+        [
+          -5.05,
+          -4.64
+        ]
+      ]
+    },
+    {
+      "id": "mall-negative",
+      "boxes": 7,
+      "groundedParts": 1,
+      "disconnectedParts": [],
+      "minY": 0.0,
+      "bounds": [
+        [
+          -27.9,
+          -26.0
+        ],
+        [
+          0.0,
+          8.7
+        ],
+        [
+          -5.05,
+          -4.64
+        ]
+      ]
+    },
+    {
+      "id": "office-positive",
+      "boxes": 12,
+      "groundedParts": 1,
+      "disconnectedParts": [],
+      "minY": 0.0,
+      "bounds": [
+        [
+          132.65,
+          134.65
+        ],
+        [
+          0.0,
+          14.0
+        ],
+        [
+          -5.4,
+          -4.675
+        ]
+      ]
+    },
+    {
+      "id": "office-negative",
+      "boxes": 12,
+      "groundedParts": 1,
+      "disconnectedParts": [],
+      "minY": 0.0,
+      "bounds": [
+        [
+          -134.65,
+          -132.65
+        ],
+        [
+          0.0,
+          14.0
+        ],
+        [
+          -5.4,
+          -4.675
+        ]
+      ]
+    }
+  ],
+  "servingPlinths": [
+    {
+      "key": "dish-plinth-1",
+      "p": [
+        5.5,
+        0.105,
+        3.9
+      ],
+      "size": [
+        1.7,
+        0.21,
+        3.6
+      ],
+      "color": [
+        0.141176,
+        0.117647,
+        0.180392
+      ]
+    },
+    {
+      "key": "dish-plinth--1",
+      "p": [
+        -5.5,
+        0.105,
+        3.9
+      ],
+      "size": [
+        1.7,
+        0.21,
+        3.6
+      ],
+      "color": [
+        0.141176,
+        0.117647,
+        0.180392
+      ]
+    }
+  ],
+  "heroes": [
+    {
+      "id": "core-r1-+1-02-mall-exit-high-sign",
+      "sector": "mall",
+      "position": [
+        106.8,
+        0.0,
+        -0.48
+      ],
+      "scale": [
+        2.1,
+        1.75,
+        2.0
+      ],
+      "yaw": 0,
+      "base": {
+        "posts": 1,
+        "bounds": [
+          [
+            104.2905,
+            104.60549999999999
+          ],
+          [
+            0.0,
+            9.450000000000001
+          ],
+          [
+            -0.18,
+            0.18000000000000005
+          ]
+        ]
+      },
+      "upper": {
+        "shardGroups": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "bounds": [
+          [
+            104.994,
+            108.69
+          ],
+          [
+            4.795,
+            8.89
+          ],
+          [
+            -0.834,
+            -0.27999999999999997
+          ]
+        ]
+      },
+      "massKgSuggestion": 18,
+      "threshold": 0.6,
+      "contactPath": "existing single BreakPanel: base hit -> complete assembly fracture -> existing debris contacts",
+      "note": "6 upper groups; existing physical fragment cap may leave one group decorative; no new wave/score/impulse"
+    },
+    {
+      "id": "atrium-+1-00-blade_sign",
+      "sector": "restaurant",
+      "position": [
+        26.8,
+        0.0,
+        -0.3
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        1.25
+      ],
+      "yaw": 0,
+      "base": {
+        "posts": 1,
+        "bounds": [
+          [
+            25.78425,
+            25.91175
+          ],
+          [
+            0.0,
+            4.59
+          ],
+          [
+            -0.11249999999999999,
+            0.11250000000000004
+          ]
+        ]
+      },
+      "upper": {
+        "shardGroups": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "bounds": [
+          [
+            26.069,
+            27.565
+          ],
+          [
+            2.329,
+            4.318
+          ],
+          [
+            -0.52125,
+            -0.175
+          ]
+        ]
+      },
+      "massKgSuggestion": 18,
+      "threshold": 0.6,
+      "contactPath": "existing single BreakPanel: base hit -> complete assembly fracture -> existing debris contacts",
+      "note": "6 upper groups; existing physical fragment cap may leave one group decorative; no new wave/score/impulse"
+    },
+    {
+      "id": "core-r1--1-02-mall-exit-high-sign",
+      "sector": "mall",
+      "position": [
+        -106.8,
+        0.0,
+        0.48
+      ],
+      "scale": [
+        2.1,
+        1.75,
+        2.0
+      ],
+      "yaw": 180,
+      "base": {
+        "posts": 1,
+        "bounds": [
+          [
+            -104.60549999999999,
+            -104.2905
+          ],
+          [
+            0.0,
+            9.450000000000001
+          ],
+          [
+            -0.17999999999999977,
+            0.18000000000000033
+          ]
+        ]
+      },
+      "upper": {
+        "shardGroups": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "bounds": [
+          [
+            -108.69,
+            -104.994
+          ],
+          [
+            4.795,
+            8.89
+          ],
+          [
+            0.27999999999999975,
+            0.8340000000000002
+          ]
+        ]
+      },
+      "massKgSuggestion": 18,
+      "threshold": 0.6,
+      "contactPath": "existing single BreakPanel: base hit -> complete assembly fracture -> existing debris contacts",
+      "note": "6 upper groups; existing physical fragment cap may leave one group decorative; no new wave/score/impulse"
+    },
+    {
+      "id": "atrium--1-00-blade_sign",
+      "sector": "restaurant",
+      "position": [
+        -26.8,
+        0.0,
+        0.3
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        1.25
+      ],
+      "yaw": 180,
+      "base": {
+        "posts": 1,
+        "bounds": [
+          [
+            -25.91175,
+            -25.78425
+          ],
+          [
+            0.0,
+            4.59
+          ],
+          [
+            -0.11249999999999993,
+            0.1125000000000001
+          ]
+        ]
+      },
+      "upper": {
+        "shardGroups": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "bounds": [
+          [
+            -27.565,
+            -26.069
+          ],
+          [
+            2.329,
+            4.318
+          ],
+          [
+            0.17499999999999988,
+            0.5212500000000001
+          ]
+        ]
+      },
+      "massKgSuggestion": 18,
+      "threshold": 0.6,
+      "contactPath": "existing single BreakPanel: base hit -> complete assembly fracture -> existing debris contacts",
+      "note": "6 upper groups; existing physical fragment cap may leave one group decorative; no new wave/score/impulse"
+    }
+  ],
+  "gaps": [
+    {
+      "sector": "tank",
+      "start": 1.1,
+      "end": 3.5,
+      "cityTargets": [],
+      "retainedOtherTargets": []
+    },
+    {
+      "sector": "restaurant",
+      "start": 12.4,
+      "end": 18.2,
+      "cityTargets": [],
+      "retainedOtherTargets": [
+        "ceiling-1",
+        "life-person-1-15"
+      ]
+    },
+    {
+      "sector": "mall",
+      "start": 64.1,
+      "end": 93.9,
+      "cityTargets": [],
+      "retainedOtherTargets": []
+    }
+  ],
+  "protectedOutsideOpeningCount": 1271,
+  "protectedOutsideOpeningSHA256": "5724635e61e4bebc349bb18be50f796df90fcd521be063a5a272cb6e4aec0053",
+  "staticSimulation": {
+    "model": "intact static targets; zero external impulses; not PhysX",
+    "seconds": 10,
+    "step": 0.004166666666666667,
+    "steps": 2400,
+    "selfCollapse": 0,
+    "selfBreaks": 0,
+    "transformDrift": 0
+  },
+  "corridor": {
+    "mallSweptRadius": 0.6,
+    "mallCenterHeight": 11.5,
+    "sampledPositions": 1071,
+    "blocked": [],
+    "limits": "geometric open strip; actual launch trajectories and collisions remain Native validation"
+  },
+  "source": {
+    "changedExistingFiles": [
+      "docs/grammar-opening/artifact-sha256.json",
+      "docs/grammar-opening/audit.json",
+      "docs/grammar-opening/audit.log",
+      "docs/grammar-opening/compile.json",
+      "docs/grammar-opening/generation.log",
+      "docs/grammar-opening/layout-contracts.log",
+      "docs/grammar-opening/playwright.json",
+      "docs/grammar-opening/playwright.log",
+      "docs/grammar-opening/port-contracts.log",
+      "docs/grammar-opening/protected-worktree.json",
+      "docs/grammar-opening/typecheck.log",
+      "docs/grammar-opening/visibility.json",
+      "games/flight/crab-flight/Assets/NeonProto/NeonSectionArt.cs",
+      "games/flight/crab-flight/Assets/OpeningGrammar.meta",
+      "games/flight/crab-flight/Assets/OpeningGrammar/OpeningLandmarks.cs",
+      "games/flight/crab-flight/Assets/OpeningGrammar/OpeningLandmarks.cs.meta",
+      "games/flight/crab-flight/Assets/OpeningGrammar/OpeningLayout.cs",
+      "games/flight/crab-flight/Assets/OpeningGrammar/OpeningLayout.cs.meta",
+      "games/flight/crab-flight/Assets/OpeningGrammar/Resources.meta",
+      "games/flight/crab-flight/Assets/OpeningGrammar/Resources/OpeningGrammar.meta",
+      "games/flight/crab-flight/Assets/OpeningGrammar/Resources/OpeningGrammar/Layout.json",
+      "games/flight/crab-flight/Assets/OpeningGrammar/Resources/OpeningGrammar/Layout.json.meta",
+      "games/flight/crab-flight/Assets/Scripts/City2Data.cs",
+      "games/flight/crab-flight/Assets/Scripts/RestaurantPhysics.cs",
+      "qa/grammar-opening/LayoutContract.cs",
+      "qa/grammar-opening/opening.spec.cjs",
+      "qa/grammar-opening/playwright.config.cjs",
+      "tasks.md",
+      "tools/grammar-opening/audit.py",
+      "tools/grammar-opening/author.py",
+      "tools/grammar-opening/contracts.py",
+      "tools/grammar-opening/test_layout.py",
+      "tools/grammar-opening/typecheck.py",
+      "tools/grammar-opening/visibility.py"
+    ],
+    "placementHooks": {
+      "games/flight/crab-flight/Assets/Scripts/City2Data.cs": "allInstances=OpeningLayout.Apply(allInstances);",
+      "games/flight/crab-flight/Assets/NeonProto/NeonSectionArt.cs": "\n  OpeningLandmarks.Build(Root);",
+      "games/flight/crab-flight/Assets/Scripts/RestaurantPhysics.cs": "  position=OpeningLayout.PanelPosition(id,position); // Placement input only; contact/break rules below are unchanged.\n"
+    },
+    "otherPhysicsByteExact": true,
+    "staticTargetContract": "No Rigidbody on intact target; body creation occurs only after accepted break"
+  }
+}

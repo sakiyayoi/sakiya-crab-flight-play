@@ -1,0 +1,247 @@
+{
+  "config": {
+    "argv": [
+      "/usr/local/bin/node",
+      "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/placement-fix-qa/runtime/node_modules/.bin/playwright",
+      "test",
+      "--config",
+      "qa/grammar-opening/playwright.config.cjs"
+    ],
+    "configFile": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/grammar-opening/qa/grammar-opening/playwright.config.cjs",
+    "rootDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/grammar-opening/qa/grammar-opening",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/worktrees/grammar-opening/grammar-opening-playwright",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/grammar-opening/qa/grammar-opening",
+        "testIgnore": [],
+        "testMatch": [
+          "opening.spec.cjs"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/grammar-opening/docs/grammar-opening/playwright.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "opening.spec.cjs",
+      "file": "opening.spec.cjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "opening geometry, negative controls and protected source",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4639,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T15:09:52.548Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "contract-output",
+                      "contentType": "text/plain",
+                      "body": "dGVzdF9kZW5zaXR5X2NvdW50c19ldmVyeV9yZWdpc3RlcmVkX3N5c3RlbSAoX19tYWluX18uT3BlbmluZ1Rlc3RzLnRlc3RfZGVuc2l0eV9jb3VudHNfZXZlcnlfcmVnaXN0ZXJlZF9zeXN0ZW0pIC4uLiBvawp0ZXN0X2RldGFjaGVkX2xhbmRtYXJrX2ZhY2VfcmVqZWN0ZWQgKF9fbWFpbl9fLk9wZW5pbmdUZXN0cy50ZXN0X2RldGFjaGVkX2xhbmRtYXJrX2ZhY2VfcmVqZWN0ZWQpIC4uLiBvawp0ZXN0X2dlbmVyYXRlZF9sYXlvdXRfYW5kX2NvbXBsZXRlX2F1ZGl0IChfX21haW5fXy5PcGVuaW5nVGVzdHMudGVzdF9nZW5lcmF0ZWRfbGF5b3V0X2FuZF9jb21wbGV0ZV9hdWRpdCkgLi4uIG9rCnRlc3RfaGVyb19wb3N0X2lzX2dyb3VuZGVkX2FuZF91cHBlcl9pc193aWRlciAoX19tYWluX18uT3BlbmluZ1Rlc3RzLnRlc3RfaGVyb19wb3N0X2lzX2dyb3VuZGVkX2FuZF91cHBlcl9pc193aWRlcikgLi4uIG9rCnRlc3RfaXNvbGF0ZWRfc2lkZV90YXJnZXRfcmVqZWN0ZWQgKF9fbWFpbl9fLk9wZW5pbmdUZXN0cy50ZXN0X2lzb2xhdGVkX3NpZGVfdGFyZ2V0X3JlamVjdGVkKSAuLi4gb2sKdGVzdF9wcm90ZWN0ZWRfc291cmNlc19hbmRfb25seV9jb29yZGluYXRlX2hvb2tzIChfX21haW5fXy5PcGVuaW5nVGVzdHMudGVzdF9wcm90ZWN0ZWRfc291cmNlc19hbmRfb25seV9jb29yZGluYXRlX2hvb2tzKSAuLi4gb2sKdGVzdF90d29fY2VudGltZXRyZXNfb2ZfZmxvYXRfcmVqZWN0ZWQgKF9fbWFpbl9fLk9wZW5pbmdUZXN0cy50ZXN0X3R3b19jZW50aW1ldHJlc19vZl9mbG9hdF9yZWplY3RlZCkgLi4uIG9rCgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tClJhbiA3IHRlc3RzIGluIDMuMjk3cwoKT0sK"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7b84fc0c45ee9481bcb9-f19196f184358a4fab8f",
+          "file": "opening.spec.cjs",
+          "line": 11,
+          "column": 2
+        },
+        {
+          "title": "landmark projection at four viewport sizes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2423,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T15:09:57.229Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "contract-output",
+                      "contentType": "text/plain",
+                      "body": "eydzY29wZSc6ICdzdGVhZHkgZnJhbWluZyBwcm9qZWN0aW9uIG9mIGFjdHVhbCBsYW5kbWFyayBib3ggY29vcmRpbmF0ZXM7IG5vIG9jY2x1c2lvbiwgSFVELCBzbW9vdGhpbmcsIE5hdGl2ZSBvciBwZXJjZXB0dWFsIGFwcHJvdmFsJywgJ2hpc3RvcmljYWxBbHRpdHVkZUNvbnRleHQnOiAndW5jaGFuZ2VkIHByaW9yIHJvdXRlIHNhbXBsZXM6IHJlc3RhdXJhbnQgOC4xMOKAkzEzLjc2bTsgbWFsbCAxOS4zMeKAkzIyLjI2bSAobm90IGN1cnJlbnQtcnVuIG1lYXN1cmVtZW50cyknLCAncmVhZHlEZWZpbmUnOiAnQ1JBQl9LSU5HX0JPTERfUjIsIGFzIGluIGV4aXN0aW5nIEFzc2V0cy9jc2MucnNwJywgJ3Bhc3NlZCc6IDcyLCAnbWluaW11bVZpc2libGVGYWNlV2lkdGhQaXhlbHMnOiAxNy41MTQ5NzAwNTk4ODAzNywgJ21pbmltdW1WaXNpYmxlRmFjZUhlaWdodFBpeGVscyc6IDI1LjE0NjE4ODA2ODgyNTM1fQo="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7b84fc0c45ee9481bcb9-fd55b0a5c625bf472125",
+          "file": "opening.spec.cjs",
+          "line": 11,
+          "column": 2
+        },
+        {
+          "title": "existing placement-fix regression (9 tests)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10685,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T15:09:59.662Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "contract-output",
+                      "contentType": "text/plain",
+                      "body": "dGVzdF9maW5hbF9zdXBwb3J0X2NoYWluX2FuZF9kZW5zaXR5IChfX21haW5fXy5QbGFjZW1lbnRUZXN0cy50ZXN0X2ZpbmFsX3N1cHBvcnRfY2hhaW5fYW5kX2RlbnNpdHkpIC4uLiBvawp0ZXN0X2Zsb2F0aW5nX25lZ2F0aXZlX2NvbnRyb2wgKF9fbWFpbl9fLlBsYWNlbWVudFRlc3RzLnRlc3RfZmxvYXRpbmdfbmVnYXRpdmVfY29udHJvbCkgLi4uIG9rCnRlc3RfbWlzc2luZ19nZW9tZXRyeV9mYWlsc19jbG9zZWQgKF9fbWFpbl9fLlBsYWNlbWVudFRlc3RzLnRlc3RfbWlzc2luZ19nZW9tZXRyeV9mYWlsc19jbG9zZWQpIC4uLiBvawp0ZXN0X25ld19haXJib3JuZV9leGNlcHRpb25fcmVqZWN0ZWQgKF9fbWFpbl9fLlBsYWNlbWVudFRlc3RzLnRlc3RfbmV3X2FpcmJvcm5lX2V4Y2VwdGlvbl9yZWplY3RlZCkgLi4uIG9rCnRlc3Rfb3JpZ2luYWxfYXVkaXRfcmVwcm9kdWNlZCAoX19tYWluX18uUGxhY2VtZW50VGVzdHMudGVzdF9vcmlnaW5hbF9hdWRpdF9yZXByb2R1Y2VkKSAuLi4gb2sKdGVzdF9wbGFudGVyX2dlb21ldHJ5X3Jlc29sdmVzX3Vua25vd25zIChfX21haW5fXy5QbGFjZW1lbnRUZXN0cy50ZXN0X3BsYW50ZXJfZ2VvbWV0cnlfcmVzb2x2ZXNfdW5rbm93bnMpIC4uLiBvawp0ZXN0X3JlZ2VuZXJhdGlvbl9tYXRjaGVzX2NvbW1pdHRlZF9vdXRwdXRzIChfX21haW5fXy5QbGFjZW1lbnRUZXN0cy50ZXN0X3JlZ2VuZXJhdGlvbl9tYXRjaGVzX2NvbW1pdHRlZF9vdXRwdXRzKSAuLi4gb2sKdGVzdF9zYXRlbGxpdGVzX2FuZF9tYWxsX3ByZXNlcnZlZCAoX19tYWluX18uUGxhY2VtZW50VGVzdHMudGVzdF9zYXRlbGxpdGVzX2FuZF9tYWxsX3ByZXNlcnZlZCkgLi4uIG9rCnRlc3Rfc3VwcG9ydF9tdXN0X2JlX2dyb3VuZGVkX2FuZF9jb3Zlcl9mb290cHJpbnQgKF9fbWFpbl9fLlBsYWNlbWVudFRlc3RzLnRlc3Rfc3VwcG9ydF9tdXN0X2JlX2dyb3VuZGVkX2FuZF9jb3Zlcl9mb290cHJpbnQpIC4uLiBvawoKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpSYW4gOSB0ZXN0cyBpbiA5LjE1MHMKCk9LCg=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7b84fc0c45ee9481bcb9-9028466d63c0c141a9b3",
+          "file": "opening.spec.cjs",
+          "line": 11,
+          "column": 2
+        },
+        {
+          "title": "actual C# layout and existing port contracts",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9791,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T15:10:10.361Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "contract-output",
+                      "contentType": "text/plain",
+                      "body": "UEFTUyBDaXR5IHdvcmxkIGNvdW50IHJlbWFpbnMgMTQwNwpQQVNTIGV4YWN0IG9wZW5pbmcgaW52ZW50b3J5ClBBU1MgYWxsIDEyNzEgb3V0c2lkZS1vcGVuaW5nIGVudHJpZXMgcmVtYWluIG9yaWdpbmFsIG9iamVjdHMKUEFTUyBpbnB1dCBhcnJheXMgbm90IG11dGF0ZWQKUEFTUyBhbGwgMTM2IHJ1bnRpbWUgb3ZlcmxheXMgbWF0Y2ggYXV0aG9yZWQgZGF0YQpQQVNTIHN0YWJsZSBpZGVudGl0aWVzIG9uIHJlcGVhdApQQVNTIG5vbi1vcGVuaW5nIGRpYWdub3N0aWMgZml4dHVyZSBieXBhc3NlZApQQVNTIHBhcnRpYWwgb3BlbmluZyBpbnZlbnRvcnkgcmVqZWN0ZWQKUEFTUyB1bmtub3duIG9wZW5pbmcgaWRlbnRpdHkgcmVqZWN0ZWQKUEFTUyByZXN0YXVyYW50IHBhbmVsIGRpc2gtc3RhY2stMQpQQVNTIHJlc3RhdXJhbnQgcGFuZWwgcjUtcmVzdGF1cmFudC1zZXJ2aWNlLWZvb2QtMQpQQVNTIHJlc3RhdXJhbnQgcGFuZWwgcjUtcmVzdGF1cmFudC1zZXJ2aWNlLXRhYmxlLTEKUEFTUyByZXN0YXVyYW50IHBhbmVsIHdvb2QtdGFibGUtMQpQQVNTIHJlc3RhdXJhbnQgcGFuZWwgZGlzaC1zdGFjay0tMQpQQVNTIHJlc3RhdXJhbnQgcGFuZWwgcjUtcmVzdGF1cmFudC1zZXJ2aWNlLWZvb2QtLTEKUEFTUyByZXN0YXVyYW50IHBhbmVsIHI1LXJlc3RhdXJhbnQtc2VydmljZS10YWJsZS0tMQpQQVNTIHJlc3RhdXJhbnQgcGFuZWwgd29vZC10YWJsZS0tMQpQQVNTIG9mZmljZSBwYW5lbCBwYXNzdGhyb3VnaApQQVNTIHdyb25nIHJldmlzaW9uIHJlamVjdGVkClBBU1MgdmFsaWQgcmVsb2FkIGFmdGVyIHJlamVjdGVkIHJldmlzaW9uClRPVEFMIDIwIHBhc3NlZCAvIDAgZmFpbGVkCgpQQVNTIG9yZGluYXJ5IGhhemFyZCBzbG93cwpQQVNTIGJvb3N0MzAgYXJtcyBhaXJib3JuZSBjb25kaXRpb24KUEFTUyBhaXJib3JuZSBoYXphcmQgcmV2ZXJzZXMgb25jZSBib29zdDMwClBBU1MgcmV2ZXJzYWwgY29uc3VtZWQgYm9vc3QzMApQQVNTIGJvb3N0NDUgYXJtcyBhaXJib3JuZSBjb25kaXRpb24KUEFTUyBhaXJib3JuZSBoYXphcmQgcmV2ZXJzZXMgb25jZSBib29zdDQ1ClBBU1MgcmV2ZXJzYWwgY29uc3VtZWQgYm9vc3Q0NQpQQVNTIGJvb3N0NjAgYXJtcyBhaXJib3JuZSBjb25kaXRpb24KUEFTUyBhaXJib3JuZSBoYXphcmQgcmV2ZXJzZXMgb25jZSBib29zdDYwClBBU1MgcmV2ZXJzYWwgY29uc3VtZWQgYm9vc3Q2MApQQVNTIGphY2twb3QgYXJtcyBhaXJib3JuZSBjb25kaXRpb24KUEFTUyBhaXJib3JuZSBoYXphcmQgcmV2ZXJzZXMgb25jZSBqYWNrcG90ClBBU1MgcmV2ZXJzYWwgY29uc3VtZWQgamFja3BvdApQQVNTIGdyb3VuZCBpbnZhbGlkYXRlcyBib29zdCBiZWZvcmUgaGF6YXJkClBBU1Mgc2FtZS1zdGVwIGdyb3VuZCBjYW5ub3QgYXJtClBBU1MgYW5nbGUtb25seSByZWRpcmVjdCBwcmVzZXJ2ZXMgM0QgZW5lcmd5IGFuZCBjYW5ub3QgYXJtClBBU1MgcmVkaXJlY3QgcHJlc2VydmVzIGFscmVhZHkgdmFsaWQgYWlyYm9ybmUgc3RhdGUKUEFTUyByb2xlIGRpcmVjdGlvbiBwcmVzZXJ2ZWQKUEFTUyBsYW5kbWFyayBubyBleHRyYSB2ZWxvY2l0eSBlZmZlY3QKUEFTUyByZXNvdXJjZSBubyBleHRyYSB2ZWxvY2l0eSBlZmZlY3QKUEFTUyBwcmV2aWV3IG5vIGV4dHJhIHZlbG9jaXR5IGVmZmVjdApQQVNTICBubyBleHRyYSB2ZWxvY2l0eSBlZmZlY3QKUEFTUyBwb3J0cmFpdCBmbG9vcgpQQVNTIGxhbmRzY2FwZSBmbG9vcgpQQVNTIHNwZWVkL2hlaWdodCBmb3JtdWxhClBBU1Mgem9vbSBtYXhpbXVtClBBU1MgZGlyZWN0aW9uIGluZGVwZW5kZW50IHpvb20KUEFTUyBwb3J0cmFpdCBoYWxmLXdpZHRoIGxpbWl0ClBBU1MgbWluaW11bSBsb29rYWhlYWQKUEFTUyBsb29rYWhlYWQgc3BlZWQKVE9UQUwgMzAgcGFzc2VkIC8gMCBmYWlsZWQKCg=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7b84fc0c45ee9481bcb9-64d770637c96002454d5",
+          "file": "opening.spec.cjs",
+          "line": 11,
+          "column": 2
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-24T15:09:51.081Z",
+    "duration": 29110.511,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
