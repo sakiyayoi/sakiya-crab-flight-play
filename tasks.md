@@ -349,3 +349,9 @@ R18 timing continuation 2026-11-04: 私的な診断WebGL c86cec4をビルド成�
 | stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
 |---|---|---|---|---|---|---|
 | new-loop | 回す→飛ぶ→接触→解放→破壊→即リトライの港限定試作 | Codex（単独書込） | port-prototype 2d0d849 / 既存SpinCharge・港・waterfix | ONの仕様接続、OFF固定入力経路保護、Roslyn、offline Playwright、報告2部とcommit。Native/WebGLはクロエ担当 | 指定なし | 再開監査と10解決項目の実装済み。Roslyn124ソースerror0/warning20、C#計算40PASS、offline Playwright10PASS/0FAIL/0SKIP。26既存差分hash一致・commit除外。Native/物理破壊差/固定入力/リセット実測/実画面/実聴NOT_RUN、クロエ確認待ち。docs/new-loop/NEON-REPORT-NEWLOOP-by-codex.md参照 |
+
+## NEON new-loop fix round（2026-11-24）
+
+| stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
+|---|---|---|---|---|---|---|
+| new-loop-fix | 爆散の直接波と段階的チャージ演出の2点のみ | Codex | new-loop dad6137・本人FIX ROUND | Roslyn・offline contracts・Playwright、OFF保護、報告2写し・commit | 指定なし | ソース修正・offline検証済み：Roslyn error0/warning20、new-loop契約71/71、port契約30/30、Playwright14/14。Unity Editor・実聴・Native画面は指示によりNOT_RUN |

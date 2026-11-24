@@ -26,6 +26,11 @@
  function materialEvent(e){const kind=e.material==='tableware'?'dish':e.material;const pan=latest?Math.max(-.24,Math.min(.24,(e.position.x-latest.worldX)/30)):0;if(!ready){original.play(kind,e.strength);return;}shot('break.'+kind,Math.max(.3,e.strength),pan,e.weight??.5);if((e.weight||0)>.78&&now()-(cooldown.get('heavy.body')??-10)>.24){cooldown.set('heavy.body',now());api.play('shell',.30);}}
  function consume(e){stats.processed++;stats.events.push({generation:e.generation,id:e.id,type:e.type,objectId:e.objectId,material:e.material,weight:e.weight??.5,physicsTime:e.physicsTime,atAudio:now()});if(stats.events.length>256)stats.events.shift();
   if(e.type==='reset'){stopAll();playedWalls.clear();wasReady=false;return;}
+  if(e.type==='charge-tier'&&latest?.newLoop){
+   const tier=Number(e.objectId),v=shot(tier===3?'charge.ready':'charge.work',tier===3?1:.85);
+   if(v){v.source.playbackRate.setValueAtTime(tier===3?1.1:.9,now());v.source.playbackRate.exponentialRampToValueAtTime(tier===3?1.65:1.35,now()+.16);}
+   return;
+  }
   if(e.type==='charge'){if(ready)shot('charge.work',.7+e.strength*.3);return;}
   if(e.type==='launch'){stopAll();duckUntil=now()+.1;if(ready)shot('flight.launch');else original.play('launch');return;}
   if(e.type==='release'){if(ready)shot('landmark.exterior',.8);else original.play('wall',.65);return;}
@@ -44,7 +49,16 @@
   for(const e of events){if(e.id<=cursor)continue;if(e.generation===generation)consume(e);cursor=e.id;}
   if(s.phase==='result')stopAll();
   if(!ready)return;
-  if(s.newLoop&&s.phase==='ready'&&s.chargeStarted){const ids=['charge_low_loop','charge_mid_loop','charge_high_loop'];for(let i=0;i<3;i++)loop(ids[i],s.newLoop.held&&i===s.newLoop.tier-1?.65:0);if(s.newLoop.beamArmed&&!wasReady)shot('charge.ready');wasReady=!!s.newLoop.beamArmed;}else if(s.phase==='ready'&&s.chargeStarted){const E=Math.min(1,Math.max(0,s.chargeEnergy));const w=[Math.max(0,1-2*E),Math.max(0,1-2*Math.abs(E-.5)),Math.max(0,2*E-1)],norm=Math.hypot(...w)||1;for(let i=0;i<3;i++)loop(['charge_low_loop','charge_mid_loop','charge_high_loop'][i],w[i]/norm*(.28+.42*E));if(s.chargeReady&&!wasReady)shot('charge.ready');wasReady=!!s.chargeReady;}else for(const id of ['charge_low_loop','charge_mid_loop','charge_high_loop'])loop(id,0);
+  if(s.newLoop&&s.phase==='ready'&&s.chargeStarted){
+   const E=Math.min(1,Math.max(0,s.newLoop.energy)),curve=Math.expm1(3*E)/Math.expm1(3),intensity=.16+.84*curve;
+   const ids=['charge_low_loop','charge_mid_loop','charge_high_loop'];
+   for(let i=0;i<3;i++){
+    // The active tier gets exponentially stronger; a quiet adjacent bed preserves continuity.
+    const weight=s.newLoop.held?intensity*(i===s.newLoop.tier-1?1:i===s.newLoop.tier-2?.16:0):0;
+    loop(ids[i],weight);const voice=loops.get(ids[i]);if(voice)voice.source.playbackRate.setTargetAtTime(.8+.7*curve,now(),.0267);
+   }
+   wasReady=!!s.newLoop.beamArmed;
+  }else if(s.phase==='ready'&&s.chargeStarted){const E=Math.min(1,Math.max(0,s.chargeEnergy));const w=[Math.max(0,1-2*E),Math.max(0,1-2*Math.abs(E-.5)),Math.max(0,2*E-1)],norm=Math.hypot(...w)||1;for(let i=0;i<3;i++)loop(['charge_low_loop','charge_mid_loop','charge_high_loop'][i],w[i]/norm*(.28+.42*E));if(s.chargeReady&&!wasReady)shot('charge.ready');wasReady=!!s.chargeReady;}else for(const id of ['charge_low_loop','charge_mid_loop','charge_high_loop'])loop(id,0);
   if(s.phase==='flight'){let t=Math.min(1,Math.max(0,(s.speed-8)/27));t=t*t*(3-2*t);const gain=s.speed<8?0:(.15+.55*t)*(now()<duckUntil?.4:1);loop('wind_slow_loop',Math.cos(t*Math.PI*.5)*gain);loop('wind_fast_loop',Math.sin(t*Math.PI*.5)*gain);}else{loop('wind_slow_loop',0);loop('wind_fast_loop',0);}
   if(meter){const data=new Float32Array(meter.fftSize);meter.getFloatTimeDomainData(data);for(const x of data)stats.rawPeak=Math.max(stats.rawPeak,Math.abs(x));}
  }

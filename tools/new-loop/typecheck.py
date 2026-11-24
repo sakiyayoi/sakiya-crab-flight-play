@@ -5,7 +5,7 @@ import subprocess,json,hashlib,re
 ROOT=Path(__file__).resolve().parents[2]
 project=ROOT/'games/flight/crab-flight'
 sdk=Path('/Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/Resources/Scripting')
-out=ROOT/'docs/new-loop'; products=ROOT.parent/'evidence/new-loop/managed';products.mkdir(parents=True,exist_ok=True)
+out=ROOT/'docs/new-loop/fix';out.mkdir(parents=True,exist_ok=True); products=ROOT.parent/'evidence/new-loop/fix/managed';products.mkdir(parents=True,exist_ok=True)
 args=(ROOT/'docs/port-prototype/waterfix/Assembly-CSharp.rsp').read_text().splitlines()
 args=[a for a in args if not a.startswith(('-out:','-refout:'))]
 for f in sorted((project/'Assets/PortPrototype').glob('*.cs')):

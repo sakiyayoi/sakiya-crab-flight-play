@@ -9,7 +9,7 @@ using UnityEngine;
 // Authored effects only. Existing collider creation, material masses, threshold and
 // debris-contact chain rules remain unchanged. A wave is explicitly not a contact.
 public sealed partial class RigidCrabFlight {
- sealed class PortWave {public BreakPanel target;public Vector3 from;public float due;public bool support;}
+ sealed class PortWave {public BreakPanel target;public Vector3 from;public float due;public bool support;public string cause;}
  readonly List<PortWave> portWaves=new List<PortWave>();
  readonly HashSet<string> portScheduled=new HashSet<string>();
  readonly HashSet<string> portChainScheduled=new HashSet<string>();
@@ -26,8 +26,8 @@ public sealed partial class RigidCrabFlight {
  }
  void QueuePortWaves(){
   if(!PortLayout.Enabled)return;
-  for(int i=portWaves.Count-1;i>=0;i--){var w=portWaves[i];if(Time<w.due)continue;portWaves.RemoveAt(i);
-   var p=w.target;if(NewLoopActive){ImpulseNewLoopPanel(w);continue;}if(p.broken||p.cityProposal.massKgSuggestion>100||Vector3.Distance(w.from,p.position)>10)continue;
+  for(int i=portWaves.Count-1;i>=0;i--){var w=portWaves[i];if((NewLoopActive?newLoopWaveClock:Time)<w.due)continue;portWaves.RemoveAt(i);
+   var p=w.target;if(NewLoopActive){QueueNewLoopWave(w);continue;}if(p.broken||p.cityProposal.massKgSuggestion>100||Vector3.Distance(w.from,p.position)>10)continue;
    if(primaryPending.Contains(p)&&breakImpulses.TryGetValue(p,out var contactImpulse)&&contactImpulse/Body.mass>=p.threshold)continue;
    // Deterministic authored blast, with its own finite impulse, tested against the unchanged full threshold.
    pendingBreaks[p]=p.position+Vector3.up;breakNormals[p]=Vector3.up;breakImpulses[p]=Body.mass*PortWaveImpulsePerMass;secondarySources.Remove(p);portWavePending.Add(p);if(w.support)portSupportPending.Add(p);
@@ -36,6 +36,13 @@ public sealed partial class RigidCrabFlight {
  void ObservePortBreak(BreakPanel p,bool wave,bool secondary){
   var e=PortLayout.Find(p.id);if(e==null||NewLoopActive&&(!NewLoopReleased||NewLoopParked))return;
   if(!wave&&!secondary&&e.role.Length>0)portDirectRoles.Add(p);
+  if(NewLoopActive){
+   // ON has already scheduled the entire authored graph at ignition. Do not let
+   // ordinary wave/support targets enroll more objects outside its radius/count.
+   if(!wave&&!secondary&&!newLoopDirectPending.ContainsKey(p))ScheduleNewLoopWave(p);
+   if(wave)PortRoleReceipts.Add(new PortRoleReceipt{id=p.id,role="chain",cause=NewLoopBreakCause(p,true,secondary),time=Time,before=Body.linearVelocity,after=Body.linearVelocity});
+   return;
+  }
   // A destroyed support cannot leave its authored upper tier suspended. This uses
   // the same finite role-effect path; it never edits masses, colliders or thresholds.
   foreach(var child in panels){var c=PortLayout.Find(child.id);

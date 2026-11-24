@@ -67,7 +67,7 @@ public sealed partial class CrabFlightGame : MonoBehaviour {
  }finally{PrepareEnvelopeR18.Exit(traceConfigureR18,Time.renderedFrameCount);}
 }
  public void RestoreBest(string value){Initialize();if(float.TryParse(value,System.Globalization.NumberStyles.Float,System.Globalization.CultureInfo.InvariantCulture,out float v))best=Mathf.Max(best,FlightSettings.Safe(v,0,10000));PlaceBest();Report();}
- public void SetReducedMotion(string value){Initialize();AuditInput("SetReducedMotion",value);ReducedMotion=value=="1";hitStop.SetReducedMotion(ReducedMotion);if(effects)effects.SetReducedMotion(ReducedMotion);ResetOverdrivePresentation();Report();}
+ public void SetReducedMotion(string value){Initialize();AuditInput("SetReducedMotion",value);ReducedMotion=value=="1";hitStop.SetReducedMotion(ReducedMotion);if(effects)effects.SetReducedMotion(ReducedMotion);ResetOverdrivePresentation();if(useNewLoop)RefreshNewLoopComfort();Report();}
  public void KickDown(string _){if(useNewLoop)return;if(!paused&&phase=="flight"&&simulation!=null){simulation.SetKickPressed(true);RefreshMessage();Report();}}
  public void KickUp(string _){if(simulation!=null)simulation.SetKickPressed(false);}
  // Preview input never creates or advances a flight. Release is a separate explicit command.
@@ -82,7 +82,7 @@ public sealed partial class CrabFlightGame : MonoBehaviour {
   return active?flick:flick*(.18f+.82f*energy);}
  public void SetUpgradeLevel(string text){Initialize();if(phase=="flight"||aiming||(phase=="ready"&&spinCharge.Started))return;if(int.TryParse(text,out int level)){AuditInput("SetUpgradeLevel",text);settings.upgradeLevel=Mathf.Clamp(level,0,3);}Report();}
  public void RetryLaunch(string _){if(paused||phase!="result")return;if(useNewLoop){Prepare("");return;}float retainedPhase=spinAngle,retainedSpin=launchSpinRps,retainedCharge=launchChargeEnergy,retainedTarget=launchTargetPower;Prepare("");launchTargetPower=retainedTarget;launchSpinRps=retainedSpin;launchChargeEnergy=retainedCharge;crab.ChargePose(retainedCharge);spinAngle=displaySpinAngle=retainedPhase;requestedLaunchSource="retry";Launch("");}
- public void SetPaused(string value){if(prepareWorkR18!=null){preparePauseR18=value=="1";if(prepareViewR18!=null)prepareViewR18.paused=preparePauseR18.Value;Report();return;}Initialize();AuditInput("SetPaused",value);bool next=value=="1";if(next&&useNewLoop){newLoopBeamHeld=false;simulation?.EndNewLoopBeam();}if(next)CancelAim("");paused=next;if(next&&FeelOnR27){BeginFeelFrameR27();feelDrawingR27.Clear();}if(effects)effects.SetPaused(next);if(simulation!=null)simulation.SetKickPressed(false);Report();}
+ public void SetPaused(string value){if(prepareWorkR18!=null){preparePauseR18=value=="1";if(prepareViewR18!=null)prepareViewR18.paused=preparePauseR18.Value;Report();return;}Initialize();AuditInput("SetPaused",value);bool next=value=="1";if(next&&useNewLoop){newLoopBeamHeld=false;simulation?.EndNewLoopBeam();}if(next)CancelAim("");paused=next;if(useNewLoop)RefreshNewLoopComfort();if(next&&FeelOnR27){BeginFeelFrameR27();feelDrawingR27.Clear();}if(effects)effects.SetPaused(next);if(simulation!=null)simulation.SetKickPressed(false);Report();}
  public void BeginCharge(string _){BeginSpinCharge("");}
  public void Launch(string _){
   if(paused||phase=="flight")return;Initialize();BeginFeelFrameR27();aiming=false;if(useNewLoop){
@@ -115,7 +115,7 @@ PrepareCostProbeR15.Mark("rebuild.poseAndBounds");}
  public void Tick(float dt){
   if(prepareWorkR18!=null){AdvancePrepareFrameR18();return;}
   if(!initialized||paused)return;PrimitiveColliderTraceR18.BeforeMain(world.Scene,world.Time,"frame");BeginCalmFrameR3(dt);BeginFeelFrameR27();AuditTick(dt);float gameplayDt=FeelOnR27?FilterFeelR27(dt):phase=="flight"&&useHitStop?hitStop.Filter(dt):dt;visualClock+=dt;if(useNewLoop)gameplayDt=AdvanceNewLoopClock(dt);
-  if(phase=="ready"&&spinCharge.Started){int priorTier=spinCharge.Tier;bool priorArmed=spinCharge.BeamArmed;spinCharge.Tick(dt);if(useNewLoop&&(priorTier!=spinCharge.Tier||priorArmed!=spinCharge.BeamArmed))Report();currentSpinRps=direction*spinCharge.SpinRps;displaySpinAngle=(displaySpinAngle+direction*spinCharge.BodySpinRps*360*dt)%360;crab.ChargePose(spinCharge.Energy);crab.Root.position=Vector3.Lerp(crab.Root.position,new Vector3(useNewLoop?NewLoopStart:0,chargeLiftHeight,0),1-Mathf.Exp(-dt*5));}
+  if(phase=="ready"&&spinCharge.Started){int priorTier=spinCharge.Tier;bool priorArmed=spinCharge.BeamArmed;spinCharge.Tick(dt);if(useNewLoop)TickNewLoopChargeShow(dt);if(useNewLoop&&(priorTier!=spinCharge.Tier||priorArmed!=spinCharge.BeamArmed))Report();currentSpinRps=direction*spinCharge.SpinRps;displaySpinAngle=(displaySpinAngle+direction*spinCharge.BodySpinRps*360*dt)%360;crab.ChargePose(spinCharge.Energy);crab.Root.position=Vector3.Lerp(crab.Root.position,new Vector3(useNewLoop?NewLoopStart:0,chargeLiftHeight,0),1-Mathf.Exp(-dt*5));}
   if(phase=="flight"){
    accumulator+=gameplayDt;while(accumulator>=RigidCrabFlight.StepSeconds&&phase=="flight"){
     accumulator-=RigidCrabFlight.StepSeconds;long calmStepStart=CalmSupportPerfR3.Active?CalmSupportPerfR3.Stamp():0;if(useNewLoop)simulation.StepNewLoop();else simulation.Step();if(useNewLoop)ObserveNewLoopRelease();if(CalmSupportPerfR3.Active){calmFrameR3.steps++;calmFrameR3.stepMs+=CalmSupportPerfR3.Ms(CalmSupportPerfR3.Stamp()-calmStepStart);}ObserveResultTravel();long calmEventStart=CalmSupportPerfR3.Active?CalmSupportPerfR3.Stamp():0;DrainPhysicsEvents();if(CalmSupportPerfR3.Active)calmFrameR3.eventMs+=CalmSupportPerfR3.Ms(CalmSupportPerfR3.Stamp()-calmEventStart);lastDistance=useNewLoop?Mathf.Max(0,crab.Root.position.x-NewLoopStart):simulation.Distance;lastPeak=simulation.Peak;
@@ -226,7 +226,7 @@ PrepareCostProbeR15.Mark("rebuild.poseAndBounds");}
   return s;
  }finally{PrepareEnvelopeR18.Exit(traceStateR18,Time.renderedFrameCount);}
 }
- void OnDestroy(){CancelPreparationR18();ResetOverdrivePresentation();if(world!=null){world.Dispose();world=null;}contactVisualTemplateR15.Dispose();lifeGeometryCacheR17.Dispose();}
+ void OnDestroy(){DisposeNewLoopShow();CancelPreparationR18();ResetOverdrivePresentation();if(world!=null){world.Dispose();world=null;}contactVisualTemplateR15.Dispose();lifeGeometryCacheR17.Dispose();}
  void Report(){
 #if UNITY_WEBGL && !UNITY_EDITOR
  int traceReportR18=PrepareEnvelopeR18.Enter(PrepareEnvelopeR18.Report,Time.renderedFrameCount);try{

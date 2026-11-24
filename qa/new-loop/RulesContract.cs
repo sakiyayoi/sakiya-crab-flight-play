@@ -1,10 +1,13 @@
 using System;
+using System.IO;
+using System.Linq;
+using System.Text.Json;
 public static class RulesContract {
  static int passed;
  static void Check(bool ok,string name){if(!ok)throw new Exception(name);passed++;Console.WriteLine("PASS "+name);}
  static bool Eq(float a,float b)=>BitConverter.SingleToInt32Bits(a)==BitConverter.SingleToInt32Bits(b);
  static bool Near(float a,float b)=>Math.Abs(a-b)<.0001;
- public static int Main(){
+ public static int Main(string[] args){
   Check(NewLoopRules.BeamSeconds>=2&&NewLoopRules.BeamSeconds<=3,"beam duration 2-3 seconds");
   Check(NewLoopRules.ChargeSeconds>=1.5&&NewLoopRules.ChargeSeconds<=2,"full charge 1.5-2 seconds");
   Check(Near(NewLoopRules.Reach(0),8)&&Near(NewLoopRules.Reach(1),16),"wave reach 8 to 16m");
@@ -12,13 +15,45 @@ public static class RulesContract {
   Check(NewLoopRules.OrdinaryCapacity(0)==0&&NewLoopRules.OrdinaryCapacity(1)==3,"ordinary contact bounded; no automatic chain enrolment");
   Check(NewLoopRules.Cleared(38,54)&&!NewLoopRules.Cleared(37,54)&&!NewLoopRules.Cleared(0,0),"S5 clear boundary 38/54");
   Check(NewLoopRules.Cleared(29,41)&&!NewLoopRules.Cleared(28,41),"S7 clear boundary 29/41");
-  Check(!NewLoopRules.ResultDue(4.9f,2.99f,true,false,false)&&NewLoopRules.ResultDue(4.91f,3,true,false,false),"release cap exactly 3s");
+  Check(!NewLoopRules.ResultDue(4.9f,3.99f,true,false,false)&&NewLoopRules.ResultDue(5.91f,4,true,false,false),"release cap exactly 4s");
   Check(NewLoopRules.ResultDue(.1f,0,false,true,false)&&NewLoopRules.ResultDue(.1f,0,false,false,true),"rest and exit immediately before release");
   Check(NewLoopRules.ResultDue(2,0,true,true,false)&&NewLoopRules.ResultDue(2,0,true,false,true),"rest and exit immediately after release");
   Check(NewLoopRules.ResultDue(5.2f,0,false,false,false),"miss cannot hang forever");
-  Check(!NewLoopRules.ResultDue(5.2f,2.8f,true,false,false),"3s destruction allowance not replaced by global cutoff");
+  Check(!NewLoopRules.ResultDue(5.2f,2.8f,true,false,false),"4s destruction allowance not replaced by global cutoff");
   foreach(var r in new[]{"boost30","boost45","boost60","jackpot"})Check(NewLoopRules.Ignition(r),"ignition "+r);
   foreach(var r in new[]{"","redirect30","resource","hazard","landmark","preview"})Check(!NewLoopRules.Ignition(r),"not ignition "+(r.Length==0?"(ordinary)":r));
+  Check(Near(NewLoopRules.SlowSeconds,.3f)&&Near(NewLoopRules.SlowScale,.25f),"release slow is 0.25x for 0.30 real seconds");
+  Check(Near(NewLoopRules.CameraPunchScale,.72f)&&Near(NewLoopRules.CameraPunchSeconds,.3f),"camera punch 0.72x / 0.30s");
+  Check(Near(NewLoopRules.VisualSpin(0),2)&&Near(NewLoopRules.VisualSpin(1),32)&&NewLoopRules.VisualSpin(.5f)<NewLoopRules.VisualSpin(.9f)/2,"steep visual spin 2 to 32 rps");
+  Check(NewLoopRules.VisualSpin(.9f)-NewLoopRules.VisualSpin(.8f)>NewLoopRules.VisualSpin(.2f)-NewLoopRules.VisualSpin(.1f),"exponentially increasing charge intensity");
+  Check(NewLoopRules.ShardSpeedMin>18&&NewLoopRules.ShardSpeedMax==28,"explosion debris faster than old 18m/s cap");
+  var line=Enumerable.Range(0,5).ToArray();
+  var linePlan=NewLoopRules.WavePlan(0,line,0,true,(a,b)=>Math.Abs(a-b)*7.9f,a=>a.ToString());
+  Check(linePlan.Count==5&&linePlan.Select(p=>p.hop).SequenceEqual(line),"graph chain hop order, including bridges");
+  Check(linePlan.All(p=>Near(NewLoopRules.HopDue(1,p.hop),1+.04f*p.target)),"each hop staggered by 0.04s");
+  using(var doc=JsonDocument.Parse(File.ReadAllText(args[0]))){
+   var instances=doc.RootElement.GetProperty("instances").EnumerateArray().ToArray();
+   Func<JsonElement,JsonElement,float> dist=(a,b)=>{
+    var x=a.GetProperty("p").EnumerateArray().Select(v=>v.GetSingle()).ToArray();var y=b.GetProperty("p").EnumerateArray().Select(v=>v.GetSingle()).ToArray();
+    return (float)Math.Sqrt(x.Zip(y,(v,w)=>(v-w)*(v-w)).Sum());
+   };
+   Func<JsonElement,string> id=a=>a.GetProperty("id").GetString();
+   foreach(var beat in new[]{"S5","S7"})foreach(var energy in new[]{0f,.5f,1f}){
+    var members=instances.Where(p=>p.GetProperty("beat").GetString()==beat).ToArray();
+    foreach(var ignition in members.Where(p=>NewLoopRules.Ignition(p.GetProperty("role").GetString()))){
+     string chain=ignition.GetProperty("chain").GetString();var set=members.Where(p=>p.GetProperty("chain").GetString()==chain).ToArray();
+     var plan=NewLoopRules.WavePlan(ignition,set,energy,true,dist,id);
+     Check(plan.Count==set.Length&&plan.Select(p=>id(p.target)).Distinct().Count()==set.Length,beat+" ignition "+id(ignition)+" full authored "+chain+" at "+energy);
+     Check(plan.Zip(plan.Skip(1),(a,b)=>a.hop<=b.hop).All(v=>v),"authored ignition breadth-first ordering");
+    }
+    foreach(var ordinary in members.Where(p=>!NewLoopRules.Ignition(p.GetProperty("role").GetString()))){
+     string chain=ordinary.GetProperty("chain").GetString();var set=members.Where(p=>id(p)==id(ordinary)||chain.Length>0&&p.GetProperty("chain").GetString()==chain).ToArray();
+     var plan=NewLoopRules.WavePlan(ordinary,set,energy,false,dist,id);
+     if(plan.Count>1+NewLoopRules.OrdinaryCapacity(energy)||plan.Skip(1).Any(p=>p.hop!=1||dist(ordinary,p.target)>NewLoopRules.Reach(energy)))throw new Exception("ordinary wave escaped radius/cap");
+    }
+    Check(true,beat+" every ordinary target bounded at "+energy);
+   }
+  }
   var c=new SpinCharge{NewLoop=true};c.Begin();
   Check(c.Ready&&c.Energy==0,"zero-energy throw allowed");
   c.Add(20,.1f);Check(c.Energy==0,"swipes cannot create parallel energy stock");

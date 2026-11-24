@@ -8,3 +8,13 @@ body[data-new-loop=true][data-charge-tier='3'] #chargeFill{background:#ffe14a}
 #newLoopStatus{font-size:14px;text-shadow:0 2px 3px #102c36}#newLoopResult,#newLoopCompare{font-size:15px;line-height:1.5}#newLoopNext{margin-top:8px;font-size:14px}
 body[data-new-loop=true] #result .panel{overflow-y:auto}body[data-new-loop=true] #result .panel-scroll{flex-shrink:0}
 body[data-new-loop=false] #newLoopStatus,body[data-new-loop=false] #newLoopResult,body[data-new-loop=false] #newLoopCompare{display:none}
+
+#newLoopSpin{margin:4px 0;font-size:16px;font-weight:800;font-variant-numeric:tabular-nums;text-shadow:0 2px 2px #241e2e}
+#newLoopSpinValue{display:inline-block;min-width:2ch;font-size:24px;color:white}
+#newLoopMax{position:absolute;right:12px;top:52px;color:#ffe14a;font-size:26px;text-shadow:0 2px 2px #241e2e;pointer-events:none}
+body[data-new-loop=true] #destructionValue{display:inline-block;transform-origin:50% 65%;color:white;text-shadow:1px 1px #2a1e17,-1px -1px #2a1e17}
+body[data-new-loop=false] #newLoopSpin,body[data-new-loop=false] #newLoopMax{display:none}
+body[data-new-loop=true] #aimHUD{grid-template-columns:minmax(0,1fr) 100px;max-width:360px}
+body[data-new-loop=true] #newLoopSpin{grid-column:1;grid-row:2}
+body[data-new-loop=true] #newLoopMax{position:static;grid-column:2;grid-row:2;justify-self:start}
+body[data-new-loop=true] #newLoopStatus{grid-column:1 / -1;max-width:100%;margin:2px 0}

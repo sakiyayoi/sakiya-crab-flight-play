@@ -90,6 +90,7 @@ public sealed partial class RigidCrabFlight {
    cityDebris.Add(record);fragments.Add(obj);CityFragments++;physicalPieces++;
   }
 if(DirectionalShardsR6)ScatterShardsR6(spawned,hitPoint,hitNormal,sourceVelocity,energyBudget,p.id);
+if(NewLoopActive&&NewLoopReleased&&NewLoopTarget(p))ExplodeNewLoopShards(spawned,p.position);
 #if UNITY_EDITOR
   if(DirectionalShardsR6){spawnedKinetic=0;foreach(var rb in spawned)spawnedKinetic+=(float)KineticEnergyR6(rb);}
   ReviewShardEnergyExcess=Mathf.Max(ReviewShardEnergyExcess,spawnedKinetic-energyBudget);

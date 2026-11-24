@@ -3,12 +3,45 @@
 window.NewLoopUI=(()=>{
  const $=id=>document.getElementById(id),zone=$('launchZone');
  const status=document.createElement('p');status.id='newLoopStatus';status.setAttribute('aria-live','polite');$('aimHUD').append(status);
+ const spin=document.createElement('p');spin.id='newLoopSpin';spin.innerHTML='回転数 <strong id="newLoopSpinValue">0</strong>';$('chargeGauge').after(spin);
+ const max=document.createElement('strong');max.id='newLoopMax';max.textContent='MAX';max.hidden=true;$('chargeGauge').after(max);
  const beam=document.createElement('button');beam.id='newLoopBeam';beam.hidden=true;beam.textContent='押している間 ビーム';$('stage').append(beam);
  const result=document.createElement('p');result.id='newLoopResult';result.setAttribute('aria-live','polite');$('destructionResult').after(result);
  const compare=document.createElement('p');compare.id='newLoopCompare';result.after(compare);
  const next=document.createElement('button');next.id='newLoopNext';next.hidden=true;next.textContent='次の区間へ';$('retry').after(next);
  const segment=document.createElement('button');segment.id='newLoopSegment';segment.hidden=true;segment.textContent='S5に戻る';$('aimActions').append(segment);
  let state=null,pointer=null,keyHeld=false,startY=0,startAngle=18,angle=18,beamPointer=null,beamKey=false,lastResultAt=0,lastAttempt=-1;
+ let shownBroken=0,targetBroken=0,countFrame=0,nextTick=0,countGeneration=-1,maxCue=0,maxTimer=0;
+ let countAnimation=null,maxAnimation=null;
+ const motion=()=>!!state?.newLoop&&!state.paused&&!state.reducedMotion&&!state.feel?.reduced&&state.feel?.preset!=='off'&&!matchMedia('(prefers-reduced-motion: reduce)').matches;
+ function countStep(now){
+  countFrame=0;if(!state?.newLoop||state.paused)return;
+  if(shownBroken<targetBroken&&now>=nextTick){
+   shownBroken++;$('destructionValue').textContent=String(shownBroken);nextTick=now+40;
+   countAnimation?.cancel();if(motion())countAnimation=$('destructionValue').animate([{transform:'scale(1)'},{transform:'scale(1.35) rotate(-4deg)',offset:.35},{transform:'scale(1)'}],{duration:150,easing:'ease-out'});
+  }
+  if(shownBroken<targetBroken)countFrame=requestAnimationFrame(countStep);
+ }
+ function updateShow(s,n){
+  if(!n||countGeneration!==s.generation||s.phase==='ready'){
+   cancelAnimationFrame(countFrame);countFrame=0;countAnimation?.cancel();shownBroken=targetBroken=0;nextTick=0;
+   if(!n||countGeneration!==s.generation){maxCue=0;clearTimeout(maxTimer);max.hidden=true;maxAnimation?.cancel();}
+   countGeneration=s.generation;
+  }
+  spin.hidden=!n;if(!n)return;
+  $('newLoopSpinValue').textContent=String(Math.max(0,Math.floor(n.spinCount||0)));
+  targetBroken=n.broken;
+  if(!motion()){countAnimation?.cancel();maxAnimation?.cancel();}
+  if(s.phase==='result'||!motion()&&!s.paused){shownBroken=targetBroken;cancelAnimationFrame(countFrame);countFrame=0;}
+  $('destructionValue').textContent=String(shownBroken);
+  if(shownBroken<targetBroken&&!countFrame&&!s.paused)countFrame=requestAnimationFrame(countStep);
+  if((n.maxCue||0)>maxCue){
+   maxCue=n.maxCue;max.hidden=false;clearTimeout(maxTimer);
+   if(motion())maxAnimation=max.animate([{transform:'scale(.65)',opacity:0},{transform:'scale(1.45)',opacity:1,offset:.4},{transform:'scale(1)',opacity:1}],{duration:260,easing:'ease-out'});
+   maxTimer=setTimeout(()=>{max.hidden=true;},500);
+  }
+  if(s.phase!=='ready'||s.feel?.preset==='off')max.hidden=true;
+ }
  const active=()=>!!state?.newLoop;
  const aiming=()=>active()&&view==='aim'&&state.phase==='ready'&&!state.paused&&!pendingPrepareR23&&runtimeReady;
  const stop=e=>{e.preventDefault();e.stopImmediatePropagation();};
@@ -53,7 +86,7 @@ window.NewLoopUI=(()=>{
  next.onclick=()=>{send('SelectNewLoopSegment','1');setView('aim');};
  segment.onclick=()=>{send('SelectNewLoopSegment','0');setView('aim');};
  function update(s){
-  state=s;const n=s.newLoop;document.body.dataset.newLoop=String(!!n);
+  state=s;const n=s.newLoop;document.body.dataset.newLoop=String(!!n);updateShow(s,n);
   beam.hidden=!n||view!=='flight'||!n.beamArmed;segment.hidden=!n||view!=='aim'||n.segment===0;
   next.hidden=!n||view!=='result'||n.segment!==0||!n.nextUnlocked;
   if(!n){status.textContent=result.textContent=compare.textContent='';return;}

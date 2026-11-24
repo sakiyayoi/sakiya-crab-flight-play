@@ -4,8 +4,8 @@ using UnityEngine;
 
 [Serializable] public sealed class NewLoopState {
  public string revision=NewLoopRules.Revision,beat,segmentName,endReason,contactId;
- public int segment,total,broken,tier,previousBroken,delta;
- public float energy,destructionRate,elapsed,releaseAge,beamAge,aimAngle;
+ public int segment,total,broken,tier,previousBroken,delta,spinCount,maxCue;
+ public float energy,destructionRate,elapsed,releaseAge,beamAge,aimAngle,visualSpinRps;
  public bool released,cleared,nextUnlocked,beamArmed,beamActive,beamUsed,overSpun,dizzy,hasPrevious,held;
  public double resetMs,restoreMs,resultToReadyMs;
 }
@@ -48,7 +48,7 @@ public sealed partial class CrabFlightGame {
   message="最初に当てる場所で、連鎖を変えよう";
  }
  void ResetNewLoopGame(){
-  newLoopElapsed=newLoopReleaseAge=newLoopBeamAge=0;newLoopObserved=newLoopBeamHeld=newLoopLaunchArmed=false;
+  ResetNewLoopShow();newLoopElapsed=newLoopReleaseAge=newLoopBeamAge=0;newLoopObserved=newLoopBeamHeld=newLoopLaunchArmed=false;
   newLoopFinalBroken=0;newLoopCleared=false;newLoopPreviousBroken=newLoopLastCounts[newLoopSegment];newLoopDelta=0;
   crab.Root.position=new Vector3(NewLoopStart,world.NewLoopLaunchHeight,0);world.Body.position=crab.Root.position;
   shadow.position=new Vector3(NewLoopStart,.045f,0);landingFlag.gameObject.SetActive(false);bestFlag.gameObject.SetActive(false);
@@ -64,6 +64,7 @@ public sealed partial class CrabFlightGame {
   // Update passes real, unscaled time in this mode; deadlines are independent of slow-motion.
   newLoopElapsed+=Mathf.Max(0,dt);if(newLoopObserved)newLoopReleaseAge+=Mathf.Max(0,dt);
   if(EndNewLoopIfDue())return 0;
+  simulation.AdvanceNewLoopWaves(dt);
   if(newLoopBeamHeld&&!simulation.NewLoopBeamUsed&&simulation.BeginNewLoopBeam())newLoopBeamAge=0;
   if(simulation.NewLoopBeamActive){float before=newLoopBeamAge;newLoopBeamAge=Mathf.Min(NewLoopRules.BeamSeconds,newLoopBeamAge+dt);simulation.SweepNewLoopBeam(before,newLoopBeamAge);}
   return newLoopObserved&&newLoopReleaseAge<NewLoopRules.SlowSeconds&&NewLoopMotion?Mathf.Min(dt,.08f)*NewLoopRules.SlowScale:Mathf.Min(dt,.08f);
@@ -101,13 +102,18 @@ public sealed partial class CrabFlightGame {
   cam.orthographic=true;cam.transform.rotation=Quaternion.LookRotation(new Vector3(0,-5.3f,16).normalized,Vector3.up);
   float size=cam.aspect<1?13:10,lead=Mathf.Min(6,size*cam.aspect*.4f);
   Vector3 target=new Vector3(crab.Root.position.x+lead,Mathf.Max(5,crab.Root.position.y+2),-16);
-  float punch=phase=="flight"&&newLoopObserved?Mathf.Clamp01(1-newLoopReleaseAge/.28f):0;
-  cam.orthographicSize=size*(NewLoopMotion?1-.22f*punch:1);
+  float punch=phase=="flight"&&newLoopObserved?Mathf.Clamp01(1-newLoopReleaseAge/NewLoopRules.CameraPunchSeconds):0;
+  cam.orthographicSize=size*(NewLoopMotion&&feelSettingsR27.shake?1-(1-NewLoopRules.CameraPunchScale)*punch:1);
   if(snap)cam.transform.position=target;else cam.transform.position=Vector3.Lerp(cam.transform.position,target,1-Mathf.Exp(-Mathf.Max(0,dt)*12));
+  if(NewLoopMotion&&feelSettingsR27.shake&&phase=="ready"&&spinCharge.Held){
+   float amp=spinCharge.Tier==3?.12f:spinCharge.Tier==2?.055f:.012f;
+   cam.transform.position+=new Vector3(Mathf.Sin(visualClock*83),Mathf.Sin(visualClock*101)*.65f,0)*amp;
+  }
   if(NewLoopMotion&&feelSettingsR27.shake&&punch>0)cam.transform.position+=new Vector3(Mathf.Sin(newLoopReleaseAge*89),Mathf.Sin(newLoopReleaseAge*67)*.6f,0)*(.35f*punch*punch);
  }
  void PresentNewLoop(float dt){
   if(phase=="ready")PreviewNewLoopAim();
+  PresentNewLoopShow(dt);
   if(newLoopBeamLine==null){newLoopBeamLine=Line("New loop beam",new Color(.4f,1,1),.25f);newLoopBeamLine.positionCount=2;}
   bool beam=phase=="flight"&&simulation!=null&&simulation.NewLoopBeamActive;
   if(beam){
@@ -118,15 +124,17 @@ public sealed partial class CrabFlightGame {
   // End only after the last swept contact has entered the ordinary accounting step.
   if(beam&&newLoopBeamAge>=NewLoopRules.BeamSeconds){simulation.EndNewLoopBeam();RestoreNewLoopCrabRenderers();UpdateCamera(0,true);newLoopBeamLine.enabled=false;}
   if(newLoopChargeRing==null){newLoopChargeRing=Line("Release energy",Color.cyan,.06f);newLoopChargeRing.loop=true;newLoopChargeRing.positionCount=48;}
-  bool charge=phase=="ready"||phase=="flight"&&!newLoopObserved;newLoopChargeRing.enabled=charge;
+  bool charge=phase=="ready"||phase=="flight"&&!newLoopObserved;newLoopChargeRing.enabled=charge&&feelSettingsR27.preset!="off";
   float energy=phase=="ready"?spinCharge.Energy:launchChargeEnergy;var color=NewLoopRules.Tier(energy)==3?new Color(1,.85f,.15f):NewLoopRules.Tier(energy)==2?new Color(1,.3f,.6f):new Color(.2f,.9f,1);
-  newLoopChargeRing.startColor=newLoopChargeRing.endColor=color;
-  float radius=1.25f+.5f*energy;for(int i=0;i<48;i++){float a=i*Mathf.PI*2/48;newLoopChargeRing.SetPosition(i,crab.Root.position+cam.transform.right*Mathf.Cos(a)*radius+cam.transform.up*Mathf.Sin(a)*radius);}
+  newLoopChargeRing.startColor=newLoopChargeRing.endColor=NewLoopMotion?Color.Lerp(color,Color.white,Mathf.Clamp01(1-(visualClock-newLoopTierAt)/.18f)):color;
+  float pulse=NewLoopMotion?Mathf.Clamp01(1-(visualClock-newLoopTierAt)/.18f):0;
+  newLoopChargeRing.widthMultiplier=1+3*pulse;
+  float radius=(1.25f+.5f*energy)*(1+.25f*pulse);for(int i=0;i<48;i++){float a=i*Mathf.PI*2/48;newLoopChargeRing.SetPosition(i,crab.Root.position+cam.transform.right*Mathf.Cos(a)*radius+cam.transform.up*Mathf.Sin(a)*radius);}
  }
  void HideNewLoopCrabRenderer(Renderer renderer){if(!newLoopHiddenCrab.ContainsKey(renderer))newLoopHiddenCrab.Add(renderer,renderer.enabled);renderer.enabled=false;}
  void RestoreNewLoopCrabRenderers(){foreach(var pair in newLoopHiddenCrab)if(pair.Key)pair.Key.enabled=pair.Value;newLoopHiddenCrab.Clear();}
  NewLoopState NewLoopSnapshot(){
   int total=world!=null?world.NewLoopTotal:0,broken=phase=="result"?newLoopFinalBroken:simulation!=null?simulation.NewLoopBroken:0;
-  return new NewLoopState{segment=newLoopSegment,segmentName=NewLoopRules.Beat(newLoopSegment),beat=phase=="result"?"result":phase=="ready"?"charge":newLoopObserved?"destruction":"flight",total=total,broken=broken,tier=spinCharge.Tier,energy=phase=="ready"?spinCharge.Energy:launchChargeEnergy,elapsed=newLoopElapsed,releaseAge=newLoopReleaseAge,beamAge=newLoopBeamAge,released=newLoopObserved,cleared=newLoopCleared,destructionRate=NewLoopRules.Rate(broken,total),nextUnlocked=newLoopUnlocked[1],beamArmed=phase=="ready"?spinCharge.BeamArmed:newLoopLaunchArmed,beamActive=simulation!=null&&simulation.NewLoopBeamActive,beamUsed=simulation!=null&&simulation.NewLoopBeamUsed,overSpun=spinCharge.OverSpun,dizzy=spinCharge.Dizzy>0,held=spinCharge.Held,aimAngle=NewLoopAimAngle,hasPrevious=newLoopPreviousBroken>=0,previousBroken=newLoopPreviousBroken,delta=newLoopDelta,resetMs=newLoopResetMs,restoreMs=world!=null?world.NewLoopRestoreMs:0,resultToReadyMs=newLoopResultToReadyMs,endReason=simulation!=null?simulation.NewLoopEndReason:"",contactId=simulation!=null?simulation.NewLoopContactId:""};
+  return new NewLoopState{maxCue=newLoopMaxCue,spinCount=(int)newLoopRotations,visualSpinRps=newLoopShowRps,segment=newLoopSegment,segmentName=NewLoopRules.Beat(newLoopSegment),beat=phase=="result"?"result":phase=="ready"?"charge":newLoopObserved?"destruction":"flight",total=total,broken=broken,tier=spinCharge.Tier,energy=phase=="ready"?spinCharge.Energy:launchChargeEnergy,elapsed=newLoopElapsed,releaseAge=newLoopReleaseAge,beamAge=newLoopBeamAge,released=newLoopObserved,cleared=newLoopCleared,destructionRate=NewLoopRules.Rate(broken,total),nextUnlocked=newLoopUnlocked[1],beamArmed=phase=="ready"?spinCharge.BeamArmed:newLoopLaunchArmed,beamActive=simulation!=null&&simulation.NewLoopBeamActive,beamUsed=simulation!=null&&simulation.NewLoopBeamUsed,overSpun=spinCharge.OverSpun,dizzy=spinCharge.Dizzy>0,held=spinCharge.Held,aimAngle=NewLoopAimAngle,hasPrevious=newLoopPreviousBroken>=0,previousBroken=newLoopPreviousBroken,delta=newLoopDelta,resetMs=newLoopResetMs,restoreMs=world!=null?world.NewLoopRestoreMs:0,resultToReadyMs=newLoopResultToReadyMs,endReason=simulation!=null?simulation.NewLoopEndReason:"",contactId=simulation!=null?simulation.NewLoopContactId:""};
  }
 }

@@ -21,6 +21,9 @@ public sealed partial class RigidCrabFlight {
  public double NewLoopRestoreMs {get;private set;}
  readonly HashSet<BreakPanel> newLoopBeamPending=new HashSet<BreakPanel>();
  readonly HashSet<BreakPanel> newLoopPhysicalPending=new HashSet<BreakPanel>();
+ readonly Dictionary<BreakPanel,string> newLoopDirectPending=new Dictionary<BreakPanel,string>();
+ float newLoopWaveClock;
+ public void AdvanceNewLoopWaves(float dt){if(NewLoopReleased&&!NewLoopParked)newLoopWaveClock+=Mathf.Max(0,dt);}
  sealed class RestPanel {public BreakPanel panel;public Vector3 position,scale;public Quaternion rotation;public Rigidbody body;}
  readonly List<RestPanel> newLoopRest=new List<RestPanel>();
  readonly Dictionary<BreakPanel,RestPanel> newLoopRestByPanel=new Dictionary<BreakPanel,RestPanel>();
@@ -38,7 +41,7 @@ public sealed partial class RigidCrabFlight {
  public void BeginNewLoop(float energy,bool beamArmed){
   NewLoopEnergy=NewLoopRules.Energy(energy);NewLoopBeamArmed=beamArmed;
   NewLoopReleased=NewLoopParked=NewLoopBeamUsed=NewLoopBeamActive=false;
-  NewLoopEndReason=NewLoopContactId="";NewLoopImpulsed.Clear();
+  NewLoopEndReason=NewLoopContactId="";NewLoopImpulsed.Clear();newLoopWaveClock=0;newLoopDirectPending.Clear();
   // Charge is release energy only: legacy rotor/funding stock is not carried into this mode.
   ResetRotor();Remaining=0;braced=pressed=false;
   Body.position=new Vector3(NewLoopRules.SegmentStart(NewLoopSegment),NewLoopLaunchHeight,0);root.position=Body.position;
@@ -54,7 +57,7 @@ public sealed partial class RigidCrabFlight {
    r.panel.visual.transform.SetPositionAndRotation(r.position,r.rotation);r.panel.visual.transform.localScale=r.scale;
   }
   ResetRestaurant();ResetRotor();
-  newLoopBeamPending.Clear();newLoopPhysicalPending.Clear();NewLoopImpulsed.Clear();
+  newLoopBeamPending.Clear();newLoopPhysicalPending.Clear();newLoopDirectPending.Clear();NewLoopImpulsed.Clear();
   NewLoopReleased=NewLoopParked=NewLoopBeamUsed=NewLoopBeamActive=NewLoopBeamArmed=false;NewLoopEnergy=0;NewLoopEndReason=NewLoopContactId="";
   Body.isKinematic=true;Body.position=new Vector3(0,restHeight+.4f,0);Body.rotation=Quaternion.Euler(0,90,0);
   root.SetPositionAndRotation(Body.position,Body.rotation);braced=pressed=false;
@@ -80,27 +83,37 @@ public sealed partial class RigidCrabFlight {
   if(!NewLoopActive)return false;
   if(!NewLoopReleased||NewLoopParked)return true;
   var entry=PortLayout.Find(source.id);if(entry==null)return true;
-  bool ignition=NewLoopRules.Ignition(entry.role)||portChainScheduled.Contains(source.id);
-  var eligible=panels.Where(p=>p!=source&&!p.broken&&p.city2&&p.cityProposal.massKgSuggestion<=100&&NewLoopTarget(p))
-   .Where(p=>entry.chain.Length>0&&PortLayout.Find(p.id).chain==entry.chain).ToArray();
-  int baseline=eligible.Count(p=>Vector3.Distance(source.position,p.position)<=8);
-  int capacity=ignition?NewLoopRules.Capacity(baseline,NewLoopEnergy):release?NewLoopRules.OrdinaryCapacity(NewLoopEnergy):0,count=0;
-  foreach(var p in eligible.Where(p=>Vector3.Distance(source.position,p.position)<=NewLoopRules.Reach(NewLoopEnergy)).OrderBy(p=>Vector3.Distance(source.position,p.position)).ThenBy(p=>p.id,StringComparer.Ordinal)){
-   if(portScheduled.Contains(p.id))continue;if(count++>=capacity)break;
-   if(ignition)portChainScheduled.Add(p.id);portScheduled.Add(p.id);
-   portWaves.Add(new PortWave{target=p,from=source.position,due=Time+PortWaveDelay});
+  bool ignition=NewLoopRules.Ignition(entry.role);
+  if(!release&&!ignition)return true;
+  var members=panels.Where(p=>p.city2&&p.cityProposal.massKgSuggestion<=100&&NewLoopTarget(p))
+   .Where(p=>p==source||entry.chain.Length>0&&PortLayout.Find(p.id).chain==entry.chain);
+  var plan=NewLoopRules.WavePlan(source,members,NewLoopEnergy,ignition,(a,b)=>Vector3.Distance(a.position,b.position),p=>p.id);
+  foreach(var step in plan){
+   var p=step.target;if(!portScheduled.Add(p.id))continue;
+   if(ignition)portChainScheduled.Add(p.id);
+   portWaves.Add(new PortWave{target=p,from=source.position,due=NewLoopRules.HopDue(newLoopWaveClock,step.hop),cause=step.hop<=1?"wave-direct":"chain"});
   }
   return true;
  }
- // ON waves ONLY move real bodies. The contact callback below supplies solver impulses to ApplyBreaks.
- void ImpulseNewLoopPanel(PortWave wave){
-  var p=wave.target;if(!NewLoopReleased||NewLoopParked||p.broken||!NewLoopTarget(p)||p.cityProposal.massKgSuggestion>100)return;
-  var rest=newLoopRestByPanel[p];
-  if(!rest.body){rest.body=p.visual.AddComponent<Rigidbody>();rest.body.mass=p.cityProposal.massKgSuggestion;rest.body.isKinematic=true;rest.body.collisionDetectionMode=CollisionDetectionMode.ContinuousSpeculative;}
-  var body=rest.body;body.isKinematic=false;
-  var away=p.visual.transform.position-wave.from;away.y=0;if(away.sqrMagnitude<.01f)away=Vector3.right;
-  body.AddForce((away.normalized+Vector3.up)*body.mass*PortWaveImpulsePerMass,ForceMode.Impulse);body.WakeUp();
-  NewLoopImpulsed.Add(p.id);
+ // Direct waves and beams bypass only the threshold check in the one ApplyBreaks pipeline.
+ void QueueNewLoopWave(PortWave wave){
+  var p=wave.target;if(!NewLoopReleased||NewLoopParked||p.broken||!NewLoopTarget(p))return;
+  pendingBreaks[p]=p.position+Vector3.up;breakNormals[p]=Vector3.up;
+  breakImpulses[p]=Body.mass*NewLoopRules.ShardSpeedMin;secondarySources.Remove(p);
+  if(!primaryPending.Contains(p))portWavePending.Add(p);
+  newLoopDirectPending[p]=wave.cause??"chain";
+ }
+ void ExplodeNewLoopShards(List<Rigidbody> pieces,Vector3 center){
+  // Existing masses/compound colliders are retained. Authored wave energy becomes
+  // radial debris impulse; normal debris collision/threshold accounting still runs.
+  for(int i=0;i<pieces.Count;i++){
+   var body=pieces[i];float angle=i*2.399963f;
+   var outward=(body.worldCenterOfMass-center).normalized;
+   var radial=(outward+new Vector3(Mathf.Cos(angle),.65f+Mathf.Abs(Mathf.Sin(angle)),Mathf.Sin(angle)*.45f)).normalized;
+   var target=radial*Mathf.Lerp(NewLoopRules.ShardSpeedMin,NewLoopRules.ShardSpeedMax,(i%5)/4f);
+   body.AddForce((target-body.linearVelocity)*body.mass,ForceMode.Impulse);
+   body.angularVelocity=new Vector3(7+i,-9+i,12-i);body.WakeUp();
+  }
  }
  void SyncNewLoopProxies(){
   foreach(var r in newLoopRest)foreach(var shape in r.panel.shapes){
@@ -166,7 +179,7 @@ public sealed partial class RigidCrabFlight {
    }
   }
  }
- string NewLoopBreakCause(BreakPanel p,bool wave,bool secondary)=>newLoopBeamPending.Contains(p)?"beam":newLoopPhysicalPending.Contains(p)?"wave-contact":secondary?"debris-contact":"direct-contact";
+ string NewLoopBreakCause(BreakPanel p,bool wave,bool secondary)=>newLoopBeamPending.Contains(p)?"beam":newLoopDirectPending.TryGetValue(p,out var cause)?cause:secondary||newLoopPhysicalPending.Contains(p)?"chain":"direct-contact";
  public void StepNewLoop(){
   if(NewLoopParked)return;
   if(NewLoopBeamActive){
@@ -181,7 +194,7 @@ public sealed partial class RigidCrabFlight {
   if(NewLoopParked)return;if(NewLoopBeamActive)EndNewLoopBeam();NewLoopParked=true;NewLoopEndReason=reason;running=false;
   Body.linearVelocity=Vector3.zero;Body.angularVelocity=Vector3.zero;Body.isKinematic=true;
   foreach(var r in newLoopRest)StopNewLoopPanel(r.panel);
-  portWaves.Clear();pendingBreaks.Clear();breakImpulses.Clear();breakNormals.Clear();newLoopBeamPending.Clear();newLoopPhysicalPending.Clear();
+  portWaves.Clear();pendingBreaks.Clear();breakImpulses.Clear();breakNormals.Clear();newLoopBeamPending.Clear();newLoopPhysicalPending.Clear();newLoopDirectPending.Clear();
   Distance=Mathf.Max(0,Body.position.x-NewLoopRules.SegmentStart(NewLoopSegment));
  }
  public void FinishNewLoop(string reason){if(!NewLoopParked)ParkNewLoop(reason);Stage=KickFlightPhysics.RunStage.RESULT;Event("settled");}
