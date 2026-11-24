@@ -1,0 +1,677 @@
+{
+  "config": {
+    "argv": [
+      "/usr/local/bin/node",
+      "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/placement-fix-qa/runtime/node_modules/.bin/playwright",
+      "test",
+      "--config",
+      "qa/juice-layer/playwright.config.cjs"
+    ],
+    "configFile": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer/playwright.config.cjs",
+    "rootDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/worktrees/juice-layer/juice-layer-playwright",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer",
+        "testIgnore": [],
+        "testMatch": [
+          "juice.spec.cjs"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/docs/juice-layer/playwright.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "juice.spec.cjs",
+      "file": "juice.spec.cjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "frozen placement, physics, camera, models and 26 original edits are preserved",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 660,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:58:53.697Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-5632e90c3933a930d1e2",
+          "file": "juice.spec.cjs",
+          "line": 9,
+          "column": 1
+        },
+        {
+          "title": "actual C# policies and transplanted burst survive caps, windows, reset and safety",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 884,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:58:54.391Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-a52e1a9d45aed7b9c2a4",
+          "file": "juice.spec.cjs",
+          "line": 23,
+          "column": 1
+        },
+        {
+          "title": "frozen FBX colours reproduce exactly without touching importer settings",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 465,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:58:55.284Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-8c2b49f563e248e7e9f4",
+          "file": "juice.spec.cjs",
+          "line": 28,
+          "column": 1
+        },
+        {
+          "title": "compiler receipt matches current source and event path gates legacy destruction stops",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 365,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:58:55.762Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-40a63df5914eb3dcb332",
+          "file": "juice.spec.cjs",
+          "line": 36,
+          "column": 1
+        },
+        {
+          "title": "existing WAV path rises in semitones, caps at octave, resets and deduplicates",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 37,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:58:56.136Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-82d037efe5ef2f581504",
+          "file": "juice.spec.cjs",
+          "line": 74,
+          "column": 1
+        },
+        {
+          "title": "fallback receives identical pitch and deferred voice keeps event-time pitch",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:58:56.182Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-4cc86197deb03a4b361a",
+          "file": "juice.spec.cjs",
+          "line": 85,
+          "column": 1
+        },
+        {
+          "title": "audio generation reset cancels delayed voices and mute does not replay missed events",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:58:56.197Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-525fbf274e99c3766fe8",
+          "file": "juice.spec.cjs",
+          "line": 94,
+          "column": 1
+        },
+        {
+          "title": "HUD portrait: aggregate count catches up, pops and stays inside viewport",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 678,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:58:56.211Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-092fe3330fb5c31106c7",
+          "file": "juice.spec.cjs",
+          "line": 122,
+          "column": 2
+        },
+        {
+          "title": "HUD small: aggregate count catches up, pops and stays inside viewport",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 529,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:58:57.459Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-dfe184388512a85251a3",
+          "file": "juice.spec.cjs",
+          "line": 122,
+          "column": 2
+        },
+        {
+          "title": "HUD landscape: aggregate count catches up, pops and stays inside viewport",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 557,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:58:58.000Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-af644fe1f27d2b4953b3",
+          "file": "juice.spec.cjs",
+          "line": 122,
+          "column": 2
+        },
+        {
+          "title": "HUD pause/resume, dense updates, retry and result never leave stale totals",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 563,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:58:58.569Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-45ea063e925eca46b5f7",
+          "file": "juice.spec.cjs",
+          "line": 138,
+          "column": 1
+        },
+        {
+          "title": "HUD reduced motion and effects off cancel the animation immediately",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 448,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:58:59.145Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-7d3631e45210bf5021f7",
+          "file": "juice.spec.cjs",
+          "line": 151,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-24T16:58:53.115Z",
+    "duration": 7390.62,
+    "expected": 12,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

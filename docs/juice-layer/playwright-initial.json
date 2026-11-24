@@ -1,0 +1,747 @@
+{
+  "config": {
+    "argv": [
+      "/usr/local/bin/node",
+      "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/placement-fix-qa/runtime/node_modules/.bin/playwright",
+      "test",
+      "--config",
+      "qa/juice-layer/playwright.config.cjs"
+    ],
+    "configFile": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer/playwright.config.cjs",
+    "rootDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/worktrees/juice-layer/juice-layer-playwright",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer",
+        "testIgnore": [],
+        "testMatch": [
+          "juice.spec.cjs"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/docs/juice-layer/playwright.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "juice.spec.cjs",
+      "file": "juice.spec.cjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "frozen placement, physics, camera, models and 26 original edits are preserved",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 668,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:55:44.669Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-5632e90c3933a930d1e2",
+          "file": "juice.spec.cjs",
+          "line": 9,
+          "column": 1
+        },
+        {
+          "title": "actual C# policies and transplanted burst survive caps, windows, reset and safety",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 881,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:55:45.377Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-a52e1a9d45aed7b9c2a4",
+          "file": "juice.spec.cjs",
+          "line": 23,
+          "column": 1
+        },
+        {
+          "title": "frozen FBX colours reproduce exactly without touching importer settings",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 470,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:55:46.267Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-8c2b49f563e248e7e9f4",
+          "file": "juice.spec.cjs",
+          "line": 28,
+          "column": 1
+        },
+        {
+          "title": "compiler receipt matches current source and event path gates legacy destruction stops",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 329,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:55:46.750Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-40a63df5914eb3dcb332",
+          "file": "juice.spec.cjs",
+          "line": 36,
+          "column": 1
+        },
+        {
+          "title": "existing WAV path rises in semitones, caps at octave, resets and deduplicates",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 31,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:55:47.088Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-82d037efe5ef2f581504",
+          "file": "juice.spec.cjs",
+          "line": 74,
+          "column": 1
+        },
+        {
+          "title": "fallback receives identical pitch and deferred voice keeps event-time pitch",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:55:47.127Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-4cc86197deb03a4b361a",
+          "file": "juice.spec.cjs",
+          "line": 85,
+          "column": 1
+        },
+        {
+          "title": "audio generation reset cancels delayed voices and mute does not replay missed events",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:55:47.142Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-525fbf274e99c3766fe8",
+          "file": "juice.spec.cjs",
+          "line": 94,
+          "column": 1
+        },
+        {
+          "title": "HUD portrait: aggregate count catches up, pops and stays inside viewport",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1,
+                  "error": {
+                    "message": "Error: browserType.launch: Executable doesn't exist at /Users/konomichiharu/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+                    "stack": "Error: browserType.launch: Executable doesn't exist at /Users/konomichiharu/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserType.launch: Executable doesn't exist at /Users/konomichiharu/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:55:47.159Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/worktrees/juice-layer/juice-layer-playwright/juice-HUD-portrait-aggrega-92be6-s-and-stays-inside-viewport/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-092fe3330fb5c31106c7",
+          "file": "juice.spec.cjs",
+          "line": 122,
+          "column": 2
+        },
+        {
+          "title": "HUD small: aggregate count catches up, pops and stays inside viewport",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3,
+                  "error": {
+                    "message": "Error: browserType.launch: Executable doesn't exist at /Users/konomichiharu/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+                    "stack": "Error: browserType.launch: Executable doesn't exist at /Users/konomichiharu/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserType.launch: Executable doesn't exist at /Users/konomichiharu/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:55:47.626Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/worktrees/juice-layer/juice-layer-playwright/juice-HUD-small-aggregate--6033d-s-and-stays-inside-viewport/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-dfe184388512a85251a3",
+          "file": "juice.spec.cjs",
+          "line": 122,
+          "column": 2
+        },
+        {
+          "title": "HUD landscape: aggregate count catches up, pops and stays inside viewport",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2,
+                  "error": {
+                    "message": "Error: browserType.launch: Executable doesn't exist at /Users/konomichiharu/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+                    "stack": "Error: browserType.launch: Executable doesn't exist at /Users/konomichiharu/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserType.launch: Executable doesn't exist at /Users/konomichiharu/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:55:48.137Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/worktrees/juice-layer/juice-layer-playwright/juice-HUD-landscape-aggreg-d528f-s-and-stays-inside-viewport/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-af644fe1f27d2b4953b3",
+          "file": "juice.spec.cjs",
+          "line": 122,
+          "column": 2
+        },
+        {
+          "title": "HUD pause/resume, dense updates, retry and result never leave stale totals",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3,
+                  "error": {
+                    "message": "Error: browserType.launch: Executable doesn't exist at /Users/konomichiharu/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+                    "stack": "Error: browserType.launch: Executable doesn't exist at /Users/konomichiharu/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserType.launch: Executable doesn't exist at /Users/konomichiharu/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:55:48.674Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/worktrees/juice-layer/juice-layer-playwright/juice-HUD-pause-resume-den-13f74-lt-never-leave-stale-totals/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-45ea063e925eca46b5f7",
+          "file": "juice.spec.cjs",
+          "line": 135,
+          "column": 1
+        },
+        {
+          "title": "HUD reduced motion and effects off cancel the animation immediately",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2,
+                  "error": {
+                    "message": "Error: browserType.launch: Executable doesn't exist at /Users/konomichiharu/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
+                    "stack": "Error: browserType.launch: Executable doesn't exist at /Users/konomichiharu/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserType.launch: Executable doesn't exist at /Users/konomichiharu/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-x64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:55:49.220Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/worktrees/juice-layer/juice-layer-playwright/juice-HUD-reduced-motion-a-1e88f-l-the-animation-immediately/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-7d3631e45210bf5021f7",
+          "file": "juice.spec.cjs",
+          "line": 148,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-24T16:55:44.134Z",
+    "duration": 5148.149,
+    "expected": 7,
+    "skipped": 0,
+    "unexpected": 5,
+    "flaky": 0
+  }
+}

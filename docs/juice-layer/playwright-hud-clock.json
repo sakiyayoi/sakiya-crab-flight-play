@@ -1,0 +1,349 @@
+{
+  "config": {
+    "argv": [
+      "/usr/local/bin/node",
+      "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/placement-fix-qa/runtime/node_modules/.bin/playwright",
+      "test",
+      "--config",
+      "qa/juice-layer/playwright.config.cjs",
+      "--grep",
+      "HUD"
+    ],
+    "configFile": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer/playwright.config.cjs",
+    "rootDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/worktrees/juice-layer/juice-layer-playwright",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer",
+        "testIgnore": [],
+        "testMatch": [
+          "juice.spec.cjs"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/docs/juice-layer/playwright.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "juice.spec.cjs",
+      "file": "juice.spec.cjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "HUD portrait: aggregate count catches up, pops and stays inside viewport",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5856,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#destructionValue')\nExpected: \u001b[32m\"0\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m8\u001b[27m0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#destructionValue')\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">13</strong>\u001b[22m\n\u001b[2m    - unexpected value \"13\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">17</strong>\u001b[22m\n\u001b[2m    - unexpected value \"17\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">39</strong>\u001b[22m\n\u001b[2m    - unexpected value \"39\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">70</strong>\u001b[22m\n\u001b[2m    - unexpected value \"70\"\u001b[22m\n\u001b[2m    10 × locator resolved to <strong id=\"destructionValue\">80</strong>\u001b[22m\n\u001b[2m       - unexpected value \"80\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#destructionValue')\nExpected: \u001b[32m\"0\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m8\u001b[27m0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#destructionValue')\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">13</strong>\u001b[22m\n\u001b[2m    - unexpected value \"13\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">17</strong>\u001b[22m\n\u001b[2m    - unexpected value \"17\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">39</strong>\u001b[22m\n\u001b[2m    - unexpected value \"39\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">70</strong>\u001b[22m\n\u001b[2m    - unexpected value \"70\"\u001b[22m\n\u001b[2m    10 × locator resolved to <strong id=\"destructionValue\">80</strong>\u001b[22m\n\u001b[2m       - unexpected value \"80\"\u001b[22m\n\n    at /Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer/juice.spec.cjs:125:51",
+                    "location": {
+                      "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer/juice.spec.cjs",
+                      "column": 51,
+                      "line": 125
+                    },
+                    "snippet": "  123 |   const errors=[];page.on('pageerror',e=>errors.push(String(e)));await hudFixture(page,size);\n  124 |   await page.evaluate(()=>{state.destructionEvent=80;JuiceHud.update(state);});\n> 125 |   await expect(page.locator('#destructionValue')).toHaveText('0');await page.clock.runFor(80);\n      |                                                   ^\n  126 |   const value=Number(await page.locator('#destructionValue').textContent());expect(value).toBeGreaterThan(0);expect(value).toBeLessThan(80);\n  127 |   const animation=await page.locator('#destructionValue').evaluate(e=>e.getAnimations().at(-1)?.effect.getTiming().duration);expect(animation).toBe(150);\n  128 |   const box=await page.locator('#destructionValue').boundingBox();expect(box.x).toBeGreaterThanOrEqual(0);expect(box.x+box.width).toBeLessThanOrEqual(size.width);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer/juice.spec.cjs",
+                        "column": 51,
+                        "line": 125
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#destructionValue')\nExpected: \u001b[32m\"0\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m8\u001b[27m0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#destructionValue')\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">13</strong>\u001b[22m\n\u001b[2m    - unexpected value \"13\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">17</strong>\u001b[22m\n\u001b[2m    - unexpected value \"17\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">39</strong>\u001b[22m\n\u001b[2m    - unexpected value \"39\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">70</strong>\u001b[22m\n\u001b[2m    - unexpected value \"70\"\u001b[22m\n\u001b[2m    10 × locator resolved to <strong id=\"destructionValue\">80</strong>\u001b[22m\n\u001b[2m       - unexpected value \"80\"\u001b[22m\n\n\n  123 |   const errors=[];page.on('pageerror',e=>errors.push(String(e)));await hudFixture(page,size);\n  124 |   await page.evaluate(()=>{state.destructionEvent=80;JuiceHud.update(state);});\n> 125 |   await expect(page.locator('#destructionValue')).toHaveText('0');await page.clock.runFor(80);\n      |                                                   ^\n  126 |   const value=Number(await page.locator('#destructionValue').textContent());expect(value).toBeGreaterThan(0);expect(value).toBeLessThan(80);\n  127 |   const animation=await page.locator('#destructionValue').evaluate(e=>e.getAnimations().at(-1)?.effect.getTiming().duration);expect(animation).toBe(150);\n  128 |   const box=await page.locator('#destructionValue').boundingBox();expect(box.x).toBeGreaterThanOrEqual(0);expect(box.x+box.width).toBeLessThanOrEqual(size.width);\n    at /Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer/juice.spec.cjs:125:51"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:56:21.820Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/worktrees/juice-layer/juice-layer-playwright/juice-HUD-portrait-aggrega-92be6-s-and-stays-inside-viewport/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer/juice.spec.cjs",
+                    "column": 51,
+                    "line": 125
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-092fe3330fb5c31106c7",
+          "file": "juice.spec.cjs",
+          "line": 122,
+          "column": 2
+        },
+        {
+          "title": "HUD small: aggregate count catches up, pops and stays inside viewport",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5586,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#destructionValue')\nExpected: \u001b[32m\"0\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m8\u001b[27m0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#destructionValue')\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">10</strong>\u001b[22m\n\u001b[2m    - unexpected value \"10\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">14</strong>\u001b[22m\n\u001b[2m    - unexpected value \"14\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">36</strong>\u001b[22m\n\u001b[2m    - unexpected value \"36\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">68</strong>\u001b[22m\n\u001b[2m    - unexpected value \"68\"\u001b[22m\n\u001b[2m    10 × locator resolved to <strong id=\"destructionValue\">80</strong>\u001b[22m\n\u001b[2m       - unexpected value \"80\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#destructionValue')\nExpected: \u001b[32m\"0\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m8\u001b[27m0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#destructionValue')\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">10</strong>\u001b[22m\n\u001b[2m    - unexpected value \"10\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">14</strong>\u001b[22m\n\u001b[2m    - unexpected value \"14\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">36</strong>\u001b[22m\n\u001b[2m    - unexpected value \"36\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">68</strong>\u001b[22m\n\u001b[2m    - unexpected value \"68\"\u001b[22m\n\u001b[2m    10 × locator resolved to <strong id=\"destructionValue\">80</strong>\u001b[22m\n\u001b[2m       - unexpected value \"80\"\u001b[22m\n\n    at /Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer/juice.spec.cjs:125:51",
+                    "location": {
+                      "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer/juice.spec.cjs",
+                      "column": 51,
+                      "line": 125
+                    },
+                    "snippet": "  123 |   const errors=[];page.on('pageerror',e=>errors.push(String(e)));await hudFixture(page,size);\n  124 |   await page.evaluate(()=>{state.destructionEvent=80;JuiceHud.update(state);});\n> 125 |   await expect(page.locator('#destructionValue')).toHaveText('0');await page.clock.runFor(80);\n      |                                                   ^\n  126 |   const value=Number(await page.locator('#destructionValue').textContent());expect(value).toBeGreaterThan(0);expect(value).toBeLessThan(80);\n  127 |   const animation=await page.locator('#destructionValue').evaluate(e=>e.getAnimations().at(-1)?.effect.getTiming().duration);expect(animation).toBe(150);\n  128 |   const box=await page.locator('#destructionValue').boundingBox();expect(box.x).toBeGreaterThanOrEqual(0);expect(box.x+box.width).toBeLessThanOrEqual(size.width);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer/juice.spec.cjs",
+                        "column": 51,
+                        "line": 125
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#destructionValue')\nExpected: \u001b[32m\"0\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m8\u001b[27m0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#destructionValue')\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">10</strong>\u001b[22m\n\u001b[2m    - unexpected value \"10\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">14</strong>\u001b[22m\n\u001b[2m    - unexpected value \"14\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">36</strong>\u001b[22m\n\u001b[2m    - unexpected value \"36\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">68</strong>\u001b[22m\n\u001b[2m    - unexpected value \"68\"\u001b[22m\n\u001b[2m    10 × locator resolved to <strong id=\"destructionValue\">80</strong>\u001b[22m\n\u001b[2m       - unexpected value \"80\"\u001b[22m\n\n\n  123 |   const errors=[];page.on('pageerror',e=>errors.push(String(e)));await hudFixture(page,size);\n  124 |   await page.evaluate(()=>{state.destructionEvent=80;JuiceHud.update(state);});\n> 125 |   await expect(page.locator('#destructionValue')).toHaveText('0');await page.clock.runFor(80);\n      |                                                   ^\n  126 |   const value=Number(await page.locator('#destructionValue').textContent());expect(value).toBeGreaterThan(0);expect(value).toBeLessThan(80);\n  127 |   const animation=await page.locator('#destructionValue').evaluate(e=>e.getAnimations().at(-1)?.effect.getTiming().duration);expect(animation).toBe(150);\n  128 |   const box=await page.locator('#destructionValue').boundingBox();expect(box.x).toBeGreaterThanOrEqual(0);expect(box.x+box.width).toBeLessThanOrEqual(size.width);\n    at /Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer/juice.spec.cjs:125:51"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:56:30.859Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/worktrees/juice-layer/juice-layer-playwright/juice-HUD-small-aggregate--6033d-s-and-stays-inside-viewport/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer/juice.spec.cjs",
+                    "column": 51,
+                    "line": 125
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-dfe184388512a85251a3",
+          "file": "juice.spec.cjs",
+          "line": 122,
+          "column": 2
+        },
+        {
+          "title": "HUD landscape: aggregate count catches up, pops and stays inside viewport",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5594,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#destructionValue')\nExpected: \u001b[32m\"0\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m8\u001b[27m0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#destructionValue')\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">7</strong>\u001b[22m\n\u001b[2m    - unexpected value \"7\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">18</strong>\u001b[22m\n\u001b[2m    - unexpected value \"18\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">33</strong>\u001b[22m\n\u001b[2m    - unexpected value \"33\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">65</strong>\u001b[22m\n\u001b[2m    - unexpected value \"65\"\u001b[22m\n\u001b[2m    10 × locator resolved to <strong id=\"destructionValue\">80</strong>\u001b[22m\n\u001b[2m       - unexpected value \"80\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#destructionValue')\nExpected: \u001b[32m\"0\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m8\u001b[27m0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#destructionValue')\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">7</strong>\u001b[22m\n\u001b[2m    - unexpected value \"7\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">18</strong>\u001b[22m\n\u001b[2m    - unexpected value \"18\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">33</strong>\u001b[22m\n\u001b[2m    - unexpected value \"33\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">65</strong>\u001b[22m\n\u001b[2m    - unexpected value \"65\"\u001b[22m\n\u001b[2m    10 × locator resolved to <strong id=\"destructionValue\">80</strong>\u001b[22m\n\u001b[2m       - unexpected value \"80\"\u001b[22m\n\n    at /Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer/juice.spec.cjs:125:51",
+                    "location": {
+                      "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer/juice.spec.cjs",
+                      "column": 51,
+                      "line": 125
+                    },
+                    "snippet": "  123 |   const errors=[];page.on('pageerror',e=>errors.push(String(e)));await hudFixture(page,size);\n  124 |   await page.evaluate(()=>{state.destructionEvent=80;JuiceHud.update(state);});\n> 125 |   await expect(page.locator('#destructionValue')).toHaveText('0');await page.clock.runFor(80);\n      |                                                   ^\n  126 |   const value=Number(await page.locator('#destructionValue').textContent());expect(value).toBeGreaterThan(0);expect(value).toBeLessThan(80);\n  127 |   const animation=await page.locator('#destructionValue').evaluate(e=>e.getAnimations().at(-1)?.effect.getTiming().duration);expect(animation).toBe(150);\n  128 |   const box=await page.locator('#destructionValue').boundingBox();expect(box.x).toBeGreaterThanOrEqual(0);expect(box.x+box.width).toBeLessThanOrEqual(size.width);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer/juice.spec.cjs",
+                        "column": 51,
+                        "line": 125
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#destructionValue')\nExpected: \u001b[32m\"0\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m8\u001b[27m0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#destructionValue')\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">7</strong>\u001b[22m\n\u001b[2m    - unexpected value \"7\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">18</strong>\u001b[22m\n\u001b[2m    - unexpected value \"18\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">33</strong>\u001b[22m\n\u001b[2m    - unexpected value \"33\"\u001b[22m\n\u001b[2m    - locator resolved to <strong id=\"destructionValue\">65</strong>\u001b[22m\n\u001b[2m    - unexpected value \"65\"\u001b[22m\n\u001b[2m    10 × locator resolved to <strong id=\"destructionValue\">80</strong>\u001b[22m\n\u001b[2m       - unexpected value \"80\"\u001b[22m\n\n\n  123 |   const errors=[];page.on('pageerror',e=>errors.push(String(e)));await hudFixture(page,size);\n  124 |   await page.evaluate(()=>{state.destructionEvent=80;JuiceHud.update(state);});\n> 125 |   await expect(page.locator('#destructionValue')).toHaveText('0');await page.clock.runFor(80);\n      |                                                   ^\n  126 |   const value=Number(await page.locator('#destructionValue').textContent());expect(value).toBeGreaterThan(0);expect(value).toBeLessThan(80);\n  127 |   const animation=await page.locator('#destructionValue').evaluate(e=>e.getAnimations().at(-1)?.effect.getTiming().duration);expect(animation).toBe(150);\n  128 |   const box=await page.locator('#destructionValue').boundingBox();expect(box.x).toBeGreaterThanOrEqual(0);expect(box.x+box.width).toBeLessThanOrEqual(size.width);\n    at /Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer/juice.spec.cjs:125:51"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:56:38.567Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/worktrees/juice-layer/juice-layer-playwright/juice-HUD-landscape-aggreg-d528f-s-and-stays-inside-viewport/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/juice-layer/qa/juice-layer/juice.spec.cjs",
+                    "column": 51,
+                    "line": 125
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-af644fe1f27d2b4953b3",
+          "file": "juice.spec.cjs",
+          "line": 122,
+          "column": 2
+        },
+        {
+          "title": "HUD pause/resume, dense updates, retry and result never leave stale totals",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 761,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:56:46.207Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-45ea063e925eca46b5f7",
+          "file": "juice.spec.cjs",
+          "line": 135,
+          "column": 1
+        },
+        {
+          "title": "HUD reduced motion and effects off cancel the animation immediately",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 472,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T16:56:47.435Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "103ecfc1bd5b343b7c8e-7d3631e45210bf5021f7",
+          "file": "juice.spec.cjs",
+          "line": 148,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-24T16:56:21.343Z",
+    "duration": 27293.558999999997,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

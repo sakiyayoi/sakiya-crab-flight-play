@@ -2,7 +2,9 @@ using System.Collections.Generic;using UnityEngine;using UnityEngine.Rendering;
 // Drawing only. No simulation RNG, forces, transforms of gameplay bodies, or score writes.
 public sealed partial class MashimashiPresentationR27:MonoBehaviour {
  struct Mark{public int kind,material;public float born,life,size,angle,turn,stretch;public Vector3 p,v;public Color color;}
- readonly List<Mark> marks=new List<Mark>();readonly List<Vector3> vertices=new List<Vector3>();readonly List<Color> colors=new List<Color>();readonly List<int> triangles=new List<int>();Mesh mesh;Material ink;FeelConfig cfg;bool flash;Color flashColor;Vector3 flashPosition;Vector3 rotorPosition;float rotorAngle,rotorStrength;bool rotor;
+ // Preallocate the worst three-puff mesh (216 vertices/mark), plus existing rings/rotor.
+ const int VertexCapacity=JuiceRules.MarkLimit*256+1024;
+ readonly List<Mark> marks=new List<Mark>(JuiceRules.MarkLimit);readonly List<Vector3> vertices=new List<Vector3>(VertexCapacity);readonly List<Color> colors=new List<Color>(VertexCapacity);readonly List<int> triangles=new List<int>(VertexCapacity);Mesh mesh;Material ink;FeelConfig cfg;bool flash;Color flashColor;Vector3 flashPosition;Vector3 rotorPosition;float rotorAngle,rotorStrength;bool rotor;
  public int Active=>marks.Count;
  public bool RotorVisible=>rotor;
  public FeelResourcesR32 ReadResources(float now){var r=new FeelResourcesR32();foreach(var m in marks){if(m.kind==0||m.kind==5||m.kind==6)r.particles++;else if(m.kind==1)r.rings++;else if(m.kind==2)r.ghosts++;else if(m.kind==3)r.speedLines++;else if(m.kind==4)r.residue++;r.maxRemainingSeconds=Mathf.Max(r.maxRemainingSeconds,m.life-(now-m.born));}return r;}
