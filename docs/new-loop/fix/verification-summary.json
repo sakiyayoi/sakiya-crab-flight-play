@@ -1,0 +1,16 @@
+{
+  "implementationCommit": "911bc64f2df223219b74b40c7077ad8e59766e14",
+  "base": "dad61373317489381ef3b71a3f99e244cfa5ebe6",
+  "patchSha256": "4462d4f818fd65179cf36176b960ee045acc237ee069d0b5d110254643fffc19",
+  "patchBytes": 91988,
+  "scope": "source patch, not WebGL distribution",
+  "roslynSources": 125,
+  "roslynErrors": 0,
+  "roslynWarnings": 20,
+  "newLoopContractsPassed": 71,
+  "portContractsPassed": 30,
+  "playwrightPassed": 14,
+  "playwrightFailed": 0,
+  "playwrightSkipped": 0,
+  "native": "NOT_RUN by instruction"
+}

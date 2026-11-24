@@ -1,0 +1,930 @@
+diff --git a/games/flight/crab-flight/Assets/PortPrototype/NewLoopGame.cs b/games/flight/crab-flight/Assets/PortPrototype/NewLoopGame.cs
+index 5b3824b..c43b050 100644
+--- a/games/flight/crab-flight/Assets/PortPrototype/NewLoopGame.cs
++++ b/games/flight/crab-flight/Assets/PortPrototype/NewLoopGame.cs
+@@ -4,8 +4,8 @@ using UnityEngine;
+ 
+ [Serializable] public sealed class NewLoopState {
+  public string revision=NewLoopRules.Revision,beat,segmentName,endReason,contactId;
+- public int segment,total,broken,tier,previousBroken,delta;
+- public float energy,destructionRate,elapsed,releaseAge,beamAge,aimAngle;
++ public int segment,total,broken,tier,previousBroken,delta,spinCount,maxCue;
++ public float energy,destructionRate,elapsed,releaseAge,beamAge,aimAngle,visualSpinRps;
+  public bool released,cleared,nextUnlocked,beamArmed,beamActive,beamUsed,overSpun,dizzy,hasPrevious,held;
+  public double resetMs,restoreMs,resultToReadyMs;
+ }
+@@ -48,7 +48,7 @@ public sealed partial class CrabFlightGame {
+   message="最初に当てる場所で、連鎖を変えよう";
+  }
+  void ResetNewLoopGame(){
+-  newLoopElapsed=newLoopReleaseAge=newLoopBeamAge=0;newLoopObserved=newLoopBeamHeld=newLoopLaunchArmed=false;
++  ResetNewLoopShow();newLoopElapsed=newLoopReleaseAge=newLoopBeamAge=0;newLoopObserved=newLoopBeamHeld=newLoopLaunchArmed=false;
+   newLoopFinalBroken=0;newLoopCleared=false;newLoopPreviousBroken=newLoopLastCounts[newLoopSegment];newLoopDelta=0;
+   crab.Root.position=new Vector3(NewLoopStart,world.NewLoopLaunchHeight,0);world.Body.position=crab.Root.position;
+   shadow.position=new Vector3(NewLoopStart,.045f,0);landingFlag.gameObject.SetActive(false);bestFlag.gameObject.SetActive(false);
+@@ -64,6 +64,7 @@ public sealed partial class CrabFlightGame {
+   // Update passes real, unscaled time in this mode; deadlines are independent of slow-motion.
+   newLoopElapsed+=Mathf.Max(0,dt);if(newLoopObserved)newLoopReleaseAge+=Mathf.Max(0,dt);
+   if(EndNewLoopIfDue())return 0;
++  simulation.AdvanceNewLoopWaves(dt);
+   if(newLoopBeamHeld&&!simulation.NewLoopBeamUsed&&simulation.BeginNewLoopBeam())newLoopBeamAge=0;
+   if(simulation.NewLoopBeamActive){float before=newLoopBeamAge;newLoopBeamAge=Mathf.Min(NewLoopRules.BeamSeconds,newLoopBeamAge+dt);simulation.SweepNewLoopBeam(before,newLoopBeamAge);}
+   return newLoopObserved&&newLoopReleaseAge<NewLoopRules.SlowSeconds&&NewLoopMotion?Mathf.Min(dt,.08f)*NewLoopRules.SlowScale:Mathf.Min(dt,.08f);
+@@ -101,13 +102,18 @@ public sealed partial class CrabFlightGame {
+   cam.orthographic=true;cam.transform.rotation=Quaternion.LookRotation(new Vector3(0,-5.3f,16).normalized,Vector3.up);
+   float size=cam.aspect<1?13:10,lead=Mathf.Min(6,size*cam.aspect*.4f);
+   Vector3 target=new Vector3(crab.Root.position.x+lead,Mathf.Max(5,crab.Root.position.y+2),-16);
+-  float punch=phase=="flight"&&newLoopObserved?Mathf.Clamp01(1-newLoopReleaseAge/.28f):0;
+-  cam.orthographicSize=size*(NewLoopMotion?1-.22f*punch:1);
++  float punch=phase=="flight"&&newLoopObserved?Mathf.Clamp01(1-newLoopReleaseAge/NewLoopRules.CameraPunchSeconds):0;
++  cam.orthographicSize=size*(NewLoopMotion&&feelSettingsR27.shake?1-(1-NewLoopRules.CameraPunchScale)*punch:1);
+   if(snap)cam.transform.position=target;else cam.transform.position=Vector3.Lerp(cam.transform.position,target,1-Mathf.Exp(-Mathf.Max(0,dt)*12));
++  if(NewLoopMotion&&feelSettingsR27.shake&&phase=="ready"&&spinCharge.Held){
++   float amp=spinCharge.Tier==3?.12f:spinCharge.Tier==2?.055f:.012f;
++   cam.transform.position+=new Vector3(Mathf.Sin(visualClock*83),Mathf.Sin(visualClock*101)*.65f,0)*amp;
++  }
+   if(NewLoopMotion&&feelSettingsR27.shake&&punch>0)cam.transform.position+=new Vector3(Mathf.Sin(newLoopReleaseAge*89),Mathf.Sin(newLoopReleaseAge*67)*.6f,0)*(.35f*punch*punch);
+  }
+  void PresentNewLoop(float dt){
+   if(phase=="ready")PreviewNewLoopAim();
++  PresentNewLoopShow(dt);
+   if(newLoopBeamLine==null){newLoopBeamLine=Line("New loop beam",new Color(.4f,1,1),.25f);newLoopBeamLine.positionCount=2;}
+   bool beam=phase=="flight"&&simulation!=null&&simulation.NewLoopBeamActive;
+   if(beam){
+@@ -118,15 +124,17 @@ public sealed partial class CrabFlightGame {
+   // End only after the last swept contact has entered the ordinary accounting step.
+   if(beam&&newLoopBeamAge>=NewLoopRules.BeamSeconds){simulation.EndNewLoopBeam();RestoreNewLoopCrabRenderers();UpdateCamera(0,true);newLoopBeamLine.enabled=false;}
+   if(newLoopChargeRing==null){newLoopChargeRing=Line("Release energy",Color.cyan,.06f);newLoopChargeRing.loop=true;newLoopChargeRing.positionCount=48;}
+-  bool charge=phase=="ready"||phase=="flight"&&!newLoopObserved;newLoopChargeRing.enabled=charge;
++  bool charge=phase=="ready"||phase=="flight"&&!newLoopObserved;newLoopChargeRing.enabled=charge&&feelSettingsR27.preset!="off";
+   float energy=phase=="ready"?spinCharge.Energy:launchChargeEnergy;var color=NewLoopRules.Tier(energy)==3?new Color(1,.85f,.15f):NewLoopRules.Tier(energy)==2?new Color(1,.3f,.6f):new Color(.2f,.9f,1);
+-  newLoopChargeRing.startColor=newLoopChargeRing.endColor=color;
+-  float radius=1.25f+.5f*energy;for(int i=0;i<48;i++){float a=i*Mathf.PI*2/48;newLoopChargeRing.SetPosition(i,crab.Root.position+cam.transform.right*Mathf.Cos(a)*radius+cam.transform.up*Mathf.Sin(a)*radius);}
++  newLoopChargeRing.startColor=newLoopChargeRing.endColor=NewLoopMotion?Color.Lerp(color,Color.white,Mathf.Clamp01(1-(visualClock-newLoopTierAt)/.18f)):color;
++  float pulse=NewLoopMotion?Mathf.Clamp01(1-(visualClock-newLoopTierAt)/.18f):0;
++  newLoopChargeRing.widthMultiplier=1+3*pulse;
++  float radius=(1.25f+.5f*energy)*(1+.25f*pulse);for(int i=0;i<48;i++){float a=i*Mathf.PI*2/48;newLoopChargeRing.SetPosition(i,crab.Root.position+cam.transform.right*Mathf.Cos(a)*radius+cam.transform.up*Mathf.Sin(a)*radius);}
+  }
+  void HideNewLoopCrabRenderer(Renderer renderer){if(!newLoopHiddenCrab.ContainsKey(renderer))newLoopHiddenCrab.Add(renderer,renderer.enabled);renderer.enabled=false;}
+  void RestoreNewLoopCrabRenderers(){foreach(var pair in newLoopHiddenCrab)if(pair.Key)pair.Key.enabled=pair.Value;newLoopHiddenCrab.Clear();}
+  NewLoopState NewLoopSnapshot(){
+   int total=world!=null?world.NewLoopTotal:0,broken=phase=="result"?newLoopFinalBroken:simulation!=null?simulation.NewLoopBroken:0;
+-  return new NewLoopState{segment=newLoopSegment,segmentName=NewLoopRules.Beat(newLoopSegment),beat=phase=="result"?"result":phase=="ready"?"charge":newLoopObserved?"destruction":"flight",total=total,broken=broken,tier=spinCharge.Tier,energy=phase=="ready"?spinCharge.Energy:launchChargeEnergy,elapsed=newLoopElapsed,releaseAge=newLoopReleaseAge,beamAge=newLoopBeamAge,released=newLoopObserved,cleared=newLoopCleared,destructionRate=NewLoopRules.Rate(broken,total),nextUnlocked=newLoopUnlocked[1],beamArmed=phase=="ready"?spinCharge.BeamArmed:newLoopLaunchArmed,beamActive=simulation!=null&&simulation.NewLoopBeamActive,beamUsed=simulation!=null&&simulation.NewLoopBeamUsed,overSpun=spinCharge.OverSpun,dizzy=spinCharge.Dizzy>0,held=spinCharge.Held,aimAngle=NewLoopAimAngle,hasPrevious=newLoopPreviousBroken>=0,previousBroken=newLoopPreviousBroken,delta=newLoopDelta,resetMs=newLoopResetMs,restoreMs=world!=null?world.NewLoopRestoreMs:0,resultToReadyMs=newLoopResultToReadyMs,endReason=simulation!=null?simulation.NewLoopEndReason:"",contactId=simulation!=null?simulation.NewLoopContactId:""};
++  return new NewLoopState{maxCue=newLoopMaxCue,spinCount=(int)newLoopRotations,visualSpinRps=newLoopShowRps,segment=newLoopSegment,segmentName=NewLoopRules.Beat(newLoopSegment),beat=phase=="result"?"result":phase=="ready"?"charge":newLoopObserved?"destruction":"flight",total=total,broken=broken,tier=spinCharge.Tier,energy=phase=="ready"?spinCharge.Energy:launchChargeEnergy,elapsed=newLoopElapsed,releaseAge=newLoopReleaseAge,beamAge=newLoopBeamAge,released=newLoopObserved,cleared=newLoopCleared,destructionRate=NewLoopRules.Rate(broken,total),nextUnlocked=newLoopUnlocked[1],beamArmed=phase=="ready"?spinCharge.BeamArmed:newLoopLaunchArmed,beamActive=simulation!=null&&simulation.NewLoopBeamActive,beamUsed=simulation!=null&&simulation.NewLoopBeamUsed,overSpun=spinCharge.OverSpun,dizzy=spinCharge.Dizzy>0,held=spinCharge.Held,aimAngle=NewLoopAimAngle,hasPrevious=newLoopPreviousBroken>=0,previousBroken=newLoopPreviousBroken,delta=newLoopDelta,resetMs=newLoopResetMs,restoreMs=world!=null?world.NewLoopRestoreMs:0,resultToReadyMs=newLoopResultToReadyMs,endReason=simulation!=null?simulation.NewLoopEndReason:"",contactId=simulation!=null?simulation.NewLoopContactId:""};
+  }
+ }
+diff --git a/games/flight/crab-flight/Assets/PortPrototype/NewLoopPhysics.cs b/games/flight/crab-flight/Assets/PortPrototype/NewLoopPhysics.cs
+index c429a07..a893f84 100644
+--- a/games/flight/crab-flight/Assets/PortPrototype/NewLoopPhysics.cs
++++ b/games/flight/crab-flight/Assets/PortPrototype/NewLoopPhysics.cs
+@@ -21,6 +21,9 @@ public sealed partial class RigidCrabFlight {
+  public double NewLoopRestoreMs {get;private set;}
+  readonly HashSet<BreakPanel> newLoopBeamPending=new HashSet<BreakPanel>();
+  readonly HashSet<BreakPanel> newLoopPhysicalPending=new HashSet<BreakPanel>();
++ readonly Dictionary<BreakPanel,string> newLoopDirectPending=new Dictionary<BreakPanel,string>();
++ float newLoopWaveClock;
++ public void AdvanceNewLoopWaves(float dt){if(NewLoopReleased&&!NewLoopParked)newLoopWaveClock+=Mathf.Max(0,dt);}
+  sealed class RestPanel {public BreakPanel panel;public Vector3 position,scale;public Quaternion rotation;public Rigidbody body;}
+  readonly List<RestPanel> newLoopRest=new List<RestPanel>();
+  readonly Dictionary<BreakPanel,RestPanel> newLoopRestByPanel=new Dictionary<BreakPanel,RestPanel>();
+@@ -38,7 +41,7 @@ public sealed partial class RigidCrabFlight {
+  public void BeginNewLoop(float energy,bool beamArmed){
+   NewLoopEnergy=NewLoopRules.Energy(energy);NewLoopBeamArmed=beamArmed;
+   NewLoopReleased=NewLoopParked=NewLoopBeamUsed=NewLoopBeamActive=false;
+-  NewLoopEndReason=NewLoopContactId="";NewLoopImpulsed.Clear();
++  NewLoopEndReason=NewLoopContactId="";NewLoopImpulsed.Clear();newLoopWaveClock=0;newLoopDirectPending.Clear();
+   // Charge is release energy only: legacy rotor/funding stock is not carried into this mode.
+   ResetRotor();Remaining=0;braced=pressed=false;
+   Body.position=new Vector3(NewLoopRules.SegmentStart(NewLoopSegment),NewLoopLaunchHeight,0);root.position=Body.position;
+@@ -54,7 +57,7 @@ public sealed partial class RigidCrabFlight {
+    r.panel.visual.transform.SetPositionAndRotation(r.position,r.rotation);r.panel.visual.transform.localScale=r.scale;
+   }
+   ResetRestaurant();ResetRotor();
+-  newLoopBeamPending.Clear();newLoopPhysicalPending.Clear();NewLoopImpulsed.Clear();
++  newLoopBeamPending.Clear();newLoopPhysicalPending.Clear();newLoopDirectPending.Clear();NewLoopImpulsed.Clear();
+   NewLoopReleased=NewLoopParked=NewLoopBeamUsed=NewLoopBeamActive=NewLoopBeamArmed=false;NewLoopEnergy=0;NewLoopEndReason=NewLoopContactId="";
+   Body.isKinematic=true;Body.position=new Vector3(0,restHeight+.4f,0);Body.rotation=Quaternion.Euler(0,90,0);
+   root.SetPositionAndRotation(Body.position,Body.rotation);braced=pressed=false;
+@@ -80,27 +83,37 @@ public sealed partial class RigidCrabFlight {
+   if(!NewLoopActive)return false;
+   if(!NewLoopReleased||NewLoopParked)return true;
+   var entry=PortLayout.Find(source.id);if(entry==null)return true;
+-  bool ignition=NewLoopRules.Ignition(entry.role)||portChainScheduled.Contains(source.id);
+-  var eligible=panels.Where(p=>p!=source&&!p.broken&&p.city2&&p.cityProposal.massKgSuggestion<=100&&NewLoopTarget(p))
+-   .Where(p=>entry.chain.Length>0&&PortLayout.Find(p.id).chain==entry.chain).ToArray();
+-  int baseline=eligible.Count(p=>Vector3.Distance(source.position,p.position)<=8);
+-  int capacity=ignition?NewLoopRules.Capacity(baseline,NewLoopEnergy):release?NewLoopRules.OrdinaryCapacity(NewLoopEnergy):0,count=0;
+-  foreach(var p in eligible.Where(p=>Vector3.Distance(source.position,p.position)<=NewLoopRules.Reach(NewLoopEnergy)).OrderBy(p=>Vector3.Distance(source.position,p.position)).ThenBy(p=>p.id,StringComparer.Ordinal)){
+-   if(portScheduled.Contains(p.id))continue;if(count++>=capacity)break;
+-   if(ignition)portChainScheduled.Add(p.id);portScheduled.Add(p.id);
+-   portWaves.Add(new PortWave{target=p,from=source.position,due=Time+PortWaveDelay});
++  bool ignition=NewLoopRules.Ignition(entry.role);
++  if(!release&&!ignition)return true;
++  var members=panels.Where(p=>p.city2&&p.cityProposal.massKgSuggestion<=100&&NewLoopTarget(p))
++   .Where(p=>p==source||entry.chain.Length>0&&PortLayout.Find(p.id).chain==entry.chain);
++  var plan=NewLoopRules.WavePlan(source,members,NewLoopEnergy,ignition,(a,b)=>Vector3.Distance(a.position,b.position),p=>p.id);
++  foreach(var step in plan){
++   var p=step.target;if(!portScheduled.Add(p.id))continue;
++   if(ignition)portChainScheduled.Add(p.id);
++   portWaves.Add(new PortWave{target=p,from=source.position,due=NewLoopRules.HopDue(newLoopWaveClock,step.hop),cause=step.hop<=1?"wave-direct":"chain"});
+   }
+   return true;
+  }
+- // ON waves ONLY move real bodies. The contact callback below supplies solver impulses to ApplyBreaks.
+- void ImpulseNewLoopPanel(PortWave wave){
+-  var p=wave.target;if(!NewLoopReleased||NewLoopParked||p.broken||!NewLoopTarget(p)||p.cityProposal.massKgSuggestion>100)return;
+-  var rest=newLoopRestByPanel[p];
+-  if(!rest.body){rest.body=p.visual.AddComponent<Rigidbody>();rest.body.mass=p.cityProposal.massKgSuggestion;rest.body.isKinematic=true;rest.body.collisionDetectionMode=CollisionDetectionMode.ContinuousSpeculative;}
+-  var body=rest.body;body.isKinematic=false;
+-  var away=p.visual.transform.position-wave.from;away.y=0;if(away.sqrMagnitude<.01f)away=Vector3.right;
+-  body.AddForce((away.normalized+Vector3.up)*body.mass*PortWaveImpulsePerMass,ForceMode.Impulse);body.WakeUp();
+-  NewLoopImpulsed.Add(p.id);
++ // Direct waves and beams bypass only the threshold check in the one ApplyBreaks pipeline.
++ void QueueNewLoopWave(PortWave wave){
++  var p=wave.target;if(!NewLoopReleased||NewLoopParked||p.broken||!NewLoopTarget(p))return;
++  pendingBreaks[p]=p.position+Vector3.up;breakNormals[p]=Vector3.up;
++  breakImpulses[p]=Body.mass*NewLoopRules.ShardSpeedMin;secondarySources.Remove(p);
++  if(!primaryPending.Contains(p))portWavePending.Add(p);
++  newLoopDirectPending[p]=wave.cause??"chain";
++ }
++ void ExplodeNewLoopShards(List<Rigidbody> pieces,Vector3 center){
++  // Existing masses/compound colliders are retained. Authored wave energy becomes
++  // radial debris impulse; normal debris collision/threshold accounting still runs.
++  for(int i=0;i<pieces.Count;i++){
++   var body=pieces[i];float angle=i*2.399963f;
++   var outward=(body.worldCenterOfMass-center).normalized;
++   var radial=(outward+new Vector3(Mathf.Cos(angle),.65f+Mathf.Abs(Mathf.Sin(angle)),Mathf.Sin(angle)*.45f)).normalized;
++   var target=radial*Mathf.Lerp(NewLoopRules.ShardSpeedMin,NewLoopRules.ShardSpeedMax,(i%5)/4f);
++   body.AddForce((target-body.linearVelocity)*body.mass,ForceMode.Impulse);
++   body.angularVelocity=new Vector3(7+i,-9+i,12-i);body.WakeUp();
++  }
+  }
+  void SyncNewLoopProxies(){
+   foreach(var r in newLoopRest)foreach(var shape in r.panel.shapes){
+@@ -166,7 +179,7 @@ public sealed partial class RigidCrabFlight {
+    }
+   }
+  }
+- string NewLoopBreakCause(BreakPanel p,bool wave,bool secondary)=>newLoopBeamPending.Contains(p)?"beam":newLoopPhysicalPending.Contains(p)?"wave-contact":secondary?"debris-contact":"direct-contact";
++ string NewLoopBreakCause(BreakPanel p,bool wave,bool secondary)=>newLoopBeamPending.Contains(p)?"beam":newLoopDirectPending.TryGetValue(p,out var cause)?cause:secondary||newLoopPhysicalPending.Contains(p)?"chain":"direct-contact";
+  public void StepNewLoop(){
+   if(NewLoopParked)return;
+   if(NewLoopBeamActive){
+@@ -181,7 +194,7 @@ public sealed partial class RigidCrabFlight {
+   if(NewLoopParked)return;if(NewLoopBeamActive)EndNewLoopBeam();NewLoopParked=true;NewLoopEndReason=reason;running=false;
+   Body.linearVelocity=Vector3.zero;Body.angularVelocity=Vector3.zero;Body.isKinematic=true;
+   foreach(var r in newLoopRest)StopNewLoopPanel(r.panel);
+-  portWaves.Clear();pendingBreaks.Clear();breakImpulses.Clear();breakNormals.Clear();newLoopBeamPending.Clear();newLoopPhysicalPending.Clear();
++  portWaves.Clear();pendingBreaks.Clear();breakImpulses.Clear();breakNormals.Clear();newLoopBeamPending.Clear();newLoopPhysicalPending.Clear();newLoopDirectPending.Clear();
+   Distance=Mathf.Max(0,Body.position.x-NewLoopRules.SegmentStart(NewLoopSegment));
+  }
+  public void FinishNewLoop(string reason){if(!NewLoopParked)ParkNewLoop(reason);Stage=KickFlightPhysics.RunStage.RESULT;Event("settled");}
+diff --git a/games/flight/crab-flight/Assets/PortPrototype/NewLoopPresentation.cs b/games/flight/crab-flight/Assets/PortPrototype/NewLoopPresentation.cs
+new file mode 100644
+index 0000000..90fcd58
+--- /dev/null
++++ b/games/flight/crab-flight/Assets/PortPrototype/NewLoopPresentation.cs
+@@ -0,0 +1,102 @@
++using System.Collections.Generic;
++using UnityEngine;
++using UnityEngine.Rendering;
++
++// ON-only render tree. Never scales the crab's collision root or consumes simulation RNG.
++public sealed partial class CrabFlightGame {
++ float newLoopRotations,newLoopShowRps,newLoopTierAt=-100,newLoopMaxAt=-100,newLoopSuction;
++ int newLoopHighestTier=1,newLoopSuctionSerial,newLoopMaxCue;
++ const int NewLoopSuctionLimit=64;
++ readonly MeshRenderer[] newLoopMotes=new MeshRenderer[NewLoopSuctionLimit];
++ readonly float[] newLoopMoteBorn=new float[NewLoopSuctionLimit],newLoopMoteAngle=new float[NewLoopSuctionLimit];
++ MeshRenderer newLoopGoldAura;LineRenderer newLoopShockwave;
++ CommandBuffer newLoopDimCommands;Material newLoopDimMaterial;Mesh newLoopDimQuad;
++ readonly List<Renderer> newLoopDimHero=new List<Renderer>();
++ void TickNewLoopChargeShow(float dt){
++  newLoopShowRps=spinCharge.Held?(NewLoopMotion?NewLoopRules.VisualSpin(spinCharge.Energy):spinCharge.BodySpinRps):0;
++  if(spinCharge.Held)newLoopRotations+=newLoopShowRps*Mathf.Max(0,dt);
++  if(spinCharge.Tier<=newLoopHighestTier)return;
++  newLoopHighestTier=spinCharge.Tier;
++  Emit("charge-tier",spinCharge.Tier.ToString(),"",crab.Root.position,Vector3.up,Vector3.zero,spinCharge.Energy);
++  // Tier flashes share the same rolling safety budget as every destruction flash.
++  if(NewLoopMotion&&feelGateR27.TryDisplay(Time.realtimeSinceStartupAsDouble,generation+"/charge-tier/"+spinCharge.Tier,true,false))newLoopTierAt=visualClock;
++  if(spinCharge.Tier==3){newLoopMaxAt=visualClock;newLoopMaxCue++;}
++  Report();
++ }
++ void ResetNewLoopShow(){
++  newLoopRotations=newLoopShowRps=newLoopSuction=0;newLoopHighestTier=1;newLoopMaxCue=newLoopSuctionSerial=0;newLoopTierAt=newLoopMaxAt=-100;
++  for(int i=0;i<NewLoopSuctionLimit;i++){newLoopMoteBorn[i]=-100;if(newLoopMotes[i])newLoopMotes[i].enabled=false;}
++  if(newLoopGoldAura)newLoopGoldAura.enabled=false;if(newLoopShockwave)newLoopShockwave.enabled=false;
++  SetNewLoopDim(0);
++ }
++ void RefreshNewLoopComfort(){
++  if(!useNewLoop)return;
++  // Settings often arrive while paused, when Tick deliberately does not run.
++  if(!NewLoopMotion||paused){
++   newLoopTierAt=newLoopMaxAt=-100;newLoopSuction=0;
++   foreach(var mote in newLoopMotes)if(mote)mote.enabled=false;
++   if(newLoopGoldAura)newLoopGoldAura.enabled=false;if(newLoopShockwave)newLoopShockwave.enabled=false;
++   if(newLoopChargeRing){newLoopChargeRing.widthMultiplier=1;if(feelSettingsR27.preset=="off")newLoopChargeRing.enabled=false;}
++   if(neonCrab!=null){neonCrab.Root.localScale=crab.Root.lossyScale;neonCrab.Root.rotation=crab.Root.rotation;}
++   SetNewLoopDim(0);
++  }
++  UpdateNewLoopCamera(0,true);
++ }
++ void PresentNewLoopShow(float dt){
++  bool held=phase=="ready"&&spinCharge.Held&&NewLoopMotion;
++  if(held&&neonCrab!=null){
++   neonCrab.Root.rotation=Quaternion.AngleAxis((newLoopRotations%1)*360,new Vector3(0,.28f,-.96f).normalized)*Quaternion.Euler(0,90,0);
++   float age=visualClock-newLoopTierAt;
++   if(age>=0&&age<.18f)neonCrab.Root.localScale*=1+.22f*Mathf.Sin(age/.18f*Mathf.PI);
++  }
++  if(held){
++   newLoopSuction+=dt*(14+82*NewLoopRules.Intensity(spinCharge.Energy));
++   for(int n=0;n<NewLoopSuctionLimit&&newLoopSuction>=1;n++,newLoopSuction--){
++    int slot=newLoopSuctionSerial++%NewLoopSuctionLimit;
++    if(!newLoopMotes[slot])newLoopMotes[slot]=NeonGlowTexture.Quad("Charge inward mote "+slot,transform,Color.white);
++    newLoopMoteBorn[slot]=visualClock;newLoopMoteAngle[slot]=newLoopSuctionSerial*2.399963f;
++   }
++  }else newLoopSuction=0;
++  for(int i=0;i<NewLoopSuctionLimit;i++)if(newLoopMotes[i]){
++   float t=(visualClock-newLoopMoteBorn[i])/.55f;bool show=held&&t>=0&&t<1;newLoopMotes[i].enabled=show;if(!show)continue;
++   float radius=Mathf.Lerp(3.6f+(i%5)*.4f,.12f,t),a=newLoopMoteAngle[i]+t*(7+5*spinCharge.Energy);
++   var mote=newLoopMotes[i];mote.transform.SetPositionAndRotation(crab.Root.position+cam.transform.right*Mathf.Cos(a)*radius+cam.transform.up*Mathf.Sin(a)*radius,cam.transform.rotation);
++   mote.transform.localScale=Vector3.one*(.18f+.14f*spinCharge.Energy)*(1-.5f*t);mote.sharedMaterial.color=new Color(1,1,1,Mathf.Sin(t*Mathf.PI));
++  }
++  float maxAge=visualClock-newLoopMaxAt;bool max=NewLoopMotion&&phase=="ready"&&maxAge>=0&&maxAge<.38f;
++  if(max&&!newLoopGoldAura)newLoopGoldAura=NeonGlowTexture.Quad("MAX gold aura",transform,new Color(1,.85f,.15f));
++  if(newLoopGoldAura){newLoopGoldAura.enabled=max;if(max){
++   newLoopGoldAura.transform.SetPositionAndRotation(crab.Root.position+cam.transform.forward*.4f,cam.transform.rotation);
++   newLoopGoldAura.transform.localScale=Vector3.one*(4.5f+maxAge*5);newLoopGoldAura.sharedMaterial.color=new Color(1,1,1,1-maxAge/.38f);
++  }}
++  SetNewLoopDim(max?.15f*Mathf.Sin(maxAge/.38f*Mathf.PI):0);
++  bool shock=NewLoopMotion&&phase=="flight"&&newLoopObserved&&newLoopReleaseAge<.45f;
++  if(shock&&!newLoopShockwave){newLoopShockwave=Line("Release radial shockwave",PortVisuals.Lantern,.18f);newLoopShockwave.transform.SetParent(transform,false);newLoopShockwave.loop=true;newLoopShockwave.positionCount=64;}
++  if(newLoopShockwave){newLoopShockwave.enabled=shock;if(shock){float t=newLoopReleaseAge/.45f,radius=Mathf.Lerp(.3f,NewLoopRules.Reach(launchChargeEnergy),1-(1-t)*(1-t));
++   newLoopShockwave.widthMultiplier=1-t;for(int i=0;i<64;i++){float a=i*Mathf.PI*2/64;newLoopShockwave.SetPosition(i,simulation.NewLoopContact+cam.transform.right*Mathf.Cos(a)*radius+cam.transform.up*Mathf.Sin(a)*radius);}
++  }}
++ }
++ void SetNewLoopDim(float opacity){
++  if(newLoopDimCommands!=null){cam.RemoveCommandBuffer(CameraEvent.AfterEverything,newLoopDimCommands);newLoopDimCommands.Clear();}
++  if(opacity<=0||!cam)return;
++  if(newLoopDimCommands==null){
++   newLoopDimCommands=new CommandBuffer{name="MAX scene dim; redraw hero unchanged"};
++   newLoopDimMaterial=new Material(Resources.Load<Shader>("PortPrototype/NewLoopDim"));
++   newLoopDimQuad=new Mesh{name="MAX fullscreen tint"};newLoopDimQuad.vertices=new[]{new Vector3(-1,-1,0),new Vector3(1,-1,0),new Vector3(1,1,0),new Vector3(-1,1,0)};newLoopDimQuad.triangles=new[]{0,1,2,0,2,3};
++  }
++  newLoopDimMaterial.SetFloat("_Opacity",opacity);
++  newLoopDimCommands.DrawMesh(newLoopDimQuad,Matrix4x4.identity,newLoopDimMaterial);
++  // Redraw only visible crab renderers after the tint. No layer/material/collider
++  // mutation, no second camera and no hole that leaves the background undimmed.
++  newLoopDimHero.Clear();(neonCrab!=null?neonCrab.Root:crab.Root).GetComponentsInChildren(false,newLoopDimHero);
++  foreach(var r in newLoopDimHero)if(r.enabled){var mats=r.sharedMaterials;for(int i=0;i<mats.Length;i++)if(mats[i])newLoopDimCommands.DrawRenderer(r,mats[i],i);}
++  cam.AddCommandBuffer(CameraEvent.AfterEverything,newLoopDimCommands);
++ }
++ void DisposeNewLoopShow(){
++  if(newLoopDimCommands!=null){if(cam)cam.RemoveCommandBuffer(CameraEvent.AfterEverything,newLoopDimCommands);newLoopDimCommands.Release();newLoopDimCommands=null;}
++  if(newLoopDimMaterial)Destroy(newLoopDimMaterial);if(newLoopDimQuad)Destroy(newLoopDimQuad);
++  foreach(var mote in newLoopMotes)if(mote)Destroy(mote.sharedMaterial);
++  if(newLoopGoldAura)Destroy(newLoopGoldAura.sharedMaterial);
++  if(newLoopShockwave)Destroy(newLoopShockwave.sharedMaterial);
++ }
++}
+diff --git a/games/flight/crab-flight/Assets/PortPrototype/NewLoopPresentation.cs.meta b/games/flight/crab-flight/Assets/PortPrototype/NewLoopPresentation.cs.meta
+new file mode 100644
+index 0000000..225bb7b
+--- /dev/null
++++ b/games/flight/crab-flight/Assets/PortPrototype/NewLoopPresentation.cs.meta
+@@ -0,0 +1,11 @@
++fileFormatVersion: 2
++guid: 0eaae3edefe24fe7b0e061026405ef50
++MonoImporter:
++  externalObjects: {}
++  serializedVersion: 2
++  defaultReferences: []
++  executionOrder: 0
++  icon: {instanceID: 0}
++  userData:
++  assetBundleName:
++  assetBundleVariant:
+diff --git a/games/flight/crab-flight/Assets/PortPrototype/NewLoopRules.cs b/games/flight/crab-flight/Assets/PortPrototype/NewLoopRules.cs
+index 8446773..b50c879 100644
+--- a/games/flight/crab-flight/Assets/PortPrototype/NewLoopRules.cs
++++ b/games/flight/crab-flight/Assets/PortPrototype/NewLoopRules.cs
+@@ -1,10 +1,14 @@
+ using System;
++using System.Collections.Generic;
++using System.Linq;
+ 
+ // Shared runtime policy; exercised without a Unity process by the contract probe.
+ public static class NewLoopRules {
+- public const string Revision="new-loop-2";
+- public const float Start=697,End=757,DestructionSeconds=3,MaxSeconds=5.2f;
+- public const float BeamSeconds=2.5f,SlowSeconds=.22f,SlowScale=.25f;
++ public const string Revision="new-loop-fix-1";
++ public const float Start=697,End=757,DestructionSeconds=4,MaxSeconds=5.2f;
++ public const float BeamSeconds=2.5f,SlowSeconds=.30f,SlowScale=.25f;
++ public const float WaveHopSeconds=.04f,CameraPunchSeconds=.30f,CameraPunchScale=.72f;
++ public const float ShardSpeedMin=20,ShardSpeedMax=28;
+  public const float BeamRadius=.7f,BeamImpulsePerMass=8,LaunchSpeed=22,LaunchSpin=2;
+  public const float ChargeSeconds=1.8f,DizzySeconds=1,DecayPerSecond=.5f;
+  public const int SegmentCount=2;
+@@ -18,6 +22,24 @@ public static class NewLoopRules {
+  public static int Capacity(int baseline,float e)=>(int)Math.Ceiling(Math.Max(1,baseline)*(1+2*Energy(e)));
+  public static bool Ignition(string role)=>role!=null&&(role.StartsWith("boost",StringComparison.Ordinal)||role=="jackpot");
+  public static int OrdinaryCapacity(float e)=>(int)Math.Ceiling(3*Energy(e));
++ public static float Intensity(float e)=>(float)((Math.Exp(3*Energy(e))-1)/(Math.Exp(3)-1));
++ public static float VisualSpin(float e)=>2+30*Intensity(e);
++ public static float HopDue(float start,int hop)=>start+Math.Max(0,hop)*WaveHopSeconds;
++ // A breadth-first authored graph, independent of solver contacts and break order.
++ // Include already-broken nodes as bridges; they are skipped only at accounting time.
++ public static List<(T target,int hop)> WavePlan<T>(T source,IEnumerable<T> members,float energy,bool ignition,Func<T,T,float> distance,Func<T,string> id){
++  var all=members.OrderBy(id,StringComparer.Ordinal).ToArray();
++  var plan=new List<(T target,int hop)>{(source,0)};var seen=new HashSet<T>{source};
++  for(int cursor=0;cursor<plan.Count;cursor++){
++   var node=plan[cursor];if(!ignition&&cursor>0)break;
++   int baseline=all.Count(p=>!EqualityComparer<T>.Default.Equals(p,node.target)&&distance(node.target,p)<=8);
++   int cap=ignition?Capacity(baseline,energy):OrdinaryCapacity(energy);
++   foreach(var p in all.Where(p=>!seen.Contains(p)&&distance(node.target,p)<=Reach(energy)).OrderBy(p=>distance(node.target,p)).ThenBy(id,StringComparer.Ordinal).Take(cap)){
++    seen.Add(p);plan.Add((p,node.hop+1));
++   }
++  }
++  return plan;
++ }
+  public static float Wobble(bool dizzy,bool held,float age)=>dizzy&&held&&age<DizzySeconds?6*(float)Math.Sin(age*19):0;
+  public static bool Cleared(int broken,int total)=>total>0&&broken*10>=total*7;
+  public static float Rate(int broken,int total)=>total>0?(float)broken/total:0;
+diff --git a/games/flight/crab-flight/Assets/PortPrototype/PortParticles.cs b/games/flight/crab-flight/Assets/PortPrototype/PortParticles.cs
+index 1d25d83..03bcfe5 100644
+--- a/games/flight/crab-flight/Assets/PortPrototype/PortParticles.cs
++++ b/games/flight/crab-flight/Assets/PortPrototype/PortParticles.cs
+@@ -1,8 +1,19 @@
+ using UnityEngine;
+ 
+ public sealed partial class MashimashiPresentationR27 {
+- public int PortParticles(Vector3 p,int count,string asset,Camera cam,float now,Vector3 velocity){
++ public int PortParticles(Vector3 p,int count,string asset,Camera cam,float now,Vector3 velocity,bool explosive=false){
+   int added=0;var family=PortLayout.FamilyColor(asset);
++  if(explosive){
++   // Reserve all three layers for every break, even during a dense travelling chain.
++   count=40;while(marks.Count>512-count)marks.RemoveAt(0);
++   for(int i=0;i<count;i++){
++    float a=i*2.399963f;int layer=i%5<3?0:i%5==3?5:6;
++    float speed=layer==5?2.2f:layer==6?14+(i%5):12+(i%7)*1.6f;
++    var v=cam.transform.right*Mathf.Cos(a)*speed+cam.transform.up*(Mathf.Sin(a)*speed+3);
++    marks.Add(new Mark{kind=layer,material=asset.Contains("crate")?3:2,born=now,life=layer==5?.65f:layer==6?.32f:.55f,p=p,v=v,size=layer==5?.65f:layer==6?.09f:.22f,angle=a,turn=8+i%5,stretch=1.1f,color=layer==5?new Color(1,1,1,.72f):layer==6?PortVisuals.Lantern:family});
++   }
++   return count;
++  }
+   for(int i=0;i<count&&marks.Count<512;i++){
+    float angle=i*2.399963f;int layer=i%5<3?0:i%5==3?5:6;
+    var v=cam.transform.right*Mathf.Cos(angle)*(layer==5?.8f:3)+cam.transform.up*(1.5f+Mathf.Sin(angle)*2);
+diff --git a/games/flight/crab-flight/Assets/PortPrototype/PortRoles.cs b/games/flight/crab-flight/Assets/PortPrototype/PortRoles.cs
+index 1f8169a..5a36585 100644
+--- a/games/flight/crab-flight/Assets/PortPrototype/PortRoles.cs
++++ b/games/flight/crab-flight/Assets/PortPrototype/PortRoles.cs
+@@ -9,7 +9,7 @@ using UnityEngine;
+ // Authored effects only. Existing collider creation, material masses, threshold and
+ // debris-contact chain rules remain unchanged. A wave is explicitly not a contact.
+ public sealed partial class RigidCrabFlight {
+- sealed class PortWave {public BreakPanel target;public Vector3 from;public float due;public bool support;}
++ sealed class PortWave {public BreakPanel target;public Vector3 from;public float due;public bool support;public string cause;}
+  readonly List<PortWave> portWaves=new List<PortWave>();
+  readonly HashSet<string> portScheduled=new HashSet<string>();
+  readonly HashSet<string> portChainScheduled=new HashSet<string>();
+@@ -26,8 +26,8 @@ public sealed partial class RigidCrabFlight {
+  }
+  void QueuePortWaves(){
+   if(!PortLayout.Enabled)return;
+-  for(int i=portWaves.Count-1;i>=0;i--){var w=portWaves[i];if(Time<w.due)continue;portWaves.RemoveAt(i);
+-   var p=w.target;if(NewLoopActive){ImpulseNewLoopPanel(w);continue;}if(p.broken||p.cityProposal.massKgSuggestion>100||Vector3.Distance(w.from,p.position)>10)continue;
++  for(int i=portWaves.Count-1;i>=0;i--){var w=portWaves[i];if((NewLoopActive?newLoopWaveClock:Time)<w.due)continue;portWaves.RemoveAt(i);
++   var p=w.target;if(NewLoopActive){QueueNewLoopWave(w);continue;}if(p.broken||p.cityProposal.massKgSuggestion>100||Vector3.Distance(w.from,p.position)>10)continue;
+    if(primaryPending.Contains(p)&&breakImpulses.TryGetValue(p,out var contactImpulse)&&contactImpulse/Body.mass>=p.threshold)continue;
+    // Deterministic authored blast, with its own finite impulse, tested against the unchanged full threshold.
+    pendingBreaks[p]=p.position+Vector3.up;breakNormals[p]=Vector3.up;breakImpulses[p]=Body.mass*PortWaveImpulsePerMass;secondarySources.Remove(p);portWavePending.Add(p);if(w.support)portSupportPending.Add(p);
+@@ -36,6 +36,13 @@ public sealed partial class RigidCrabFlight {
+  void ObservePortBreak(BreakPanel p,bool wave,bool secondary){
+   var e=PortLayout.Find(p.id);if(e==null||NewLoopActive&&(!NewLoopReleased||NewLoopParked))return;
+   if(!wave&&!secondary&&e.role.Length>0)portDirectRoles.Add(p);
++  if(NewLoopActive){
++   // ON has already scheduled the entire authored graph at ignition. Do not let
++   // ordinary wave/support targets enroll more objects outside its radius/count.
++   if(!wave&&!secondary&&!newLoopDirectPending.ContainsKey(p))ScheduleNewLoopWave(p);
++   if(wave)PortRoleReceipts.Add(new PortRoleReceipt{id=p.id,role="chain",cause=NewLoopBreakCause(p,true,secondary),time=Time,before=Body.linearVelocity,after=Body.linearVelocity});
++   return;
++  }
+   // A destroyed support cannot leave its authored upper tier suspended. This uses
+   // the same finite role-effect path; it never edits masses, colliders or thresholds.
+   foreach(var child in panels){var c=PortLayout.Find(child.id);
+diff --git a/games/flight/crab-flight/Assets/PortPrototype/Resources/PortPrototype/NewLoopDim.shader b/games/flight/crab-flight/Assets/PortPrototype/Resources/PortPrototype/NewLoopDim.shader
+new file mode 100644
+index 0000000..9c0b5d2
+--- /dev/null
++++ b/games/flight/crab-flight/Assets/PortPrototype/Resources/PortPrototype/NewLoopDim.shader
+@@ -0,0 +1,14 @@
++Shader "PortPrototype/NewLoopDim" {
++ Properties { _Opacity("Scene dim",Range(0,.15))=0 }
++ SubShader { Pass {
++  ZTest Always ZWrite Off Cull Off Blend SrcAlpha OneMinusSrcAlpha
++  CGPROGRAM
++  #pragma vertex vert
++  #pragma fragment frag
++  #include "UnityCG.cginc"
++  float _Opacity;
++  float4 vert(appdata_base v):SV_POSITION { return float4(v.vertex.xy,0,1); }
++  fixed4 frag():SV_Target { return fixed4(0,0,0,_Opacity); }
++  ENDCG
++ } }
++}
+diff --git a/games/flight/crab-flight/Assets/PortPrototype/Resources/PortPrototype/NewLoopDim.shader.meta b/games/flight/crab-flight/Assets/PortPrototype/Resources/PortPrototype/NewLoopDim.shader.meta
+new file mode 100644
+index 0000000..689cfa9
+--- /dev/null
++++ b/games/flight/crab-flight/Assets/PortPrototype/Resources/PortPrototype/NewLoopDim.shader.meta
+@@ -0,0 +1,9 @@
++fileFormatVersion: 2
++guid: 6ade72b42bf84d54bef2d76f57c22b6a
++ShaderImporter:
++  externalObjects: {}
++  defaultTextures: []
++  nonModifiableTextures: []
++  userData:
++  assetBundleName:
++  assetBundleVariant:
+diff --git a/games/flight/crab-flight/Assets/Scripts/City2Contacts.cs b/games/flight/crab-flight/Assets/Scripts/City2Contacts.cs
+index 50d1ee0..0fbcaee 100644
+--- a/games/flight/crab-flight/Assets/Scripts/City2Contacts.cs
++++ b/games/flight/crab-flight/Assets/Scripts/City2Contacts.cs
+@@ -90,6 +90,7 @@ public sealed partial class RigidCrabFlight {
+    cityDebris.Add(record);fragments.Add(obj);CityFragments++;physicalPieces++;
+   }
+ if(DirectionalShardsR6)ScatterShardsR6(spawned,hitPoint,hitNormal,sourceVelocity,energyBudget,p.id);
++if(NewLoopActive&&NewLoopReleased&&NewLoopTarget(p))ExplodeNewLoopShards(spawned,p.position);
+ #if UNITY_EDITOR
+   if(DirectionalShardsR6){spawnedKinetic=0;foreach(var rb in spawned)spawnedKinetic+=(float)KineticEnergyR6(rb);}
+   ReviewShardEnergyExcess=Mathf.Max(ReviewShardEnergyExcess,spawnedKinetic-energyBudget);
+diff --git a/games/flight/crab-flight/Assets/Scripts/CrabFlightGame.cs b/games/flight/crab-flight/Assets/Scripts/CrabFlightGame.cs
+index eff00e1..ec54ab9 100644
+--- a/games/flight/crab-flight/Assets/Scripts/CrabFlightGame.cs
++++ b/games/flight/crab-flight/Assets/Scripts/CrabFlightGame.cs
+@@ -67,7 +67,7 @@ public sealed partial class CrabFlightGame : MonoBehaviour {
+  }finally{PrepareEnvelopeR18.Exit(traceConfigureR18,Time.renderedFrameCount);}
+ }
+  public void RestoreBest(string value){Initialize();if(float.TryParse(value,System.Globalization.NumberStyles.Float,System.Globalization.CultureInfo.InvariantCulture,out float v))best=Mathf.Max(best,FlightSettings.Safe(v,0,10000));PlaceBest();Report();}
+- public void SetReducedMotion(string value){Initialize();AuditInput("SetReducedMotion",value);ReducedMotion=value=="1";hitStop.SetReducedMotion(ReducedMotion);if(effects)effects.SetReducedMotion(ReducedMotion);ResetOverdrivePresentation();Report();}
++ public void SetReducedMotion(string value){Initialize();AuditInput("SetReducedMotion",value);ReducedMotion=value=="1";hitStop.SetReducedMotion(ReducedMotion);if(effects)effects.SetReducedMotion(ReducedMotion);ResetOverdrivePresentation();if(useNewLoop)RefreshNewLoopComfort();Report();}
+  public void KickDown(string _){if(useNewLoop)return;if(!paused&&phase=="flight"&&simulation!=null){simulation.SetKickPressed(true);RefreshMessage();Report();}}
+  public void KickUp(string _){if(simulation!=null)simulation.SetKickPressed(false);}
+  // Preview input never creates or advances a flight. Release is a separate explicit command.
+@@ -82,7 +82,7 @@ public sealed partial class CrabFlightGame : MonoBehaviour {
+   return active?flick:flick*(.18f+.82f*energy);}
+  public void SetUpgradeLevel(string text){Initialize();if(phase=="flight"||aiming||(phase=="ready"&&spinCharge.Started))return;if(int.TryParse(text,out int level)){AuditInput("SetUpgradeLevel",text);settings.upgradeLevel=Mathf.Clamp(level,0,3);}Report();}
+  public void RetryLaunch(string _){if(paused||phase!="result")return;if(useNewLoop){Prepare("");return;}float retainedPhase=spinAngle,retainedSpin=launchSpinRps,retainedCharge=launchChargeEnergy,retainedTarget=launchTargetPower;Prepare("");launchTargetPower=retainedTarget;launchSpinRps=retainedSpin;launchChargeEnergy=retainedCharge;crab.ChargePose(retainedCharge);spinAngle=displaySpinAngle=retainedPhase;requestedLaunchSource="retry";Launch("");}
+- public void SetPaused(string value){if(prepareWorkR18!=null){preparePauseR18=value=="1";if(prepareViewR18!=null)prepareViewR18.paused=preparePauseR18.Value;Report();return;}Initialize();AuditInput("SetPaused",value);bool next=value=="1";if(next&&useNewLoop){newLoopBeamHeld=false;simulation?.EndNewLoopBeam();}if(next)CancelAim("");paused=next;if(next&&FeelOnR27){BeginFeelFrameR27();feelDrawingR27.Clear();}if(effects)effects.SetPaused(next);if(simulation!=null)simulation.SetKickPressed(false);Report();}
++ public void SetPaused(string value){if(prepareWorkR18!=null){preparePauseR18=value=="1";if(prepareViewR18!=null)prepareViewR18.paused=preparePauseR18.Value;Report();return;}Initialize();AuditInput("SetPaused",value);bool next=value=="1";if(next&&useNewLoop){newLoopBeamHeld=false;simulation?.EndNewLoopBeam();}if(next)CancelAim("");paused=next;if(useNewLoop)RefreshNewLoopComfort();if(next&&FeelOnR27){BeginFeelFrameR27();feelDrawingR27.Clear();}if(effects)effects.SetPaused(next);if(simulation!=null)simulation.SetKickPressed(false);Report();}
+  public void BeginCharge(string _){BeginSpinCharge("");}
+  public void Launch(string _){
+   if(paused||phase=="flight")return;Initialize();BeginFeelFrameR27();aiming=false;if(useNewLoop){
+@@ -115,7 +115,7 @@ PrepareCostProbeR15.Mark("rebuild.poseAndBounds");}
+  public void Tick(float dt){
+   if(prepareWorkR18!=null){AdvancePrepareFrameR18();return;}
+   if(!initialized||paused)return;PrimitiveColliderTraceR18.BeforeMain(world.Scene,world.Time,"frame");BeginCalmFrameR3(dt);BeginFeelFrameR27();AuditTick(dt);float gameplayDt=FeelOnR27?FilterFeelR27(dt):phase=="flight"&&useHitStop?hitStop.Filter(dt):dt;visualClock+=dt;if(useNewLoop)gameplayDt=AdvanceNewLoopClock(dt);
+-  if(phase=="ready"&&spinCharge.Started){int priorTier=spinCharge.Tier;bool priorArmed=spinCharge.BeamArmed;spinCharge.Tick(dt);if(useNewLoop&&(priorTier!=spinCharge.Tier||priorArmed!=spinCharge.BeamArmed))Report();currentSpinRps=direction*spinCharge.SpinRps;displaySpinAngle=(displaySpinAngle+direction*spinCharge.BodySpinRps*360*dt)%360;crab.ChargePose(spinCharge.Energy);crab.Root.position=Vector3.Lerp(crab.Root.position,new Vector3(useNewLoop?NewLoopStart:0,chargeLiftHeight,0),1-Mathf.Exp(-dt*5));}
++  if(phase=="ready"&&spinCharge.Started){int priorTier=spinCharge.Tier;bool priorArmed=spinCharge.BeamArmed;spinCharge.Tick(dt);if(useNewLoop)TickNewLoopChargeShow(dt);if(useNewLoop&&(priorTier!=spinCharge.Tier||priorArmed!=spinCharge.BeamArmed))Report();currentSpinRps=direction*spinCharge.SpinRps;displaySpinAngle=(displaySpinAngle+direction*spinCharge.BodySpinRps*360*dt)%360;crab.ChargePose(spinCharge.Energy);crab.Root.position=Vector3.Lerp(crab.Root.position,new Vector3(useNewLoop?NewLoopStart:0,chargeLiftHeight,0),1-Mathf.Exp(-dt*5));}
+   if(phase=="flight"){
+    accumulator+=gameplayDt;while(accumulator>=RigidCrabFlight.StepSeconds&&phase=="flight"){
+     accumulator-=RigidCrabFlight.StepSeconds;long calmStepStart=CalmSupportPerfR3.Active?CalmSupportPerfR3.Stamp():0;if(useNewLoop)simulation.StepNewLoop();else simulation.Step();if(useNewLoop)ObserveNewLoopRelease();if(CalmSupportPerfR3.Active){calmFrameR3.steps++;calmFrameR3.stepMs+=CalmSupportPerfR3.Ms(CalmSupportPerfR3.Stamp()-calmStepStart);}ObserveResultTravel();long calmEventStart=CalmSupportPerfR3.Active?CalmSupportPerfR3.Stamp():0;DrainPhysicsEvents();if(CalmSupportPerfR3.Active)calmFrameR3.eventMs+=CalmSupportPerfR3.Ms(CalmSupportPerfR3.Stamp()-calmEventStart);lastDistance=useNewLoop?Mathf.Max(0,crab.Root.position.x-NewLoopStart):simulation.Distance;lastPeak=simulation.Peak;
+@@ -226,7 +226,7 @@ PrepareCostProbeR15.Mark("rebuild.poseAndBounds");}
+   return s;
+  }finally{PrepareEnvelopeR18.Exit(traceStateR18,Time.renderedFrameCount);}
+ }
+- void OnDestroy(){CancelPreparationR18();ResetOverdrivePresentation();if(world!=null){world.Dispose();world=null;}contactVisualTemplateR15.Dispose();lifeGeometryCacheR17.Dispose();}
++ void OnDestroy(){DisposeNewLoopShow();CancelPreparationR18();ResetOverdrivePresentation();if(world!=null){world.Dispose();world=null;}contactVisualTemplateR15.Dispose();lifeGeometryCacheR17.Dispose();}
+  void Report(){
+ #if UNITY_WEBGL && !UNITY_EDITOR
+  int traceReportR18=PrepareEnvelopeR18.Enter(PrepareEnvelopeR18.Report,Time.renderedFrameCount);try{
+diff --git a/games/flight/crab-flight/Assets/Scripts/FeelDirectorR27.cs b/games/flight/crab-flight/Assets/Scripts/FeelDirectorR27.cs
+index 668d43c..3cbd9ab 100644
+--- a/games/flight/crab-flight/Assets/Scripts/FeelDirectorR27.cs
++++ b/games/flight/crab-flight/Assets/Scripts/FeelDirectorR27.cs
+@@ -18,7 +18,7 @@ public sealed partial class CrabFlightGame {
+ #endif
+  }
+  public void LoadFeelR27(string json){Initialize();feelClockStampR27=Time.realtimeSinceStartupAsDouble;feelR27=JsonUtility.FromJson<FeelConfig>(json);if(feelR27?.events==null||feelR27.presets==null)throw new ArgumentException("Invalid feel config");if(!feelDrawingR27){var o=new GameObject("Feel r27 rendered cues");o.transform.SetParent(transform,false);feelDrawingR27=o.AddComponent<MashimashiPresentationR27>();feelDrawingR27.Initialize(effectsPrefab.inkShader,feelR27);}if(effects){effects.ResetRun();effects.gameObject.SetActive(false);}ResetOverdrivePresentation();if(overdrivePresentation)overdrivePresentation.gameObject.SetActive(false);Report();}
+- public void SetFeelR27(string json){Initialize();BeginFeelFrameR27();feelSettingsR27=JsonUtility.FromJson<FeelSettingsR27>(json);if(feelSettingsR27.preset!="futsuu"&&feelSettingsR27.preset!="off")feelSettingsR27.preset="mashimashi";if(!FeelEffectsR27){feelClockR27.Reset();feelDrawingR27?.Clear();feelFlashQueueR27.Clear();ClearObjectFeelR27();feelShakeStartR27=feelSquashStartR27=-10;}if(!feelSettingsR27.shake||feelSettingsR27.reducedMotion){feelShakeStartR27=-10;portShake=0;}Report();}
++ public void SetFeelR27(string json){Initialize();BeginFeelFrameR27();feelSettingsR27=JsonUtility.FromJson<FeelSettingsR27>(json);if(feelSettingsR27.preset!="futsuu"&&feelSettingsR27.preset!="off")feelSettingsR27.preset="mashimashi";if(!FeelEffectsR27){feelClockR27.Reset();feelDrawingR27?.Clear();feelFlashQueueR27.Clear();ClearObjectFeelR27();feelShakeStartR27=feelSquashStartR27=-10;}if(!feelSettingsR27.shake||feelSettingsR27.reducedMotion){feelShakeStartR27=-10;portShake=0;}if(useNewLoop)RefreshNewLoopComfort();Report();}
+  public void ClearFeelAuditR27(string _){feelMaxCameraR27=0;}
+  public void TestFire(string json){
+ #if UNITY_WEBGL && !UNITY_EDITOR
+@@ -40,7 +40,7 @@ public sealed partial class CrabFlightGame {
+   FeelLogR27(c,"shake",x=>{x.amp=feelSettingsR27.shake&&!feelSettingsR27.reducedMotion?feelShakeAmplitudeR27:0;x.kick=0;x.decayMs=cfg.shakeMs;});
+   if(cfg.squash>0){feelSquashStartR27=now;feelSquashR27=Mathf.Min(.3f,cfg.squash*m.squashMultiplier);FeelLogR27(c,"squash",x=>x.pct=feelSquashR27*100);}
+   string kind=c.@event=="glass_break"?"glass":c.@event=="charge_stroke"||c.@event=="launch"?"water":c.@event=="charge_ready"?"bubble":c.@event=="ground_hit"?"dust":c.@event=="push_perfect"?"star":c.@event=="new_record"?"confetti":c.material??"wood";
+-  int count=Mathf.RoundToInt((c.@event=="new_record"?cfg.confetti:cfg.particles)*m.particleMultiplier);if(count>0){var portEntry=c.@event=="break"?PortLayout.Find(c.objectId):null;int actual=portEntry!=null?feelDrawingR27.PortParticles(c.position,count,portEntry.asset,cam,now,c.velocity):feelDrawingR27.Particles(c.position,count,kind,cam,now,c.velocity);FeelLogR27(c,"particles",x=>{x.count=actual;x.kind=kind;});}
++  int count=Mathf.RoundToInt((c.@event=="new_record"?cfg.confetti:cfg.particles)*m.particleMultiplier);if(count>0){var portEntry=c.@event=="break"?PortLayout.Find(c.objectId):null;int actual=portEntry!=null?feelDrawingR27.PortParticles(c.position,count,portEntry.asset,cam,now,c.velocity,useNewLoop&&NewLoopMotion):feelDrawingR27.Particles(c.position,count,kind,cam,now,c.velocity);FeelLogR27(c,"particles",x=>{x.count=actual;x.kind=kind;});}
+   if(cfg.flashPhases>0){feelFlashQueueR27.Add(c);}
+   bool mash=feelSettingsR27.preset=="mashimashi";
+   if(c.@event=="glass_break"||c.@event=="break"||c.@event=="push_perfect"){feelDrawingR27.Ring(c.position,now,c.@event=="glass_break");FeelLogR27(c,"shockwave",x=>x.effect=1);if(cfg.residueMs>0){feelDrawingR27.Residue(c.position,c.material,cam,now,cfg.residueMs/1000);FeelLogR27(c,"debris_keep",x=>x.seconds=cfg.residueMs/1000);}if(cfg.visualKnockbackM>0){if(KnockbackObjectR27(c,cfg.visualKnockbackM))FeelLogR27(c,"knockback",x=>x.dist=cfg.visualKnockbackM);}}
+diff --git a/games/flight/crab-flight/Assets/Scripts/RestaurantPhysics.cs b/games/flight/crab-flight/Assets/Scripts/RestaurantPhysics.cs
+index 857f994..d22698c 100644
+--- a/games/flight/crab-flight/Assets/Scripts/RestaurantPhysics.cs
++++ b/games/flight/crab-flight/Assets/Scripts/RestaurantPhysics.cs
+@@ -65,7 +65,7 @@ public sealed partial class RigidCrabFlight {
+   foreach(var p in pendingBreaks.Keys)if(!p.broken&&!secondarySources.ContainsKey(p)&&!portWavePending.Contains(p)&&breakImpulses[p]/Body.mass>=p.threshold){transmission=Mathf.Min(transmission,PanelRetention(p));primaryCount++;}
+   float mainBudget=.5f*Body.mass*incoming.sqrMagnitude*(1-transmission*transmission)/Mathf.Max(1,primaryCount);
+   foreach(var entry in pendingBreaks.OrderBy(x=>x.Key.id,StringComparer.Ordinal)){
+-   var p=entry.Key;if(NewLoopActive&&!NewLoopTarget(p))continue;bool portWave=portWavePending.Contains(p);CityDebris secondary;bool isSecondary=secondarySources.TryGetValue(p,out secondary);float effectiveThreshold=p.threshold*(isSecondary?SecondaryThresholdFraction:1);if(p.broken||!(NewLoopActive&&newLoopBeamPending.Contains(p))&&breakImpulses[p]/Body.mass<effectiveThreshold)continue;if(isSecondary&&(!secondary.body||!SecondaryAllowed(p,secondary)))continue;if(!isSecondary&&!portWave){broke=true;if(p.id.StartsWith("ceiling-")&&breakNormals[p].y<-.7f&&incoming.y>0)ceilingBreak=true;if(burstId.Length==0||PanelImpactWeight(p)>burstWeight){burstId=p.id;burstWeight=PanelImpactWeight(p);}}p.broken=true;if(NewLoopActive)StopNewLoopPanel(p);ObservePortBreak(p,portWave,isSecondary);RecoverRotorFromBreakR12(p.id,isSecondary||portWave);SetPanelContactsCalmR4(p,false);if(p.city2)p.city2.SetBroken(true);else if(p.city)p.city.SetBroken(true);else p.visual.SetActive(false);
++   var p=entry.Key;if(NewLoopActive&&!NewLoopTarget(p))continue;bool portWave=portWavePending.Contains(p);CityDebris secondary;bool isSecondary=secondarySources.TryGetValue(p,out secondary);float effectiveThreshold=p.threshold*(isSecondary?SecondaryThresholdFraction:1);if(p.broken||!(NewLoopActive&&(newLoopBeamPending.Contains(p)||newLoopDirectPending.ContainsKey(p)))&&breakImpulses[p]/Body.mass<effectiveThreshold)continue;if(isSecondary&&(!secondary.body||!SecondaryAllowed(p,secondary)))continue;if(!isSecondary&&!portWave){broke=true;if(p.id.StartsWith("ceiling-")&&breakNormals[p].y<-.7f&&incoming.y>0)ceilingBreak=true;if(burstId.Length==0||PanelImpactWeight(p)>burstWeight){burstId=p.id;burstWeight=PanelImpactWeight(p);}}p.broken=true;if(NewLoopActive)StopNewLoopPanel(p);ObservePortBreak(p,portWave,isSecondary);RecoverRotorFromBreakR12(p.id,isSecondary||portWave);SetPanelContactsCalmR4(p,false);if(p.city2)p.city2.SetBroken(true);else if(p.city)p.city.SetBroken(true);else p.visual.SetActive(false);
+    if(p.type=="glass")GlassBroken++;else if(p.type=="wall")WallsBroken++;else if(p.type=="wood")FurnitureBroken++;else if(p.type=="metal")EquipmentBroken++;else if(p.type=="food")FoodBroken++;else if(p.type=="person")PeopleHitR6++;else if(p.type=="bird")BirdsHitR6++;else DishesBroken++;
+    LastBroken=p.id;BrokenObjects.Add(p.id);DestructionEvent++;BreakEvents.Add(new WorldBreakEvent{cause=NewLoopActive?NewLoopBreakCause(p,portWave,isSecondary):null,id=p.id,material=p.type,position=entry.Value,normal=breakNormals[p],velocity=isSecondary?secondary.preVelocity:incoming,secondary=isSecondary||portWave,strength=Mathf.Clamp01(breakImpulses[p]/Body.mass/Mathf.Max(.01f,effectiveThreshold*4)),time=Time,weight=PanelImpactWeight(p)});if(p.city2){float budget=portWave?.5f*Body.mass*PortWaveImpulsePerMass*PortWaveImpulsePerMass:mainBudget;if(isSecondary){if(secondary.availableLoss<0)secondary.availableLoss=Mathf.Max(0,(float)(secondary.preEnergy-KineticEnergyR6(secondary.body)));budget=secondary.availableLoss*.5f;secondary.availableLoss-=budget;}SpawnCity2Shards(p,portWave?Vector3.up*PortWaveImpulsePerMass:isSecondary?secondary.preVelocity:incoming,isSecondary?secondary.body.mass:Body.mass,budget,isSecondary?secondary.root:p.id,isSecondary||portWave?1:0,entry.Value,breakNormals[p]);continue;}if(p.life!=null){SpawnLifeReactionR6(p,entry.Value,breakNormals[p],incoming,mainBudget);continue;}if(p.city){SpawnCityShards(p,entry.Value);continue;}
+    // At most 48 physical fragments, with real initial momentum and bounded lifetime.
+@@ -103,7 +103,7 @@ public sealed partial class RigidCrabFlight {
+ #if UNITY_EDITOR
+   if(broke)ReviewBreakResponses.Add(new BreakResponseTrace{id=burstId,time=Time,position=Body.position,incoming=incoming,solver=solverVelocity,beforeRedirect=beforeRedirect,recovered=recoveredVelocity,afterBurst=Body.linearVelocity,ceiling=ceilingBreak,normalAbsorptionEnabled=false,normalAbsorptionApplied=false,ceilingRedirectApplied=UseRotorBursts&&UseCeilingRicochet&&ceilingBreak&&!CeilingUnlocked});
+ #endif
+-  ApplyPortRoles();if(NewLoopActive){newLoopBeamPending.Clear();newLoopPhysicalPending.Clear();}pendingBreaks.Clear();breakImpulses.Clear();breakNormals.Clear();primaryPending.Clear();secondarySources.Clear();
++  ApplyPortRoles();if(NewLoopActive){newLoopBeamPending.Clear();newLoopPhysicalPending.Clear();newLoopDirectPending.Clear();}pendingBreaks.Clear();breakImpulses.Clear();breakNormals.Clear();primaryPending.Clear();secondarySources.Clear();
+  }
+  void ResetRestaurant(){
+   ResetPortRoles();ClearFragmentVisibility();if(!restaurant)return;foreach(var item in fragments){if(item)item.SetActive(false);Release(item);}fragments.Clear();pendingBreaks.Clear();breakImpulses.Clear();breakNormals.Clear();
+diff --git a/games/flight/web-template/host.js b/games/flight/web-template/host.js
+index bf5ce59..41a95e6 100644
+--- a/games/flight/web-template/host.js
++++ b/games/flight/web-template/host.js
+@@ -135,7 +135,7 @@ window.receiveFlightState=s=>{
+  if(view==='custom')loadoutUI();
+  if(phase==='preparing'){if(view!=='custom')setView('loading');$('loadTitle').textContent='次の一投を準備中';$('loadText').textContent='生簀へ戻しています…';}if(phase==='error'){setView('error');$('loadTitle').textContent='準備に失敗しました';$('loadText').textContent=s.message;$('loadAgain').classList.remove('hidden');}if(loaded&&runtimeReady&&view==='loading'&&phase!=='preparing'&&!pendingPrepareR23)setView('title');
+  if(changed){releaseKick();if(phase==='flight'){lastMissCount=0;lastEvent=-1;lastDestruction=0;lastBurstCount=0;lastReclaimR12=0;boostUntil=0;setView('flight');if(!Array.isArray(s.events))window.FlightSound.play('launch');}if(phase==='result'){setView('result');if(s.newRecord)recordTimer=setTimeout(()=>{recordTimer=null;if(view==='result')window.FlightSound.play('record');},100);}}
+- $('best').textContent=s.best.toFixed(1)+' m';$('distance').textContent=s.distance.toFixed(1);$('distanceUnit').textContent='m';$('rotorReserve').value=Math.round(100*(s.rotorRemaining||0)/Math.max(1,s.rotorCapacity||1));$('rotorPercent').textContent=$('rotorReserve').value+'%';$('destructionValue').textContent=String(s.destructionEvent);window.FlightSound.setSpin((view==='flight'||gesture.active||s.chargeStarted)?Math.abs(s.spinRps||0)/22:0);$('spinValue').textContent=Math.abs(s.spinRps||0).toFixed(1);$('chargeTime').textContent=s.chargeReady?'発射！':Math.max(0,10-(s.chargeElapsed||0)).toFixed(1)+'秒';$('chargeLabel').textContent=s.chargeReady?'準備完了':'発射まで';$('chargeFill').style.width=(Math.min(1,(s.chargeElapsed||0)/10)*100)+'%';$('chargeGauge').setAttribute('aria-valuenow',String(Math.round(Math.min(1,(s.chargeElapsed||0)/10)*100)));$('launchZone').querySelector('span').textContent=s.chargeReady?'上向きに弾いて発射！':'よこスワイプで回す';document.body.dataset.charged=String(!!s.chargeReady);
++ $('best').textContent=s.best.toFixed(1)+' m';$('distance').textContent=s.distance.toFixed(1);$('distanceUnit').textContent='m';$('rotorReserve').value=Math.round(100*(s.rotorRemaining||0)/Math.max(1,s.rotorCapacity||1));$('rotorPercent').textContent=$('rotorReserve').value+'%';if(!s.newLoop)$('destructionValue').textContent=String(s.destructionEvent);window.FlightSound.setSpin((view==='flight'||gesture.active||s.chargeStarted)?Math.abs(s.spinRps||0)/22:0);$('spinValue').textContent=Math.abs(s.spinRps||0).toFixed(1);$('chargeTime').textContent=s.chargeReady?'発射！':Math.max(0,10-(s.chargeElapsed||0)).toFixed(1)+'秒';$('chargeLabel').textContent=s.chargeReady?'準備完了':'発射まで';$('chargeFill').style.width=(Math.min(1,(s.chargeElapsed||0)/10)*100)+'%';$('chargeGauge').setAttribute('aria-valuenow',String(Math.round(Math.min(1,(s.chargeElapsed||0)/10)*100)));$('launchZone').querySelector('span').textContent=s.chargeReady?'上向きに弾いて発射！':'よこスワイプで回す';document.body.dataset.charged=String(!!s.chargeReady);
+  const ground=['TUMBLE','SETTLED','RESULT'].includes(s.stage);$('kick').disabled=s.kicksRemaining<=0||ground;$('kick').dataset.braced=String(s.braced);$('kick').setAttribute('aria-label','着地プッシュ、残り'+s.kicksRemaining+'回');$('kickBudget').textContent=ground?'止まるまで見届けよう':s.braced?'構え中！':s.kicksRemaining>0?'補助はあと'+s.kicksRemaining+'回':'使い切った！';
+  if(view==='flight'){
+   if(s.destructionEvent>lastDestruction){lastDestruction=s.destructionEvent;if(!Array.isArray(s.events))window.FlightSound.play(s.lastBroken.startsWith('tank')?'glass':s.lastBroken.startsWith('dish')?'dish':s.lastBroken.startsWith('wood')?'wood':s.lastBroken.startsWith('metal')?'metal':s.lastBroken.startsWith('food')?'food':'wall');const b=Array.isArray(s.events)?s.events.slice().reverse().find(e=>e.type==='destruction'&&e.objectId===s.lastBroken):null;const id=s.lastBroken,type=b?.material||'';const label=b?.secondary?'巻きぞえ！':id.includes('delivery_van')||id.includes('junction_cabinet')?'どっかーん！':id.includes('market_stall')?'屋台ごと！':id.includes('street_awning')?'ベリッ！':id.includes('crate')?'バラバラ！':type==='glass'||id.startsWith('tank')?'バリン！':type==='wall'||id.startsWith('outer-wall')?'壁、粉砕！':type==='food'?'料理も！':type==='metal'?'ガシャーン！':'バキッ！';feedback('good',label);}
+diff --git a/games/flight/web-template/new-loop.css b/games/flight/web-template/new-loop.css
+index daa0175..9645e5c 100644
+--- a/games/flight/web-template/new-loop.css
++++ b/games/flight/web-template/new-loop.css
+@@ -8,3 +8,13 @@ body[data-new-loop=true][data-charge-tier='3'] #chargeFill{background:#ffe14a}
+ #newLoopStatus{font-size:14px;text-shadow:0 2px 3px #102c36}#newLoopResult,#newLoopCompare{font-size:15px;line-height:1.5}#newLoopNext{margin-top:8px;font-size:14px}
+ body[data-new-loop=true] #result .panel{overflow-y:auto}body[data-new-loop=true] #result .panel-scroll{flex-shrink:0}
+ body[data-new-loop=false] #newLoopStatus,body[data-new-loop=false] #newLoopResult,body[data-new-loop=false] #newLoopCompare{display:none}
++
++#newLoopSpin{margin:4px 0;font-size:16px;font-weight:800;font-variant-numeric:tabular-nums;text-shadow:0 2px 2px #241e2e}
++#newLoopSpinValue{display:inline-block;min-width:2ch;font-size:24px;color:white}
++#newLoopMax{position:absolute;right:12px;top:52px;color:#ffe14a;font-size:26px;text-shadow:0 2px 2px #241e2e;pointer-events:none}
++body[data-new-loop=true] #destructionValue{display:inline-block;transform-origin:50% 65%;color:white;text-shadow:1px 1px #2a1e17,-1px -1px #2a1e17}
++body[data-new-loop=false] #newLoopSpin,body[data-new-loop=false] #newLoopMax{display:none}
++body[data-new-loop=true] #aimHUD{grid-template-columns:minmax(0,1fr) 100px;max-width:360px}
++body[data-new-loop=true] #newLoopSpin{grid-column:1;grid-row:2}
++body[data-new-loop=true] #newLoopMax{position:static;grid-column:2;grid-row:2;justify-self:start}
++body[data-new-loop=true] #newLoopStatus{grid-column:1 / -1;max-width:100%;margin:2px 0}
+diff --git a/games/flight/web-template/new-loop.js b/games/flight/web-template/new-loop.js
+index 6b78be6..3787b83 100644
+--- a/games/flight/web-template/new-loop.js
++++ b/games/flight/web-template/new-loop.js
+@@ -3,12 +3,45 @@
+ window.NewLoopUI=(()=>{
+  const $=id=>document.getElementById(id),zone=$('launchZone');
+  const status=document.createElement('p');status.id='newLoopStatus';status.setAttribute('aria-live','polite');$('aimHUD').append(status);
++ const spin=document.createElement('p');spin.id='newLoopSpin';spin.innerHTML='回転数 <strong id="newLoopSpinValue">0</strong>';$('chargeGauge').after(spin);
++ const max=document.createElement('strong');max.id='newLoopMax';max.textContent='MAX';max.hidden=true;$('chargeGauge').after(max);
+  const beam=document.createElement('button');beam.id='newLoopBeam';beam.hidden=true;beam.textContent='押している間 ビーム';$('stage').append(beam);
+  const result=document.createElement('p');result.id='newLoopResult';result.setAttribute('aria-live','polite');$('destructionResult').after(result);
+  const compare=document.createElement('p');compare.id='newLoopCompare';result.after(compare);
+  const next=document.createElement('button');next.id='newLoopNext';next.hidden=true;next.textContent='次の区間へ';$('retry').after(next);
+  const segment=document.createElement('button');segment.id='newLoopSegment';segment.hidden=true;segment.textContent='S5に戻る';$('aimActions').append(segment);
+  let state=null,pointer=null,keyHeld=false,startY=0,startAngle=18,angle=18,beamPointer=null,beamKey=false,lastResultAt=0,lastAttempt=-1;
++ let shownBroken=0,targetBroken=0,countFrame=0,nextTick=0,countGeneration=-1,maxCue=0,maxTimer=0;
++ let countAnimation=null,maxAnimation=null;
++ const motion=()=>!!state?.newLoop&&!state.paused&&!state.reducedMotion&&!state.feel?.reduced&&state.feel?.preset!=='off'&&!matchMedia('(prefers-reduced-motion: reduce)').matches;
++ function countStep(now){
++  countFrame=0;if(!state?.newLoop||state.paused)return;
++  if(shownBroken<targetBroken&&now>=nextTick){
++   shownBroken++;$('destructionValue').textContent=String(shownBroken);nextTick=now+40;
++   countAnimation?.cancel();if(motion())countAnimation=$('destructionValue').animate([{transform:'scale(1)'},{transform:'scale(1.35) rotate(-4deg)',offset:.35},{transform:'scale(1)'}],{duration:150,easing:'ease-out'});
++  }
++  if(shownBroken<targetBroken)countFrame=requestAnimationFrame(countStep);
++ }
++ function updateShow(s,n){
++  if(!n||countGeneration!==s.generation||s.phase==='ready'){
++   cancelAnimationFrame(countFrame);countFrame=0;countAnimation?.cancel();shownBroken=targetBroken=0;nextTick=0;
++   if(!n||countGeneration!==s.generation){maxCue=0;clearTimeout(maxTimer);max.hidden=true;maxAnimation?.cancel();}
++   countGeneration=s.generation;
++  }
++  spin.hidden=!n;if(!n)return;
++  $('newLoopSpinValue').textContent=String(Math.max(0,Math.floor(n.spinCount||0)));
++  targetBroken=n.broken;
++  if(!motion()){countAnimation?.cancel();maxAnimation?.cancel();}
++  if(s.phase==='result'||!motion()&&!s.paused){shownBroken=targetBroken;cancelAnimationFrame(countFrame);countFrame=0;}
++  $('destructionValue').textContent=String(shownBroken);
++  if(shownBroken<targetBroken&&!countFrame&&!s.paused)countFrame=requestAnimationFrame(countStep);
++  if((n.maxCue||0)>maxCue){
++   maxCue=n.maxCue;max.hidden=false;clearTimeout(maxTimer);
++   if(motion())maxAnimation=max.animate([{transform:'scale(.65)',opacity:0},{transform:'scale(1.45)',opacity:1,offset:.4},{transform:'scale(1)',opacity:1}],{duration:260,easing:'ease-out'});
++   maxTimer=setTimeout(()=>{max.hidden=true;},500);
++  }
++  if(s.phase!=='ready'||s.feel?.preset==='off')max.hidden=true;
++ }
+  const active=()=>!!state?.newLoop;
+  const aiming=()=>active()&&view==='aim'&&state.phase==='ready'&&!state.paused&&!pendingPrepareR23&&runtimeReady;
+  const stop=e=>{e.preventDefault();e.stopImmediatePropagation();};
+@@ -53,7 +86,7 @@ window.NewLoopUI=(()=>{
+  next.onclick=()=>{send('SelectNewLoopSegment','1');setView('aim');};
+  segment.onclick=()=>{send('SelectNewLoopSegment','0');setView('aim');};
+  function update(s){
+-  state=s;const n=s.newLoop;document.body.dataset.newLoop=String(!!n);
++  state=s;const n=s.newLoop;document.body.dataset.newLoop=String(!!n);updateShow(s,n);
+   beam.hidden=!n||view!=='flight'||!n.beamArmed;segment.hidden=!n||view!=='aim'||n.segment===0;
+   next.hidden=!n||view!=='result'||n.segment!==0||!n.nextUnlocked;
+   if(!n){status.textContent=result.textContent=compare.textContent='';return;}
+diff --git a/games/flight/web-template/sound-pack.js b/games/flight/web-template/sound-pack.js
+index 106b5d5..53b4798 100644
+--- a/games/flight/web-template/sound-pack.js
++++ b/games/flight/web-template/sound-pack.js
+@@ -26,6 +26,11 @@
+  function materialEvent(e){const kind=e.material==='tableware'?'dish':e.material;const pan=latest?Math.max(-.24,Math.min(.24,(e.position.x-latest.worldX)/30)):0;if(!ready){original.play(kind,e.strength);return;}shot('break.'+kind,Math.max(.3,e.strength),pan,e.weight??.5);if((e.weight||0)>.78&&now()-(cooldown.get('heavy.body')??-10)>.24){cooldown.set('heavy.body',now());api.play('shell',.30);}}
+  function consume(e){stats.processed++;stats.events.push({generation:e.generation,id:e.id,type:e.type,objectId:e.objectId,material:e.material,weight:e.weight??.5,physicsTime:e.physicsTime,atAudio:now()});if(stats.events.length>256)stats.events.shift();
+   if(e.type==='reset'){stopAll();playedWalls.clear();wasReady=false;return;}
++  if(e.type==='charge-tier'&&latest?.newLoop){
++   const tier=Number(e.objectId),v=shot(tier===3?'charge.ready':'charge.work',tier===3?1:.85);
++   if(v){v.source.playbackRate.setValueAtTime(tier===3?1.1:.9,now());v.source.playbackRate.exponentialRampToValueAtTime(tier===3?1.65:1.35,now()+.16);}
++   return;
++  }
+   if(e.type==='charge'){if(ready)shot('charge.work',.7+e.strength*.3);return;}
+   if(e.type==='launch'){stopAll();duckUntil=now()+.1;if(ready)shot('flight.launch');else original.play('launch');return;}
+   if(e.type==='release'){if(ready)shot('landmark.exterior',.8);else original.play('wall',.65);return;}
+@@ -44,7 +49,16 @@
+   for(const e of events){if(e.id<=cursor)continue;if(e.generation===generation)consume(e);cursor=e.id;}
+   if(s.phase==='result')stopAll();
+   if(!ready)return;
+-  if(s.newLoop&&s.phase==='ready'&&s.chargeStarted){const ids=['charge_low_loop','charge_mid_loop','charge_high_loop'];for(let i=0;i<3;i++)loop(ids[i],s.newLoop.held&&i===s.newLoop.tier-1?.65:0);if(s.newLoop.beamArmed&&!wasReady)shot('charge.ready');wasReady=!!s.newLoop.beamArmed;}else if(s.phase==='ready'&&s.chargeStarted){const E=Math.min(1,Math.max(0,s.chargeEnergy));const w=[Math.max(0,1-2*E),Math.max(0,1-2*Math.abs(E-.5)),Math.max(0,2*E-1)],norm=Math.hypot(...w)||1;for(let i=0;i<3;i++)loop(['charge_low_loop','charge_mid_loop','charge_high_loop'][i],w[i]/norm*(.28+.42*E));if(s.chargeReady&&!wasReady)shot('charge.ready');wasReady=!!s.chargeReady;}else for(const id of ['charge_low_loop','charge_mid_loop','charge_high_loop'])loop(id,0);
++  if(s.newLoop&&s.phase==='ready'&&s.chargeStarted){
++   const E=Math.min(1,Math.max(0,s.newLoop.energy)),curve=Math.expm1(3*E)/Math.expm1(3),intensity=.16+.84*curve;
++   const ids=['charge_low_loop','charge_mid_loop','charge_high_loop'];
++   for(let i=0;i<3;i++){
++    // The active tier gets exponentially stronger; a quiet adjacent bed preserves continuity.
++    const weight=s.newLoop.held?intensity*(i===s.newLoop.tier-1?1:i===s.newLoop.tier-2?.16:0):0;
++    loop(ids[i],weight);const voice=loops.get(ids[i]);if(voice)voice.source.playbackRate.setTargetAtTime(.8+.7*curve,now(),.0267);
++   }
++   wasReady=!!s.newLoop.beamArmed;
++  }else if(s.phase==='ready'&&s.chargeStarted){const E=Math.min(1,Math.max(0,s.chargeEnergy));const w=[Math.max(0,1-2*E),Math.max(0,1-2*Math.abs(E-.5)),Math.max(0,2*E-1)],norm=Math.hypot(...w)||1;for(let i=0;i<3;i++)loop(['charge_low_loop','charge_mid_loop','charge_high_loop'][i],w[i]/norm*(.28+.42*E));if(s.chargeReady&&!wasReady)shot('charge.ready');wasReady=!!s.chargeReady;}else for(const id of ['charge_low_loop','charge_mid_loop','charge_high_loop'])loop(id,0);
+   if(s.phase==='flight'){let t=Math.min(1,Math.max(0,(s.speed-8)/27));t=t*t*(3-2*t);const gain=s.speed<8?0:(.15+.55*t)*(now()<duckUntil?.4:1);loop('wind_slow_loop',Math.cos(t*Math.PI*.5)*gain);loop('wind_fast_loop',Math.sin(t*Math.PI*.5)*gain);}else{loop('wind_slow_loop',0);loop('wind_fast_loop',0);}
+   if(meter){const data=new Float32Array(meter.fftSize);meter.getFloatTimeDomainData(data);for(const x of data)stats.rawPeak=Math.max(stats.rawPeak,Math.abs(x));}
+  }
+diff --git a/qa/new-loop/RulesContract.cs b/qa/new-loop/RulesContract.cs
+index aa317ec..bc90a29 100644
+--- a/qa/new-loop/RulesContract.cs
++++ b/qa/new-loop/RulesContract.cs
+@@ -1,10 +1,13 @@
+ using System;
++using System.IO;
++using System.Linq;
++using System.Text.Json;
+ public static class RulesContract {
+  static int passed;
+  static void Check(bool ok,string name){if(!ok)throw new Exception(name);passed++;Console.WriteLine("PASS "+name);}
+  static bool Eq(float a,float b)=>BitConverter.SingleToInt32Bits(a)==BitConverter.SingleToInt32Bits(b);
+  static bool Near(float a,float b)=>Math.Abs(a-b)<.0001;
+- public static int Main(){
++ public static int Main(string[] args){
+   Check(NewLoopRules.BeamSeconds>=2&&NewLoopRules.BeamSeconds<=3,"beam duration 2-3 seconds");
+   Check(NewLoopRules.ChargeSeconds>=1.5&&NewLoopRules.ChargeSeconds<=2,"full charge 1.5-2 seconds");
+   Check(Near(NewLoopRules.Reach(0),8)&&Near(NewLoopRules.Reach(1),16),"wave reach 8 to 16m");
+@@ -12,13 +15,45 @@ public static class RulesContract {
+   Check(NewLoopRules.OrdinaryCapacity(0)==0&&NewLoopRules.OrdinaryCapacity(1)==3,"ordinary contact bounded; no automatic chain enrolment");
+   Check(NewLoopRules.Cleared(38,54)&&!NewLoopRules.Cleared(37,54)&&!NewLoopRules.Cleared(0,0),"S5 clear boundary 38/54");
+   Check(NewLoopRules.Cleared(29,41)&&!NewLoopRules.Cleared(28,41),"S7 clear boundary 29/41");
+-  Check(!NewLoopRules.ResultDue(4.9f,2.99f,true,false,false)&&NewLoopRules.ResultDue(4.91f,3,true,false,false),"release cap exactly 3s");
++  Check(!NewLoopRules.ResultDue(4.9f,3.99f,true,false,false)&&NewLoopRules.ResultDue(5.91f,4,true,false,false),"release cap exactly 4s");
+   Check(NewLoopRules.ResultDue(.1f,0,false,true,false)&&NewLoopRules.ResultDue(.1f,0,false,false,true),"rest and exit immediately before release");
+   Check(NewLoopRules.ResultDue(2,0,true,true,false)&&NewLoopRules.ResultDue(2,0,true,false,true),"rest and exit immediately after release");
+   Check(NewLoopRules.ResultDue(5.2f,0,false,false,false),"miss cannot hang forever");
+-  Check(!NewLoopRules.ResultDue(5.2f,2.8f,true,false,false),"3s destruction allowance not replaced by global cutoff");
++  Check(!NewLoopRules.ResultDue(5.2f,2.8f,true,false,false),"4s destruction allowance not replaced by global cutoff");
+   foreach(var r in new[]{"boost30","boost45","boost60","jackpot"})Check(NewLoopRules.Ignition(r),"ignition "+r);
+   foreach(var r in new[]{"","redirect30","resource","hazard","landmark","preview"})Check(!NewLoopRules.Ignition(r),"not ignition "+(r.Length==0?"(ordinary)":r));
++  Check(Near(NewLoopRules.SlowSeconds,.3f)&&Near(NewLoopRules.SlowScale,.25f),"release slow is 0.25x for 0.30 real seconds");
++  Check(Near(NewLoopRules.CameraPunchScale,.72f)&&Near(NewLoopRules.CameraPunchSeconds,.3f),"camera punch 0.72x / 0.30s");
++  Check(Near(NewLoopRules.VisualSpin(0),2)&&Near(NewLoopRules.VisualSpin(1),32)&&NewLoopRules.VisualSpin(.5f)<NewLoopRules.VisualSpin(.9f)/2,"steep visual spin 2 to 32 rps");
++  Check(NewLoopRules.VisualSpin(.9f)-NewLoopRules.VisualSpin(.8f)>NewLoopRules.VisualSpin(.2f)-NewLoopRules.VisualSpin(.1f),"exponentially increasing charge intensity");
++  Check(NewLoopRules.ShardSpeedMin>18&&NewLoopRules.ShardSpeedMax==28,"explosion debris faster than old 18m/s cap");
++  var line=Enumerable.Range(0,5).ToArray();
++  var linePlan=NewLoopRules.WavePlan(0,line,0,true,(a,b)=>Math.Abs(a-b)*7.9f,a=>a.ToString());
++  Check(linePlan.Count==5&&linePlan.Select(p=>p.hop).SequenceEqual(line),"graph chain hop order, including bridges");
++  Check(linePlan.All(p=>Near(NewLoopRules.HopDue(1,p.hop),1+.04f*p.target)),"each hop staggered by 0.04s");
++  using(var doc=JsonDocument.Parse(File.ReadAllText(args[0]))){
++   var instances=doc.RootElement.GetProperty("instances").EnumerateArray().ToArray();
++   Func<JsonElement,JsonElement,float> dist=(a,b)=>{
++    var x=a.GetProperty("p").EnumerateArray().Select(v=>v.GetSingle()).ToArray();var y=b.GetProperty("p").EnumerateArray().Select(v=>v.GetSingle()).ToArray();
++    return (float)Math.Sqrt(x.Zip(y,(v,w)=>(v-w)*(v-w)).Sum());
++   };
++   Func<JsonElement,string> id=a=>a.GetProperty("id").GetString();
++   foreach(var beat in new[]{"S5","S7"})foreach(var energy in new[]{0f,.5f,1f}){
++    var members=instances.Where(p=>p.GetProperty("beat").GetString()==beat).ToArray();
++    foreach(var ignition in members.Where(p=>NewLoopRules.Ignition(p.GetProperty("role").GetString()))){
++     string chain=ignition.GetProperty("chain").GetString();var set=members.Where(p=>p.GetProperty("chain").GetString()==chain).ToArray();
++     var plan=NewLoopRules.WavePlan(ignition,set,energy,true,dist,id);
++     Check(plan.Count==set.Length&&plan.Select(p=>id(p.target)).Distinct().Count()==set.Length,beat+" ignition "+id(ignition)+" full authored "+chain+" at "+energy);
++     Check(plan.Zip(plan.Skip(1),(a,b)=>a.hop<=b.hop).All(v=>v),"authored ignition breadth-first ordering");
++    }
++    foreach(var ordinary in members.Where(p=>!NewLoopRules.Ignition(p.GetProperty("role").GetString()))){
++     string chain=ordinary.GetProperty("chain").GetString();var set=members.Where(p=>id(p)==id(ordinary)||chain.Length>0&&p.GetProperty("chain").GetString()==chain).ToArray();
++     var plan=NewLoopRules.WavePlan(ordinary,set,energy,false,dist,id);
++     if(plan.Count>1+NewLoopRules.OrdinaryCapacity(energy)||plan.Skip(1).Any(p=>p.hop!=1||dist(ordinary,p.target)>NewLoopRules.Reach(energy)))throw new Exception("ordinary wave escaped radius/cap");
++    }
++    Check(true,beat+" every ordinary target bounded at "+energy);
++   }
++  }
+   var c=new SpinCharge{NewLoop=true};c.Begin();
+   Check(c.Ready&&c.Energy==0,"zero-energy throw allowed");
+   c.Add(20,.1f);Check(c.Energy==0,"swipes cannot create parallel energy stock");
+diff --git a/qa/new-loop/new-loop.spec.cjs b/qa/new-loop/new-loop.spec.cjs
+index 7bf57eb..4e05115 100644
+--- a/qa/new-loop/new-loop.spec.cjs
++++ b/qa/new-loop/new-loop.spec.cjs
+@@ -7,9 +7,9 @@ const read=f=>fs.readFileSync(path.join(root,f),'utf8'),sha=b=>crypto.createHash
+ const base='2d0d849120b0bc0002173f49b2db0fd7f6f05987';
+ const source=f=>read(project+'Assets/'+f);
+ test('current managed compilation and executed C# policy contracts',()=>{
+- const r=JSON.parse(read('docs/new-loop/compile.json'));expect(r.exitCode).toBe(0);expect(r.errors).toBe(0);
++ const r=JSON.parse(read('docs/new-loop/fix/compile.json'));expect(r.exitCode).toBe(0);expect(r.errors).toBe(0);
+  for(const [name,digest]of Object.entries(r.sources))expect(sha(fs.readFileSync(path.join(root,project,name))),name).toBe(digest);
+- expect(read('docs/new-loop/contracts.log')).toMatch(/TOTAL \d+ passed \/ 0 failed/);
++ expect(read('docs/new-loop/fix/contracts.log')).toMatch(/TOTAL \d+ passed \/ 0 failed/);
+ });
+ test('26 inherited dirty files and water fix remain byte identical',()=>{
+  const r=JSON.parse(read('docs/new-loop/preexisting-worktree.json'));expect(Object.keys(r)).toHaveLength(26);
+@@ -31,18 +31,21 @@ test('segment membership preserves whole authored chain sets',()=>{
+  const seen=new Set([ignition.id]),queue=[ignition];while(queue.length){const a=queue.shift();for(const b of yard)if(!seen.has(b.id)&&Math.hypot(...a.p.map((v,i)=>v-b.p[i]))<=8){seen.add(b.id);queue.push(b);}}
+  expect(seen.size).toBe(34);
+ });
+-test('wave impulses and direct beam share only the real break accounting',()=>{
++test('direct wave and beam enter one accounting pipeline, with explicit causes and real-time stagger',()=>{
+  const physics=source('PortPrototype/NewLoopPhysics.cs'),roles=source('PortPrototype/PortRoles.cs'),breaks=source('Scripts/RestaurantPhysics.cs');
+- const wave=physics.slice(physics.indexOf('void ImpulseNewLoopPanel'),physics.indexOf('void SyncNewLoopProxies'));
+- expect(wave).toContain('ForceMode.Impulse');expect(wave).not.toMatch(/pendingBreaks|broken\s*=|BreakEvents|threshold\s*=/);
+- expect(roles).toContain('if(NewLoopActive){ImpulseNewLoopPanel(w);continue;}');
+- expect(physics).toContain('QueueNewLoopSolverBreak(a,c.impulse.magnitude');expect(physics).toContain('newLoopBeamPending.Contains(p)?"beam"');
+- expect(breaks).toContain('!(NewLoopActive&&newLoopBeamPending.Contains(p))&&breakImpulses[p]/Body.mass<effectiveThreshold');
++ const wave=physics.slice(physics.indexOf('void QueueNewLoopWave'),physics.indexOf('void ExplodeNewLoopShards'));
++ expect(wave).toContain('pendingBreaks[p]=');expect(wave).not.toMatch(/broken\s*=|BreakEvents|threshold\s*=/);
++ expect(roles).toContain('if(NewLoopActive){QueueNewLoopWave(w);continue;}');
++ expect(roles).toContain('(NewLoopActive?newLoopWaveClock:Time)<w.due');
++ expect(physics).toContain('NewLoopRules.HopDue(newLoopWaveClock,step.hop)');
++ expect(physics).toContain('cause=step.hop<=1?"wave-direct":"chain"');
++ expect(physics).toContain('newLoopBeamPending.Contains(p)?"beam"');
++ expect(breaks).toContain('!(NewLoopActive&&(newLoopBeamPending.Contains(p)||newLoopDirectPending.ContainsKey(p)))&&breakImpulses[p]/Body.mass<effectiveThreshold');
+  expect((breaks.match(/DestructionEvent\+\+/g)||[])).toHaveLength(1);
+  expect(physics).toContain('if(!NewLoopActive||NewLoopReleased||NewLoopParked||!NewLoopTarget(p))return;');
+  const reset=physics.slice(physics.indexOf('void RestoreNewLoopRest'),physics.indexOf('public void ReleaseNewLoopActor'));
+  expect(reset).not.toMatch(/Physics\.Simulate\(/);expect(reset).toContain('timer.Elapsed.TotalMilliseconds');
+- expect(physics).not.toContain('p.x=Mathf.Clamp'); // no actor teleport at segment edge
++ expect(physics).not.toContain('p.x=Mathf.Clamp');
+  expect(source('Scripts/RigidCrabFlight.cs')).toContain('if(NewLoopActive){pressed=braced=false;return false;}');
+  expect(source('Scripts/CrabFlightGame.cs')).toContain('spinAngle=useNewLoop?0:displaySpinAngle');
+ });
+@@ -56,7 +59,7 @@ async function fixture(page,width=390,height=844){
+   window.send=(method,value='')=>sent.push({method,value});window.configure=()=>send('Configure',JSON.stringify(config));
+   window.setView=v=>{window.view=v;document.body.dataset.view=v;for(const id of ['loading','title','aimHUD','launchZone','aimActions','flightHUD','result'])document.getElementById(id).classList.add('hidden');for(const id of ({aim:['aimHUD','launchZone','aimActions'],flight:['flightHUD'],result:['result']}[v]||[]))document.getElementById(id).classList.remove('hidden');};
+   setView('aim');document.getElementById('retry').onclick=()=>send('Prepare');
+-  window.fixtureState={phase:'ready',paused:false,attempts:1,newLoop:{segment:0,segmentName:'S5',tier:2,energy:.7,aimAngle:18,held:false,beamArmed:false,beamUsed:false,beamActive:false,total:54,broken:0,destructionRate:0,hasPrevious:false,cleared:false,elapsed:0,releaseAge:0}};
++  window.fixtureState={phase:'ready',paused:false,attempts:1,generation:1,feel:{preset:'mashimashi',shake:true,reduced:false},newLoop:{segment:0,segmentName:'S5',tier:2,energy:.7,aimAngle:18,held:false,spinCount:8,maxCue:0,beamArmed:false,beamUsed:false,beamActive:false,total:54,broken:0,destructionRate:0,hasPrevious:false,cleared:false,elapsed:0,releaseAge:0}};
+  });
+  await page.addScriptTag({content:read(web+'new-loop.js')});
+  await page.evaluate(()=>NewLoopUI.update(fixtureState));
+@@ -78,7 +81,7 @@ for(const [width,height]of [[390,844],[844,390],[320,568]])test(`result adapter
+  for(const id of ['destructionResultValue','newLoopResult','newLoopCompare','retry']){await expect(page.locator('#'+id)).toBeVisible();const r=await page.locator('#'+id).boundingBox();expect(r.y).toBeGreaterThanOrEqual(0);expect(r.y+r.height).toBeLessThanOrEqual(height);}
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
+  await page.locator('#retry').click();expect(await page.evaluate(()=>sent.at(-1).method)).toBe('Prepare');
+- await page.screenshot({path:path.join(root,`docs/new-loop/ui-fixture-${width}x${height}.png`)});
++ await page.screenshot({path:path.join(root,`docs/new-loop/fix/ui-fixture-${width}x${height}.png`)});
+ });
+ test('adapter OFF leaves old inputs unhandled and new controls hidden',async({page})=>{
+  await fixture(page);await page.evaluate(()=>{fixtureState.newLoop=null;NewLoopUI.update(fixtureState);sent.length=0;});
+@@ -92,3 +95,71 @@ test('shipping template includes adapter, styles and gated progression; JS parse
+  for(const f of ['new-loop.js','host.js','sound-pack.js','flight-cues.js'])cp.execFileSync(process.execPath,['--check',path.join(root,web,f)]);
+  expect(source('Scripts/DestructionProgressionR12.cs')).toContain('if(NewLoopActive&&(!NewLoopReleased||NewLoopParked))return;');
+ });
++test('charge spin counter and MAX are present, and charge HUD fits mobile/landscape',async({page})=>{
++ for(const [width,height]of [[390,844],[320,568],[844,390]]){
++  await fixture(page,width,height);
++  await page.evaluate(()=>{Object.assign(fixtureState.newLoop,{tier:3,energy:1,spinCount:17,maxCue:1,held:true,beamArmed:true});NewLoopUI.update(fixtureState);});
++  await expect(page.locator('#newLoopSpin')).toContainText('回転数');await expect(page.locator('#newLoopSpinValue')).toHaveText('17');await expect(page.locator('#newLoopMax')).toBeVisible();
++  for(const id of ['chargeGauge','newLoopSpin','newLoopStatus','newLoopMax']){
++   const r=await page.locator('#'+id).boundingBox();expect(r.x).toBeGreaterThanOrEqual(0);expect(r.x+r.width).toBeLessThanOrEqual(width);expect(r.y+r.height).toBeLessThan(height);
++  }
++  await page.screenshot({path:path.join(root,`docs/new-loop/fix/ui-charge-fixture-${width}x${height}.png`)});
++ }
++});
++test('break count ticks per accepted count, deduplicates snapshots, respects reduced/effects-off and resets',async({page})=>{
++ await fixture(page);
++ await page.evaluate(()=>{window.tickValues=[];new MutationObserver(()=>tickValues.push(Number(document.getElementById('destructionValue').textContent))).observe(document.getElementById('destructionValue'),{childList:true});setView('flight');fixtureState.phase='flight';fixtureState.newLoop.broken=5;NewLoopUI.update(fixtureState);});
++ await expect(page.locator('#destructionValue')).toHaveText('5');
++ expect(await page.evaluate(()=>tickValues.filter((v,i,a)=>i===0||v!==a[i-1]))).toEqual([0,1,2,3,4,5]);
++ await page.evaluate(()=>NewLoopUI.update(fixtureState));await expect(page.locator('#destructionValue')).toHaveText('5');
++ await page.emulateMedia({reducedMotion:'reduce'});
++ await page.evaluate(()=>{fixtureState.newLoop.broken=10;NewLoopUI.update(fixtureState);});await expect(page.locator('#destructionValue')).toHaveText('10');
++ expect(await page.locator('#destructionValue').evaluate(el=>el.getAnimations().filter(a=>a.playState==='running').length)).toBe(0);
++ await page.emulateMedia({reducedMotion:'no-preference'});
++ await page.evaluate(()=>{fixtureState.feel.preset='off';fixtureState.newLoop.broken=15;NewLoopUI.update(fixtureState);});await expect(page.locator('#destructionValue')).toHaveText('15');
++ expect(await page.locator('#destructionValue').evaluate(el=>el.getAnimations().length)).toBe(0);
++ await page.evaluate(()=>{fixtureState.phase='ready';fixtureState.generation++;fixtureState.newLoop.broken=0;fixtureState.newLoop.spinCount=0;NewLoopUI.update(fixtureState);});
++ await expect(page.locator('#destructionValue')).toHaveText('0');await expect(page.locator('#newLoopSpinValue')).toHaveText('0');
++});
++test('ON presentation is render-only, all added motion gated, and protected authoring inputs unchanged',()=>{
++ const show=source('PortPrototype/NewLoopPresentation.cs'),game=source('PortPrototype/NewLoopGame.cs');
++ expect(show).toContain('neonCrab.Root.rotation=');expect(show).toContain('neonCrab.Root.localScale*=');
++ expect(show).not.toMatch(/crab.Root\.(?:localScale|rotation)\s*[*=]|UnityEngine.Random|Random.Range/);
++ expect(show).toContain('feelGateR27.TryDisplay');expect(show).toContain('newLoopDimCommands.DrawRenderer');expect(show).toContain('SetNewLoopDim(max?.15f');
++ expect(game).toContain('NewLoopMotion&&feelSettingsR27.shake?1-(1-NewLoopRules.CameraPunchScale)');
++ expect(game).toContain('if(NewLoopMotion&&feelSettingsR27.shake&&phase=="ready"&&spinCharge.Held)');
++ expect(source('Scripts/City2Contacts.cs')).toContain('if(NewLoopActive&&NewLoopReleased&&NewLoopTarget(p))ExplodeNewLoopShards');
++ // Both wave and beam use the same destruction event => port presentation path.
++ expect(source('Scripts/FeelDirectorR27.cs')).toContain('portEntry.asset,cam,now,c.velocity,useNewLoop&&NewLoopMotion)');
++ const dirty=JSON.parse(read('docs/new-loop/preexisting-worktree.json'));
++ const allow=new Set(['PortPrototype/NewLoopGame.cs','PortPrototype/NewLoopPhysics.cs','PortPrototype/NewLoopRules.cs','PortPrototype/PortRoles.cs','PortPrototype/PortParticles.cs','Scripts/City2Contacts.cs','Scripts/CrabFlightGame.cs','Scripts/FeelDirectorR27.cs','Scripts/RestaurantPhysics.cs']);
++ const entries=cp.execFileSync('git',['ls-tree','-r','dad6137','--',project+'Assets'],{cwd:root,encoding:'utf8'}).trim().split('\n');let count=0;
++ for(const row of entries){const [meta,p]=row.split('\t');if(!/\.(?:cs|shader|json|fbx)$/.test(p)||dirty[p]||allow.has(p.replace(project+'Assets/','')))continue;
++  const blob=meta.split(' ')[2];expect(cp.execFileSync('git',['hash-object',p],{cwd:root,encoding:'utf8'}).trim(),p).toBe(blob);count++;
++ }
++ expect(count).toBeGreaterThan(450);
++});
++test('existing charge assets get exponential gain/pitch and immediate tier-up cue; OFF blend unchanged',async({page})=>{
++ const metadata=JSON.parse(read(web+'SoundPack/event-assets.json'));
++ await page.setContent('<div>Offline audio-graph contract (no listening)</div>');
++ await page.evaluate(meta=>{
++  window.audioCalls=[];let assetIndex=0;
++  const param=(kind,node)=>({value:0,setValueAtTime(v,t){audioCalls.push({kind,node,v,t,method:'set'});},setTargetAtTime(v,t,tau){audioCalls.push({kind,node,v,t,tau,method:'target'});},exponentialRampToValueAtTime(v,t){audioCalls.push({kind,node,v,t,method:'ramp'});},cancelScheduledValues(){}});
++  const ctx={currentTime:1,state:'running',createBufferSource(){const node={id:null};return {set buffer(v){node.id=v.id;},playbackRate:param('pitch',node),connect(){},disconnect(){},start(){audioCalls.push({kind:'start',node});},stop(){this.onended?.();}};},createGain(){const node={id:audioCalls.length};return {gain:param('gain',node),connect(){},disconnect(){}};},createAnalyser(){return {getFloatTimeDomainData(){}};},async decodeAudioData(){return {id:meta.assets[assetIndex++].id};}};
++  window.audioContext=ctx;window.FlightSound={graph:()=>({context:ctx,master:{connect(){}},enabled:true,paused:false}),play(){},toggle:async()=>true,setPaused(){},setSpin(){},activeVoiceCount:()=>0};
++  window.fetch=async url=>({ok:true,json:async()=>meta,arrayBuffer:async()=>new ArrayBuffer(1)});
++ },metadata);
++ await page.addScriptTag({content:read(web+'sound-pack.js')});
++ await page.evaluate(()=>FlightSound.toggle());await expect.poll(()=>page.evaluate(()=>FlightSound.packReady())).toBe(true);
++ const values=await page.evaluate(()=>{
++  const s={phase:'ready',generation:1,chargeStarted:true,events:[],newLoop:{held:true,tier:1,energy:0,beamArmed:false}};const gains=[];
++  for(const e of [0,.25,.5,.75,1]){s.newLoop.energy=e;s.newLoop.tier=e===1?3:e>=.5?2:1;audioCalls.length=0;audioContext.currentTime+=.3;FlightSound.update(s);gains.push(Math.max(...audioCalls.filter(x=>x.kind==='gain'&&x.method==='target').map(x=>x.v)));}
++  audioCalls.length=0;s.events=[{id:1,generation:1,type:'charge-tier',objectId:'3',strength:1}];FlightSound.update(s);
++  const cue=audioCalls.filter(x=>x.kind==='pitch'&&x.method==='ramp');
++  audioCalls.length=0;s.newLoop=null;s.chargeEnergy=.5;s.chargeReady=false;s.events=[];FlightSound.update(s);
++  return {gains,cue,off:audioCalls.filter(x=>x.kind==='gain'&&x.method==='target').map(x=>x.v)};
++ });
++ const gains=values.gains;expect(gains.every((v,i)=>i===0||v>gains[i-1])).toBe(true);expect(gains[4]-gains[3]).toBeGreaterThan(gains[1]-gains[0]);
++ expect(values.cue).toHaveLength(1);expect(values.cue[0].node.id).toBe('charge_ready_clack');expect(values.cue[0].v).toBe(1.65);
++ const mid=metadata.assets.find(a=>a.id==='charge_mid_loop');expect(Math.max(...values.off)).toBeCloseTo(mid.gain_linear*.49,7);
++});
+diff --git a/qa/new-loop/playwright.config.cjs b/qa/new-loop/playwright.config.cjs
+index cc1fa19..3f90db9 100644
+--- a/qa/new-loop/playwright.config.cjs
++++ b/qa/new-loop/playwright.config.cjs
+@@ -1,5 +1,5 @@
+ const path=require('node:path');
+ module.exports={testDir:__dirname,testMatch:'new-loop.spec.cjs',workers:1,timeout:60000,
+- outputDir:path.resolve(__dirname,'../../docs/new-loop/playwright-artifacts'),
++ outputDir:path.resolve(__dirname,'../../docs/new-loop/fix/playwright-artifacts'),
+  use:{headless:true,launchOptions:{executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'}},
+- reporter:[['list'],['json',{outputFile:path.resolve(__dirname,'../../docs/new-loop/playwright.json')}]]};
++ reporter:[['list'],['json',{outputFile:path.resolve(__dirname,'../../docs/new-loop/fix/playwright.json')}]]};
+diff --git a/tasks.md b/tasks.md
+index 3a2bf2c..325cee0 100644
+--- a/tasks.md
++++ b/tasks.md
+@@ -349,3 +349,9 @@ R18 timing continuation 2026-11-04: 私的な診断WebGL c86cec4をビルド成
+ | stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
+ |---|---|---|---|---|---|---|
+ | new-loop | 回す→飛ぶ→接触→解放→破壊→即リトライの港限定試作 | Codex（単独書込） | port-prototype 2d0d849 / 既存SpinCharge・港・waterfix | ONの仕様接続、OFF固定入力経路保護、Roslyn、offline Playwright、報告2部とcommit。Native/WebGLはクロエ担当 | 指定なし | 再開監査と10解決項目の実装済み。Roslyn124ソースerror0/warning20、C#計算40PASS、offline Playwright10PASS/0FAIL/0SKIP。26既存差分hash一致・commit除外。Native/物理破壊差/固定入力/リセット実測/実画面/実聴NOT_RUN、クロエ確認待ち。docs/new-loop/NEON-REPORT-NEWLOOP-by-codex.md参照 |
++
++## NEON new-loop fix round（2026-11-24）
++
++| stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
++|---|---|---|---|---|---|---|
++| new-loop-fix | 爆散の直接波と段階的チャージ演出の2点のみ | Codex | new-loop dad6137・本人FIX ROUND | Roslyn・offline contracts・Playwright、OFF保護、報告2写し・commit | 指定なし | ソース修正・offline検証済み：Roslyn error0/warning20、new-loop契約71/71、port契約30/30、Playwright14/14。Unity Editor・実聴・Native画面は指示によりNOT_RUN |
+diff --git a/tools/new-loop/contracts.py b/tools/new-loop/contracts.py
+index 2d462c9..0b73545 100644
+--- a/tools/new-loop/contracts.py
++++ b/tools/new-loop/contracts.py
+@@ -4,10 +4,10 @@ from pathlib import Path
+ import subprocess,json
+ root=Path(__file__).resolve().parents[2];sdk=Path('/Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/Resources/Scripting')
+ runtime=next((sdk/'NetCoreRuntime/shared/Microsoft.NETCore.App').iterdir())
+-out=root.parent/'evidence/new-loop/contracts';out.mkdir(parents=True,exist_ok=True)
++out=root.parent/'evidence/new-loop/fix/contracts';out.mkdir(parents=True,exist_ok=True)
+ legacy=subprocess.check_output(['git','show','2d0d849:games/flight/crab-flight/Assets/Scripts/SpinCharge.cs'],cwd=root).decode().replace('SpinWorkInput','LegacySpinWorkInput').replace('SpinCharge','LegacySpinCharge');(out/'LegacySpinCharge.cs').write_text(legacy)
+ args=['-nologo','-nostdlib','-target:exe','-out:'+str(out/'rules.dll')]+['-r:'+str(p) for p in runtime.glob('*.dll')]+[str(root/p) for p in ['games/flight/crab-flight/Assets/PortPrototype/NewLoopRules.cs','games/flight/crab-flight/Assets/Scripts/SpinCharge.cs','qa/new-loop/MathfShim.cs','qa/new-loop/RulesContract.cs']]+[str(out/'LegacySpinCharge.cs')]
+ subprocess.run([str(sdk/'NetCoreRuntime/dotnet'),str(sdk/'DotNetSdkRoslyn/csc.dll'),*args],check=True)
+ (out/'rules.runtimeconfig.json').write_text(json.dumps({'runtimeOptions':{'tfm':'net6.0','framework':{'name':'Microsoft.NETCore.App','version':runtime.name}}}))
+-r=subprocess.run([str(sdk/'NetCoreRuntime/dotnet'),str(out/'rules.dll')],capture_output=True,text=True)
+-(root/'docs/new-loop/contracts.log').write_text(r.stdout+r.stderr);print(r.stdout+r.stderr);raise SystemExit(r.returncode)
++r=subprocess.run([str(sdk/'NetCoreRuntime/dotnet'),str(out/'rules.dll'),str(root/'games/flight/crab-flight/Assets/PortPrototype/Resources/PortPrototype/Layout.json')],capture_output=True,text=True)
++(root/'docs/new-loop/fix/contracts.log').write_text(r.stdout+r.stderr);print(r.stdout+r.stderr);raise SystemExit(r.returncode)
+diff --git a/tools/new-loop/typecheck.py b/tools/new-loop/typecheck.py
+index 40d3da5..583fecc 100644
+--- a/tools/new-loop/typecheck.py
++++ b/tools/new-loop/typecheck.py
+@@ -5,7 +5,7 @@ import subprocess,json,hashlib,re
+ ROOT=Path(__file__).resolve().parents[2]
+ project=ROOT/'games/flight/crab-flight'
+ sdk=Path('/Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/Resources/Scripting')
+-out=ROOT/'docs/new-loop'; products=ROOT.parent/'evidence/new-loop/managed';products.mkdir(parents=True,exist_ok=True)
++out=ROOT/'docs/new-loop/fix';out.mkdir(parents=True,exist_ok=True); products=ROOT.parent/'evidence/new-loop/fix/managed';products.mkdir(parents=True,exist_ok=True)
+ args=(ROOT/'docs/port-prototype/waterfix/Assembly-CSharp.rsp').read_text().splitlines()
+ args=[a for a in args if not a.startswith(('-out:','-refout:'))]
+ for f in sorted((project/'Assets/PortPrototype').glob('*.cs')):

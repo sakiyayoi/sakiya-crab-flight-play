@@ -1,0 +1,27 @@
+{
+  "base": "dad61373317489381ef3b71a3f99e244cfa5ebe6",
+  "sha256": {
+    "games/flight/crab-flight/Assets/PortPrototype/NewLoopGame.cs": "6d35f99c27307263f2eb3cd336a24e879b58502b53d5b6d256f52a5d83ef414a",
+    "games/flight/crab-flight/Assets/PortPrototype/NewLoopPhysics.cs": "2ae85085ab58cb9f220d18e790c6046a9e42a97064c50576044214772ef26b86",
+    "games/flight/crab-flight/Assets/PortPrototype/NewLoopPresentation.cs": "2a1e651b5b5adc9985d49ea354b134da4373e397e2a45b650e40eeb7e1b5657d",
+    "games/flight/crab-flight/Assets/PortPrototype/NewLoopPresentation.cs.meta": "d701854f3a9fc504428862e990c4089112a5aeede3d772d627b06ebc17a7d968",
+    "games/flight/crab-flight/Assets/PortPrototype/NewLoopRules.cs": "b844f24fd09d84ce0613581c721fe4a7c830db4e431f18ff191d74f89b190a19",
+    "games/flight/crab-flight/Assets/PortPrototype/PortParticles.cs": "ab925372bab2347d096ec0b17246683594a311f189c6c039d5f30668a17e7a8d",
+    "games/flight/crab-flight/Assets/PortPrototype/PortRoles.cs": "08d931972dd6451490cb6601c5789a1bcb188704ab495558db1129f36edb8e2b",
+    "games/flight/crab-flight/Assets/PortPrototype/Resources/PortPrototype/NewLoopDim.shader": "f6c384867401358d7ae4ae06a39cf4ceba0363e6f8a20df15b18b596ffd7c98a",
+    "games/flight/crab-flight/Assets/PortPrototype/Resources/PortPrototype/NewLoopDim.shader.meta": "9c2bbe455ca6344b58fa427be6010205c705dc8151d1d03e9d60500b6407ec0d",
+    "games/flight/crab-flight/Assets/Scripts/City2Contacts.cs": "71b986274facb31386045c83994a399369a33d00980fe0d5a9bb321d42433ffe",
+    "games/flight/crab-flight/Assets/Scripts/CrabFlightGame.cs": "fd6fe25cbf949cc18d35e1a34a6ad5b54a09dc06df5b1caf6cdcbd9379e3c361",
+    "games/flight/crab-flight/Assets/Scripts/FeelDirectorR27.cs": "7298cc8b16a4b4576f5bc42d48f086c247cde5b3719c3d4ddcd7805b7f9fda49",
+    "games/flight/crab-flight/Assets/Scripts/RestaurantPhysics.cs": "d8c39734ad10814f4df9004af53da062c3fd4c9ef9b1af6903801dc2aaba7179",
+    "games/flight/web-template/host.js": "c1b6921f36761a79d877992b8efcaec9d91c1c0feaedda309040432cc7bb74d3",
+    "games/flight/web-template/new-loop.css": "98ef5d07a99c5622609b476145cec4eecbb376936cd8c0f797adf538b26f17e5",
+    "games/flight/web-template/new-loop.js": "71455ae536cfaaad82ffb486ec63e65a6cdbe4c3643dec582ae34c3c50426324",
+    "games/flight/web-template/sound-pack.js": "7e4062cf3589b4e3343d3d4d6c5cf3391dbacd6ae91974d32407862d989b9347",
+    "qa/new-loop/RulesContract.cs": "8a4dd54f6bd2abaa0e0cd22704412ce78552c4577fe3f603d3ac570ba535c8b0",
+    "qa/new-loop/new-loop.spec.cjs": "b33b3de66359dcac245150aee08604c8f415290190a52ac6d7c5624c5e70f533",
+    "qa/new-loop/playwright.config.cjs": "1e419e50d63346085cd5159f781a549dfc86ee58240e5499ee8881a66569281c",
+    "tools/new-loop/contracts.py": "298afd53c35d7682e91a315bbb8e4103b1a918950819b3519daa9d5e281d5a28",
+    "tools/new-loop/typecheck.py": "ca30cc1757e06cc110cc53d23194074adcd16595c6632337694a319b72e3fddf"
+  }
+}
