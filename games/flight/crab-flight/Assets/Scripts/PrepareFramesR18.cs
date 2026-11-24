@@ -7,7 +7,7 @@ public sealed partial class CrabFlightGame {
  public const double PrepareBudgetMsR18=3;
  bool BeginPrepareFrameR18(FlightInputR23 c,FlightInputAckR23 a,bool repeat){
  int traceBeginR18=PrepareEnvelopeR18.EnterReceipt(PrepareEnvelopeR18.BeginPrepare,c!=null?c.id:0,Time.renderedFrameCount);try{
-  if(simulation==null)return false;PrepareEnvelopeR18.Preparing(c!=null?c.id:0);
+  if(useNewLoop||simulation==null)return false;PrepareEnvelopeR18.Preparing(c!=null?c.id:0);
   prepareViewR18=State();prepareViewR18.phase="preparing";prepareViewR18.stage="PREPARING";prepareViewR18.message="次の一投を準備しています…";prepareViewR18.events=Array.Empty<FlightGameEvent>();prepareViewR18.resultOverview=null;prepareViewR18.chargeStarted=prepareViewR18.chargeReady=false;prepareViewR18.spinRps=0;
   prepareInputR18=c;prepareAckR18=a;preparePauseR18=null;prepareLaunchR18=null;prepareStartedR18=System.Diagnostics.Stopwatch.GetTimestamp();prepareCpuR18=prepareWallR18=prepareMaxChunkR18=0;prepareFramesR18=0;prepareDiagnosticTimingR18=PrepareCostProbeR15.Enabled;prepareFirstWorkDelayR18=-1;prepareMaxWaitR18=0;prepareLastWorkEndR18=0;
   if(repeat){float phase0=spinAngle,spin0=launchSpinRps,charge0=launchChargeEnergy,target0=launchTargetPower;prepareLaunchR18=()=>{launchTargetPower=target0;launchSpinRps=spin0;launchChargeEnergy=charge0;crab.ChargePose(charge0);spinAngle=displaySpinAngle=phase0;requestedLaunchSource="retry";Launch("");};}

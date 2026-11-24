@@ -1,0 +1,10 @@
+#newLoopBeam{position:absolute;z-index:6;left:50%;transform:translateX(-50%);bottom:calc(22px + env(safe-area-inset-bottom));min-height:64px;width:min(320px,90%);background:#ffe14a;color:#102c36;touch-action:none}
+body[data-new-loop=true] #kick,body[data-new-loop=true] #powerTrack,body[data-new-loop=true] #distanceResult,body[data-new-loop=true] #bestDifference,body[data-new-loop=true] #coinResult,body[data-new-loop=true] #resultActions,body[data-new-loop=true] #resultDetails,body[data-new-loop=true] #portNextLandmark,body[data-new-loop=true] #portPreview,body[data-new-loop=true] #titleGear,body[data-new-loop=true] #customize,body[data-new-loop=true] #resultCause,body[data-new-loop=true] #firstContactResult{display:none!important}
+body[data-new-loop=true] #aimNumbers>span:not(:first-child){display:none}
+body[data-new-loop=true] #launchZone:before{content:'押して回す';font-size:28px}
+body[data-new-loop=true] #chargeFill{background:#33e5ff}
+body[data-new-loop=true][data-charge-tier='2'] #chargeFill{background:#ff4d99}
+body[data-new-loop=true][data-charge-tier='3'] #chargeFill{background:#ffe14a}
+#newLoopStatus{font-size:14px;text-shadow:0 2px 3px #102c36}#newLoopResult,#newLoopCompare{font-size:15px;line-height:1.5}#newLoopNext{margin-top:8px;font-size:14px}
+body[data-new-loop=true] #result .panel{overflow-y:auto}body[data-new-loop=true] #result .panel-scroll{flex-shrink:0}
+body[data-new-loop=false] #newLoopStatus,body[data-new-loop=false] #newLoopResult,body[data-new-loop=false] #newLoopCompare{display:none}

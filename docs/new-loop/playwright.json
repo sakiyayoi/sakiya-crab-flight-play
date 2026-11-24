@@ -1,0 +1,453 @@
+{
+  "config": {
+    "argv": [
+      "/usr/local/bin/node",
+      "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/.git/placement-fix-qa/runtime/node_modules/.bin/playwright",
+      "test",
+      "--config",
+      "qa/new-loop/playwright.config.cjs"
+    ],
+    "configFile": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/new-loop/playwright.config.cjs",
+    "rootDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/new-loop",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/docs/new-loop/playwright-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/qa/new-loop",
+        "testIgnore": [],
+        "testMatch": [
+          "new-loop.spec.cjs"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/source/docs/new-loop/playwright.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "new-loop.spec.cjs",
+      "file": "new-loop.spec.cjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "current managed compilation and executed C# policy contracts",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 181,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T04:21:36.005Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "48c6d1ebe3c8a381a078-afa08714c5183902d8e5",
+          "file": "new-loop.spec.cjs",
+          "line": 9,
+          "column": 1
+        },
+        {
+          "title": "26 inherited dirty files and water fix remain byte identical",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 147,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2026-11-24T04:21:36.254Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "48c6d1ebe3c8a381a078-44067bcda7bdf853435d",
+          "file": "new-loop.spec.cjs",
+          "line": 14,
+          "column": 1
+        },
+        {
+          "title": "segment membership preserves whole authored chain sets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 207,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T04:21:36.427Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "48c6d1ebe3c8a381a078-859f1686280daf1c84c6",
+          "file": "new-loop.spec.cjs",
+          "line": 22,
+          "column": 1
+        },
+        {
+          "title": "wave impulses and direct beam share only the real break accounting",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T04:21:36.652Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "48c6d1ebe3c8a381a078-797332b821987b483c15",
+          "file": "new-loop.spec.cjs",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "actual host adapter: pointer/keyboard charge and release; beam hold only",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1449,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T04:21:36.683Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "48c6d1ebe3c8a381a078-0c8f5498e2a6c0374bb7",
+          "file": "new-loop.spec.cjs",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "result adapter 390x844: score, rate, comparison and retry together",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 946,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T04:21:39.815Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "48c6d1ebe3c8a381a078-3086f75aea9f266603c8",
+          "file": "new-loop.spec.cjs",
+          "line": 74,
+          "column": 60
+        },
+        {
+          "title": "result adapter 844x390: score, rate, comparison and retry together",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 942,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T04:21:40.785Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "48c6d1ebe3c8a381a078-93826d6c28ce78b46027",
+          "file": "new-loop.spec.cjs",
+          "line": 74,
+          "column": 60
+        },
+        {
+          "title": "result adapter 320x568: score, rate, comparison and retry together",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 894,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T04:21:41.750Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "48c6d1ebe3c8a381a078-b88c76fe43ee2ed2f10c",
+          "file": "new-loop.spec.cjs",
+          "line": 74,
+          "column": 60
+        },
+        {
+          "title": "adapter OFF leaves old inputs unhandled and new controls hidden",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 747,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T04:21:42.667Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "48c6d1ebe3c8a381a078-64e01175115830d87d07",
+          "file": "new-loop.spec.cjs",
+          "line": 83,
+          "column": 1
+        },
+        {
+          "title": "shipping template includes adapter, styles and gated progression; JS parses",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 493,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    },
+                    {
+                      "buffer": ""
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2026-11-24T04:21:43.435Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "48c6d1ebe3c8a381a078-2a4d747047e94e7769b4",
+          "file": "new-loop.spec.cjs",
+          "line": 88,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-24T04:21:34.864Z",
+    "duration": 10229.918,
+    "expected": 10,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

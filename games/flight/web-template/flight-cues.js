@@ -20,7 +20,7 @@
     if([2,4,7].includes(chain))emit('chain',{...data,chain});
    }else if(e.type==='landing')emit('ground_hit',{...data,part:e.objectId==='shell'?'shell':e.objectId.startsWith('claw')?'claw':'leg'});
   }
-  if(s.chargeReady&&!update.wasReady)emit('charge_ready');update.wasReady=!!s.chargeReady;
+  const chargeReady=s.newLoop?!!s.newLoop.beamArmed:!!s.chargeReady;if(chargeReady&&!update.wasReady)emit('charge_ready');update.wasReady=chargeReady;
   if(s.eventId!==gameEvent){gameEvent=s.eventId;const ev={perfect:'push_perfect',good:'push_good',miss:'push_miss'}[s.eventName];if(ev)emit(ev,{sourceId:s.eventId});}
   if(s.phase==='result'&&!result){result=true;if(s.newRecord&&!s.physicsFault)emit('new_record');emit('result',{distance:s.distance,invalid:!!s.physicsFault});}
  }

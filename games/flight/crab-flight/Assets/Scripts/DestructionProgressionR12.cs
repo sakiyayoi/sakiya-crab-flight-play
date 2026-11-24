@@ -6,10 +6,11 @@ public sealed partial class RigidCrabFlight{
  public readonly List<ReclaimEventR12> ReclaimEventsR12=new List<ReclaimEventR12>();
  void ResetReclaimR12(){ReclaimedRotorJ=LastReclaimJ=0;ReclaimedNodes=0;ReclaimEventsR12.Clear();}
  void RecoverRotorFromBreakR12(string id,bool secondary){
+  if(NewLoopActive&&(!NewLoopReleased||NewLoopParked))return;
   if(!UseProgressionR12||!id.StartsWith("r12-flywheel-",StringComparison.Ordinal))return;
   // One authored accumulator pays once because the existing panel is already marked broken.
   // Arcade stored environmental work, not a claim of energy conservation in real destruction.
-  float energy=9000,before=RotorRemaining;RotorRemaining+=energy;RotorCapacity+=energy;ReclaimedRotorJ+=energy;LastReclaimJ=energy;ReclaimedNodes++;
+  float energy=9000,before=RotorRemaining;if(NewLoopActive)RotorPulseCapacity=Mathf.Max(RotorPulseCapacity,energy);RotorRemaining+=energy;RotorCapacity+=energy;ReclaimedRotorJ+=energy;LastReclaimJ=energy;ReclaimedNodes++;
   ReclaimEventsR12.Add(new ReclaimEventR12{id=id,time=Time,joules=energy,before=before,after=RotorRemaining,secondary=secondary});
  }
 }

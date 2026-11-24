@@ -28,6 +28,7 @@
   if(e.type==='reset'){stopAll();playedWalls.clear();wasReady=false;return;}
   if(e.type==='charge'){if(ready)shot('charge.work',.7+e.strength*.3);return;}
   if(e.type==='launch'){stopAll();duckUntil=now()+.1;if(ready)shot('flight.launch');else original.play('launch');return;}
+  if(e.type==='release'){if(ready)shot('landmark.exterior',.8);else original.play('wall',.65);return;}
   if(e.type==='boost'){if(ready)shot('flight.launch',.55);else original.play('launch',.55);return;}
   if(e.type==='destruction'){
    if(now()-chainTime>.8){chain=0;chainMarks.clear();}chain++;chainTime=now();if([2,4,7].includes(chain)&&!chainMarks.has(chain)){chainMarks.add(chain);if(ready)shot('chain.threshold.'+chain);}
@@ -43,7 +44,7 @@
   for(const e of events){if(e.id<=cursor)continue;if(e.generation===generation)consume(e);cursor=e.id;}
   if(s.phase==='result')stopAll();
   if(!ready)return;
-  if(s.phase==='ready'&&s.chargeStarted){const E=Math.min(1,Math.max(0,s.chargeEnergy));const w=[Math.max(0,1-2*E),Math.max(0,1-2*Math.abs(E-.5)),Math.max(0,2*E-1)],norm=Math.hypot(...w)||1;for(let i=0;i<3;i++)loop(['charge_low_loop','charge_mid_loop','charge_high_loop'][i],w[i]/norm*(.28+.42*E));if(s.chargeReady&&!wasReady)shot('charge.ready');wasReady=!!s.chargeReady;}else for(const id of ['charge_low_loop','charge_mid_loop','charge_high_loop'])loop(id,0);
+  if(s.newLoop&&s.phase==='ready'&&s.chargeStarted){const ids=['charge_low_loop','charge_mid_loop','charge_high_loop'];for(let i=0;i<3;i++)loop(ids[i],s.newLoop.held&&i===s.newLoop.tier-1?.65:0);if(s.newLoop.beamArmed&&!wasReady)shot('charge.ready');wasReady=!!s.newLoop.beamArmed;}else if(s.phase==='ready'&&s.chargeStarted){const E=Math.min(1,Math.max(0,s.chargeEnergy));const w=[Math.max(0,1-2*E),Math.max(0,1-2*Math.abs(E-.5)),Math.max(0,2*E-1)],norm=Math.hypot(...w)||1;for(let i=0;i<3;i++)loop(['charge_low_loop','charge_mid_loop','charge_high_loop'][i],w[i]/norm*(.28+.42*E));if(s.chargeReady&&!wasReady)shot('charge.ready');wasReady=!!s.chargeReady;}else for(const id of ['charge_low_loop','charge_mid_loop','charge_high_loop'])loop(id,0);
   if(s.phase==='flight'){let t=Math.min(1,Math.max(0,(s.speed-8)/27));t=t*t*(3-2*t);const gain=s.speed<8?0:(.15+.55*t)*(now()<duckUntil?.4:1);loop('wind_slow_loop',Math.cos(t*Math.PI*.5)*gain);loop('wind_fast_loop',Math.sin(t*Math.PI*.5)*gain);}else{loop('wind_slow_loop',0);loop('wind_fast_loop',0);}
   if(meter){const data=new Float32Array(meter.fftSize);meter.getFloatTimeDomainData(data);for(const x of data)stats.rawPeak=Math.max(stats.rawPeak,Math.abs(x));}
  }

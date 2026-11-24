@@ -4,10 +4,10 @@ using UnityEngine;
 using CrabDestructionVfx;
 
 [Serializable] public sealed class FlightGameEvent {
- public int generation,id;public bool secondary;public string type,objectId,material;public Vector3 position,normal,velocity;public float strength,weight,physicsTime;
+ public int generation,id;public bool secondary;public string cause,type,objectId,material;public Vector3 position,normal,velocity;public float strength,weight,physicsTime;
 }
 [Serializable] public sealed class WorldBreakEvent {
- public string id,material;public bool secondary;public Vector3 position,normal,velocity;public float strength,time,weight;
+ public string cause,id,material;public bool secondary;public Vector3 position,normal,velocity;public float strength,time,weight;
 }
 
 public sealed partial class CrabFlightGame {
@@ -18,8 +18,8 @@ public sealed partial class CrabFlightGame {
  int generation,eventSequence,readBreaks,readImpacts,readBursts;bool outsideSent;string exitSource="";float lastWorkCue=-100;
  public FlightGameEvent[] ReviewEvents=>eventStream.ToArray();
  void StreamReset(){if(farLifeR10)farLifeR10.ResetVisuals();hitStop.Reset();generation++;eventSequence=readBreaks=readImpacts=readBursts=0;outsideSent=false;exitSource="";lastWorkCue=-100;eventStream.Clear();if(effects){effects.ResetRun();effects.SetPaused(paused);}Emit("reset","","",crab.Root.position,Vector3.up,Vector3.zero,0);}
- void Emit(string type,string objectId,string material,Vector3 point,Vector3 normal,Vector3 velocity,float strength,bool secondary=false,float weight=.5f){
-  var e=new FlightGameEvent{generation=generation,id=++eventSequence,type=type,objectId=objectId,material=material,position=point,normal=normal,velocity=velocity,strength=Mathf.Clamp01(strength),secondary=secondary,weight=weight,physicsTime=simulation!=null?simulation.Time:0};eventStream.Add(e);if(eventStream.Count>32)eventStream.RemoveAt(0);
+ void Emit(string type,string objectId,string material,Vector3 point,Vector3 normal,Vector3 velocity,float strength,bool secondary=false,float weight=.5f,string cause=null){
+  var e=new FlightGameEvent{cause=cause,generation=generation,id=++eventSequence,type=type,objectId=objectId,material=material,position=point,normal=normal,velocity=velocity,strength=Mathf.Clamp01(strength),secondary=secondary,weight=weight,physicsTime=simulation!=null?simulation.Time:0};eventStream.Add(e);if(eventStream.Count>32)eventStream.RemoveAt(0);
   ObservePortCamera(e);ObserveFeelEventR27(e);if(!FeelOnR27&&useHitStop&&!secondary)hitStop.Request(generation,e.id,type,material,e.strength,ReducedMotion,e.weight);
   if(FeelOnR27||!effects)return;
   if(type=="launch")effects.EmitLaunch(point,velocity,launchChargeEnergy);
@@ -34,7 +34,7 @@ public sealed partial class CrabFlightGame {
   return Mathf.Clamp01(e.strength*.6f+e.weight*.4f);
  }
  void DrainPhysicsEvents(){
-  while(readBreaks<simulation.BreakEvents.Count){var e=simulation.BreakEvents[readBreaks++];Emit("destruction",e.id,e.material,e.position,e.normal,e.velocity,e.strength,e.secondary,e.weight);if(e.material=="wall")exitSource=e.id;}
+  while(readBreaks<simulation.BreakEvents.Count){var e=simulation.BreakEvents[readBreaks++];Emit("destruction",e.id,e.material,e.position,e.normal,e.velocity,e.strength,e.secondary,e.weight,e.cause);if(e.material=="wall")exitSource=e.id;}
   while(readImpacts<simulation.Impacts.Count){var e=simulation.Impacts[readImpacts++];Emit("impact",e.part,e.surface,e.position,e.normal,e.velocity,e.impulse/simulation.Body.mass/8);if(e.surface=="sand"||e.surface=="tank"||e.surface=="float")Emit("landing",e.part,e.surface,e.position,e.normal,e.velocity,e.impulse/18);}
   while(readBursts<simulation.BurstEvents.Count){var b=simulation.BurstEvents[readBursts++];if(b.objectId!="launch")Emit("boost",b.objectId,"rotor",b.position,Vector3.up,simulation.Body.linearVelocity,Mathf.Clamp01((b.afterForward-b.beforeForward)/12));}
   if(!outsideSent&&simulation.WallsBroken>0&&simulation.FullyOutsideRestaurant()){outsideSent=true;Emit("exit",exitSource,"wall",crab.Root.position,Vector3.up,simulation.Body.linearVelocity,1);}

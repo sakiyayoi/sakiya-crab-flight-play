@@ -1,0 +1,41 @@
+PASS beam duration 2-3 seconds
+PASS full charge 1.5-2 seconds
+PASS wave reach 8 to 16m
+PASS wave capacity x1 to x3
+PASS ordinary contact bounded; no automatic chain enrolment
+PASS S5 clear boundary 38/54
+PASS S7 clear boundary 29/41
+PASS release cap exactly 3s
+PASS rest and exit immediately before release
+PASS rest and exit immediately after release
+PASS miss cannot hang forever
+PASS 3s destruction allowance not replaced by global cutoff
+PASS ignition boost30
+PASS ignition boost45
+PASS ignition boost60
+PASS ignition jackpot
+PASS not ignition (ordinary)
+PASS not ignition redirect30
+PASS not ignition resource
+PASS not ignition hazard
+PASS not ignition landmark
+PASS not ignition preview
+PASS zero-energy throw allowed
+PASS swipes cannot create parallel energy stock
+PASS middle tier at half energy
+PASS 100 percent arms beam and third tier
+PASS over-spin decays and disarms with wobble
+PASS release escape stops sway; penalty stays latched
+PASS no mid-throw heal or rearm; wobble ends after about 1s
+PASS retry starts empty and clears throw-local penalty
+PASS non-finite input does not poison stock
+PASS sway escape and bounded duration
+PASS OFF SpinCharge bit comparison configuration 0 (1200 steps)
+PASS OFF SpinCharge bit comparison configuration 1 (1200 steps)
+PASS OFF SpinCharge bit comparison configuration 2 (1200 steps)
+PASS OFF SpinCharge bit comparison configuration 3 (1200 steps)
+PASS OFF SpinCharge bit comparison configuration 4 (1200 steps)
+PASS OFF SpinCharge bit comparison configuration 5 (1200 steps)
+PASS OFF SpinCharge bit comparison configuration 6 (1200 steps)
+PASS OFF SpinCharge bit comparison configuration 7 (1200 steps)
+TOTAL 40 passed / 0 failed

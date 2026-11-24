@@ -343,3 +343,9 @@ R18 timing continuation 2026-11-04: 私的な診断WebGL c86cec4をビルド成�
 | stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
 |---|---|---|---|---|---|---|
 | port-waterfix | 発射後に水槽オーバーレイが追従する1件のみ修正 | Codex（単独書込） | port-prototype 5be0ca4 / WATERFIX依頼 | ready/charge限定・Sample欠落時もLateUpdateで非表示・描画のみ・C# compile・報告2部と同branch commit | 指定なし | 描画3ファイル修正・型検査121ソースerror0/warning18・Playwrightオフライン2PASS/0FAIL。保護364ソース/シェーダー/JSON・既存Scene/meta26件不変。Native/固定入力/実画面はNOT_RUN。実装6286e32・報告2部を保存、同branchへcommit。報告docs/port-prototype/NEON-REPORT-WATERFIX-by-codex.md参照 |
+
+## 新ループ試作（2026-11-23 本人直接指示）
+
+| stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
+|---|---|---|---|---|---|---|
+| new-loop | 回す→飛ぶ→接触→解放→破壊→即リトライの港限定試作 | Codex（単独書込） | port-prototype 2d0d849 / 既存SpinCharge・港・waterfix | ONの仕様接続、OFF固定入力経路保護、Roslyn、offline Playwright、報告2部とcommit。Native/WebGLはクロエ担当 | 指定なし | 再開監査と10解決項目の実装済み。Roslyn124ソースerror0/warning20、C#計算40PASS、offline Playwright10PASS/0FAIL/0SKIP。26既存差分hash一致・commit除外。Native/物理破壊差/固定入力/リセット実測/実画面/実聴NOT_RUN、クロエ確認待ち。docs/new-loop/NEON-REPORT-NEWLOOP-by-codex.md参照 |

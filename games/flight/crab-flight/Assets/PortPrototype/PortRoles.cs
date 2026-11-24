@@ -27,18 +27,19 @@ public sealed partial class RigidCrabFlight {
  void QueuePortWaves(){
   if(!PortLayout.Enabled)return;
   for(int i=portWaves.Count-1;i>=0;i--){var w=portWaves[i];if(Time<w.due)continue;portWaves.RemoveAt(i);
-   var p=w.target;if(p.broken||p.cityProposal.massKgSuggestion>100||Vector3.Distance(w.from,p.position)>10)continue;
+   var p=w.target;if(NewLoopActive){ImpulseNewLoopPanel(w);continue;}if(p.broken||p.cityProposal.massKgSuggestion>100||Vector3.Distance(w.from,p.position)>10)continue;
    if(primaryPending.Contains(p)&&breakImpulses.TryGetValue(p,out var contactImpulse)&&contactImpulse/Body.mass>=p.threshold)continue;
    // Deterministic authored blast, with its own finite impulse, tested against the unchanged full threshold.
    pendingBreaks[p]=p.position+Vector3.up;breakNormals[p]=Vector3.up;breakImpulses[p]=Body.mass*PortWaveImpulsePerMass;secondarySources.Remove(p);portWavePending.Add(p);if(w.support)portSupportPending.Add(p);
   }
  }
  void ObservePortBreak(BreakPanel p,bool wave,bool secondary){
-  var e=PortLayout.Find(p.id);if(e==null)return;
+  var e=PortLayout.Find(p.id);if(e==null||NewLoopActive&&(!NewLoopReleased||NewLoopParked))return;
   if(!wave&&!secondary&&e.role.Length>0)portDirectRoles.Add(p);
   // A destroyed support cannot leave its authored upper tier suspended. This uses
   // the same finite role-effect path; it never edits masses, colliders or thresholds.
   foreach(var child in panels){var c=PortLayout.Find(child.id);
+   if(NewLoopActive&&!NewLoopTarget(child))continue;
    if(c==null||c.support!=e.key||child.broken||!child.city2||portScheduled.Contains(child.id))continue;
    portScheduled.Add(child.id);portWaves.Add(new PortWave{target=child,from=p.position,due=Time+PortWaveDelay,support=true});
   }
@@ -47,7 +48,8 @@ public sealed partial class RigidCrabFlight {
   bool enrolled=portChainScheduled.Contains(p.id);
   if(e.chain.Length==0||(!enrolled&&!trigger)||secondary&&!enrolled)return;
   portScheduled.Add(p.id);
-  foreach(var next in panels){var n=PortLayout.Find(next.id);
+  if(NewLoopActive&&ScheduleNewLoopWave(p))return;
+  foreach(var next in panels){var n=PortLayout.Find(next.id);if(NewLoopActive&&!NewLoopTarget(next))continue;
    if(n==null||n.chain!=e.chain||next.broken||!next.city2||next.cityProposal.massKgSuggestion>100)continue;
    if(Vector3.Distance(p.position,next.position)>8)continue;
    portChainScheduled.Add(next.id);if(portScheduled.Contains(next.id))continue;
@@ -55,7 +57,7 @@ public sealed partial class RigidCrabFlight {
   }
  }
  void ApplyPortRoles(){
-  foreach(var p in portDirectRoles){var e=PortLayout.Find(p.id);if(e==null)continue;var v=Body.linearVelocity;var before=v;bool reversed=false;
+  foreach(var p in portDirectRoles){var e=PortLayout.Find(p.id);if(e==null||NewLoopActive&&(!NewLoopReleased||NewLoopParked||NewLoopBeamActive))continue;var v=Body.linearVelocity;var before=v;bool reversed=false;
    var result=PortRules.Role(e.role,new PortRules.Velocity(v.x,v.y,v.z),direction,portGroundThisStep,ref portAirBoost,out reversed);
    v=new Vector3(result.x,result.y,result.z);
    Body.linearVelocity=v;
