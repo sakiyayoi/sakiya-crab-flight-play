@@ -1,0 +1,2 @@
+docs/effekseer-proto/BridgeContracts.cs(56,89): warning CS0649: フィールド 'CrabFlightGame.generation' は割り当てられません。常に既定値 0 を使用します
+docs/effekseer-proto/BridgeContracts.cs(56,48): warning CS0414: フィールド 'CrabFlightGame.feelWasSlowR27' が割り当てられていますが、値は使用されていません

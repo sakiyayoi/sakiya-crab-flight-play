@@ -1,0 +1,19 @@
+{
+  "base": "e5aa6d1d6e240d7ad5c53ecfc0d2eeefbf3ee6a9",
+  "protectedFiles": 26,
+  "protectedUnchanged": true,
+  "trackedChanges": [
+    "games/flight/crab-flight/Assets/JuiceLayer/JuicePresentation.cs",
+    "games/flight/crab-flight/Assets/Scripts/FeelConfig.cs",
+    "games/flight/crab-flight/Assets/Scripts/FeelDirectorR27.cs",
+    "tasks.md"
+  ],
+  "sampleCount": 32,
+  "directResourceCount": 9,
+  "sampleSourceExact": true,
+  "noSampleAudio": true,
+  "compiledSourceCount": 129,
+  "compiledSourceHashesMatch": true,
+  "unity": "NOT_RUN: explicit user instruction",
+  "scope": "offline source/resource validation only"
+}

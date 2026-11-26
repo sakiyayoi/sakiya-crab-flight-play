@@ -1,0 +1,59 @@
+{
+  "source": "/tmp/efk-sample (user supplied official 02_Tktk03 sample)",
+  "files": {
+    "Parts/Aura.png": "03375b6a90413ebdf49a89d7ff6111c06f5bd2720557804da6066a8fb0e7ba9a",
+    "Parts/AuraTube.efkmat": "83ac8964fe27378c1eb541ddaf3a1e24f6ea2ce367abf8e2dbc9650d85cac6e6",
+    "Parts/AuraTubeModel.efkmodel": "c6b96ebef704453dd5dc578e93c654578a2d09ba6a20e3ed3c33d68b66a79050",
+    "Parts/AuraTubeModel.fbx": "0d14444a13c42dff155fc5307a474a82b7f5953262ce66517bd6d5684bc2ac38",
+    "Parts/Aura_2.png": "e72e4e7c2c0e5678e95ddbaff55529da954afc8e89bfdb9cd1ae8605a25c133b",
+    "Parts/ColorNoise.png": "35cce4876b3dafa11ce28088bc7c9e011b78d440bddaa83870d5e1e8cba793a8",
+    "Parts/Gradient_2.png": "147cb3e27b41038b4e0ec5e0d3492d9a193ce20f9e2f9263ecc332c49202fc68",
+    "Parts/Gradient__1.png": "a5cb2bb43b7e803a8164d4be8da439dc0d2ed96c79df4390094ce65c90c7e87a",
+    "Parts/Gradient__3.png": "ef8b2df21e5aaaffaf73f36cf0c9bc2fd1d9037ba21ea0cca866f597dfa280a0",
+    "Parts/Impact.efkmodel": "dfc0839c81a4b44697071fa78c96e1e42c1b97d12f627e9638cd6104d1651e83",
+    "Parts/Impact.fbx": "e0a5c0ac7c3c8dfe6e523fc0978bcac7f2b2095eb1a747779cba6ac61c5d65f9",
+    "Parts/Noise1.png": "c51b8ee897d968f85880dd981670e35f8045560108d723959e5612728aadb49a",
+    "Parts/Noise2.png": "f74bb99beb45b9a0f79907f3c6e8e88375593f146f561a871fb5ce2dbb918db6",
+    "Parts/Noise3.png": "a678ec986d65735081037b6078129a097fa68b6dcecb6762d32eda609268e4a3",
+    "Parts/Noise4.png": "e01699411e1d22668d66858a3b76f24f9f367d5fde6c4fe3730772dea3f29053",
+    "Parts/Noise_Distortion.efkmat": "23f069ede26ca185354373ab4c97011a0db152f91390c660cbb712b85e90f0b9",
+    "Parts/Null.png": "70a2d678c1dd1b5f309d2aca69c469209fc13008ae3e02fafaaec9370cd44102",
+    "Parts/Particle1.png": "ed9a5512b20ee079fd91e8628861fa89ac9e5663d25c24d335fdf54fae136a29",
+    "Parts/Particle2.png": "800e6e6c8582c8fbf1a09f18fbe6f516e7dcd8525be679b9718f4a3d89002ad0",
+    "Parts/ParticleCore.png": "2544459aa1e0184a8d798010561a9caa725d4dfb584a4718122899cdc8668d76",
+    "Parts/RadiarNoise.efkmat": "a595eea5d289386c7407d1573cf47156289ecb04c86458c8645b8ea2bdb3df0f",
+    "Parts/Ring.png": "d8a01d92af847307338e867bc713bae23e348d615ceaa5853d9039ca98520902",
+    "Parts/Ring2.png": "cd88dd3d99a7431741e8c8eb33f3bedcb348d5c7b32264927c995e54a563fed6",
+    "Parts/Round.efkmodel": "a61938783a1045046732c3918341ce6d065bacfd8a5bc2227c84eb2bb8204109",
+    "Parts/Round.fbx": "1397ca3034c30021eb0f70fa08371311cb9e9ee55fe1aa68fa2b775ff0d29821",
+    "Parts/ToonBase.efkmat": "8c7219a805ebaaed994f00f5b2ab2093e437dbe8ae35a19cebae01b2e8d1957f",
+    "Parts/ToonImpact.efkmat": "7144982bb341f449b0e7f92d514323ef056d7fc9272b71d46796a58e1db5a6fa",
+    "Parts/ToonWater.efkmat": "ef61b160ef376887d24233177e738713affb687838993c02dc76a25cb56f523b",
+    "Parts/ToonWaterTube.efkmat": "73b42704b82a60b1851c0531b695289e6e8575c3b602cb32ab992952d9a1a2bf",
+    "Parts/Tube.efkmodel": "f9f4097d46e5c262dcc450a197986fde00adbb7f48bbe625520e3f1a0f20acf7",
+    "Parts/Tube.fbx": "4b95723364e1c75438da804ab5e3ffcd189ac0a6713c3a7b6fcce89d2216a344",
+    "ToonHit.efkefc": "db7d83cb3a543d1d99f11bddf7c5de3e5acfc9e1d522f3c4f0803f2ebf53c91f"
+  },
+  "binaryVersion": 1500,
+  "resourcePaths": {
+    "color": [
+      "Parts/Aura.png",
+      "Parts/ColorNoise.png",
+      "Parts/Gradient_2.png",
+      "Parts/Noise2.png",
+      "Parts/Particle1.png",
+      "Parts/Ring.png"
+    ],
+    "normal": [],
+    "distortion": [],
+    "sound": [],
+    "model": [
+      "Parts/Round.efkmodel"
+    ],
+    "material": [
+      "Parts/ToonBase.efkmat",
+      "Parts/ToonImpact.efkmat"
+    ],
+    "curve": []
+  }
+}

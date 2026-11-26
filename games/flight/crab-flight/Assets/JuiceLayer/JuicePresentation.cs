@@ -6,7 +6,7 @@ public sealed partial class CrabFlightGame {
  readonly JuiceRules.Sequence juiceSequence=new JuiceRules.Sequence();
  readonly JuiceRules.ShakePulse juiceShake=new JuiceRules.ShakePulse();
  void ResetJuice(){
-  juiceSequence.Reset();ClearJuiceShake();
+  juiceSequence.Reset();ClearJuiceShake();if(juiceBurst)juiceBurst.Clear();
   if(world!=null)world.ReadJuiceVisuals(juiceVisuals);
  }
  void ClearJuiceShake(){juiceShake.Reset();}
@@ -15,8 +15,7 @@ public sealed partial class CrabFlightGame {
   if(!juiceSequence.Record(e.id,now)||!FeelEffectsR27)return;
   if(!juiceVisuals.TryGetValue(e.objectId,out var visual))
    visual=new JuiceVisual{color=new Color(1,.953f,.839f),size=0};
-  int count=feelDrawingR27.JuiceParticles(e.position,visual.color,e.material,cam,(float)now);
-  FeelLogR27(cue,"particles",x=>{x.count=count;x.kind="object-shards/white-smoke/lantern-sparks";});
+  PresentJuiceBurst(e,cue,visual,(float)now);
   bool motion=!ReducedMotion&&!feelSettingsR27.reducedMotion;
   if(motion&&juiceSequence.TakePeak(now,visual.hero,visual.landmark)){
    // Existing local clock only: same fixed-step simulation, no global Time.timeScale write.

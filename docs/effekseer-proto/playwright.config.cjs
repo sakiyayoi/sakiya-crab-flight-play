@@ -1,0 +1,1 @@
+module.exports={testDir:__dirname,testMatch:'effekseer.spec.cjs',timeout:120000,workers:1,outputDir:'/tmp/kani-effekseer-offline/playwright',reporter:[['list'],['json',{outputFile:__dirname+'/playwright.json'}]]};
