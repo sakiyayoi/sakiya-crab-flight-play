@@ -14,6 +14,13 @@ public sealed class EffekseerBurstBridge : MonoBehaviour {
  public int ActiveCount { get { Prune();return playing.Count; } }
  public bool Initialize(){
   Clear();effectAsset=null;warned=false;
+  // Feel configuration also runs outside play mode during native review.
+  // Load the asset here; defer runtime activation/creation until a real play.
+  effectAsset=Resources.Load<EffekseerEffectAsset>(ResourcePath);
+  if(!effectAsset){Warn("ToonHit.asset is missing. Import ToonHit.efkefc and Parts before building.");return false;}
+  return true;
+ }
+ bool EnsureRuntime(){
   // 1.80.8 normally creates EffekseerRuntime BeforeSceneLoad, including the
   // Native renderer's Camera.onPreCull hook. Do not add a second system/camera.
   if(!EffekseerSystem.IsValid){
@@ -30,13 +37,13 @@ public sealed class EffekseerBurstBridge : MonoBehaviour {
      EffekseerSettings.Instance.RendererType!=EffekseerRendererType.Native){
    Warn("Native runtime/renderer is unavailable.");return false;
   }
-  effectAsset=Resources.Load<EffekseerEffectAsset>(ResourcePath);
-  if(!effectAsset){Warn("ToonHit.asset is missing. Import ToonHit.efkefc and Parts before building.");return false;}
   return true;
  }
  public bool Play(Vector3 position,bool priority){
+  if(!Application.isPlaying)return false;
   Prune();
-  if(!effectAsset||!EffekseerSystem.IsValid){Warn("Burst is unavailable; check package injection and imported resources.");return false;}
+  if(!effectAsset){Warn("Burst is unavailable; check package injection and imported resources.");return false;}
+  if(!EnsureRuntime())return false;
   if(playing.Count>=ActiveLimit){
    if(!priority)return false;
    // Always admit a peak, retaining a bounded list: oldest ordinary burst first,
