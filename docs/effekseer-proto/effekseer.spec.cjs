@@ -3,7 +3,7 @@ const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_pro
 const root=path.resolve(__dirname,'../..');
 const run=p=>cp.execFileSync('python3',[p],{cwd:root,encoding:'utf8',timeout:120000});
 test('real bridge and existing juice policies: cap, priority, dispatch, lifecycle',()=>{
- const out=run('docs/effekseer-proto/contracts.py');expect(out).toContain('41 passed / 0 failed');expect(out).toContain('33 passed / 0 failed');
+ const out=run('docs/effekseer-proto/contracts.py');expect(out).toContain('45 passed / 0 failed');expect(out).toContain('33 passed / 0 failed');
 });
 test('same source, protected tree and complete imported sample paths',()=>{
  const receipt=JSON.parse(run('docs/effekseer-proto/verify.py'));expect(receipt.protectedFiles).toBe(26);expect(receipt.sampleCount).toBe(32);expect(receipt.directResourceCount).toBe(9);expect(receipt.noSampleAudio).toBe(true);

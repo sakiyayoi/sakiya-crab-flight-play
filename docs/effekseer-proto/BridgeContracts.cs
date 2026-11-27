@@ -7,6 +7,7 @@ using UnityEngine;
 // In-memory native/engine boundary doubles. Production bridge, dispatcher,
 // sequence and configuration are compiled unchanged into this executable.
 namespace UnityEngine {
+ public static class Application {public static bool isPlaying=true;}
  public class Object {
   public static implicit operator bool(Object o)=>o!=null;
   public static T FindFirstObjectByType<T>(FindObjectsInactive _) where T:Object=>GameObject.All.SelectMany(x=>x.components).OfType<T>().FirstOrDefault();
@@ -77,7 +78,11 @@ public sealed partial class CrabFlightGame:MonoBehaviour {
   typeof(EffekseerBurstBridge).GetMethod("OnDisable",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic).Invoke(b,null);Check(b.ActiveCount==0,"disable clears");
   Resources.Asset=null;Check(!b.Initialize()&&!b.Play(Vector3.zero,true),"missing import never fakes playback");
   b=Fresh();EffekseerSystem.FailNext=true;Check(!b.Play(Vector3.zero,true)&&b.ActiveCount==0,"invalid native handle not counted");
-  GameObject.All.Clear();EffekseerSystem.Instance=null;b=new GameObject("bridge").AddComponent<EffekseerBurstBridge>();Check(b.Initialize()&&GameObject.All.SelectMany(g=>g.components).OfType<EffekseerRuntime>().Count()==1,"missing runtime created once");
+  GameObject.All.Clear();EffekseerSystem.Instance=null;b=new GameObject("bridge").AddComponent<EffekseerBurstBridge>();Application.isPlaying=false;
+  Check(b.Initialize()&&GameObject.All.SelectMany(g=>g.components).OfType<EffekseerRuntime>().Count()==0,"edit mode initialization defers runtime");
+  Check(!b.Play(Vector3.zero,false)&&GameObject.All.SelectMany(g=>g.components).OfType<EffekseerRuntime>().Count()==0,"edit mode play never starts runtime");
+  Application.isPlaying=true;
+  Check(b.Play(Vector3.zero,false)&&GameObject.All.SelectMany(g=>g.components).OfType<EffekseerRuntime>().Count()==1,"missing runtime created once on play");
   Check(b.Initialize()&&GameObject.All.SelectMany(g=>g.components).OfType<EffekseerRuntime>().Count()==1,"repeat initialization no duplicate runtime");
   b.Play(Vector3.zero,false);EffekseerSystem.Instance=null;b.Clear();Check(b.ActiveCount==0,"teardown after system destruction");
   var g=new GameObject("game").AddComponent<CrabFlightGame>();EffekseerSystem.Instance=new EffekseerSystem();g.ConfigureJuiceBurst();Check(g.juiceBurst==null,"marks does not create bridge");
@@ -92,6 +97,9 @@ public sealed partial class CrabFlightGame:MonoBehaviour {
   g.PresentJuiceBreak(new FlightGameEvent{id=13},new FeelCueR27());g.FeelEffectsR27=false;g.SyncJuiceBurst();g.PresentJuiceBreak(new FlightGameEvent{id=14},new FeelCueR27());Check(g.juiceBurst.ActiveCount==0,"off clears and blocks");g.FeelEffectsR27=true;
   g.PresentJuiceBreak(new FlightGameEvent{id=15},new FeelCueR27());g.ResetJuice();Check(g.juiceBurst.ActiveCount==0&&g.juiceSequence.Count==0,"retry clears both sequences");
   g.PresentJuiceBreak(new FlightGameEvent{id=1},new FeelCueR27());g.phase="result";g.SyncJuiceBurst();Check(g.juiceBurst.ActiveCount==0,"result clears");
+  g.phase="flight";g.ResetJuice();g.juiceBurst.Play(Vector3.zero,true);g.objectDeathBurst=true;g.phase="result";g.SyncJuiceBurst();
+  Check(g.juiceBurst.ActiveCount==1,"death burst survives immediate result in shared bounded pool");
+  g.paused=true;g.SyncJuiceBurst();Check(g.juiceBurst.ActiveCount==0,"death burst still obeys pause");g.paused=false;g.objectDeathBurst=false;
   g.phase="flight";g.ResetJuice();Fill(g.juiceBurst,false);
   g.juiceVisuals["hero"]=new JuiceVisual{hero=true};g.juiceVisuals["landmark"]=new JuiceVisual{landmark=true};
   int before=EffekseerSystem.handles.Count;

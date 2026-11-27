@@ -1,0 +1,493 @@
+{
+  "config": {
+    "argv": [
+      "/usr/local/bin/node",
+      "/Users/konomichiharu/.npm/_npx/e41f203b7505f1fb/node_modules/.bin/playwright",
+      "test",
+      "-c",
+      "docs/object-redesign/playwright.config.cjs"
+    ],
+    "configFile": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/playwright.config.cjs",
+    "rootDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/tmp/kani-object-offline/playwright",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign",
+        "testIgnore": [],
+        "testMatch": [
+          "object.spec.cjs"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/tmp/kani-object-offline/playwright",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign",
+        "snapshotDir": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign",
+        "testIgnore": [],
+        "testMatch": "object.spec.cjs",
+        "timeout": 120000,
+        "use": {
+          "browserName": "chromium",
+          "headless": true,
+          "launchOptions": {
+            "executablePath": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/playwright.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "object.spec.cjs",
+      "file": "object.spec.cjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "real rules, legacy placement identity and physical integration contracts",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3101,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-27T00:24:44.956Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9084b13f808482ba6627-e471f1a3083283e93c63",
+          "file": "object.spec.cjs",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "existing Effekseer and juice behavior contracts remain green",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2592,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-27T00:24:48.111Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9084b13f808482ba6627-18acfc1fba056ef08366",
+          "file": "object.spec.cjs",
+          "line": 8,
+          "column": 1
+        },
+        {
+          "title": "large thumb controls fit portrait",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1452,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m64\u001b[39m\nReceived:    \u001b[31m48\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m64\u001b[39m\nReceived:    \u001b[31m48\u001b[39m\n    at /Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/object.spec.cjs:36:113",
+                    "location": {
+                      "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/object.spec.cjs",
+                      "column": 113,
+                      "line": 36
+                    },
+                    "snippet": " \u001b[90m 34 |\u001b[39m   \u001b[36mawait\u001b[39m fixture(page\u001b[33m,\u001b[39msize)\u001b[33m;\u001b[39m\n \u001b[90m 35 |\u001b[39m   \u001b[36mfor\u001b[39m(\u001b[36mconst\u001b[39m id \u001b[36mof\u001b[39m [\u001b[32m'objectJet'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'objectDive'\u001b[39m]){\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 36 |\u001b[39m    \u001b[36mconst\u001b[39m b\u001b[33m=\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#'\u001b[39m\u001b[33m+\u001b[39mid)\u001b[33m.\u001b[39mboundingBox()\u001b[33m;\u001b[39mexpect(b\u001b[33m.\u001b[39mwidth)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m96\u001b[39m)\u001b[33m;\u001b[39mexpect(b\u001b[33m.\u001b[39mheight)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m64\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 37 |\u001b[39m    expect(b\u001b[33m.\u001b[39mx)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39mexpect(b\u001b[33m.\u001b[39mx\u001b[33m+\u001b[39mb\u001b[33m.\u001b[39mwidth)\u001b[33m.\u001b[39mtoBeLessThanOrEqual(size\u001b[33m.\u001b[39mwidth)\u001b[33m;\u001b[39mexpect(b\u001b[33m.\u001b[39my\u001b[33m+\u001b[39mb\u001b[33m.\u001b[39mheight)\u001b[33m.\u001b[39mtoBeLessThanOrEqual(size\u001b[33m.\u001b[39mheight)\u001b[33m;\u001b[39m\n \u001b[90m 38 |\u001b[39m   }\n \u001b[90m 39 |\u001b[39m   \u001b[36mconst\u001b[39m dive\u001b[33m=\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#objectDive'\u001b[39m)\u001b[33m.\u001b[39mboundingBox()\u001b[33m,\u001b[39mjet\u001b[33m=\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#objectJet'\u001b[39m)\u001b[33m.\u001b[39mboundingBox()\u001b[33m;\u001b[39mexpect(dive\u001b[33m.\u001b[39mx\u001b[33m+\u001b[39mdive\u001b[33m.\u001b[39mwidth)\u001b[33m.\u001b[39mtoBeLessThan(jet\u001b[33m.\u001b[39mx)\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/object.spec.cjs",
+                        "column": 113,
+                        "line": 36
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m64\u001b[39m\nReceived:    \u001b[31m48\u001b[39m\n\n  34 |   await fixture(page,size);\n  35 |   for(const id of ['objectJet','objectDive']){\n> 36 |    const b=await page.locator('#'+id).boundingBox();expect(b.width).toBeGreaterThanOrEqual(96);expect(b.height).toBeGreaterThanOrEqual(64);\n     |                                                                                                                 ^\n  37 |    expect(b.x).toBeGreaterThanOrEqual(0);expect(b.x+b.width).toBeLessThanOrEqual(size.width);expect(b.y+b.height).toBeLessThanOrEqual(size.height);\n  38 |   }\n  39 |   const dive=await page.locator('#objectDive').boundingBox(),jet=await page.locator('#objectJet').boundingBox();expect(dive.x+dive.width).toBeLessThan(jet.x);\n    at /Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/object.spec.cjs:36:113"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-27T00:24:50.724Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/tmp/kani-object-offline/playwright/object-large-thumb-controls-fit-portrait/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/object.spec.cjs",
+                    "column": 113,
+                    "line": 36
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9084b13f808482ba6627-0d66bcfb0dbb749e05a9",
+          "file": "object.spec.cjs",
+          "line": 33,
+          "column": 2
+        },
+        {
+          "title": "large thumb controls fit small",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1007,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m64\u001b[39m\nReceived:    \u001b[31m48\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m64\u001b[39m\nReceived:    \u001b[31m48\u001b[39m\n    at /Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/object.spec.cjs:36:113",
+                    "location": {
+                      "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/object.spec.cjs",
+                      "column": 113,
+                      "line": 36
+                    },
+                    "snippet": " \u001b[90m 34 |\u001b[39m   \u001b[36mawait\u001b[39m fixture(page\u001b[33m,\u001b[39msize)\u001b[33m;\u001b[39m\n \u001b[90m 35 |\u001b[39m   \u001b[36mfor\u001b[39m(\u001b[36mconst\u001b[39m id \u001b[36mof\u001b[39m [\u001b[32m'objectJet'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'objectDive'\u001b[39m]){\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 36 |\u001b[39m    \u001b[36mconst\u001b[39m b\u001b[33m=\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#'\u001b[39m\u001b[33m+\u001b[39mid)\u001b[33m.\u001b[39mboundingBox()\u001b[33m;\u001b[39mexpect(b\u001b[33m.\u001b[39mwidth)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m96\u001b[39m)\u001b[33m;\u001b[39mexpect(b\u001b[33m.\u001b[39mheight)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m64\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 37 |\u001b[39m    expect(b\u001b[33m.\u001b[39mx)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39mexpect(b\u001b[33m.\u001b[39mx\u001b[33m+\u001b[39mb\u001b[33m.\u001b[39mwidth)\u001b[33m.\u001b[39mtoBeLessThanOrEqual(size\u001b[33m.\u001b[39mwidth)\u001b[33m;\u001b[39mexpect(b\u001b[33m.\u001b[39my\u001b[33m+\u001b[39mb\u001b[33m.\u001b[39mheight)\u001b[33m.\u001b[39mtoBeLessThanOrEqual(size\u001b[33m.\u001b[39mheight)\u001b[33m;\u001b[39m\n \u001b[90m 38 |\u001b[39m   }\n \u001b[90m 39 |\u001b[39m   \u001b[36mconst\u001b[39m dive\u001b[33m=\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#objectDive'\u001b[39m)\u001b[33m.\u001b[39mboundingBox()\u001b[33m,\u001b[39mjet\u001b[33m=\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#objectJet'\u001b[39m)\u001b[33m.\u001b[39mboundingBox()\u001b[33m;\u001b[39mexpect(dive\u001b[33m.\u001b[39mx\u001b[33m+\u001b[39mdive\u001b[33m.\u001b[39mwidth)\u001b[33m.\u001b[39mtoBeLessThan(jet\u001b[33m.\u001b[39mx)\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/object.spec.cjs",
+                        "column": 113,
+                        "line": 36
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m64\u001b[39m\nReceived:    \u001b[31m48\u001b[39m\n\n  34 |   await fixture(page,size);\n  35 |   for(const id of ['objectJet','objectDive']){\n> 36 |    const b=await page.locator('#'+id).boundingBox();expect(b.width).toBeGreaterThanOrEqual(96);expect(b.height).toBeGreaterThanOrEqual(64);\n     |                                                                                                                 ^\n  37 |    expect(b.x).toBeGreaterThanOrEqual(0);expect(b.x+b.width).toBeLessThanOrEqual(size.width);expect(b.y+b.height).toBeLessThanOrEqual(size.height);\n  38 |   }\n  39 |   const dive=await page.locator('#objectDive').boundingBox(),jet=await page.locator('#objectJet').boundingBox();expect(dive.x+dive.width).toBeLessThan(jet.x);\n    at /Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/object.spec.cjs:36:113"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-27T00:24:56.313Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/tmp/kani-object-offline/playwright/object-large-thumb-controls-fit-small/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/object.spec.cjs",
+                    "column": 113,
+                    "line": 36
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9084b13f808482ba6627-a854281536638e9a1d02",
+          "file": "object.spec.cjs",
+          "line": 33,
+          "column": 2
+        },
+        {
+          "title": "large thumb controls fit landscape",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1052,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m64\u001b[39m\nReceived:    \u001b[31m48\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m64\u001b[39m\nReceived:    \u001b[31m48\u001b[39m\n    at /Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/object.spec.cjs:36:113",
+                    "location": {
+                      "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/object.spec.cjs",
+                      "column": 113,
+                      "line": 36
+                    },
+                    "snippet": " \u001b[90m 34 |\u001b[39m   \u001b[36mawait\u001b[39m fixture(page\u001b[33m,\u001b[39msize)\u001b[33m;\u001b[39m\n \u001b[90m 35 |\u001b[39m   \u001b[36mfor\u001b[39m(\u001b[36mconst\u001b[39m id \u001b[36mof\u001b[39m [\u001b[32m'objectJet'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'objectDive'\u001b[39m]){\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 36 |\u001b[39m    \u001b[36mconst\u001b[39m b\u001b[33m=\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#'\u001b[39m\u001b[33m+\u001b[39mid)\u001b[33m.\u001b[39mboundingBox()\u001b[33m;\u001b[39mexpect(b\u001b[33m.\u001b[39mwidth)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m96\u001b[39m)\u001b[33m;\u001b[39mexpect(b\u001b[33m.\u001b[39mheight)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m64\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 37 |\u001b[39m    expect(b\u001b[33m.\u001b[39mx)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39mexpect(b\u001b[33m.\u001b[39mx\u001b[33m+\u001b[39mb\u001b[33m.\u001b[39mwidth)\u001b[33m.\u001b[39mtoBeLessThanOrEqual(size\u001b[33m.\u001b[39mwidth)\u001b[33m;\u001b[39mexpect(b\u001b[33m.\u001b[39my\u001b[33m+\u001b[39mb\u001b[33m.\u001b[39mheight)\u001b[33m.\u001b[39mtoBeLessThanOrEqual(size\u001b[33m.\u001b[39mheight)\u001b[33m;\u001b[39m\n \u001b[90m 38 |\u001b[39m   }\n \u001b[90m 39 |\u001b[39m   \u001b[36mconst\u001b[39m dive\u001b[33m=\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#objectDive'\u001b[39m)\u001b[33m.\u001b[39mboundingBox()\u001b[33m,\u001b[39mjet\u001b[33m=\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#objectJet'\u001b[39m)\u001b[33m.\u001b[39mboundingBox()\u001b[33m;\u001b[39mexpect(dive\u001b[33m.\u001b[39mx\u001b[33m+\u001b[39mdive\u001b[33m.\u001b[39mwidth)\u001b[33m.\u001b[39mtoBeLessThan(jet\u001b[33m.\u001b[39mx)\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/object.spec.cjs",
+                        "column": 113,
+                        "line": 36
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m64\u001b[39m\nReceived:    \u001b[31m48\u001b[39m\n\n  34 |   await fixture(page,size);\n  35 |   for(const id of ['objectJet','objectDive']){\n> 36 |    const b=await page.locator('#'+id).boundingBox();expect(b.width).toBeGreaterThanOrEqual(96);expect(b.height).toBeGreaterThanOrEqual(64);\n     |                                                                                                                 ^\n  37 |    expect(b.x).toBeGreaterThanOrEqual(0);expect(b.x+b.width).toBeLessThanOrEqual(size.width);expect(b.y+b.height).toBeLessThanOrEqual(size.height);\n  38 |   }\n  39 |   const dive=await page.locator('#objectDive').boundingBox(),jet=await page.locator('#objectJet').boundingBox();expect(dive.x+dive.width).toBeLessThan(jet.x);\n    at /Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/object.spec.cjs:36:113"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-27T00:24:59.841Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/tmp/kani-object-offline/playwright/object-large-thumb-controls-fit-landscape/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/object.spec.cjs",
+                    "column": 113,
+                    "line": 36
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9084b13f808482ba6627-183efae0f2bd74b517ef",
+          "file": "object.spec.cjs",
+          "line": 33,
+          "column": 2
+        },
+        {
+          "title": "jets by tap and keyboard, budget feedback, repeat suppression",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "interrupted",
+                  "duration": 56347,
+                  "error": {
+                    "message": "Error: locator.click: Test ended.\nBrowser logs:\n\n<launching> /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,HttpsUpgrades,HttpsFirstBalancedModeAutoEnable,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,AvoidCorsURLLoaderRestartOnRedirect,TcpPortRandomizationWin,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,PreconnectToSearch,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface,SkipListAccountsWithoutGaiaCookies --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --enable-unsafe-swiftshader --edge-skip-compat-layer-relaunch --disable-stack-profiler --disable-infobars --disable-sync --do-not-de-elevate --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/var/folders/3w/2mr054b55_3cztt9zngchfcm0000gn/T/playwright_chromiumdev_profile-pH5xKr --remote-debugging-pipe --no-startup-window\n<launched> pid=58331\n[pid=58331][err] Trying to load the allocator multiple times. This is *not* supported.\n[pid=58331][err] [58335:9965600:1127/092504.516631:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\n[pid=58331][err] [58335:9965661:1127/092504.517363:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\n[pid=58331][err] [58335:9965600:1127/092504.530019:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\n[pid=58331][err] [58335:9965661:1127/092504.530188:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\n[pid=58331][err] [58335:9965600:1127/092504.531517:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\n[pid=58331][err] [58335:9965661:1127/092504.531693:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\n[pid=58331] <gracefully close start>\nCall log:\n\u001b[2m  - waiting for locator('#objectJet')\u001b[22m\n\u001b[2m    - locator resolved to <button id=\"objectJet\" aria-label=\"噴射、残り2回\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <canvas tabindex=\"-1\" id=\"unity-canvas\"></canvas> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <canvas tabindex=\"-1\" id=\"unity-canvas\"></canvas> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    107 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m        - element is visible, enabled and stable\u001b[22m\n\u001b[2m        - scrolling into view if needed\u001b[22m\n\u001b[2m        - done scrolling\u001b[22m\n\u001b[2m        - <canvas tabindex=\"-1\" id=\"unity-canvas\"></canvas> intercepts pointer events\u001b[22m\n\u001b[2m      - retrying click action\u001b[22m\n\u001b[2m        - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n",
+                    "stack": "Error: locator.click: Test ended.\nBrowser logs:\n\n<launching> /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,HttpsUpgrades,HttpsFirstBalancedModeAutoEnable,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,AvoidCorsURLLoaderRestartOnRedirect,TcpPortRandomizationWin,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,PreconnectToSearch,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface,SkipListAccountsWithoutGaiaCookies --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --enable-unsafe-swiftshader --edge-skip-compat-layer-relaunch --disable-stack-profiler --disable-infobars --disable-sync --do-not-de-elevate --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/var/folders/3w/2mr054b55_3cztt9zngchfcm0000gn/T/playwright_chromiumdev_profile-pH5xKr --remote-debugging-pipe --no-startup-window\n<launched> pid=58331\n[pid=58331][err] Trying to load the allocator multiple times. This is *not* supported.\n[pid=58331][err] [58335:9965600:1127/092504.516631:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\n[pid=58331][err] [58335:9965661:1127/092504.517363:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\n[pid=58331][err] [58335:9965600:1127/092504.530019:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\n[pid=58331][err] [58335:9965661:1127/092504.530188:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\n[pid=58331][err] [58335:9965600:1127/092504.531517:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\n[pid=58331][err] [58335:9965661:1127/092504.531693:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\n[pid=58331] <gracefully close start>\nCall log:\n\u001b[2m  - waiting for locator('#objectJet')\u001b[22m\n\u001b[2m    - locator resolved to <button id=\"objectJet\" aria-label=\"噴射、残り2回\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <canvas tabindex=\"-1\" id=\"unity-canvas\"></canvas> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <canvas tabindex=\"-1\" id=\"unity-canvas\"></canvas> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    107 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m        - element is visible, enabled and stable\u001b[22m\n\u001b[2m        - scrolling into view if needed\u001b[22m\n\u001b[2m        - done scrolling\u001b[22m\n\u001b[2m        - <canvas tabindex=\"-1\" id=\"unity-canvas\"></canvas> intercepts pointer events\u001b[22m\n\u001b[2m      - retrying click action\u001b[22m\n\u001b[2m        - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n    at /Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/object.spec.cjs:44:55",
+                    "location": {
+                      "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/object.spec.cjs",
+                      "column": 55,
+                      "line": 44
+                    },
+                    "snippet": " \u001b[90m 42 |\u001b[39m }\n \u001b[90m 43 |\u001b[39m test(\u001b[32m'jets by tap and keyboard, budget feedback, repeat suppression'\u001b[39m\u001b[33m,\u001b[39m\u001b[36masync\u001b[39m({page})\u001b[33m=>\u001b[39m{\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 44 |\u001b[39m  \u001b[36mawait\u001b[39m fixture(page)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#objectJet'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'#objectJet'\u001b[39m))\u001b[33m.\u001b[39mtoBeDisabled()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 45 |\u001b[39m  expect(\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(()\u001b[33m=>\u001b[39mcalls))\u001b[33m.\u001b[39mtoEqual([\u001b[32m'Jet'\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m 46 |\u001b[39m  \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(()\u001b[33m=>\u001b[39m{state\u001b[33m.\u001b[39mjetsRemaining\u001b[33m=\u001b[39m\u001b[35m1\u001b[39m\u001b[33m;\u001b[39m\u001b[33mObjectControls\u001b[39m\u001b[33m.\u001b[39mupdate(state\u001b[33m,\u001b[39m\u001b[32m'flight'\u001b[39m)\u001b[33m;\u001b[39m})\u001b[33m;\u001b[39m\n \u001b[90m 47 |\u001b[39m  \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'j'\u001b[39m)\u001b[33m;\u001b[39mexpect(\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(()\u001b[33m=>\u001b[39mcalls))\u001b[33m.\u001b[39mtoEqual([\u001b[32m'Jet'\u001b[39m\u001b[33m,\u001b[39m\u001b[32m'Jet'\u001b[39m])\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/object.spec.cjs",
+                        "column": 55,
+                        "line": 44
+                      },
+                      "message": "Error: locator.click: Test ended.\nBrowser logs:\n\n<launching> /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,HttpsUpgrades,HttpsFirstBalancedModeAutoEnable,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,AvoidCorsURLLoaderRestartOnRedirect,TcpPortRandomizationWin,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,PreconnectToSearch,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface,SkipListAccountsWithoutGaiaCookies --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --enable-unsafe-swiftshader --edge-skip-compat-layer-relaunch --disable-stack-profiler --disable-infobars --disable-sync --do-not-de-elevate --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/var/folders/3w/2mr054b55_3cztt9zngchfcm0000gn/T/playwright_chromiumdev_profile-pH5xKr --remote-debugging-pipe --no-startup-window\n<launched> pid=58331\n[pid=58331][err] Trying to load the allocator multiple times. This is *not* supported.\n[pid=58331][err] [58335:9965600:1127/092504.516631:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\n[pid=58331][err] [58335:9965661:1127/092504.517363:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\n[pid=58331][err] [58335:9965600:1127/092504.530019:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\n[pid=58331][err] [58335:9965661:1127/092504.530188:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\n[pid=58331][err] [58335:9965600:1127/092504.531517:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\n[pid=58331][err] [58335:9965661:1127/092504.531693:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\n[pid=58331] <gracefully close start>\nCall log:\n\u001b[2m  - waiting for locator('#objectJet')\u001b[22m\n\u001b[2m    - locator resolved to <button id=\"objectJet\" aria-label=\"噴射、残り2回\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <canvas tabindex=\"-1\" id=\"unity-canvas\"></canvas> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <canvas tabindex=\"-1\" id=\"unity-canvas\"></canvas> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    107 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m        - element is visible, enabled and stable\u001b[22m\n\u001b[2m        - scrolling into view if needed\u001b[22m\n\u001b[2m        - done scrolling\u001b[22m\n\u001b[2m        - <canvas tabindex=\"-1\" id=\"unity-canvas\"></canvas> intercepts pointer events\u001b[22m\n\u001b[2m      - retrying click action\u001b[22m\n\u001b[2m        - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n\n  42 | }\n  43 | test('jets by tap and keyboard, budget feedback, repeat suppression',async({page})=>{\n> 44 |  await fixture(page);await page.locator('#objectJet').click();await expect(page.locator('#objectJet')).toBeDisabled();\n     |                                                       ^\n  45 |  expect(await page.evaluate(()=>calls)).toEqual(['Jet']);\n  46 |  await page.evaluate(()=>{state.jetsRemaining=1;ObjectControls.update(state,'flight');});\n  47 |  await page.keyboard.press('j');expect(await page.evaluate(()=>calls)).toEqual(['Jet','Jet']);\n    at /Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/object.spec.cjs:44:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-27T00:25:03.468Z",
+                  "annotations": [],
+                  "attachments": [],
+                  "errorLocation": {
+                    "file": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/object.spec.cjs",
+                    "column": 55,
+                    "line": 44
+                  }
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "9084b13f808482ba6627-e682f9f0380bab6c6a9f",
+          "file": "object.spec.cjs",
+          "line": 43,
+          "column": 1
+        },
+        {
+          "title": "dive pointer capture, simultaneous keyboard, release and blur",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "9084b13f808482ba6627-ee2ce80cccb2a0d147fd",
+          "file": "object.spec.cjs",
+          "line": 55,
+          "column": 1
+        },
+        {
+          "title": "legacy, charge, pause, result and retry gate flight-only input",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "9084b13f808482ba6627-262ac57a08c4640840f5",
+          "file": "object.spec.cjs",
+          "line": 65,
+          "column": 1
+        },
+        {
+          "title": "result shows authoritative maximum chain beside dominant destruction",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "9084b13f808482ba6627-4c3da39f7140e642db97",
+          "file": "object.spec.cjs",
+          "line": 79,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-27T00:24:44.148Z",
+    "duration": 77584.122,
+    "expected": 2,
+    "skipped": 4,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}
