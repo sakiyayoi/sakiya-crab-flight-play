@@ -1,0 +1,8 @@
+
+Running 1 test using 1 worker
+
+(node:19919) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 docs/object-redesign/camhit/camhit.spec.cjs:3:1 › camera and presentation hold execute real methods without changing fixed-step code (1.6s)
+
+  1 passed (2.3s)

@@ -1,0 +1,25 @@
+66 passed / 0 failed
+51 passed / 0 failed
+PASS Native replay/input/camera/capture/retry unchanged except diagnostic DTO and writer
+PASS all consumed events saved before retry reset
+PASS action events output under actual per-run directory
+PASS authoritative ObjectHits not lossy UI event ring
+PASS Native review entry and real importer Editor typecheck errors 0
+PASS only two specified coordinates and exact common multiplier changed in Rules
+PASS unchanged runtime/camera/hitstop boundary ObjectRedesign/ObjectRuntime.cs
+PASS unchanged runtime/camera/hitstop boundary ObjectRedesign/ObjectPresentation.cs
+PASS unchanged runtime/camera/hitstop boundary ObjectRedesign/ObjectCameraTargets.cs
+PASS unchanged runtime/camera/hitstop boundary ObjectRedesign/ObjectHitStopRules.cs
+PASS unchanged runtime/camera/hitstop boundary ObjectRedesign/ObjectHitStopFrame.cs
+PASS unchanged runtime/camera/hitstop boundary PortPrototype/PortCamera.cs
+PASS unchanged runtime/camera/hitstop boundary PortPrototype/PortRules.cs
+PASS unchanged runtime/camera/hitstop boundary Scripts/FlightCameraR19.cs
+PASS unchanged runtime/camera/hitstop boundary Scripts/CrabFlightGame.cs
+PASS unchanged runtime/camera/hitstop boundary Scripts/RigidCrabFlight.cs
+PASS unchanged runtime/camera/hitstop boundary Scripts/RestaurantPhysics.cs
+PASS unchanged runtime/camera/hitstop boundary Scripts/FloorContactStepR10.cs
+PASS real trigger size reads scaled half extent
+PASS all 16 placements audited including rotation and motion extrema
+PASS both requested brake coordinates exact
+PASS death remains outside nominal standard band
+22 static passed / 0 failed

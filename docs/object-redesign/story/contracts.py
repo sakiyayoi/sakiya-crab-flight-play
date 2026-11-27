@@ -23,7 +23,9 @@ r=subprocess.run([str(sdk/'NetCoreRuntime/dotnet'),str(products/'shapes.dll')],c
 shape_result=r.stdout.strip().splitlines()[-1]
 p=ASSETS+'ObjectRedesign/ObjectRules.cs';s=read(p)
 for old,new in zip(['arrow','spring','propeller','cloud','barrel','spikes'],['industrial-fan','frying-pan','sushi-conveyor','mochi','firework-ball','crab-fisher']):s=s.replace('"'+new+'"','"'+old+'"')
-check(s.encode()==git(p),'all Rules bytes unchanged except six shape names (coordinates, colours, motion, forces)')
+s=s.replace('Kind.Brake,19,20','Kind.Brake,18,12').replace('Kind.Brake,64,20','Kind.Brake,64,9')
+s=s.replace(' public const float ObjectScale=1.6f;\n','').replace('HalfSize=1.15f*ObjectScale','HalfSize=1.15f')
+check(s.encode()==git(p),'all Rules bytes unchanged except six shape names, two requested brake positions and exact 1.6 scale')
 p=ASSETS+'ObjectRedesign/ObjectRuntime.cs';s=restore_runtime(read(p))
 s=s.replace('public ObjectVisual.Motion storyMotion;','').replace(',out var storyMotion','').replace('storyMotion=storyMotion,','').replace('   a.storyMotion.Pose(time,ObjectReducedMotion);\n','')
 check(s.encode()==git(p),'entire Runtime unchanged except child visual motion and exact blastfix queue delta')

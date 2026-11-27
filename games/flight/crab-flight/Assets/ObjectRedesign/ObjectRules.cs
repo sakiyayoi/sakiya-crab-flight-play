@@ -23,14 +23,14 @@ public static class ObjectRules {
  public static readonly Placement[] Placements={
   new Placement("restaurant-entry",Kind.Boost,8,3),
   new Placement("restaurant-bounce",Kind.Bounce,14,2),
-  new Placement("restaurant-brake",Kind.Brake,18,12),
+  new Placement("restaurant-brake",Kind.Brake,19,20),
   new Placement("restaurant-spin",Kind.Spin,20,5),
   new Placement("restaurant-death",Kind.Death,22,26),
   new Placement("restaurant-exit",Kind.Blast,24,3),
   new Placement("mall-entry",Kind.Boost,32,4),
   new Placement("mall-bounce-a",Kind.Bounce,43,2),
   new Placement("mall-spin-a",Kind.Spin,55,7),
-  new Placement("mall-brake-a",Kind.Brake,64,9),
+  new Placement("mall-brake-a",Kind.Brake,64,20),
   new Placement("mall-boost",Kind.Boost,75,4),
   new Placement("mall-bounce-b",Kind.Bounce,86,2),
   new Placement("mall-spin-b",Kind.Spin,98,7),
@@ -40,7 +40,8 @@ public static class ObjectRules {
  };
  public static readonly float[] BandX={11,17,27,38,49,61,80,92,104,130};
  public static readonly float[] BandY={2,5,8};
- public const float HalfSize=1.15f, Emission=4, SpinSeconds=3, SpinMultiplier=2;
+ public const float ObjectScale=1.6f;
+ public const float HalfSize=1.15f*ObjectScale, Emission=4, SpinSeconds=3, SpinMultiplier=2;
  public const float BlastRadius=9, BandRetention=.995f, BandThreshold=.03f;
  public const float JetDeltaSpeed=14, JetUp=.55f, DiveAcceleration=38;
  public const int JetLimit=2;

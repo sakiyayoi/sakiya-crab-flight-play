@@ -1,0 +1,19 @@
+{
+  "docs/object-redesign/camhit/contracts.py": "85a5bbae95dc4e35ebce0de9d80d225d32d02a5a440c028f2f72915ada0d326a",
+  "docs/object-redesign/camhit/port-contracts.py": "8e27dbb2a56ccda6d31b902f52a20a6b9ac7943b0108f80c1e8346e24042d7e0",
+  "docs/object-redesign/placecute/FaceContracts.cs": "c9926d97475045599cd35039bbe0b7eab6298f98b39c2c6b64cf3c90c3a382db",
+  "docs/object-redesign/placecute/LogContracts.cs": "d90b5c76e5764f7c8084321a4b1dc6544ae3fe206455731983275d0c708c8c41",
+  "docs/object-redesign/placecute/audit.py": "b4da9616fc2058c0c61f7c56abd055415b025e0aeae54eedb8eb6e209f316655",
+  "docs/object-redesign/placecute/contracts.py": "fc574d3b5024a60be060be1fdf0eda6fe79ae7348018c38defbdd40880ca38e2",
+  "docs/object-redesign/placecute/placecute.spec.cjs": "b76c230a6a95441468f264b63c38f0e82f979effef8bd32c9c36ad3b3641b58e",
+  "docs/object-redesign/placecute/playwright.config.cjs": "ad5e88b61452e9fd2e3173472a7d2faa403aa57edc1f44822ad3b4b1d4c6831b",
+  "docs/object-redesign/placecute/render-shapes.py": "d4fe643ddc3df160be7e02fcaa6e0947f3381bdcb724d23de1f6782835c4669e",
+  "docs/object-redesign/placecute/verify-evidence.py": "c6fc4ff236bd5fa65df22ba5f3c67501133ccc6d099913c8b892420e1b3a6c66",
+  "docs/object-redesign/story/ShapeContracts.cs": "78043bc9733d317e7f784eb20e2469a9f6da1ffd105c3ae4c4f1ba43664fd940",
+  "docs/object-redesign/story/contracts.py": "1d54de189d5be8f006e1e6f925bb65006c1c5f090155e726850cbe3e1494ad58",
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectRules.cs": "ea5f50700c332dcd452bc710434c7065d7e0936dffc33425bc47c5058a5d5d77",
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectVisual.cs": "67349ab4727be21e89d4e2eee75c3acd86ac7a6b3a67f7be89635ff90863f4ab",
+  "games/flight/crab-flight/Assets/PortPrototype/Editor.meta": "6a8eb6e56eae22a3571c5ecd7daa84a51caebf76da70cf981955006fc745f21b",
+  "games/flight/crab-flight/Assets/PortPrototype/Editor/PortNativeReview.cs": "82e31429304b202f1a7cb6a9909eb18fbd6a173584302b9a5c6854b1b0e876ad",
+  "games/flight/crab-flight/Assets/PortPrototype/Editor/PortNativeReview.cs.meta": "b8a12d69445abec690d6a85eb33a1c264ca997074114719a053cd788b97bfa3c"
+}

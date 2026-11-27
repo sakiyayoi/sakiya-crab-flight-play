@@ -1,0 +1,5 @@
+{
+  "source": "/Users/konomichiharu/kani-object-build01/games/flight/crab-flight/Assets/PortPrototype/Editor/PortNativeReview.cs",
+  "sha256": "c5df4a918eb3efbafc2aa616fc7e99afebe14c06452857cbff23d3c9d10032e8",
+  "note": "Existing opening-review helper is untracked in old branch. Copied without altering run/camera/input/captures; only ActionReceipt and writer/call added."
+}

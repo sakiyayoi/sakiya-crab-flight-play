@@ -1,0 +1,19 @@
+66 passed / 0 failed
+51 passed / 0 failed
+PASS Native replay/input/camera/capture/retry unchanged except diagnostic DTO and writer
+PASS all consumed events saved before retry reset
+PASS action events output under actual per-run directory
+PASS authoritative ObjectHits not lossy UI event ring
+/tmp/kani-placecute-offline/BlenderPilotImport.cs(6,40): error CS0433: The type 'AssetPostprocessor' exists in both 'UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' and 'UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'
+ 
+Traceback (most recent call last):
+  File "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/placecute/contracts.py", line 51, in <module>
+    run([SDK/'NetCoreRuntime/dotnet',SDK/'DotNetSdkRoslyn/csc.dll','@'+str(TMP/'native.rsp'),'-nologo'],'native-typecheck.log')
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/placecute/contracts.py", line 16, in run
+    if r.returncode:print(r.stdout,r.stderr);r.check_returncode()
+                                             ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/lib/python3.13/subprocess.py", line 508, in check_returncode
+    raise CalledProcessError(self.returncode, self.args, self.stdout,
+                             self.stderr)
+subprocess.CalledProcessError: Command '['/Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/Resources/Scripting/NetCoreRuntime/dotnet', '/Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/Resources/Scripting/DotNetSdkRoslyn/csc.dll', '@/tmp/kani-placecute-offline/native.rsp', '-nologo']' returned non-zero exit status 1.

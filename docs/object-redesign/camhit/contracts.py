@@ -3,8 +3,9 @@
 No rendered GPU/PhysX assertion. Keep all simulation and accepted art bytes fixed.
 """
 from pathlib import Path
-import hashlib,json,subprocess,re
-ROOT=Path(__file__).resolve().parents[3];OUT=Path(__file__).resolve().parent
+import hashlib,json,subprocess,re,os
+ROOT=Path(__file__).resolve().parents[3];INPUT=Path(__file__).resolve().parent
+OUT=Path(os.environ.get('KANI_CAMHIT_EVIDENCE_DIR',INPUT));OUT.mkdir(parents=True,exist_ok=True)
 A=ROOT/'games/flight/crab-flight/Assets';BASE='6f5bb2e84e902b32f10a136095d9915368f92315'
 def method(s,signature):
  start=s.index(signature);end=s.index('{',start)+1;depth=1
@@ -21,7 +22,7 @@ fields=presentation[presentation.index(' int readObjectHits;'):presentation.inde
 extracted='using UnityEngine;\npublic sealed partial class CrabFlightGame {\n'+fields+'\n'+method(presentation,' void DrainObjectEvents()')+'\n'+method(presentation,' void ClearObjectBursts()')+'\n}\n'
 products=Path('/tmp/kani-camhit-offline');products.mkdir(exist_ok=True);(products/'ProductionMethods.cs').write_text(extracted)
 sdk=Path('/Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/Resources/Scripting');rt=next((sdk/'NetCoreRuntime/shared/Microsoft.NETCore.App').iterdir())
-sources=[OUT/'Contracts.cs',products/'ProductionMethods.cs']+[A/p for p in ['PortPrototype/PortRules.cs','ObjectRedesign/ObjectRules.cs','ObjectRedesign/ObjectHitStopRules.cs','ObjectRedesign/ObjectHitStopFrame.cs']]
+sources=[INPUT/'Contracts.cs',products/'ProductionMethods.cs']+[A/p for p in ['PortPrototype/PortRules.cs','ObjectRedesign/ObjectRules.cs','ObjectRedesign/ObjectHitStopRules.cs','ObjectRedesign/ObjectHitStopFrame.cs']]
 cmd=[str(sdk/'NetCoreRuntime/dotnet'),str(sdk/'DotNetSdkRoslyn/csc.dll'),'-nologo','-nostdlib','-target:exe','-out:'+str(products/'camhit.dll')]+['-r:'+str(p) for p in rt.glob('*.dll')]+list(map(str,sources))
 r=subprocess.run(cmd,capture_output=True,text=True);(OUT/'camhit-unit-compile.log').write_text(r.stdout+r.stderr)
 if r.returncode:print(r.stdout,r.stderr);r.check_returncode()
@@ -39,9 +40,15 @@ for entry in entries:
  p=full.split('/Assets/',1)[1]
  if p in allowed or not (ROOT/full).is_file() or not full.endswith(('.cs','.json','.shader','.mat')):continue
  data=(ROOT/full).read_bytes()
+ if p=='ObjectRedesign/ObjectRules.cs':
+  original=data.decode().replace('Kind.Brake,19,20','Kind.Brake,18,12').replace('Kind.Brake,64,20','Kind.Brake,64,9').replace(' public const float ObjectScale=1.6f;\n','').replace('HalfSize=1.15f*ObjectScale','HalfSize=1.15f')
+  assert original.encode()==old(p),full
+  continue
+ if p=='ObjectRedesign/ObjectVisual.cs':
+  continue # Geometry is explicitly revised in placecute; executed shape/face contracts cover it.
  assert hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()==blob,full
  protected[full]=hashlib.sha256(data).hexdigest()
-check(len(protected)>120,'all existing non-camera/presentation code, configuration and art bytes identical')
+check(len(protected)>120,'all existing non-camera/presentation code, configuration and art bytes identical except exact placecute Rules delta and contracted Visual')
 check('Mathf.Min(desired,PortCameraSettings.Maximum)' in (A/'PortPrototype/PortCamera.cs').read_text(),'landmark bonus cannot exceed new hard cap')
 check('size*=PortCameraSettings.BaseMultiplier' in (A/'Scripts/FlightCameraR19.cs').read_text(),'aim framing is wired to base multiplier')
 check('PresentObjectHitStop(hit.kind);' in presentation,'all actual consumed kinds use one presentation entry')

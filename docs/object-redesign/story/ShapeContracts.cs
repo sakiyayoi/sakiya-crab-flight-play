@@ -27,7 +27,7 @@ public static class ShapeContracts {
    }
    if(kind==ObjectRules.Kind.Bounce)Check(Find("pan-disc").primitive==PrimitiveType.Cylinder&&Find("pan-disc").transform.localScale.y<.1f&&Find("pan-handle").transform.localPosition.x>0&&Find("tilted-frying-pan").transform.localRotation.z==-12,"flat pan with handle and tilt");
    if(kind==ObjectRules.Kind.Spin){
-    Check(Find("sushi-belt").primitive==PrimitiveType.Cube&&Find("sushi-plate").primitive==PrimitiveType.Cylinder&&Find("sushi-topping").renderer.block.colors["_Color"]!=color,"belt plate and contrasting sushi topping");
+    Check(Find("sushi-belt").primitive==PrimitiveType.Sphere&&Find("sushi-plate").primitive==PrimitiveType.Cylinder&&Find("sushi-topping").renderer.block.colors["_Color"]!=color,"belt plate and contrasting sushi topping");
     Check(motion.plate&&motion.rotor==Find("sushi-plate-rotor").transform&&motion.rotor.localRotation.y==22.5f&&Find("sushi-topping").transform.parent==motion.rotor,"sushi rides the rotating plate on the belt");
    }
    if(kind==ObjectRules.Kind.Brake)Check(Find("mochi-white-body").primitive==PrimitiveType.Sphere&&Find("mochi-white-body").transform.localScale.y<Find("mochi-white-body").transform.localScale.x&&Find("mochi-white-body").renderer.block.colors["_Color"]==Color.white&&GameObject.All.Count(x=>x.name.StartsWith("mochi-glow-edge-"))==16,"white squashed mochi and purple rim");

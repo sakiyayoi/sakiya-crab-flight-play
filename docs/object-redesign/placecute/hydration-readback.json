@@ -1,0 +1,107 @@
+[
+  {
+    "path": "games/flight/crab-flight/Assets/Resources/FarWorldR10/Proposals.json",
+    "dataless": false,
+    "sha256": "3f6acb52263e622b0d7c3f49e2130df03723838f46f313b6513a08e16da305b9"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/Resources/ReplayInputR24.json",
+    "dataless": false,
+    "sha256": "54895fb140cb4b5e0235cae4dc1bd04527d0af8e5bff28fb91943c6cc185226e"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/Resources/WorldArtR9/Recipe.json",
+    "dataless": false,
+    "sha256": "93806f3ef0df3a75e8374cefa720ea41258cb4743191754da438cc12c62aac01"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/Resources/WorldRouteR11.json",
+    "dataless": false,
+    "sha256": "1ec13b877c24594445309d2c517857ded3e9d945e41279815f770e21fc250d0c"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/Shaders/ChitinR3.shader",
+    "dataless": false,
+    "sha256": "7f8618cd62fceab7ea575ee6ea35ea9d54b927e50cf8fc6182f623acb24854b4"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/Tests/PlayMode/CeilingR9.cs",
+    "dataless": false,
+    "sha256": "4222e18a63aa1ed45c20f60b18f339df2d89262b6f99e43b06ecf7e107c29872"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/Tests/PlayMode/ColliderWitnessR22.cs",
+    "dataless": false,
+    "sha256": "a9d249dfa616da9fa00477dcd12adeb14cae3210e8553ffe36109b1800ec922a"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/Tests/PlayMode/ContactRouteR13.cs",
+    "dataless": false,
+    "sha256": "cbdfa22c3a1fd13de361d4ec5a247e41483055a37adff034ead29ab1c34e8ae3"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/Tests/PlayMode/FlightMeasurementPlayMode.cs",
+    "dataless": false,
+    "sha256": "686f85f7fad7219c91e9ec1b50f72cb10f8458d3dd1dcf7c5caf94d50dfc1c16"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/Tests/PlayMode/FloorCauseR30.cs",
+    "dataless": false,
+    "sha256": "1555164aa44476ca201a703b6a1c630ec56b34f6cb903c77edbe5ebbcbd04988"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/Tests/PlayMode/FloorR9.cs",
+    "dataless": false,
+    "sha256": "07fdb451844bf2613ae30307543acae0d0f25cddaf61d3690b851bdad8f65a8e"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/Tests/PlayMode/FloorTurnR15.cs",
+    "dataless": false,
+    "sha256": "a862b7312679260aca29fefd65f8de860612f97ed4ee2ad98c34a438350cb26c"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/Tests/PlayMode/IntegrationR16.cs",
+    "dataless": false,
+    "sha256": "de0c44e51a126743a261cb9db0b8390c4daf4882dcfe8dc306ca0496490d685f"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/Tests/PlayMode/LoopR29.cs",
+    "dataless": false,
+    "sha256": "a35ceb3267cbdd6e974623b0c5e8c3bd4a9cc1dd1e98affb9be0fb6dae76a6fd"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/Tests/PlayMode/MaterialProbeR17.cs",
+    "dataless": false,
+    "sha256": "da5b72dabc21567fb479bc6314cfbe871f5c5adc5f562905c471ae4dac259216"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/Tests/PlayMode/PowerTargetR30.cs",
+    "dataless": false,
+    "sha256": "9f2265f42fe7747926d2c44de324a0dfdac8f74a18241a8664816c773b7a008a"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/Tests/PlayMode/RenderIsolationR9.cs",
+    "dataless": false,
+    "sha256": "b09db26ea63d193972b76aa65edb95e59bbe042b9b7a4184f9b5b7a96fd45cd3"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/Tests/PlayMode/ReplayRecordedR24.cs",
+    "dataless": false,
+    "sha256": "651318cf9873e44c8a7a455937d39bf812a6aec12314ce476d952a77d8218b80"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/Tests/PlayMode/RetryComfortR9.cs",
+    "dataless": false,
+    "sha256": "a070e712dbc46010dcdf79c0fbde4706824ffd4d3bbb04ac1d510617141d006f"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/Tests/PlayMode/ReviewRepairR16.cs",
+    "dataless": false,
+    "sha256": "aeeb24b82d6404f8f2751c6f688c18b7c7f49d85e96556e515a8dcecf835254c"
+  },
+  {
+    "path": "games/flight/crab-flight/Assets/Tests/PlayMode/WorldArtR9.cs",
+    "dataless": false,
+    "sha256": "002bd364c197dd0b48e486d44d4693f53858bf9673c75303c0aaf2e2882bdb97"
+  }
+]

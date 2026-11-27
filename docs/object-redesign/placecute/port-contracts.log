@@ -1,0 +1,32 @@
+PASS ordinary hazard slows
+PASS boost30 arms airborne condition
+PASS airborne hazard reverses once boost30
+PASS reversal consumed boost30
+PASS boost45 arms airborne condition
+PASS airborne hazard reverses once boost45
+PASS reversal consumed boost45
+PASS boost60 arms airborne condition
+PASS airborne hazard reverses once boost60
+PASS reversal consumed boost60
+PASS jackpot arms airborne condition
+PASS airborne hazard reverses once jackpot
+PASS reversal consumed jackpot
+PASS ground invalidates boost before hazard
+PASS same-step ground cannot arm
+PASS angle-only redirect preserves 3D energy and cannot arm
+PASS redirect preserves already valid airborne state
+PASS role direction preserved
+PASS landmark no extra velocity effect
+PASS resource no extra velocity effect
+PASS preview no extra velocity effect
+PASS  no extra velocity effect
+PASS portrait floor
+PASS landscape floor
+PASS speed/height formula
+PASS zoom maximum
+PASS direction independent zoom
+PASS portrait half-width limit
+PASS minimum lookahead
+PASS lookahead speed
+TOTAL 30 passed / 0 failed
+ 

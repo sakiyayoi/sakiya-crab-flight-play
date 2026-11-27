@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Run the unchanged 30-case PortRules suite, keeping historical evidence intact."""
 from pathlib import Path
-import json,subprocess
-ROOT=Path(__file__).resolve().parents[3];OUT=Path(__file__).resolve().parent
+import json,subprocess,os
+ROOT=Path(__file__).resolve().parents[3];OUT=Path(os.environ.get('KANI_CAMHIT_EVIDENCE_DIR',Path(__file__).resolve().parent));OUT.mkdir(parents=True,exist_ok=True)
 sdk=Path('/Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/Resources/Scripting')
 runtime=next((sdk/'NetCoreRuntime/shared/Microsoft.NETCore.App').iterdir())
 products=Path('/tmp/kani-camhit-offline');products.mkdir(exist_ok=True)

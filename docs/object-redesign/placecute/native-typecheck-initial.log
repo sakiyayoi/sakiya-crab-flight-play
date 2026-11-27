@@ -1,0 +1,1 @@
+/tmp/kani-placecute-offline/BlenderPilotImport.cs(6,40): error CS0433: The type 'AssetPostprocessor' exists in both 'UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' and 'UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'

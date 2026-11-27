@@ -1,0 +1,32 @@
+{
+  "base": "b8f8bb59d58589c06db9d46bd957e35aba4597a3",
+  "faces": "66 passed / 0 failed",
+  "actionLog": "51 passed / 0 failed",
+  "staticPassed": 22,
+  "staticFailed": 0,
+  "checks": [
+    "Native replay/input/camera/capture/retry unchanged except diagnostic DTO and writer",
+    "all consumed events saved before retry reset",
+    "action events output under actual per-run directory",
+    "authoritative ObjectHits not lossy UI event ring",
+    "Native review entry and real importer Editor typecheck errors 0",
+    "only two specified coordinates and exact common multiplier changed in Rules",
+    "unchanged runtime/camera/hitstop boundary ObjectRedesign/ObjectRuntime.cs",
+    "unchanged runtime/camera/hitstop boundary ObjectRedesign/ObjectPresentation.cs",
+    "unchanged runtime/camera/hitstop boundary ObjectRedesign/ObjectCameraTargets.cs",
+    "unchanged runtime/camera/hitstop boundary ObjectRedesign/ObjectHitStopRules.cs",
+    "unchanged runtime/camera/hitstop boundary ObjectRedesign/ObjectHitStopFrame.cs",
+    "unchanged runtime/camera/hitstop boundary PortPrototype/PortCamera.cs",
+    "unchanged runtime/camera/hitstop boundary PortPrototype/PortRules.cs",
+    "unchanged runtime/camera/hitstop boundary Scripts/FlightCameraR19.cs",
+    "unchanged runtime/camera/hitstop boundary Scripts/CrabFlightGame.cs",
+    "unchanged runtime/camera/hitstop boundary Scripts/RigidCrabFlight.cs",
+    "unchanged runtime/camera/hitstop boundary Scripts/RestaurantPhysics.cs",
+    "unchanged runtime/camera/hitstop boundary Scripts/FloorContactStepR10.cs",
+    "real trigger size reads scaled half extent",
+    "all 16 placements audited including rotation and motion extrema",
+    "both requested brake coordinates exact",
+    "death remains outside nominal standard band"
+  ],
+  "scope": "Offline shape recording and diagnostic IO with serialization adapter. Native entry typechecked against Unity. No actual rendering, PhysX or Native replay."
+}

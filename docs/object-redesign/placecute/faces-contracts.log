@@ -1,0 +1,67 @@
+PASS visual multiplier exactly 1.6 Boost
+PASS trigger multiplier exactly 1.6 Boost
+PASS two primitive eyes on face Boost
+PASS small mouth on face Boost
+PASS warm ink no emission Boost
+PASS face has no physics colliders Boost
+PASS face on negative Z camera surface Boost
+PASS rounded sphere capsule and disc palette Boost
+PASS positive eye geometry and mouth below eyes Boost
+PASS bounded geometry count Boost
+PASS hub face in front of rotating blades and guard
+PASS visual multiplier exactly 1.6 Bounce
+PASS trigger multiplier exactly 1.6 Bounce
+PASS two primitive eyes on face Bounce
+PASS small mouth on face Bounce
+PASS warm ink no emission Bounce
+PASS face has no physics colliders Bounce
+PASS face on negative Z camera surface Bounce
+PASS rounded sphere capsule and disc palette Bounce
+PASS positive eye geometry and mouth below eyes Bounce
+PASS bounded geometry count Bounce
+PASS front-facing pan disc and attached face
+PASS visual multiplier exactly 1.6 Spin
+PASS trigger multiplier exactly 1.6 Spin
+PASS two primitive eyes on face Spin
+PASS small mouth on face Spin
+PASS warm ink no emission Spin
+PASS face has no physics colliders Spin
+PASS face on negative Z camera surface Spin
+PASS rounded sphere capsule and disc palette Spin
+PASS positive eye geometry and mouth below eyes Spin
+PASS bounded geometry count Spin
+PASS plate front rim outside rotating topping
+PASS visual multiplier exactly 1.6 Brake
+PASS trigger multiplier exactly 1.6 Brake
+PASS two primitive eyes on face Brake
+PASS small mouth on face Brake
+PASS warm ink no emission Brake
+PASS face has no physics colliders Brake
+PASS face on negative Z camera surface Brake
+PASS rounded sphere capsule and disc palette Brake
+PASS positive eye geometry and mouth below eyes Brake
+PASS bounded geometry count Brake
+PASS mochi white body with tiny w mouth
+PASS visual multiplier exactly 1.6 Blast
+PASS trigger multiplier exactly 1.6 Blast
+PASS two primitive eyes on face Blast
+PASS small mouth on face Blast
+PASS warm ink no emission Blast
+PASS face has no physics colliders Blast
+PASS face on negative Z camera surface Blast
+PASS rounded sphere capsule and disc palette Blast
+PASS positive eye geometry and mouth below eyes Blast
+PASS bounded geometry count Blast
+PASS firework surprised round mouth
+PASS visual multiplier exactly 1.6 Death
+PASS trigger multiplier exactly 1.6 Death
+PASS two primitive eyes on face Death
+PASS small mouth on face Death
+PASS warm ink no emission Death
+PASS face has no physics colliders Death
+PASS face on negative Z camera surface Death
+PASS rounded sphere capsule and disc palette Death
+PASS positive eye geometry and mouth below eyes Death
+PASS bounded geometry count Death
+PASS fisher rounded hat two arms and face
+66 passed / 0 failed
