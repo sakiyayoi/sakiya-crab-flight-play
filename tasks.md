@@ -379,4 +379,4 @@ R18 timing continuation 2026-11-04: 私的な診断WebGL c86cec4をビルド成�
 
 | stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
 |---|---|---|---|---|---|---|
-| object-camhit | 通し版を維持しカメラ引きと6作用の描画停止のみ修正 | Codex（単独書込） | object-redesign 6f5bb2e・本人手触り判定 | Editor/WebGL errors0・既存/新規契約PASS・26SHA前後一致・物理不変境界・報告/commit | 指定なし | 指定オフライン範囲PASS：Editor/WebGL errors0、既存契約全PASS、新151+静的10、Playwright35/0fail、main/branch各26SHA一致。物理370ファイル・Tick/State不変。報告とコミット保存中。Native再実測/実画面はNOT_RUN |
+| object-camhit | 通し版を維持しカメラ引きと6作用の描画停止のみ修正 | Codex（単独書込） | object-redesign 6f5bb2e・本人手触り判定 | Editor/WebGL errors0・既存/新規契約PASS・26SHA前後一致・物理不変境界・報告/commit | 指定なし | 指定オフライン範囲PASS：Editor/WebGL errors0、既存契約全PASS、新151+静的10、Playwright35/0fail、main/branch各26SHA一致。物理370ファイル・Tick/State不変。実装commit 75e2623、報告docs/object-redesign/NEON-REPORT-CAMHIT-by-codex.mdへ保存。指定オフライン範囲完了、Native再実測/実画面はNOT_RUN |
