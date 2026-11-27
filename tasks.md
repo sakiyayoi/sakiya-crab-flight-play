@@ -380,3 +380,10 @@ R18 timing continuation 2026-11-04: 私的な診断WebGL c86cec4をビルド成�
 | stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
 |---|---|---|---|---|---|---|
 | object-camhit | 通し版を維持しカメラ引きと6作用の描画停止のみ修正 | Codex（単独書込） | object-redesign 6f5bb2e・本人手触り判定 | Editor/WebGL errors0・既存/新規契約PASS・26SHA前後一致・物理不変境界・報告/commit | 指定なし | 指定オフライン範囲PASS：Editor/WebGL errors0、既存契約全PASS、新151+静的10、Playwright35/0fail、main/branch各26SHA一致。物理370ファイル・Tick/State不変。実装commit 75e2623、報告docs/object-redesign/NEON-REPORT-CAMHIT-by-codex.mdへ保存。指定オフライン範囲完了、Native再実測/実画面はNOT_RUN |
+
+
+## OBJECT-REDESIGN 配置・拡大・顔（本人 2026-11-27 23:46–49）
+
+| stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
+|---|---|---|---|---|---|---|
+| object-placecute | 通し版を維持しbrake配置・全6種1.6倍と顔・Native作用ログを修正 | Codex（単独書込） | b8f8bb5・本人確定仕様 | 全16当たり点検・Editor/WebGL errors0・既存/新規契約PASS・26SHA・報告/commit | 指定なし | 指定オフライン範囲完了：実装 bd33c3e、Editor/WebGL errors0・全既存契約PASS・新66+51+22PASS、Playwright36件確認（初回35＋取得復旧後1）、main/branch26SHA一致。全16当たり点検と3個目brake残件を報告docs/object-redesign/NEON-REPORT-PLACECUTE-by-codex.mdへ保存。Native実接触/実ゲーム画面はNOT_RUN |
