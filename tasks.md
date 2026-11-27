@@ -387,3 +387,10 @@ R18 timing continuation 2026-11-04: 私的な診断WebGL c86cec4をビルド成�
 | stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
 |---|---|---|---|---|---|---|
 | object-placecute | 通し版を維持しbrake配置・全6種1.6倍と顔・Native作用ログを修正 | Codex（単独書込） | b8f8bb5・本人確定仕様 | 全16当たり点検・Editor/WebGL errors0・既存/新規契約PASS・26SHA・報告/commit | 指定なし | 指定オフライン範囲完了：実装 bd33c3e、Editor/WebGL errors0・全既存契約PASS・新66+51+22PASS、Playwright36件確認（初回35＋取得復旧後1）、main/branch26SHA一致。全16当たり点検と3個目brake残件を報告docs/object-redesign/NEON-REPORT-PLACECUTE-by-codex.mdへ保存。Native実接触/実ゲーム画面はNOT_RUN |
+
+
+## 第2便残件：3個目のもち（2026-11-28）
+
+| stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
+|---|---|---|---|---|---|---|
+| object-brake3 | mall-brake-b (108,9)→(108,20) と契約期待値だけ更新 | Codex（単独書込） | object-redesign 2b7cd8a | Editor/WebGL errors0・既存契約全PASS/件数維持・保護26SHA前後一致・報告追記/commit | 指定なし | 指定オフライン範囲完了：修正 81da675、Editor/WebGL errors0、既存契約1054PASS（件数不変）、Playwright36PASS、main/branch26SHA前後一致。第2便報告書へ追記、Native実画面は今回範囲外 |

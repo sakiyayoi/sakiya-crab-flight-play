@@ -1,0 +1,104 @@
+{
+  "sourceCommit": "81da6751a49c456587bb15dd24c829bb9f45ad66",
+  "contracts": [
+    {
+      "file": "rules-contracts.log",
+      "previousPassed": 85,
+      "passed": 85,
+      "failed": 0
+    },
+    {
+      "file": "bridge-contracts.log",
+      "previousPassed": 45,
+      "passed": 45,
+      "failed": 0
+    },
+    {
+      "file": "legacy-juice-contracts.log",
+      "previousPassed": 33,
+      "passed": 33,
+      "failed": 0
+    },
+    {
+      "file": "shapes-contracts.log",
+      "previousPassed": 46,
+      "passed": 46,
+      "failed": 0
+    },
+    {
+      "file": "unit-contracts.log",
+      "previousPassed": 258,
+      "passed": 258,
+      "failed": 0
+    },
+    {
+      "file": "port-contracts.log",
+      "previousPassed": 30,
+      "passed": 30,
+      "failed": 0
+    },
+    {
+      "file": "camhit-unit-contracts.log",
+      "previousPassed": 151,
+      "passed": 151,
+      "failed": 0
+    },
+    {
+      "file": "faces-contracts.log",
+      "previousPassed": 66,
+      "passed": 66,
+      "failed": 0
+    },
+    {
+      "file": "action-log-contracts.log",
+      "previousPassed": 51,
+      "passed": 51,
+      "failed": 0
+    },
+    {
+      "file": "contracts.json",
+      "previousPassed": 235,
+      "passed": 235,
+      "failed": 0
+    },
+    {
+      "file": "story-contracts.json",
+      "previousPassed": 13,
+      "passed": 13,
+      "failed": 0
+    },
+    {
+      "file": "blast-contracts.json",
+      "previousPassed": 9,
+      "passed": 9,
+      "failed": 0
+    },
+    {
+      "file": "camhit-contracts.json",
+      "previousPassed": 10,
+      "passed": 10,
+      "failed": 0
+    },
+    {
+      "file": "placecute-contracts.json",
+      "previousPassed": 22,
+      "passed": 22,
+      "failed": 0
+    }
+  ],
+  "contractPassed": 1054,
+  "contractFailed": 0,
+  "countsReduced": false,
+  "playwright": {
+    "startTime": "2026-11-27T15:30:55.418Z",
+    "duration": 35534.488000000005,
+    "expected": 36,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "editorErrors": 0,
+  "webglErrors": 0,
+  "protectedChanged": 0,
+  "gitReadbackFiles": 4
+}

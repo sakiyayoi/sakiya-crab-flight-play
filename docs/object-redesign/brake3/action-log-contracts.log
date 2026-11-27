@@ -1,0 +1,52 @@
+PASS all consumed hits beyond 32 event ring written once
+PASS kind position simulation time exact event 0
+PASS kind position simulation time exact event 1
+PASS kind position simulation time exact event 2
+PASS kind position simulation time exact event 3
+PASS kind position simulation time exact event 4
+PASS kind position simulation time exact event 5
+PASS kind position simulation time exact event 6
+PASS kind position simulation time exact event 7
+PASS kind position simulation time exact event 8
+PASS kind position simulation time exact event 9
+PASS kind position simulation time exact event 10
+PASS kind position simulation time exact event 11
+PASS kind position simulation time exact event 12
+PASS kind position simulation time exact event 13
+PASS kind position simulation time exact event 14
+PASS kind position simulation time exact event 15
+PASS kind position simulation time exact event 16
+PASS kind position simulation time exact event 17
+PASS kind position simulation time exact event 18
+PASS kind position simulation time exact event 19
+PASS kind position simulation time exact event 20
+PASS kind position simulation time exact event 21
+PASS kind position simulation time exact event 22
+PASS kind position simulation time exact event 23
+PASS kind position simulation time exact event 24
+PASS kind position simulation time exact event 25
+PASS kind position simulation time exact event 26
+PASS kind position simulation time exact event 27
+PASS kind position simulation time exact event 28
+PASS kind position simulation time exact event 29
+PASS kind position simulation time exact event 30
+PASS kind position simulation time exact event 31
+PASS kind position simulation time exact event 32
+PASS kind position simulation time exact event 33
+PASS kind position simulation time exact event 34
+PASS kind position simulation time exact event 35
+PASS kind position simulation time exact event 36
+PASS kind position simulation time exact event 37
+PASS kind position simulation time exact event 38
+PASS kind position simulation time exact event 39
+PASS kind position simulation time exact event 40
+PASS kind position simulation time exact event 41
+PASS kind position simulation time exact event 42
+PASS kind position simulation time exact event 43
+PASS kind position simulation time exact event 44
+PASS kind position simulation time exact event 45
+PASS kind position simulation time exact event 46
+PASS kind position simulation time exact event 47
+PASS writer does not consume or mutate source hits
+PASS empty legacy throw creates zero-line file
+51 passed / 0 failed

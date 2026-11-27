@@ -128,3 +128,31 @@ NODE_PATH=/Users/konomichiharu/.npm/_npx/e41f203b7505f1fb/node_modules npx --no-
 リスクの優先度は、配置による望まない減速＝起きやすさ3＋影響3、拡大による近接接触＝2＋2、顔の実画面での小ささ／遮蔽＝2＋2。前2件には全16静的マップと実測用ログ、顔には実builder契約と診断レンダーを用意。既知の床侵入・Collider近似残差・モール反復FAILは解消扱いにしない。
 
 既存HANDOFF一箇所とtasksへ保存。TEAM.mdは案件固有KB読取禁止により未確認。Studio指定入口は現在のnative catalog未接続。Reasonのobject検索に別稼働担当はなく、別Unity Editorの起動もなかった。外部送信・Linear/KB更新・Git push・公開・課金・新認証・他セッション再起動は実施していない。
+
+
+## 第2便残件の追記：3個目のもち（2026-11-28 JST）
+
+今回の基点は `2b7cd8a372ab8a985cecc4f07824d3abbe4ca854`。**修正コミット `81da6751a49c456587bb15dd24c829bb9f45ad66`**、ブランチ `object-redesign`。ローカルコミットのみ、pushなし。上記の第2便本文・旧検証結果は履歴として保持する。
+
+| 対象 | 旧中心 (x,y,z) | 新中心 (x,y,z) |
+|---|---|---|
+| mall-brake-b / 商業施設の3個目のもち | (108,9,0) | (108,20,0) |
+
+ゲーム本体の変更は `ObjectRules.cs` のこの1行だけ。その他15個の中心、個数、作用量、形、色、動き、カメラ、ヒットストップは不変。`mall-death (114,26,0)` を保持し、3個のbrake中心をY=20へ統一した。[単一座標差分の照合](brake3/source-boundary.json)／[コミット読戻しとソースSHA256](brake3/source-sha256.json)。
+
+既存のstory/camhit/placecute契約3本では、この1座標の期待値だけを追加更新した。全brakeの座標期待値は `[(19,20,0),(64,20,0),(108,20,0)]`。placecute静的契約22件を含め、既存の契約件数は減らしていない。
+
+| 検査 | 今回の結果 | 根拠 |
+|---|---|---|
+| Editor / WebGL型チェック（136ソース） | errors 0 / 0、既存warnings 18 / 17。Effekseer両方errors 0 / warnings 0 | [型検査ログ](brake3/typecheck.log)／[コンパイル対象SHA](brake3/compile.json) |
+| Native検証helperのEditor型チェック | errors 0 / warnings 0 | [ログ](brake3/native-typecheck.log) |
+| 既存契約全部 | **1054 passed / 0 failed、前便から件数減少なし** | [14群の新旧件数照合](brake3/verification-summary.json) |
+| 内訳 | Rules85＋Stage1境界235＋Bridge45＋Juice33＋形状46＋story境界13＋blast258＋blast境界9＋Port30＋camera/hitstop151＋境界10＋顔66＋作用ログ51＋配置境界22 | [実行コマンド一覧](brake3/commands.json) |
+| Playwright | **36 passed / 0 failed / 0 skipped / 0 flaky**、今回1回の実行ですべて通過 | [ログ](brake3/playwright.log)／[結果JSON](brake3/playwright.json) |
+| 保護26ファイルSHA256 | main/branch各26、作業前後全一致・変更0 | [前](brake3/protected-before.json)／[後](brake3/protected-after.json)／[実体・sparse読取方法](brake3/protected-read-method.json) |
+
+型検査は `python3 docs/object-redesign/typecheck.py`。契約は `python3 docs/object-redesign/story/contracts.py`、`python3 docs/object-redesign/blastfix/contracts.py`、`python3 docs/object-redesign/camhit/port-contracts.py` と、`npx --no-install playwright test -c docs/object-redesign/placecute/playwright.config.cjs` からの既存契約群で確認した。各 `KANI_*_EVIDENCE_DIR` は `docs/object-redesign/brake3`。固定出力のplacecute証跡は先に退避し、今回出力をbrake3へ保存後、旧証跡をbyte一致で復元した。
+
+今回の移設により、旧本文の「未指定3個目が(108,9)の帯内に残る」は解消。新しい全位相Y範囲は他のbrakeと同じ **17.81〜22.19m**、名目0〜15m帯外。deathは24.16〜27.84mで不変。[更新した全16配置の静的マップ](brake3/hit-map.json)。これは静的配置の検査であり、カニ余裕を含む実接触や移設後の新軌道を保証する結果ではない。
+
+**今回指定されたソース修正・オフライン検証は完了**。Native固定入力・Unity/WebGL再ビルド・実画面・実聴・物理iPhone・FPS・game-playtestは今回の範囲外でNOT_RUN。前便の実接触/実ゲーム視認性確認、既知の床侵入・Collider近似残差・モール反復FAILは引き続き別工程。公開・本人採用・ゲーム全体の品質合格は含めない。

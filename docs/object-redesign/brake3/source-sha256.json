@@ -1,0 +1,9 @@
+{
+  "sourceCommit": "81da6751a49c456587bb15dd24c829bb9f45ad66",
+  "files": {
+    "docs/object-redesign/camhit/contracts.py": "e216ac067e091e18b1e1aeaec466da66a904a005ad495545a760e0ab975da858",
+    "docs/object-redesign/placecute/contracts.py": "06fd9a125f01153d54fad2e46f2395beaec35fc01c48f9809e32bb66209846dc",
+    "docs/object-redesign/story/contracts.py": "d6a835f43586595a85232679458dbb31aee02974329add9677f6834765dd6d7e",
+    "games/flight/crab-flight/Assets/ObjectRedesign/ObjectRules.cs": "51748fc1d162d2430ecc2c2b9bf580b2143c35e37a9e55fb7f76c2936db3dc5e"
+  }
+}
