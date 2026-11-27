@@ -359,3 +359,10 @@ R18 timing continuation 2026-11-04: 私的な診断WebGL c86cec4をビルド成�
 | stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
 |---|---|---|---|---|---|---|
 | object-redesign | 端から端まで遊べる通し版を維持して6作用・帯配置・飛行入力・最大連鎖を実装 | Codex（単独書込） | effekseer-proto 68c007f / 今回の確定仕様 | Editor/WebGL型検査0・新契約/既存契約PASS・26SHA一致・commit/報告 | 指定なし | ソース実装・オフライン確認完了：Editor/WebGL errors0、新規85+静的232PASS、bridge45/juice33PASS、Playwright10+既存8PASS、保護26SHA一致。Unity/build/game-playtestは本人指定NOT_RUN。報告docs/object-redesign/NEON-REPORT-OBJECT-by-codex.md |
+
+
+## OBJECT-REDESIGN ストーリー層（2026-11-27 本人直接指示）
+
+| stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
+|---|---|---|---|---|---|---|
+| object-story | 6種のストーリー形・発動キャプションを既存作用へ接続 | Codex（単独書込） | object-redesign 06df915 / 今回の確定表 | Editor/WebGL errors0、既存85+232+45+33、新規形/文言/抑制契約、保護26SHA一致、報告とcommit | 指定なし | 指定オフライン範囲完了：実装8ad7595、Editor/WebGL errors0、既存85+232+45+33PASS、新規形46/保全13PASS、Playwright新16+既存18PASS、26SHA一致。報告docs/object-redesign/NEON-REPORT-STORY-by-codex.md。Unity実画面・ゲーム合格は別工程 |
