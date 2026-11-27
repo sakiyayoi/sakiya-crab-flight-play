@@ -41,7 +41,7 @@ for entry in entries:
  if p in allowed or not (ROOT/full).is_file() or not full.endswith(('.cs','.json','.shader','.mat')):continue
  data=(ROOT/full).read_bytes()
  if p=='ObjectRedesign/ObjectRules.cs':
-  original=data.decode().replace('Kind.Brake,19,20','Kind.Brake,18,12').replace('Kind.Brake,64,20','Kind.Brake,64,9').replace(' public const float ObjectScale=1.6f;\n','').replace('HalfSize=1.15f*ObjectScale','HalfSize=1.15f')
+  original=data.decode().replace('Kind.Brake,19,20','Kind.Brake,18,12').replace('Kind.Brake,64,20','Kind.Brake,64,9').replace('Kind.Brake,108,20','Kind.Brake,108,9').replace(' public const float ObjectScale=1.6f;\n','').replace('HalfSize=1.15f*ObjectScale','HalfSize=1.15f')
   assert original.encode()==old(p),full
   continue
  if p=='ObjectRedesign/ObjectVisual.cs':

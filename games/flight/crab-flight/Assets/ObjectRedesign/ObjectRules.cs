@@ -34,7 +34,7 @@ public static class ObjectRules {
   new Placement("mall-boost",Kind.Boost,75,4),
   new Placement("mall-bounce-b",Kind.Bounce,86,2),
   new Placement("mall-spin-b",Kind.Spin,98,7),
-  new Placement("mall-brake-b",Kind.Brake,108,9),
+  new Placement("mall-brake-b",Kind.Brake,108,20),
   new Placement("mall-death",Kind.Death,114,26),
   new Placement("mall-exit",Kind.Blast,124,4)
  };
