@@ -372,4 +372,4 @@ R18 timing continuation 2026-11-04: 私的な診断WebGL c86cec4をビルド成�
 
 | stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
 |---|---|---|---|---|---|---|
-| object-blastfix | blast経路の停止原因修正と同一対象1回破壊の確認 | Codex（単独書込） | object-redesign 75cb1a1 | Editor/WebGL errors0・Stage 1/ストーリー契約全PASS・新規重複/消費契約・保護26SHA・commit/報告 | 指定なし | 指定オフライン範囲PASS：Editor/WebGL errors0、Stage 1 85+232/bridge45/juice33、story46+13、新規258+静的9、Playwright34、保護main/branch各26SHA一致。ソースcommit・報告読戻し中。Nativeはクロエの別工程 |
+| object-blastfix | blast経路の停止原因修正と同一対象1回破壊の確認 | Codex（単独書込） | object-redesign 75cb1a1 | Editor/WebGL errors0・Stage 1/ストーリー契約全PASS・新規重複/消費契約・保護26SHA・commit/報告 | 指定なし | 指定オフライン範囲PASS：Editor/WebGL errors0、Stage 1 85+232/bridge45/juice33、story46+13、新規258+静的9、Playwright34、保護main/branch各26SHA一致。修正commit 8631b74。報告docs/object-redesign/NEON-REPORT-BLASTFIX-by-codex.mdへ保存。指定オフライン範囲完了、Nativeはクロエの別工程 |
