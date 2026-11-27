@@ -10,23 +10,39 @@ PASS 14 to 20 authored +x objects
 PASS unique placements
 PASS all six kinds placed
 PASS entire movement stays in opening restaurant-entry
+PASS at least 0.5m clear before action swept envelope restaurant-entry
 PASS entire movement stays in opening restaurant-bounce
+PASS at least 0.5m clear before action swept envelope restaurant-bounce
 PASS entire movement stays in opening restaurant-brake
+PASS at least 0.5m clear before action swept envelope restaurant-brake
 PASS entire movement stays in opening restaurant-spin
+PASS at least 0.5m clear before action swept envelope restaurant-spin
 PASS entire movement stays in opening restaurant-death
+PASS at least 0.5m clear before action swept envelope restaurant-death
 PASS death outside full standard band + crab margin restaurant-death
 PASS entire movement stays in opening restaurant-exit
+PASS at least 0.5m clear before action swept envelope restaurant-exit
 PASS entire movement stays in opening mall-entry
+PASS at least 0.5m clear before action swept envelope mall-entry
 PASS entire movement stays in opening mall-bounce-a
+PASS at least 0.5m clear before action swept envelope mall-bounce-a
 PASS entire movement stays in opening mall-spin-a
+PASS at least 0.5m clear before action swept envelope mall-spin-a
 PASS entire movement stays in opening mall-brake-a
+PASS at least 0.5m clear before action swept envelope mall-brake-a
 PASS entire movement stays in opening mall-boost
+PASS at least 0.5m clear before action swept envelope mall-boost
 PASS entire movement stays in opening mall-bounce-b
+PASS at least 0.5m clear before action swept envelope mall-bounce-b
 PASS entire movement stays in opening mall-spin-b
+PASS at least 0.5m clear before action swept envelope mall-spin-b
 PASS entire movement stays in opening mall-brake-b
+PASS at least 0.5m clear before action swept envelope mall-brake-b
 PASS entire movement stays in opening mall-death
+PASS at least 0.5m clear before action swept envelope mall-death
 PASS death outside full standard band + crab margin mall-death
 PASS entire movement stays in opening mall-exit
+PASS at least 0.5m clear before action swept envelope mall-exit
 PASS default and invalid mode stay legacy
 PASS explicit redesign
 PASS legacy retains position -500
@@ -67,4 +83,4 @@ PASS 1.5 second chain including boundary
 PASS gap restarts current but retains max
 PASS death cancels actions
 PASS retry resets all run state
-69 passed / 0 failed
+85 passed / 0 failed

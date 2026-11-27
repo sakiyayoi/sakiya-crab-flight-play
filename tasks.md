@@ -358,4 +358,4 @@ R18 timing continuation 2026-11-04: 私的な診断WebGL c86cec4をビルド成�
 
 | stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
 |---|---|---|---|---|---|---|
-| object-redesign | 端から端まで遊べる通し版を維持して6作用・帯配置・飛行入力・最大連鎖を実装 | Codex（単独書込） | effekseer-proto 68c007f / 今回の確定仕様 | Editor/WebGL型検査0・新契約/既存契約PASS・26SHA一致・commit/報告 | 指定なし | ソース実装・オフライン確認完了：Editor/WebGL errors0、新規69+静的232PASS、bridge45/juice33PASS、Playwright10+既存8PASS、保護26SHA一致。Unity/build/game-playtestは本人指定NOT_RUN。報告docs/object-redesign/NEON-REPORT-OBJECT-by-codex.md |
+| object-redesign | 端から端まで遊べる通し版を維持して6作用・帯配置・飛行入力・最大連鎖を実装 | Codex（単独書込） | effekseer-proto 68c007f / 今回の確定仕様 | Editor/WebGL型検査0・新契約/既存契約PASS・26SHA一致・commit/報告 | 指定なし | ソース実装・オフライン確認完了：Editor/WebGL errors0、新規85+静的232PASS、bridge45/juice33PASS、Playwright10+既存8PASS、保護26SHA一致。Unity/build/game-playtestは本人指定NOT_RUN。報告docs/object-redesign/NEON-REPORT-OBJECT-by-codex.md |

@@ -8,7 +8,8 @@
 - 作業場所: `../object-redesign`（新規sparse worktree）、ブランチ `object-redesign`。
 - 作用・配置・物理入力・状態: `c76f10e6627e327f3af1768e007a4c61a7d9da26`。
 - HTML操作と結果: `4e9d35a4df059712320cd5f85c98be1144d4b5d5`。
-- 契約・試験根拠: `8636cf2c43285ae1f52a8d8483dd69bbc8d52e2e`。本報告とtasks更新はその後のdocsコミットへ分離する。
+- 最終配置修正: `4d21982e59179bc3323eef85cb31fc2e0ceed2e6`。店内brakeをy=12へ上げ、手前の帯との空きを全16配置で検査。最終型検査と10件試験はこのコードへ再実行済み。
+- 初回契約・試験根拠: `8636cf2c43285ae1f52a8d8483dd69bbc8d52e2e`。本報告・最終検証記録・tasks更新はその後のdocsコミットへ分離する。
 - メイン木の `panel_*.fbx.meta` 25件と `FlightField.unity` は開始/終了SHA256が全26件一致。`protected-before.json` / `protected-after.json` に全値を保存。object-redesign側の同26パスも基点のGit blobを維持し、ステージ対象外。
 - 実装22ファイルをコミットから読戻し、作業実体と一致。`source-sha256.json` が対象一覧。メイン木のコード、既存effekseer-protoの未コミットtasksは編集していない。指定された `source/docs/object-redesign/NEON-REPORT-OBJECT-by-codex.md` には、この報告書だけを写す。
 - 重力、質量算出、solver設定、床処理、基礎材質、速度/角速度安全上限、シーンファイル、既存配置JSON、他区間の配置は変更なし。基礎物理ファイルの不変は契約で照合。
@@ -40,7 +41,7 @@
 |---|---|---:|---:|---:|
 | restaurant-entry | boost | 8 | 3 | 0 |
 | restaurant-bounce | bounce | 14 | 2 | 0 |
-| restaurant-brake | brake | 18 | 10 | 0 |
+| restaurant-brake | brake | 18 | 12 | 0 |
 | restaurant-spin | spin | 20 | 5 | 0 |
 | restaurant-death | death | 22 | 26 | 0 |
 | restaurant-exit | blast | 24 | 3 | 0 |
@@ -59,7 +60,7 @@
 
 静的契約の「標準軌道帯」は x=4.5〜135、カニ中心y=0〜20m、半径方向余裕3.5mと定義した配置用の帯。death中心y=26m、Collider半高1.15mなので下端24.85m > 帯上限＋カニ余裕23.5m、差1.35m。前後移動してもyは変わらない。これは実投から推定した統計ではなく、今回の明示的な静的配置基準である。あらゆる角度や、bounce/jet後の軌道で当たらないという保証ではない。標準40度/勢い70の実PhysX軌道との重ね合わせはクロエ側で確認する。
 
-壊れるだけの対象は `x = 11,17,27,38,49,61,80,92,104,130`、各xでy=2/5/8、z=0、幅0.5×高さ2×奥行2.4mの30個/+x（両側60個）。作用物の後ろを帯にし、その直前を空けた。従来の4.5<|x|<135の破壊対象をredesign時だけ非表示・接触無効にする。x=±4.5の生簀ガラスは維持する。背景や静的な区間目印、他区間は変更しない。
+壊れるだけの対象は `x = 11,17,27,38,49,61,80,92,104,130`、各xでy=2/5/8、z=0、幅0.5×高さ2×奥行2.4mの30個/+x（両側60個）。作用物の後ろを帯にし、その直前を空けた。各作用物の移動範囲と前方の帯の包囲箱について、少なくとも0.5mの隙間があることも契約で確認した。従来の4.5<|x|<135の破壊対象をredesign時だけ非表示・接触無効にする。x=±4.5の生簀ガラスは維持する。背景や静的な区間目印、他区間は変更しない。
 
 帯はtriggerとし、壁solverによる急停止を発生させず、接触バッチごとに `I=−m×0.005×v`（速度残率0.995）の小さい損失を加える。既存の壁用速度回復/天井リダイレクト/破壊時自動加速を帯に適用しない。破壊そのものは既存ApplyBreaks経由なので、粉砕数、素材別集計、イベント、marks/SEへ通る。blastによる破壊も同じ集計へ入り、二重加算しない。
 
@@ -79,7 +80,7 @@
 |---|---|---|
 | 実Effekseer 1.80.8参照＋ゲーム133ソース、Editor分岐 | errors 0 / warnings 18（Effekseer側0） | compile.json / Assembly-CSharp-editor.log |
 | 同WebGLプリプロセッサ分岐 | errors 0 / warnings 17（Effekseer側0） | compile.json / Assembly-CSharp-webgl.log |
-| 実ObjectRulesを実行 | 69 passed / 0 failed | rules-contracts.log |
+| 実ObjectRulesを実行 | 85 passed / 0 failed | rules-contracts.log |
 | 配置・既定legacy・物理接続・保存byte契約 | 232 passed / 0 failed | contracts.json |
 | 既存Effekseer実コード契約＋今回境界 | 45 passed / 0 failed | bridge-contracts.log |
 | 既存JuiceRules/clock/burst実コード契約 | 33 passed / 0 failed | legacy-juice-contracts.log |

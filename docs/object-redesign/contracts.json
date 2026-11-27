@@ -1,6 +1,6 @@
 {
   "base": "68c007f59ad1cfaa76dd39a193783a3b216b15da",
-  "rules": "69 passed / 0 failed",
+  "rules": "85 passed / 0 failed",
   "staticPassed": 232,
   "staticFailed": 0,
   "checks": [
