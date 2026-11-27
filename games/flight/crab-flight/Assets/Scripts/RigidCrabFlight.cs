@@ -99,9 +99,9 @@ QueueBreak(other,impulse,p.position,outward);if(contactPart==null||impulse>bestI
  // Existing settling clock: physics seconds while grounded and nearly still; not an abnormal-stop verdict.
  public float GroundStillSecondsR23=>stillClock;
  public void Step(){
-  if(!running||Finished)return;incoming=Body.linearVelocity;incomingSpin=SpinRps;hasContact=false;contactPart=null;bestImpulse=0;
+  if(!running||Finished)return;if(BeforeObjectStep())return;incoming=Body.linearVelocity;incomingSpin=SpinRps;hasContact=false;contactPart=null;bestImpulse=0;
   Body.angularDamping=Time-lastGround<.05f?(UseOverdrive?1.2f:1.65f):.12f;Body.linearDamping=Time-lastGround<.05f?(UseOverdrive?.12f:.16f):.035f;
-  PrepareCityDebris();SimulateFloorContact();StepDebrisCalmR4();Time+=StepSeconds;TickCityDecor(StepSeconds);long calmBreakStamp=CalmSupportPerfR3.Active?CalmSupportPerfR3.Stamp():0;ApplyBreaks();if(CalmSupportPerfR3.Active)CalmSupportPerfR3.BreakTicks+=CalmSupportPerfR3.Stamp()-calmBreakStamp;ObserveCeilingExit();CaptureFirstContactProbe();
+  PrepareCityDebris();SimulateFloorContact();if(DetectObjects(false))return;StepDebrisCalmR4();Time+=StepSeconds;TickCityDecor(StepSeconds);long calmBreakStamp=CalmSupportPerfR3.Active?CalmSupportPerfR3.Stamp():0;ApplyBreaks();if(CalmSupportPerfR3.Active)CalmSupportPerfR3.BreakTicks+=CalmSupportPerfR3.Stamp()-calmBreakStamp;ObserveCeilingExit();CaptureFirstContactProbe();
   if(!Finite(Body.position)||!Finite(Body.linearVelocity)||!Finite(Body.angularVelocity)){Fault("non-finite");return;}
   float speed=Body.linearVelocity.magnitude,spin=Body.angularVelocity.magnitude;MaxSpeed=Mathf.Max(MaxSpeed,speed);MaxSpin=Mathf.Max(MaxSpin,spin/(Mathf.PI*2));
   float linearCap=UseOverdrive?100:90,angularCap=UseOverdrive?AngularSafetyR16:160;if(speed>linearCap){Body.linearVelocity=Vector3.ClampMagnitude(Body.linearVelocity,linearCap);SpeedCaps++;}if(spin>angularCap){Body.angularVelocity=Vector3.ClampMagnitude(Body.angularVelocity,angularCap);SpeedCaps++;}
@@ -110,7 +110,7 @@ QueueBreak(other,impulse,p.position,outward);if(contactPart==null||impulse>bestI
   if(hasContact){
    bool impact=(Time-lastGround>.045f&&Time-lastImpact>.08f&&(incoming.y<-.5f||incomingSpin>1.2f))||(contactPart.Kind!=LastKind&&bestImpulse/Body.mass>.8f&&Time-lastImpact>.12f);
    lastGround=Time;
-   if(impact&&bestImpulse/Body.mass>.025f){lastImpact=Time;OverdriveGroundBounce();ImpactID++;LastPart=contactPart.Id;LastKind=contactPart.Kind;LastSurface=contactSurface;if(FirstContact<0){FirstContact=Distance;FirstContactTime=Time;}LastGrade="LAND";
+   if(impact&&bestImpulse/Body.mass>.025f){lastImpact=Time;ObjectGroundBounce();OverdriveGroundBounce();ImpactID++;LastPart=contactPart.Id;LastKind=contactPart.Kind;LastSurface=contactSurface;if(FirstContact<0){FirstContact=Distance;FirstContactTime=Time;}LastGrade="LAND";
     var entry=new RigidImpact{position=contactPoint,normal=contactNormal,velocity=incoming,time=Time,x=Body.position.x,part=LastPart,kind=contactPart.Kind,surface=LastSurface,impulse=bestImpulse,normalY=contactNormalY,preVx=incoming.x,postVx=Body.linearVelocity.x,preVy=incoming.y,postVy=Body.linearVelocity.y,spinBefore=incomingSpin,spinAfter=SpinRps};Impacts.Add(entry);
     if(braced&&Time-braceTime<=.25f){float age=Time-braceTime;bool perfect=age<=.1f;if(perfect)Perfects++;else Goods++;LastGrade=perfect?"PERFECT":"GOOD";float delta=perfect?2.2f:1.25f;Body.AddForceAtPosition((Vector3.up+Vector3.right*direction*.2f)*Body.mass*delta,contactPoint,ForceMode.Impulse);braced=false;Event(perfect?"perfect":"good");}else Event("land");
    }

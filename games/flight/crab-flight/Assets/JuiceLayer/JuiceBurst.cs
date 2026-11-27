@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public sealed partial class CrabFlightGame {
- EffekseerBurstBridge juiceBurst;
+ EffekseerBurstBridge juiceBurst;bool objectDeathBurst;
  void ConfigureJuiceBurst(){
   if(!feelR27.UsesEffekseer){if(juiceBurst)juiceBurst.Clear();return;}
   if(!juiceBurst){
@@ -12,7 +12,7 @@ public sealed partial class CrabFlightGame {
  }
  void SyncJuiceBurst(){
   // Same pause/reset clearing as marks; reduced motion never shows ToonHit's flash.
-  if(juiceBurst&&(!FeelEffectsR27||!feelR27.UsesEffekseer||paused||ReducedMotion||feelSettingsR27.reducedMotion||phase!="flight"))juiceBurst.Clear();
+  if(juiceBurst&&(!FeelEffectsR27||!feelR27.UsesEffekseer||paused||ReducedMotion||feelSettingsR27.reducedMotion||(phase!="flight"&&!(phase=="result"&&objectDeathBurst))))juiceBurst.Clear();
  }
  void PresentJuiceBurst(FlightGameEvent e,FeelCueR27 cue,JuiceVisual visual,float now){
   if(feelR27.UsesEffekseer){

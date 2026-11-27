@@ -3,7 +3,7 @@ using Effekseer;
 using UnityEngine;
 
 // Owns only the visual burst handles. The package owns its shared runtime/renderer.
-public sealed class EffekseerBurstBridge : MonoBehaviour {
+public sealed partial class EffekseerBurstBridge : MonoBehaviour {
  public const string ResourcePath="Effekseer/ToonHit/ToonHit";
  public const int ActiveLimit=24;
  public const float BurstScale=1.0f;

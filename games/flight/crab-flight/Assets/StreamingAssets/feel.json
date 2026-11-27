@@ -1,4 +1,5 @@
 {
+  "objectMode": "legacy",
   "version": "feel-r28-impact-1",
   "status": "Candidate visual rebuild; physics/input and presentation clock/safety values unchanged",
   "preset": "mashimashi",
