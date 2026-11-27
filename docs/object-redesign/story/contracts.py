@@ -23,7 +23,7 @@ r=subprocess.run([str(sdk/'NetCoreRuntime/dotnet'),str(products/'shapes.dll')],c
 shape_result=r.stdout.strip().splitlines()[-1]
 p=ASSETS+'ObjectRedesign/ObjectRules.cs';s=read(p)
 for old,new in zip(['arrow','spring','propeller','cloud','barrel','spikes'],['industrial-fan','frying-pan','sushi-conveyor','mochi','firework-ball','crab-fisher']):s=s.replace('"'+new+'"','"'+old+'"')
-s=s.replace('Kind.Brake,19,20','Kind.Brake,18,12').replace('Kind.Brake,64,20','Kind.Brake,64,9').replace('Kind.Brake,108,20','Kind.Brake,108,9')
+s=s.replace('Kind.Brake,21,2.5f','Kind.Brake,18,12').replace('Kind.Brake,58,3','Kind.Brake,64,9').replace('Kind.Brake,108,3','Kind.Brake,108,9')
 s=s.replace(' public const float ObjectScale=1.6f;\n','').replace('HalfSize=1.15f*ObjectScale','HalfSize=1.15f')
 check(s.encode()==git(p),'all Rules bytes unchanged except six shape names, three requested brake positions and exact 1.6 scale')
 p=ASSETS+'ObjectRedesign/ObjectRuntime.cs';s=restore_runtime(read(p))

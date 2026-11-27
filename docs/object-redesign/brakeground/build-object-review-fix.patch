@@ -1,0 +1,15 @@
+--- /tmp/build-object.sh.before
++++ /tmp/build-object.sh
+@@ -42,10 +42,9 @@
+ gzip -9 -kf $PROTO/WebGL-object/Build/WebGL-port-prototype.wasm $PROTO/WebGL-object/Build/WebGL-port-prototype.data $PROTO/WebGL-object/Build/WebGL-port-prototype.framework.js
+ find $PROTO/WebGL-object/SoundPack -name "*.wav" -exec gzip -9 -kf {} \;
+ echo "GZIPPED" >> $STATUS
+-mkdir -p $HOME/kani-object-build01/games/flight/crab-flight/Assets/PortPrototype/Editor
+-cp /tmp/PortNativeReviewOpening.cs $HOME/kani-object-build01/games/flight/crab-flight/Assets/PortPrototype/Editor/PortNativeReview.cs
++# Use the helper and guarded runner exported from the same object-redesign commit.
+ rm -rf $PROTO/evidence/object-review
+-PORT_REVIEW_OUTPUT=$PROTO/evidence/object-review PORT_REVIEW_INPUT=$PROTO/accepted-input.json /Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -forgetProjectPath -projectPath $HOME/kani-object-build01/games/flight/crab-flight -executeMethod PortNativeReview.Run -logFile /tmp/object-review.log
++PORT_REVIEW_OUTPUT=$PROTO/evidence/object-review PORT_REVIEW_INPUT=$PROTO/accepted-input.json python3 "$HOME/kani-object-build01/tools/object-redesign/run_native_review.py" --log-file /tmp/object-review.log
+ echo "REVIEW-EXIT=$?" >> $STATUS
+ if ! grep -q "REVIEW-EXIT=0" $STATUS; then echo "REVIEW-FAILED-STOPPING" >> $STATUS; echo "DONE" >> $STATUS; exit 1; fi
+ sed -e 's/WebGL-effekseer/WebGL-object/g' -e 's/effekseer-1/object-2/g' $PROTO/tools/serve-effekseer.py > $PROTO/tools/serve-object.py

@@ -1,0 +1,65 @@
+{
+  "environment": {
+    "KANI_OBJECT_EVIDENCE_DIR": "docs/object-redesign/brakeground",
+    "KANI_STORY_EVIDENCE_DIR": "docs/object-redesign/brakeground",
+    "KANI_BLAST_EVIDENCE_DIR": "docs/object-redesign/brakeground",
+    "KANI_CAMHIT_EVIDENCE_DIR": "docs/object-redesign/brakeground",
+    "KANI_EFFEKSEER_EVIDENCE_DIR": "docs/object-redesign/brakeground",
+    "KANI_PLACECUTE_EVIDENCE_DIR": "docs/object-redesign/brakeground"
+  },
+  "NODE_PATH": "/Users/konomichiharu/.npm/_npx/e41f203b7505f1fb/node_modules",
+  "commands": [
+    {
+      "command": [
+        "python3",
+        "docs/object-redesign/typecheck.py"
+      ],
+      "exitCode": 0,
+      "log": "typecheck.log"
+    },
+    {
+      "command": [
+        "python3",
+        "docs/object-redesign/story/contracts.py"
+      ],
+      "exitCode": 0,
+      "log": "story-contracts.log"
+    },
+    {
+      "command": [
+        "python3",
+        "docs/object-redesign/blastfix/contracts.py"
+      ],
+      "exitCode": 0,
+      "log": "blast-contracts.log"
+    },
+    {
+      "command": [
+        "python3",
+        "docs/object-redesign/camhit/port-contracts.py"
+      ],
+      "exitCode": 0,
+      "log": "port-run.log"
+    },
+    {
+      "command": [
+        "python3",
+        "docs/object-redesign/brakeground/contracts.py"
+      ],
+      "exitCode": 0,
+      "log": "review-contracts.log"
+    },
+    {
+      "command": [
+        "npx",
+        "--no-install",
+        "playwright",
+        "test",
+        "-c",
+        "docs/object-redesign/brakeground/playwright.config.cjs"
+      ],
+      "exitCode": 0,
+      "log": "playwright.log"
+    }
+  ]
+}

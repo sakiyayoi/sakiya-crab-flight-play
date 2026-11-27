@@ -1,0 +1,270 @@
+PASS City2 changes are only batch exclusion and redesign-only caller; legacy null path retained
+PASS ObjectRuntime changes only queue guard/idempotency/source ownership
+PASS actual ApplyBreaks and legacy contact/counters byte unchanged
+PASS actual scatter byte unchanged; no exception masking/null-only workaround
+PASS shared queue uses unique panel reference keys
+PASS consumed check and flag precede all material/total/event/shard processing
+PASS secondary contact enqueue rejects object-owned primary panels
+PASS batch flush clears object and common queues
+PASS throw reset clears consumed queues
+PASS 75cb1a1 reproduces destroyed COM in actual scatter: 48 ordinary fragments, ONE unique target, six spawn attempts, five recycled before scatter
+PASS batch survives recycler total=0 city=0 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=19 city=0 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=19 city=1 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=19 city=6 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=19 city=19 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=20 city=0 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=20 city=1 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=20 city=6 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=20 city=19 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=20 city=20 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=42 city=0 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=42 city=1 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=42 city=6 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=42 city=19 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=42 city=20 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=43 city=0 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=43 city=1 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=43 city=6 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=43 city=19 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=43 city=20 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=47 city=0 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=47 city=1 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=47 city=6 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=47 city=19 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=47 city=20 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=48 city=0 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=48 city=1 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=48 city=6 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=48 city=19 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=48 city=20 deferred=False
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=0 city=0 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=19 city=0 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=19 city=1 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=19 city=6 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=19 city=19 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=20 city=0 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=20 city=1 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=20 city=6 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=20 city=19 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=20 city=20 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=42 city=0 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=42 city=1 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=42 city=6 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=42 city=19 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=42 city=20 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=43 city=0 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=43 city=1 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=43 city=6 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=43 city=19 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=43 city=20 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=47 city=0 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=47 city=1 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=47 city=6 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=47 city=19 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=47 city=20 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=48 city=0 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=48 city=1 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=48 city=6 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=48 city=19 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS batch survives recycler total=48 city=20 deferred=True
+PASS bounded count and scatter energy/receipt
+PASS next unique target batch survives
+PASS deferred destroy cannot invalidate current batch
+PASS legacy recycler matches original for all 819 total/city pool combinations and six spawns
+PASS blast/contact overlap has one owned queue entry order=False
+PASS actual ApplyBreaks: one spawn, material count, total, event, id and maxChain
+PASS consumed target rejected at both enqueue paths
+PASS repeated consume has no double count
+PASS next throw reset allows exactly one new break
+PASS blast/contact overlap has one owned queue entry order=True
+PASS actual ApplyBreaks: one spawn, material count, total, event, id and maxChain
+PASS consumed target rejected at both enqueue paths
+PASS repeated consume has no double count
+PASS next throw reset allows exactly one new break
+PASS band then blast promotes metadata without overwriting or requeue
+PASS blast replaces stale secondary source and claims primary ownership
+PASS stale debris cannot suppress owned object break
+PASS suppressed and null targets skipped
+PASS legacy bypasses object enqueue
+PASS legacy contact still breaks and counts once
+258 passed / 0 failed
+ 
+9 static passed / 0 failed

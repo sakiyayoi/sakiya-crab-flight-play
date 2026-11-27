@@ -1,0 +1,62 @@
+#!/bin/zsh
+PROTO=$HOME/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118
+STATUS=/tmp/object-build-status.txt
+echo "START $(date +%H:%M:%S)" > $STATUS
+rm -rf $HOME/kani-object-build01
+mkdir -p $HOME/kani-object-build01
+cd $PROTO/source && git archive object-redesign | tar -x -C $HOME/kani-object-build01
+echo "EXTRACTED" >> $STATUS
+# Inject EffekseerForUnity 1.80.8 as an embedded package (build copy only)
+rm -rf /tmp/EffekseerForUnity_Release
+git clone --depth 1 https://github.com/effekseer/EffekseerForUnity_Release.git /tmp/EffekseerForUnity_Release >> $STATUS 2>&1
+cp -R /tmp/EffekseerForUnity_Release/Assets/Effekseer $HOME/kani-object-build01/games/flight/crab-flight/Assets/Effekseer
+echo "PACKAGE-INJECTED" >> $STATUS
+# Flip burstMode to effekseer in the build copy's feel.json
+python3 - << 'PYEOF'
+import json, glob
+for p in glob.glob('/Users/konomichiharu/kani-object-build01/games/flight/crab-flight/Assets/StreamingAssets/feel.json'):
+    d = json.load(open(p))
+    d['burstMode'] = 'effekseer'
+    d['objectMode'] = 'redesign'
+    json.dump(d, open(p, 'w'), ensure_ascii=False, indent=2)
+    print('feel.json patched:', p)
+PYEOF
+echo "FEEL-PATCHED" >> $STATUS
+# Enable the built-in VR module in the build copy (Effekseer scripts reference UnityEngine.XR)
+python3 - << 'PYEOF2'
+import json
+p = '/Users/konomichiharu/kani-object-build01/games/flight/crab-flight/Packages/manifest.json'
+d = json.load(open(p))
+d.setdefault('dependencies', {})['com.unity.modules.vr'] = '1.0.0'
+json.dump(d, open(p, 'w'), ensure_ascii=False, indent=2)
+print('manifest patched: VR module enabled')
+PYEOF2
+echo "MANIFEST-PATCHED" >> $STATUS
+rm -rf $HOME/WebGL-port-prototype $HOME/evidence/port-prototype-build01
+/Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/MacOS/Unity -batchmode -nographics -quit -forgetProjectPath -projectPath $HOME/kani-object-build01/games/flight/crab-flight -executeMethod NeonProtoBuild.PortPrototype -logFile /tmp/object-unity-build.log
+echo "UNITY-EXIT=$?" >> $STATUS
+if ! grep -q "UNITY-EXIT=0" $STATUS; then echo "BUILD-FAILED-STOPPING" >> $STATUS; echo "DONE" >> $STATUS; exit 1; fi
+rm -rf $PROTO/WebGL-object
+cp -R $HOME/WebGL-port-prototype $PROTO/WebGL-object
+echo "COPIED" >> $STATUS
+gzip -9 -kf $PROTO/WebGL-object/Build/WebGL-port-prototype.wasm $PROTO/WebGL-object/Build/WebGL-port-prototype.data $PROTO/WebGL-object/Build/WebGL-port-prototype.framework.js
+find $PROTO/WebGL-object/SoundPack -name "*.wav" -exec gzip -9 -kf {} \;
+echo "GZIPPED" >> $STATUS
+mkdir -p $HOME/kani-object-build01/games/flight/crab-flight/Assets/PortPrototype/Editor
+cp /tmp/PortNativeReviewOpening.cs $HOME/kani-object-build01/games/flight/crab-flight/Assets/PortPrototype/Editor/PortNativeReview.cs
+rm -rf $PROTO/evidence/object-review
+PORT_REVIEW_OUTPUT=$PROTO/evidence/object-review PORT_REVIEW_INPUT=$PROTO/accepted-input.json /Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/MacOS/Unity -batchmode -quit -forgetProjectPath -projectPath $HOME/kani-object-build01/games/flight/crab-flight -executeMethod PortNativeReview.Run -logFile /tmp/object-review.log
+echo "REVIEW-EXIT=$?" >> $STATUS
+if ! grep -q "REVIEW-EXIT=0" $STATUS; then echo "REVIEW-FAILED-STOPPING" >> $STATUS; echo "DONE" >> $STATUS; exit 1; fi
+sed -e 's/WebGL-effekseer/WebGL-object/g' -e 's/effekseer-1/object-2/g' $PROTO/tools/serve-effekseer.py > $PROTO/tools/serve-object.py
+pkill -f "serve-object.py"
+sleep 1
+cd $PROTO && nohup python3 tools/serve-object.py --port 8161 > /tmp/serve-object.log 2>&1 &
+/Applications/Tailscale.app/Contents/MacOS/Tailscale serve --bg --https=8464 http://127.0.0.1:8161 >> $STATUS 2>&1
+sleep 4
+echo "--- verify ---" >> $STATUS
+curl -s https://node.tailb29f7f.ts.net:8464/neon-preview.json >> $STATUS
+echo "" >> $STATUS
+curl -s -o /dev/null -w "INDEX %{http_code}\n" https://node.tailb29f7f.ts.net:8464/ >> $STATUS
+du -sh $PROTO/WebGL-object >> $STATUS
+echo "DONE" >> $STATUS

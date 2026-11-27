@@ -1,0 +1,38 @@
+{
+  "existingContracts": {
+    "Rules": 85,
+    "Bridge": 45,
+    "Juice": 33,
+    "Shapes": 46,
+    "Blast": 258,
+    "Port": 30,
+    "CameraHitstop": 151,
+    "Faces": 66,
+    "ActionWriter": 51,
+    "Stage1Boundary": 235,
+    "StoryBoundary": 13,
+    "BlastBoundary": 9,
+    "CameraBoundary": 10,
+    "PlacementBoundary": 22
+  },
+  "existingPassed": 1054,
+  "previousPassed": 1054,
+  "noCountReduction": true,
+  "addedReviewContracts": {
+    "hits": 61,
+    "empty": 13,
+    "boundary": 23
+  },
+  "addedPassed": 97,
+  "failed": 0,
+  "protectedMain": 26,
+  "protectedBranch": 26,
+  "playwright": {
+    "startTime": "2026-11-27T16:00:39.110Z",
+    "duration": 37855.788,
+    "expected": 37,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

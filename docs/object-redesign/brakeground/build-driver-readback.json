@@ -1,0 +1,7 @@
+{
+  "path": "/tmp/build-object.sh",
+  "beforeSha256": "6e3b54ae827db7555789964029136f7aa2024e418f26c7d7fdb2448e7f90b5c7",
+  "afterSha256": "670be459e37ae68556fca6a3f4dc764898a4861875ba093a9ea8c63b31e61449",
+  "executed": false,
+  "patch": "build-object-review-fix.patch"
+}

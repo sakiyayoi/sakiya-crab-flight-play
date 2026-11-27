@@ -1,0 +1,462 @@
+[
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Resources/WorldRouteR11.json",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Resources/ReplayInputR24.json",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/StreamingAssets/feel.json",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Shaders/ChitinR3.shader",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/NeonProto/Editor/NeonProtoBuild.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/NeonProto/Editor/NeonStage46Review.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/NeonProto/Editor/NeonProtoReview.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/NeonProto/Editor/NeonStage6Review.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/NeonProto/Editor/NeonStage46Identify.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/NeonProto/Editor/NeonStage45Review.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/NeonProto/Editor/NeonStage46FilterReview.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/NeonProto/Resources/NeonProto/NeonBackdropAtlas.shader",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/NeonProto/Resources/NeonProto/NeonScenery.shader",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/NeonProto/Resources/NeonProto/NeonAdditive.shader",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/NeonProto/Resources/NeonProto/NeonUnlit.shader",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/OpeningGrammar/Resources/OpeningGrammar/Layout.json",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Tests/PlayMode/FloorR9.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Tests/PlayMode/FlightMeasurementPlayMode.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Tests/PlayMode/IntegrationR16.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Tests/PlayMode/ContactRouteR13.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Tests/PlayMode/FloorCauseR30.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Tests/PlayMode/RetryComfortR9.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Tests/PlayMode/PowerTargetR30.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Tests/PlayMode/ColliderWitnessR22.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Tests/PlayMode/MaterialProbeR17.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Tests/PlayMode/ReplayRecordedR24.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Tests/PlayMode/WorldArtR9.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Tests/PlayMode/RenderIsolationR9.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Tests/PlayMode/LoopR29.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Tests/PlayMode/FloorTurnR15.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Tests/PlayMode/CeilingR9.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Tests/PlayMode/ReviewRepairR16.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Resources/CityDensity/CityPlacement.json",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Resources/FarWorldR10/Proposals.json",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Resources/FarWorldR10/PlacementsR11.json",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Resources/WorldArtR9/Recipe.json",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Resources/CityDensityR2/CityPlacementDense.json",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Resources/CityDensityR2/CityDestructionProposals.json",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Resources/CityDensityR2/CityPlacementAtrium.json",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Resources/CityDensityR2/CityChainPlan.json",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/NeonDensity/Resources/NeonDensity/Placements.json",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/NeonDensity/Resources/NeonDensity/Supports.json",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeHierarchy/HierarchyDataTransform.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeHierarchy/HierarchyDataRoot.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeHierarchy/HierarchyDataRootSearch.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeHierarchy/HierarchyDataRootPseudoScene.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeHierarchy/Helpers/PseudoSceneSourceTransform.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Skin/SkinnedWindow.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Skin/SkinUtils.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Attributes/RuntimeInspectorCustomEditorAttribute.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Attributes/RuntimeInspectorButtonAttribute.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Fields/Vector4Field.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Fields/InspectorField.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Fields/ObjectField.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Fields/ExposedMethodField.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Fields/GameObjectField.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Fields/NumberField.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Fields/NumberRangeField.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Fields/EnumField.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Fields/TextureReferenceField.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Fields/BoundsField.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Fields/Vector3Field.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Fields/BoolField.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Fields/ColorField.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Fields/RectField.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Fields/ObjectReferenceField.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Helpers/DraggedReferenceSourceCamera.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Helpers/Tooltip.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Helpers/VariableSet.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Helpers/BoundSlider.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Helpers/WindowDragHandler.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Helpers/TooltipArea.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Helpers/RuntimeInspectorSettings.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Helpers/NonDrawingGraphic.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Helpers/NumberHandlers.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Helpers/BoundInputField.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Helpers/ObjectReferencePicker/ObjectReferencePicker.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Helpers/RecycledListView/RecycledListView.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/Scripts/RuntimeInspector/Helpers/ColorPicker/ColorPicker.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/ExternalResources/ColorWheel/ColorWheelControl.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/Plugins/RuntimeInspector/ExternalResources/ColorWheel/Visuals/ColorWheelShader.shader",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/PortPrototype/Resources/PortPrototype/Layout.json",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/PortPrototype/Resources/PortPrototype/Surface.shader",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/PortPrototype/Resources/PortPrototype/Atmosphere.shader",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/MallDensityProto/Resources/MallDensityProto/Geometry.json",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/MallDensityProto/Resources/MallDensityProto/Proposals.json",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/MallModelPackR18/Shaders/BoutiqueSurfaceR18.shader",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/MallModelPackR18/Shaders/BoutiqueGlassR18.shader",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/MallModelPackR18/Shaders/ContactShadeR18.shader",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/MallModelPackR18/Editor/BoutiqueModelBuilderR18.cs",
+    "accepted": true,
+    "error": null
+  },
+  {
+    "path": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/games/flight/crab-flight/Assets/MallModelPackR18/Editor/BoutiqueModelPreviewR18.cs",
+    "accepted": true,
+    "error": null
+  }
+]

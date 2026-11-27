@@ -1,0 +1,408 @@
+{
+  "method": "Full motion AABB, both mirrored directions; rotating square uses sqrt(2) extent. Nominal absolute world-Y [0,15] is a design envelope from owner brief, not measured center/support bounds. Separate +3.5m legacy crab margin sensitivity. No guarantee of a miss after prior actions.",
+  "sourceSha256": "b32ad2b4b05d9d9f2deba3628660e3c4a40343a0ce11d70bcffd8988f8af2c75",
+  "scale": 1.6,
+  "halfSize": 1.8399999999999999,
+  "rows": [
+    {
+      "id": "restaurant-entry",
+      "kind": "Boost",
+      "center": [
+        8.0,
+        3.0,
+        0
+      ],
+      "x": [
+        5.51,
+        10.49
+      ],
+      "y": [
+        1.16,
+        4.84
+      ],
+      "z": [
+        -1.8399999999999999,
+        1.8399999999999999
+      ],
+      "nominalBandOverlap": true,
+      "plusCrabMarginOverlap": true,
+      "intent": "positive action contact permitted",
+      "newUnintendedNonBrakeOverlap": false
+    },
+    {
+      "id": "restaurant-bounce",
+      "kind": "Bounce",
+      "center": [
+        14.0,
+        2.0,
+        0
+      ],
+      "x": [
+        12.16,
+        15.84
+      ],
+      "y": [
+        -0.39,
+        4.39
+      ],
+      "z": [
+        -1.8399999999999999,
+        1.8399999999999999
+      ],
+      "nominalBandOverlap": true,
+      "plusCrabMarginOverlap": true,
+      "intent": "positive action contact permitted",
+      "newUnintendedNonBrakeOverlap": false
+    },
+    {
+      "id": "restaurant-brake",
+      "kind": "Brake",
+      "center": [
+        21.0,
+        2.5,
+        0
+      ],
+      "x": [
+        19.16,
+        22.84
+      ],
+      "y": [
+        0.31,
+        4.69
+      ],
+      "z": [
+        -1.8399999999999999,
+        1.8399999999999999
+      ],
+      "nominalBandOverlap": true,
+      "plusCrabMarginOverlap": true,
+      "intent": "ground-line brake; dive/ground contact intended",
+      "newUnintendedNonBrakeOverlap": false
+    },
+    {
+      "id": "restaurant-spin",
+      "kind": "Spin",
+      "center": [
+        20.0,
+        5.0,
+        0
+      ],
+      "x": [
+        17.3978,
+        22.6022
+      ],
+      "y": [
+        2.3978,
+        7.6022
+      ],
+      "z": [
+        -1.8399999999999999,
+        1.8399999999999999
+      ],
+      "nominalBandOverlap": true,
+      "plusCrabMarginOverlap": true,
+      "intent": "positive action contact permitted",
+      "newUnintendedNonBrakeOverlap": false
+    },
+    {
+      "id": "restaurant-death",
+      "kind": "Death",
+      "center": [
+        22.0,
+        26.0,
+        0
+      ],
+      "x": [
+        19.26,
+        24.74
+      ],
+      "y": [
+        24.16,
+        27.84
+      ],
+      "z": [
+        -1.8399999999999999,
+        1.8399999999999999
+      ],
+      "nominalBandOverlap": false,
+      "plusCrabMarginOverlap": false,
+      "intent": "high-line death hazard",
+      "newUnintendedNonBrakeOverlap": false
+    },
+    {
+      "id": "restaurant-exit",
+      "kind": "Blast",
+      "center": [
+        24.0,
+        3.0,
+        0
+      ],
+      "x": [
+        22.16,
+        25.84
+      ],
+      "y": [
+        0.98,
+        5.02
+      ],
+      "z": [
+        -1.8399999999999999,
+        1.8399999999999999
+      ],
+      "nominalBandOverlap": true,
+      "plusCrabMarginOverlap": true,
+      "intent": "positive action contact permitted",
+      "newUnintendedNonBrakeOverlap": false
+    },
+    {
+      "id": "mall-entry",
+      "kind": "Boost",
+      "center": [
+        32.0,
+        4.0,
+        0
+      ],
+      "x": [
+        29.51,
+        34.49
+      ],
+      "y": [
+        2.16,
+        5.84
+      ],
+      "z": [
+        -1.8399999999999999,
+        1.8399999999999999
+      ],
+      "nominalBandOverlap": true,
+      "plusCrabMarginOverlap": true,
+      "intent": "positive action contact permitted",
+      "newUnintendedNonBrakeOverlap": false
+    },
+    {
+      "id": "mall-bounce-a",
+      "kind": "Bounce",
+      "center": [
+        43.0,
+        2.0,
+        0
+      ],
+      "x": [
+        41.16,
+        44.84
+      ],
+      "y": [
+        -0.39,
+        4.39
+      ],
+      "z": [
+        -1.8399999999999999,
+        1.8399999999999999
+      ],
+      "nominalBandOverlap": true,
+      "plusCrabMarginOverlap": true,
+      "intent": "positive action contact permitted",
+      "newUnintendedNonBrakeOverlap": false
+    },
+    {
+      "id": "mall-spin-a",
+      "kind": "Spin",
+      "center": [
+        55.0,
+        7.0,
+        0
+      ],
+      "x": [
+        52.3978,
+        57.6022
+      ],
+      "y": [
+        4.3978,
+        9.6022
+      ],
+      "z": [
+        -1.8399999999999999,
+        1.8399999999999999
+      ],
+      "nominalBandOverlap": true,
+      "plusCrabMarginOverlap": true,
+      "intent": "positive action contact permitted",
+      "newUnintendedNonBrakeOverlap": false
+    },
+    {
+      "id": "mall-brake-a",
+      "kind": "Brake",
+      "center": [
+        58.0,
+        3.0,
+        0
+      ],
+      "x": [
+        56.16,
+        59.84
+      ],
+      "y": [
+        0.81,
+        5.19
+      ],
+      "z": [
+        -1.8399999999999999,
+        1.8399999999999999
+      ],
+      "nominalBandOverlap": true,
+      "plusCrabMarginOverlap": true,
+      "intent": "ground-line brake; dive/ground contact intended",
+      "newUnintendedNonBrakeOverlap": false
+    },
+    {
+      "id": "mall-boost",
+      "kind": "Boost",
+      "center": [
+        75.0,
+        4.0,
+        0
+      ],
+      "x": [
+        72.51,
+        77.49
+      ],
+      "y": [
+        2.16,
+        5.84
+      ],
+      "z": [
+        -1.8399999999999999,
+        1.8399999999999999
+      ],
+      "nominalBandOverlap": true,
+      "plusCrabMarginOverlap": true,
+      "intent": "positive action contact permitted",
+      "newUnintendedNonBrakeOverlap": false
+    },
+    {
+      "id": "mall-bounce-b",
+      "kind": "Bounce",
+      "center": [
+        86.0,
+        2.0,
+        0
+      ],
+      "x": [
+        84.16,
+        87.84
+      ],
+      "y": [
+        -0.39,
+        4.39
+      ],
+      "z": [
+        -1.8399999999999999,
+        1.8399999999999999
+      ],
+      "nominalBandOverlap": true,
+      "plusCrabMarginOverlap": true,
+      "intent": "positive action contact permitted",
+      "newUnintendedNonBrakeOverlap": false
+    },
+    {
+      "id": "mall-spin-b",
+      "kind": "Spin",
+      "center": [
+        98.0,
+        7.0,
+        0
+      ],
+      "x": [
+        95.3978,
+        100.6022
+      ],
+      "y": [
+        4.3978,
+        9.6022
+      ],
+      "z": [
+        -1.8399999999999999,
+        1.8399999999999999
+      ],
+      "nominalBandOverlap": true,
+      "plusCrabMarginOverlap": true,
+      "intent": "positive action contact permitted",
+      "newUnintendedNonBrakeOverlap": false
+    },
+    {
+      "id": "mall-brake-b",
+      "kind": "Brake",
+      "center": [
+        108.0,
+        3.0,
+        0
+      ],
+      "x": [
+        106.16,
+        109.84
+      ],
+      "y": [
+        0.81,
+        5.19
+      ],
+      "z": [
+        -1.8399999999999999,
+        1.8399999999999999
+      ],
+      "nominalBandOverlap": true,
+      "plusCrabMarginOverlap": true,
+      "intent": "ground-line brake; dive/ground contact intended",
+      "newUnintendedNonBrakeOverlap": false
+    },
+    {
+      "id": "mall-death",
+      "kind": "Death",
+      "center": [
+        114.0,
+        26.0,
+        0
+      ],
+      "x": [
+        111.26,
+        116.74
+      ],
+      "y": [
+        24.16,
+        27.84
+      ],
+      "z": [
+        -1.8399999999999999,
+        1.8399999999999999
+      ],
+      "nominalBandOverlap": false,
+      "plusCrabMarginOverlap": false,
+      "intent": "high-line death hazard",
+      "newUnintendedNonBrakeOverlap": false
+    },
+    {
+      "id": "mall-exit",
+      "kind": "Blast",
+      "center": [
+        124.0,
+        4.0,
+        0
+      ],
+      "x": [
+        122.16,
+        125.84
+      ],
+      "y": [
+        1.98,
+        6.02
+      ],
+      "z": [
+        -1.8399999999999999,
+        1.8399999999999999
+      ],
+      "nominalBandOverlap": true,
+      "plusCrabMarginOverlap": true,
+      "intent": "positive action contact permitted",
+      "newUnintendedNonBrakeOverlap": false
+    }
+  ]
+}

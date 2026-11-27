@@ -1,0 +1,13 @@
+{
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectRules.cs": "b32ad2b4b05d9d9f2deba3628660e3c4a40343a0ce11d70bcffd8988f8af2c75",
+  "games/flight/crab-flight/Assets/PortPrototype/Editor/PortNativeReview.cs": "82e31429304b202f1a7cb6a9909eb18fbd6a173584302b9a5c6854b1b0e876ad",
+  "docs/object-redesign/story/contracts.py": "6f9c2da28d156669d11def3c7d4c1e412212ae597877601938f5e976cd891262",
+  "docs/object-redesign/camhit/contracts.py": "f1f2cbf8c6bbc4003d14f7060c5b66479c52a91a8ff34ddb59c4b7e7868d03bb",
+  "docs/object-redesign/placecute/contracts.py": "e669247377b0bb1fd9e667767d31a9a0aa791ad7b131a505bf6a60b1f1fc382a",
+  "docs/object-redesign/placecute/audit.py": "5580402712972cc2130d80c7c35cd7e5d28d000cdbe06e20d69eef52e98098d2",
+  "docs/object-redesign/brakeground/ReviewContracts.cs": "fd3580c0e61842d1f3ce4a1b718affd056db7d32bbf2ce034370b48084219ae1",
+  "docs/object-redesign/brakeground/contracts.py": "be8b53c6a5d82510bcb19ca78dddbbaba683059d0e35f9e94613c6c9d48271ca",
+  "docs/object-redesign/brakeground/brakeground.spec.cjs": "d274ed8e840a45a51ea0c68db053e7de9895c3d3ffc41d653d659891bea86f8a",
+  "docs/object-redesign/brakeground/playwright.config.cjs": "27d41f40c418a0d42b54ba92b2e69df89ed7d2d1427500ffd797349b8272362d",
+  "tools/object-redesign/run_native_review.py": "bd1886709410a040ac055517ac7fe27f7a359b52f91f7ce604f7af2ee2f16f9a"
+}

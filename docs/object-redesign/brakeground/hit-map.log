@@ -1,0 +1,16 @@
+restaurant-entry [8.0, 3.0, 0] Y [1.16, 4.84] nominal True margin True
+restaurant-bounce [14.0, 2.0, 0] Y [-0.39, 4.39] nominal True margin True
+restaurant-brake [21.0, 2.5, 0] Y [0.31, 4.69] nominal True margin True
+restaurant-spin [20.0, 5.0, 0] Y [2.3978, 7.6022] nominal True margin True
+restaurant-death [22.0, 26.0, 0] Y [24.16, 27.84] nominal False margin False
+restaurant-exit [24.0, 3.0, 0] Y [0.98, 5.02] nominal True margin True
+mall-entry [32.0, 4.0, 0] Y [2.16, 5.84] nominal True margin True
+mall-bounce-a [43.0, 2.0, 0] Y [-0.39, 4.39] nominal True margin True
+mall-spin-a [55.0, 7.0, 0] Y [4.3978, 9.6022] nominal True margin True
+mall-brake-a [58.0, 3.0, 0] Y [0.81, 5.19] nominal True margin True
+mall-boost [75.0, 4.0, 0] Y [2.16, 5.84] nominal True margin True
+mall-bounce-b [86.0, 2.0, 0] Y [-0.39, 4.39] nominal True margin True
+mall-spin-b [98.0, 7.0, 0] Y [4.3978, 9.6022] nominal True margin True
+mall-brake-b [108.0, 3.0, 0] Y [0.81, 5.19] nominal True margin True
+mall-death [114.0, 26.0, 0] Y [24.16, 27.84] nominal False margin False
+mall-exit [124.0, 4.0, 0] Y [1.98, 6.02] nominal True margin True

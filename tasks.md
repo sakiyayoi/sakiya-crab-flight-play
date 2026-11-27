@@ -394,3 +394,10 @@ R18 timing continuation 2026-11-04: 私的な診断WebGL c86cec4をビルド成�
 | stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
 |---|---|---|---|---|---|---|
 | object-brake3 | mall-brake-b (108,9)→(108,20) と契約期待値だけ更新 | Codex（単独書込） | object-redesign 2b7cd8a | Editor/WebGL errors0・既存契約全PASS/件数維持・保護26SHA前後一致・報告追記/commit | 指定なし | 指定オフライン範囲完了：修正 81da675、Editor/WebGL errors0、既存契約1054PASS（件数不変）、Playwright36PASS、main/branch26SHA前後一致。第2便報告書へ追記、Native実画面は今回範囲外 |
+
+
+## 第3便：もち地面ライン・レビュー作用ログ（2026-11-28）
+
+| stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
+|---|---|---|---|---|---|---|
+| object-brakeground | brake3中心のみ移設・レビュー実経路の作用JSONL出力を修正 | Codex（単独書込） | object-redesign 8b3e421・クロエobject-2実測 | Editor/WebGL errors0・全既存契約件数維持・レビュー入口からcamon出力・26SHA一致・報告/commit | 指定なし | 指定オフライン範囲PASS：Editor/WebGL errors0・既存1054/追加97契約PASS・Playwright37PASS・main/branch26SHA一致。旧helper再注入を除去し、camon作用JSONL出力を実Run入口＋オフラインアダプタで確認。報告docs/object-redesign/NEON-REPORT-BRAKEGROUND-by-codex.mdへ記録。Native実投はクロエの別工程 |

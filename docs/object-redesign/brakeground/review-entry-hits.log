@@ -1,0 +1,63 @@
+PASS action file exists before Prepare resets consumed history
+PASS Run writes action log beneath PORT_REVIEW_OUTPUT/camon
+PASS no misplaced root action log
+PASS all consumed hits written exactly once including beyond UI ring capacity
+PASS entry preserves kind/position/time 0
+PASS entry preserves kind/position/time 1
+PASS entry preserves kind/position/time 2
+PASS entry preserves kind/position/time 3
+PASS entry preserves kind/position/time 4
+PASS entry preserves kind/position/time 5
+PASS entry preserves kind/position/time 6
+PASS entry preserves kind/position/time 7
+PASS entry preserves kind/position/time 8
+PASS entry preserves kind/position/time 9
+PASS entry preserves kind/position/time 10
+PASS entry preserves kind/position/time 11
+PASS entry preserves kind/position/time 12
+PASS entry preserves kind/position/time 13
+PASS entry preserves kind/position/time 14
+PASS entry preserves kind/position/time 15
+PASS entry preserves kind/position/time 16
+PASS entry preserves kind/position/time 17
+PASS entry preserves kind/position/time 18
+PASS entry preserves kind/position/time 19
+PASS entry preserves kind/position/time 20
+PASS entry preserves kind/position/time 21
+PASS entry preserves kind/position/time 22
+PASS entry preserves kind/position/time 23
+PASS entry preserves kind/position/time 24
+PASS entry preserves kind/position/time 25
+PASS entry preserves kind/position/time 26
+PASS entry preserves kind/position/time 27
+PASS entry preserves kind/position/time 28
+PASS entry preserves kind/position/time 29
+PASS entry preserves kind/position/time 30
+PASS entry preserves kind/position/time 31
+PASS entry preserves kind/position/time 32
+PASS entry preserves kind/position/time 33
+PASS entry preserves kind/position/time 34
+PASS entry preserves kind/position/time 35
+PASS entry preserves kind/position/time 36
+PASS entry preserves kind/position/time 37
+PASS entry preserves kind/position/time 38
+PASS entry preserves kind/position/time 39
+PASS entry preserves kind/position/time 40
+PASS entry preserves kind/position/time 41
+PASS entry preserves kind/position/time 42
+PASS entry preserves kind/position/time 43
+PASS entry preserves kind/position/time 44
+PASS entry preserves kind/position/time 45
+PASS entry preserves kind/position/time 46
+PASS entry preserves kind/position/time 47
+PASS zero-hit review creates an empty file
+PASS retry really clears source hits after file write
+PASS existing physics shutdown called
+PASS Run completes camon result and retry receipt
+PASS existing initialization preserved
+PASS existing scene path preserved
+PASS accepted replay seed preserved
+PASS accepted input passes unmodified through Run
+PASS existing route/break output still written
+61 passed / 0 failed (offline review entry adapters)
+{"path": "/private/var/folders/3w/2mr054b55_3cztt9zngchfcm0000gn/T/kani brakeground offline ovmu24ey/review output hits/camon/action-events.jsonl", "events": 48, "sha256": "b587df730a6c1d993e5790ee09673a0bdf2c4d224a3315b40957142943b16947", "helperSha256": "82e31429304b202f1a7cb6a9909eb18fbd6a173584302b9a5c6854b1b0e876ad"}

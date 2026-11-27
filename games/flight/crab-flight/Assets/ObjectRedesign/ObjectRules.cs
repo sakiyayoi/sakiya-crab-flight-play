@@ -23,18 +23,18 @@ public static class ObjectRules {
  public static readonly Placement[] Placements={
   new Placement("restaurant-entry",Kind.Boost,8,3),
   new Placement("restaurant-bounce",Kind.Bounce,14,2),
-  new Placement("restaurant-brake",Kind.Brake,19,20),
+  new Placement("restaurant-brake",Kind.Brake,21,2.5f),
   new Placement("restaurant-spin",Kind.Spin,20,5),
   new Placement("restaurant-death",Kind.Death,22,26),
   new Placement("restaurant-exit",Kind.Blast,24,3),
   new Placement("mall-entry",Kind.Boost,32,4),
   new Placement("mall-bounce-a",Kind.Bounce,43,2),
   new Placement("mall-spin-a",Kind.Spin,55,7),
-  new Placement("mall-brake-a",Kind.Brake,64,20),
+  new Placement("mall-brake-a",Kind.Brake,58,3),
   new Placement("mall-boost",Kind.Boost,75,4),
   new Placement("mall-bounce-b",Kind.Bounce,86,2),
   new Placement("mall-spin-b",Kind.Spin,98,7),
-  new Placement("mall-brake-b",Kind.Brake,108,20),
+  new Placement("mall-brake-b",Kind.Brake,108,3),
   new Placement("mall-death",Kind.Death,114,26),
   new Placement("mall-exit",Kind.Blast,124,4)
  };

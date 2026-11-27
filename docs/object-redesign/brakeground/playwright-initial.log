@@ -1,0 +1,81 @@
+
+Running 37 tests using 1 worker
+
+(node:29167) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Traceback (most recent call last):
+  File "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/brakeground/contracts.py", line 93, in <module>
+    check(receipt['events'] == count and Path(receipt['path']) == output / 'camon/action-events.jsonl', name + ': guarded CLI and actual Run produce exact output destination/count')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/brakeground/contracts.py", line 25, in check
+    assert ok, label
+           ^^
+AssertionError: hits: guarded CLI and actual Run produce exact output destination/count
+  ✘   1 docs/object-redesign/brakeground/brakeground.spec.cjs:3:1 › brakeground review entry writes camon action events through the guarded runner (3.9s)
+(node:29250) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 docs/object-redesign/camhit/camhit.spec.cjs:3:1 › camera and presentation hold execute real methods without changing fixed-step code (1.9m)
+  ✓   3 docs/object-redesign/object.spec.cjs:5:1 › real rules, legacy placement identity and physical integration contracts (16.0s)
+  ✓   4 docs/object-redesign/object.spec.cjs:9:1 › existing Effekseer and juice behavior contracts remain green (4.2s)
+  ✓   5 docs/object-redesign/object.spec.cjs:34:2 › large thumb controls fit portrait (3.2s)
+  ✓   6 docs/object-redesign/object.spec.cjs:34:2 › large thumb controls fit small (766ms)
+  ✓   7 docs/object-redesign/object.spec.cjs:34:2 › large thumb controls fit landscape (741ms)
+  ✓   8 docs/object-redesign/object.spec.cjs:44:1 › jets by tap and keyboard, budget feedback, repeat suppression (729ms)
+  ✓   9 docs/object-redesign/object.spec.cjs:56:1 › dive pointer capture, simultaneous keyboard, release and blur (735ms)
+  ✓  10 docs/object-redesign/object.spec.cjs:66:1 › legacy, charge, pause, result and retry gate flight-only input (706ms)
+  ✓  11 docs/object-redesign/object.spec.cjs:80:1 › result shows authoritative maximum chain beside dominant destruction (1.8s)
+  ✓  12 docs/object-redesign/object.spec.cjs:88:1 › touchscreen jet and held dive use the same real pointer path (717ms)
+  ✓  13 docs/object-redesign/placecute/placecute.spec.cjs:3:1 › placecute scaled faces and Native action writer execute with exact source boundaries (13.7s)
+  ✓  14 docs/object-redesign/story/story.spec.cjs:27:51 › exact caption and one second expiry: boost (1.9s)
+  ✓  15 docs/object-redesign/story/story.spec.cjs:27:51 › exact caption and one second expiry: bounce (707ms)
+  ✓  16 docs/object-redesign/story/story.spec.cjs:27:51 › exact caption and one second expiry: spin (671ms)
+  ✓  17 docs/object-redesign/story/story.spec.cjs:27:51 › exact caption and one second expiry: brake (665ms)
+  ✓  18 docs/object-redesign/story/story.spec.cjs:27:51 › exact caption and one second expiry: blast (667ms)
+  ✓  19 docs/object-redesign/story/story.spec.cjs:27:51 › exact caption and one second expiry: death (674ms)
+  ✓  20 docs/object-redesign/story/story.spec.cjs:34:1 › latest only, dense event ring, no queue and old timers cannot clear a new caption (678ms)
+  ✓  21 docs/object-redesign/story/story.spec.cjs:42:1 › effects off and OS reduced motion suppress immediately and never replay missed captions (690ms)
+  ✓  22 docs/object-redesign/story/story.spec.cjs:51:1 › native flags, activation flag, pause, legacy and retry suppress without delayed replay (715ms)
+  ✓  23 docs/object-redesign/story/story.spec.cjs:64:1 › unknown kind and stale sequence cannot replace current text (679ms)
+  ✓  24 docs/object-redesign/story/story.spec.cjs:69:2 › caption fits and avoids real destruction pop / HUD: portrait (709ms)
+  ✓  25 docs/object-redesign/story/story.spec.cjs:80:2 › death stays visible through immediate result and retry clears it: portrait (723ms)
+  ✓  26 docs/object-redesign/story/story.spec.cjs:69:2 › caption fits and avoids real destruction pop / HUD: small (854ms)
+  ✓  27 docs/object-redesign/story/story.spec.cjs:80:2 › death stays visible through immediate result and retry clears it: small (791ms)
+  ✓  28 docs/object-redesign/story/story.spec.cjs:69:2 › caption fits and avoids real destruction pop / HUD: landscape (755ms)
+  ✓  29 docs/object-redesign/story/story.spec.cjs:80:2 › death stays visible through immediate result and retry clears it: landscape (772ms)
+  ✓  30 qa/juice-layer/juice.spec.cjs:74:1 › existing WAV path rises in semitones, caps at octave, resets and deduplicates (2.2s)
+  ✓  31 qa/juice-layer/juice.spec.cjs:85:1 › fallback receives identical pitch and deferred voice keeps event-time pitch (10ms)
+  ✓  32 qa/juice-layer/juice.spec.cjs:94:1 › audio generation reset cancels delayed voices and mute does not replay missed events (8ms)
+  ✓  33 qa/juice-layer/juice.spec.cjs:122:2 › HUD portrait: aggregate count catches up, pops and stays inside viewport (1.8s)
+  ✓  34 qa/juice-layer/juice.spec.cjs:122:2 › HUD small: aggregate count catches up, pops and stays inside viewport (2.0s)
+  ✓  35 qa/juice-layer/juice.spec.cjs:122:2 › HUD landscape: aggregate count catches up, pops and stays inside viewport (1.5s)
+  ✓  36 qa/juice-layer/juice.spec.cjs:138:1 › HUD pause/resume, dense updates, retry and result never leave stale totals (754ms)
+  ✓  37 qa/juice-layer/juice.spec.cjs:151:1 › HUD reduced motion and effects off cancel the animation immediately (676ms)
+
+
+  1) docs/object-redesign/brakeground/brakeground.spec.cjs:3:1 › brakeground review entry writes camon action events through the guarded runner 
+
+    Error: Command failed: python3 docs/object-redesign/brakeground/contracts.py
+    Traceback (most recent call last):
+      File "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/brakeground/contracts.py", line 93, in <module>
+        check(receipt['events'] == count and Path(receipt['path']) == output / 'camon/action-events.jsonl', name + ': guarded CLI and actual Run produce exact output destination/count')
+        ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/brakeground/contracts.py", line 25, in check
+        assert ok, label
+               ^^
+    AssertionError: hits: guarded CLI and actual Run produce exact output destination/count
+
+
+      2 | const cp=require('node:child_process'),path=require('node:path');
+      3 | test('brakeground review entry writes camon action events through the guarded runner',()=>{
+    > 4 |  const out=cp.execFileSync('python3',['docs/object-redesign/brakeground/contracts.py'],{
+        |               ^
+      5 |   cwd:path.resolve(__dirname,'../../..'),encoding:'utf8',timeout:160000});
+      6 |  expect(out).toContain('static passed / 0 failed');
+      7 | });
+        at /Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/brakeground/brakeground.spec.cjs:4:15
+
+    Error Context: ../../../../../../../../tmp/kani-brakeground-playwright/docs-object-redesign-brake-c7b1a--through-the-guarded-runner/error-context.md
+
+  1 failed
+    docs/object-redesign/brakeground/brakeground.spec.cjs:3:1 › brakeground review entry writes camon action events through the guarded runner 
+  36 passed (3.1m)

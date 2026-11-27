@@ -1,0 +1,30 @@
+{
+  "builder": "/tmp/build-object.sh",
+  "builderBeforeSha256": "6e3b54ae827db7555789964029136f7aa2024e418f26c7d7fdb2448e7f90b5c7",
+  "committedHelperSha256": "82e31429304b202f1a7cb6a9909eb18fbd6a173584302b9a5c6854b1b0e876ad",
+  "injectedHelperSha256": "c5df4a918eb3efbafc2aa616fc7e99afebe14c06452857cbff23d3c9d10032e8",
+  "actualBuildCopyHelperSha256": "c5df4a918eb3efbafc2aa616fc7e99afebe14c06452857cbff23d3c9d10032e8",
+  "buildCopyEqualsOldInjectedHelper": true,
+  "originalOutput": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/evidence/object-review",
+  "actionLogExists": false,
+  "camonFiles": [
+    "aim-portrait.png",
+    "aim.png",
+    "break-events.jsonl",
+    "flight-20-portrait.png",
+    "flight-20.json",
+    "flight-20.png",
+    "flight-40.json",
+    "flight-40.png",
+    "flight-8.json",
+    "flight-8.png",
+    "flight-80-portrait.png",
+    "flight-80.json",
+    "flight-80.png",
+    "result.png",
+    "retry.png",
+    "roles.json",
+    "route.csv"
+  ],
+  "cause": "Builder overwrote git-archived helper with legacy /tmp helper that has no action writer. Previous contracts executed writer alone and did not execute builder -> Run -> camon output."
+}

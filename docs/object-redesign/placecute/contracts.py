@@ -2,7 +2,8 @@
 """Real builder and diagnostic writer execution; source boundaries and offline typecheck."""
 from pathlib import Path
 import hashlib,json,os,re,subprocess
-ROOT=Path(__file__).resolve().parents[3];OUT=Path(__file__).resolve().parent
+ROOT=Path(__file__).resolve().parents[3];INPUT=Path(__file__).resolve().parent
+OUT=Path(os.environ.get("KANI_PLACECUTE_EVIDENCE_DIR",INPUT));OUT.mkdir(parents=True,exist_ok=True)
 A=ROOT/'games/flight/crab-flight/Assets';BASE='b8f8bb59d58589c06db9d46bd957e35aba4597a3'
 SDK=Path('/Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/Resources/Scripting');RT=next((SDK/'NetCoreRuntime/shared/Microsoft.NETCore.App').iterdir())
 TMP=Path('/tmp/kani-placecute-offline');TMP.mkdir(exist_ok=True)
@@ -25,14 +26,14 @@ def execute(name,main,sources,env):
  run(cmd,name+'-compile.log')
  dll.with_suffix('.runtimeconfig.json').write_text(json.dumps({'runtimeOptions':{'tfm':'net6.0','framework':{'name':'Microsoft.NETCore.App','version':RT.name}}}))
  result=run([SDK/'NetCoreRuntime/dotnet',dll],name+'-contracts.log',dict(os.environ,**env));print(result.strip().splitlines()[-1]);return result.strip().splitlines()[-1]
-faces=execute('faces','FaceContracts',[A/'ObjectRedesign/ObjectRules.cs',A/'ObjectRedesign/ObjectVisual.cs',OUT.parent/'story/ShapeContracts.cs',OUT/'FaceContracts.cs'],{'KANI_SHAPE_RECORD':str(OUT/'shape-record.json')})
+faces=execute('faces','FaceContracts',[A/'ObjectRedesign/ObjectRules.cs',A/'ObjectRedesign/ObjectVisual.cs',INPUT.parent/'story/ShapeContracts.cs',INPUT/'FaceContracts.cs'],{'KANI_SHAPE_RECORD':str(OUT/'shape-record.json')})
 native=(A/'PortPrototype/Editor/PortNativeReview.cs').read_text()
 writer=method(native,'  public static void WriteActionEvents(')
 dto='  [Serializable] public class ActionReceipt { public string kind; public Vector3 position; public float time; }'
 (TMP/'NativeWriter.cs').write_text('using System;using System.IO;using System.Linq;using System.Collections.Generic;using UnityEngine;\npublic static class PortNativeReview {\n'+dto+'\n'+writer+'\n}\n')
-logs=execute('action-log','LogContracts',[A/'ObjectRedesign/ObjectRules.cs',TMP/'NativeWriter.cs',OUT/'LogContracts.cs'],{'KANI_ACTION_TEST_DIR':str(TMP/'writer-fixture')})
+logs=execute('action-log','LogContracts',[A/'ObjectRedesign/ObjectRules.cs',TMP/'NativeWriter.cs',INPUT/'LogContracts.cs'],{'KANI_ACTION_TEST_DIR':str(TMP/'writer-fixture')})
 # New entry was formerly injected by the existing native builder, not tracked in Git.
-base=(OUT/'native-entry-baseline.cs.txt').read_text()
+base=(INPUT/'native-entry-baseline.cs.txt').read_text()
 stripped=native.replace(dto+'\n','').replace('    WriteActionEvents(dir, sim.ObjectHits);\n','')
 start=stripped.index('  // Read the authoritative');end=stripped.index('  public static void Capture(Camera',start)
 stripped=stripped[:start]+stripped[end:]
@@ -52,15 +53,15 @@ run([SDK/'NetCoreRuntime/dotnet',SDK/'DotNetSdkRoslyn/csc.dll','@'+str(TMP/'nati
 check(True,'Native review entry and real importer Editor typecheck errors 0')
 rules=(A/'ObjectRedesign/ObjectRules.cs').read_text()
 oldrules=subprocess.check_output(['git','show',BASE+':games/flight/crab-flight/Assets/ObjectRedesign/ObjectRules.cs'],cwd=ROOT,text=True)
-expected=oldrules.replace('Kind.Brake,18,12','Kind.Brake,19,20').replace('Kind.Brake,64,9','Kind.Brake,64,20').replace('Kind.Brake,108,9','Kind.Brake,108,20').replace(' public const float HalfSize=1.15f, Emission=4, SpinSeconds=3, SpinMultiplier=2;',' public const float ObjectScale=1.6f;\n public const float HalfSize=1.15f*ObjectScale, Emission=4, SpinSeconds=3, SpinMultiplier=2;')
+expected=oldrules.replace('Kind.Brake,18,12','Kind.Brake,21,2.5f').replace('Kind.Brake,64,9','Kind.Brake,58,3').replace('Kind.Brake,108,9','Kind.Brake,108,3').replace(' public const float HalfSize=1.15f, Emission=4, SpinSeconds=3, SpinMultiplier=2;',' public const float ObjectScale=1.6f;\n public const float HalfSize=1.15f*ObjectScale, Emission=4, SpinSeconds=3, SpinMultiplier=2;')
 check(rules==expected,'only three specified coordinates and exact common multiplier changed in Rules')
 for p in ['ObjectRedesign/ObjectRuntime.cs','ObjectRedesign/ObjectPresentation.cs','ObjectRedesign/ObjectCameraTargets.cs','ObjectRedesign/ObjectHitStopRules.cs','ObjectRedesign/ObjectHitStopFrame.cs','PortPrototype/PortCamera.cs','PortPrototype/PortRules.cs','Scripts/FlightCameraR19.cs','Scripts/CrabFlightGame.cs','Scripts/RigidCrabFlight.cs','Scripts/RestaurantPhysics.cs','Scripts/FloorContactStepR10.cs']:
  check((A/p).read_bytes()==subprocess.check_output(['git','show',BASE+':games/flight/crab-flight/Assets/'+p],cwd=ROOT),'unchanged runtime/camera/hitstop boundary '+p)
 check('collider.size=Vector3.one*(ObjectRules.HalfSize*2)' in (A/'ObjectRedesign/ObjectRuntime.cs').read_text(),'real trigger size reads scaled half extent')
-run(['python3',OUT/'audit.py'],'hit-map.log')
+run(['python3',INPUT/'audit.py'],'hit-map.log')
 audit=json.loads((OUT/'hit-map.json').read_text())
 check(len(audit['rows'])==16 and not any(r['newUnintendedNonBrakeOverlap'] for r in audit['rows']),'all 16 placements audited including rotation and motion extrema')
-check([r['center'] for r in audit['rows'] if r['kind']=='Brake']==[[19,20,0],[64,20,0],[108,20,0]],'all three requested brake coordinates exact')
+check([r['center'] for r in audit['rows'] if r['kind']=='Brake']==[[21,2.5,0],[58,3,0],[108,3,0]],'all three requested brake coordinates exact')
 check(all(r['y'][0]>15 for r in audit['rows'] if r['kind']=='Death'),'death remains outside nominal standard band')
 (OUT/'placecute-contracts.json').write_text(json.dumps(dict(base=BASE,faces=faces,actionLog=logs,staticPassed=len(checks),staticFailed=0,checks=checks,scope='Offline shape recording and diagnostic IO with serialization adapter. Native entry typechecked against Unity. No actual rendering, PhysX or Native replay.'),indent=2)+'\n')
 print(len(checks),'static passed / 0 failed')
