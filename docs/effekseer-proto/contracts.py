@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from pathlib import Path
-import json,subprocess
-ROOT=Path(__file__).resolve().parents[2];OUT=ROOT/'docs/effekseer-proto'
+import json,os,subprocess
+ROOT=Path(__file__).resolve().parents[2];OUT=Path(os.environ.get('KANI_EFFEKSEER_EVIDENCE_DIR',ROOT/'docs/effekseer-proto'));OUT.mkdir(parents=True,exist_ok=True)
 sdk=Path('/Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/Resources/Scripting')
 runtime=next((sdk/'NetCoreRuntime/shared/Microsoft.NETCore.App').iterdir())
 products=Path('/tmp/kani-effekseer-offline');products.mkdir(exist_ok=True)

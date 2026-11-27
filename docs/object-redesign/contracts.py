@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Real deterministic policy execution plus source/data boundary contracts. No Unity."""
 from pathlib import Path
-import hashlib,json,re,subprocess
-ROOT=Path(__file__).resolve().parents[2];OUT=ROOT/'docs/object-redesign'
+import hashlib,json,os,re,subprocess
+ROOT=Path(__file__).resolve().parents[2];INPUT=ROOT/'docs/object-redesign';OUT=Path(os.environ.get('KANI_OBJECT_EVIDENCE_DIR',INPUT));OUT.mkdir(parents=True,exist_ok=True)
 ASSETS=ROOT/'games/flight/crab-flight/Assets'
 SDK=Path('/Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/Resources/Scripting')
 RUNTIME=next((SDK/'NetCoreRuntime/shared/Microsoft.NETCore.App').iterdir())
 PRODUCTS=Path('/tmp/kani-object-offline');PRODUCTS.mkdir(exist_ok=True)
 command=[str(SDK/'NetCoreRuntime/dotnet'),str(SDK/'DotNetSdkRoslyn/csc.dll'),'-nologo','-nostdlib','-target:exe','-out:'+str(PRODUCTS/'rules.dll')]
-command+=['-r:'+str(p) for p in RUNTIME.glob('*.dll')]+[str(ASSETS/'ObjectRedesign/ObjectRules.cs'),str(OUT/'RulesContracts.cs')]
+command+=['-r:'+str(p) for p in RUNTIME.glob('*.dll')]+[str(ASSETS/'ObjectRedesign/ObjectRules.cs'),str(INPUT/'RulesContracts.cs')]
 run=subprocess.run(command,capture_output=True,text=True);(OUT/'rules-compile.log').write_text(run.stdout+run.stderr);run.check_returncode()
 (PRODUCTS/'rules.runtimeconfig.json').write_text(json.dumps({'runtimeOptions':{'tfm':'net6.0','framework':{'name':'Microsoft.NETCore.App','version':RUNTIME.name}}}))
 run=subprocess.run([str(SDK/'NetCoreRuntime/dotnet'),str(PRODUCTS/'rules.dll')],capture_output=True,text=True)
@@ -26,7 +26,7 @@ placement=[p for p in paths if p.endswith('.json') and any(x in p for x in ['Ope
 for p in placement:
  data=(ROOT/p).read_bytes() if (ROOT/p).is_file() else git('show','HEAD:'+p)
  check(data==git('show',BASE+':'+p),'legacy placement bytes '+p)
-for p,h in json.loads((OUT/'protected-before.json').read_text()).items():
+for p,h in json.loads((INPUT/'protected-before.json').read_text()).items():
  check(hashlib.sha256((ROOT.parent/'source'/p).read_bytes()).hexdigest()==h,'protected main '+p)
  check(git('rev-parse',BASE+':'+p)==git('rev-parse','HEAD:'+p),'protected branch '+p)
 for p in ['Scripts/FloorContactStepR10.cs','Scripts/OverdrivePhysics.cs','Scripts/FlightPhysics.cs','Scripts/City2Data.cs','Scripts/City2Contacts.cs','OpeningGrammar/OpeningLayout.cs']:

@@ -9,12 +9,12 @@ public static class ObjectRules {
   public Definition(Kind k,string c,string s,string m,float v,float a,float hz,float fx){kind=k;color=c;shape=s;motion=m;amount=v;amplitude=a;hertz=hz;burstScale=fx;}
  }
  public static readonly Definition[] Definitions={
-  new Definition(Kind.Boost,"#0000FF","arrow","slide",24,.65f,.8f,2.4f),
-  new Definition(Kind.Bounce,"#00FF00","spring","bounce",26,.55f,1.2f,2.8f),
-  new Definition(Kind.Spin,"#FFFF00","propeller","rotate",240,0,1.6f,3.0f),
-  new Definition(Kind.Brake,"#8000FF","cloud","float",.2f,.35f,.3f,2.2f),
-  new Definition(Kind.Blast,"#FF8000","barrel","blink-bob",30,.18f,2,3.6f),
-  new Definition(Kind.Death,"#FF00FF","spikes","fast-slide",0,.9f,2,4.0f)
+  new Definition(Kind.Boost,"#0000FF","industrial-fan","slide",24,.65f,.8f,2.4f),
+  new Definition(Kind.Bounce,"#00FF00","frying-pan","bounce",26,.55f,1.2f,2.8f),
+  new Definition(Kind.Spin,"#FFFF00","sushi-conveyor","rotate",240,0,1.6f,3.0f),
+  new Definition(Kind.Brake,"#8000FF","mochi","float",.2f,.35f,.3f,2.2f),
+  new Definition(Kind.Blast,"#FF8000","firework-ball","blink-bob",30,.18f,2,3.6f),
+  new Definition(Kind.Death,"#FF00FF","crab-fisher","fast-slide",0,.9f,2,4.0f)
  };
  public sealed class Placement {
   public readonly string id; public readonly Kind kind; public readonly float x,y,z;

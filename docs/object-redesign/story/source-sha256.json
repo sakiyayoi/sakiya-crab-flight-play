@@ -1,0 +1,10 @@
+{
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectVisual.cs": "fc5a052efabae75a2df56b585831667ddaaee9db752394223879eae86917f0c7",
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectRules.cs": "03daec4ee059b3e71d30b621d0c4697e17c242351448e51ae31d8724429ce314",
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectRuntime.cs": "cec94ca1df659c16ebbbe5e00ec921b80149ea0618c767629b3033c1f7fbe263",
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectPresentation.cs": "eccd259b828b735b031067407d90ec47a4d51227b2f3bae26494bbacf9a43779",
+  "games/flight/crab-flight/Assets/Scripts/CrabFlightGame.cs": "48b81abb63f36b54567cc65c0e62c54a8f926719bf9285ba60c0c4a8406c1c48",
+  "games/flight/web-template/juice-hud.js": "fcb137070d03ee7439f89fa61115ab9f0079fc84a156294502937340190c4c5d",
+  "games/flight/web-template/game-ui.css": "15bfbef05469f3ffd5dc7986bb5a4d4cc8ba86592ae1bf090bc63fdbf3e9559b",
+  "games/flight/web-template/feel.js": "ee71ce0161d4f4cf2a0e99d11db042550a50651f189fb1a64d75480b4305b85c"
+}

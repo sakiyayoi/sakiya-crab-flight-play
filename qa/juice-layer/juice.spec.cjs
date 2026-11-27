@@ -1,6 +1,6 @@
 const {test,expect}=require('playwright/test');
 const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process'),crypto=require('node:crypto'),vm=require('node:vm');
-const root=path.resolve(__dirname,'../..'),web=path.join(root,'games/flight/web-template'),evidence=path.join(root,'docs/juice-layer');
+const root=path.resolve(__dirname,'../..'),web=path.join(root,'games/flight/web-template'),evidence=process.env.KANI_JUICE_EVIDENCE_DIR||path.join(root,'docs/juice-layer');
 const base='342cd9f5ec6a97817f4a50b21810266d30f909f2';
 const read=p=>fs.readFileSync(path.join(root,p),'utf8');
 const git=(...args)=>cp.execFileSync('git',args,{cwd:root});

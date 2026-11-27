@@ -1,6 +1,7 @@
 const {test,expect}=require('playwright/test');
 const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process');
 const root=path.resolve(__dirname,'../..'),web=path.join(root,'games/flight/web-template');
+const evidence=process.env.KANI_OBJECT_EVIDENCE_DIR||__dirname;
 test('real rules, legacy placement identity and physical integration contracts',()=>{
  const out=cp.execFileSync('python3',['docs/object-redesign/contracts.py'],{cwd:root,encoding:'utf8'});
  expect(out).toContain('static passed / 0 failed');
@@ -37,7 +38,7 @@ for(const [name,size] of Object.entries({portrait:{width:390,height:844},small:{
    expect(b.x).toBeGreaterThanOrEqual(0);expect(b.x+b.width).toBeLessThanOrEqual(size.width);expect(b.y+b.height).toBeLessThanOrEqual(size.height);
   }
   const dive=await page.locator('#objectDive').boundingBox(),jet=await page.locator('#objectJet').boundingBox();expect(dive.x+dive.width).toBeLessThan(jet.x);
-  await page.screenshot({path:path.join(__dirname,'controls-'+name+'.png')});
+  await page.screenshot({path:path.join(evidence,'controls-'+name+'.png')});
  });
 }
 test('jets by tap and keyboard, budget feedback, repeat suppression',async({page})=>{
@@ -80,7 +81,7 @@ test('result shows authoritative maximum chain beside dominant destruction',asyn
  await fixture(page);await page.evaluate(()=>{state.phase='result';state.maxChain=17;ObjectControls.update(state,'result');document.getElementById('result').classList.remove('hidden');});
  await expect(page.locator('#maxChain')).toHaveText('17');await expect(page.locator('#objectControls')).toBeHidden();
  const sizes=await page.evaluate(()=>[getComputedStyle(document.getElementById('destructionResultValue')).fontSize,getComputedStyle(document.getElementById('maxChain')).fontSize].map(parseFloat));
- expect(sizes[0]).toBeGreaterThan(sizes[1]);await page.screenshot({path:path.join(__dirname,'result-component.png')});
+ expect(sizes[0]).toBeGreaterThan(sizes[1]);await page.screenshot({path:path.join(evidence,'result-component.png')});
  const host=fs.readFileSync(path.join(web,'host.js'),'utf8');expect(host).toContain('window.ObjectControls.update(s,view)');expect(host).toContain('window.ObjectControls.mount(send)');
 });
 

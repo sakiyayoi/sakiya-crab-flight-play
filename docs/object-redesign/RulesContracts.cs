@@ -6,7 +6,7 @@ public static class RulesContracts {
  static void Main(){
   var expected=new[]{"#0000FF","#00FF00","#FFFF00","#8000FF","#FF8000","#FF00FF"};
   var amount=new[]{24f,26f,240f,.2f,30f,0f};
-  var shapes=new[]{"arrow","spring","propeller","cloud","barrel","spikes"};
+  var shapes=new[]{"industrial-fan","frying-pan","sushi-conveyor","mochi","firework-ball","crab-fisher"};
   var motion=new[]{"slide","bounce","rotate","float","blink-bob","fast-slide"};
   Check(ObjectRules.Definitions.Length==6,"six unique kinds");
   for(int i=0;i<6;i++){var d=ObjectRules.Get((ObjectRules.Kind)i);

@@ -40,7 +40,8 @@
    // the live numbers and above the push control. Short viewports may omit it.
    const bounds=el.getBoundingClientRect(),star=el.firstElementChild?.getBoundingClientRect();
    const left=Math.min(bounds.left,star?.left??bounds.left),right=Math.max(bounds.right,star?.right??bounds.right),top=Math.min(bounds.top,star?.top??bounds.top),bottom=Math.max(bounds.bottom,star?.bottom??bounds.bottom);
-   const laneTop=document.getElementById('flightHUD').getBoundingClientRect().bottom+16,laneBottom=document.getElementById('kick').getBoundingClientRect().top-16;
+   const controls=document.getElementById('objectControls')?.getBoundingClientRect(),kick=document.getElementById('kick').getBoundingClientRect();
+   const laneTop=Math.max(document.getElementById('flightHUD').getBoundingClientRect().bottom+16,(root.JuiceHud?.captionBottom()||0)+16),laneBottom=(controls?.height?controls.top:kick.height?kick.top:innerHeight)-16;
    el.style.visibility=bottom-top>laneBottom-laneTop?'hidden':'visible';
    el.style.top=(parseFloat(el.style.top)+Math.max(laneTop-top,Math.min(0,laneBottom-bottom)))+'px';
    el.style.left=(parseFloat(el.style.left)+Math.max(16-left,Math.min(0,innerWidth-16-right)))+'px';

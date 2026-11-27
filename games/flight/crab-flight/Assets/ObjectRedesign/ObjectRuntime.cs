@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public sealed partial class RigidCrabFlight {
  sealed class ActionObject {
   public ObjectRules.Placement data;public int side;public GameObject visual;
-  public BoxCollider collider;public Material material;public bool consumed;
+  public ObjectVisual.Motion storyMotion;public BoxCollider collider;public Material material;public bool consumed;
  }
  public sealed class ObjectHit {public ObjectRules.Kind kind;public Vector3 position;public float time;}
  readonly List<ActionObject> actionObjects=new List<ActionObject>(32);
@@ -32,10 +32,10 @@ public sealed partial class RigidCrabFlight {
      foreach(var shape in p.shapes){shape.isTrigger=true;if(debrisStaticsCalmR4.TryGetValue(shape,out var proxy))proxy.isTrigger=true;}
     }
     foreach(var data in ObjectRules.Placements){
-     var visual=ObjectVisual.Build(data.kind,out var material);owned.Add(material);
+     var visual=ObjectVisual.Build(data.kind,out var material,out var storyMotion);owned.Add(material);
      visual.name="Action "+side+" "+data.id;visual.transform.localScale=new Vector3(side,1,1);SceneManager.MoveGameObjectToScene(visual,Scene);
      var collider=visual.AddComponent<BoxCollider>();collider.size=Vector3.one*(ObjectRules.HalfSize*2);collider.isTrigger=true;
-     actionObjects.Add(new ActionObject{data=data,side=side,visual=visual,collider=collider,material=material});
+     actionObjects.Add(new ActionObject{data=data,side=side,visual=visual,storyMotion=storyMotion,collider=collider,material=material});
     }
    }
   }
@@ -58,6 +58,7 @@ public sealed partial class RigidCrabFlight {
    else if(d.motion!="rotate")dy=wave*d.amplitude;
    a.visual.transform.SetPositionAndRotation(new Vector3(a.side*a.data.x+dx,a.data.y+dy,a.data.z),
     Quaternion.Euler(0,0,d.motion=="rotate"?a.side*time*d.hertz*360:0));
+   a.storyMotion.Pose(time,ObjectReducedMotion);
    if(a.data.kind==ObjectRules.Kind.Blast){
     // 2Hz maximum; reduced motion keeps steady emission, without changing hits.
     ColorUtility.TryParseHtmlString(d.color,out var color);

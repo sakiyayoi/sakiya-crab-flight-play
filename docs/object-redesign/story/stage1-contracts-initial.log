@@ -1,0 +1,326 @@
+PASS six unique kinds
+PASS definition/color/constant Boost
+PASS definition/color/constant Bounce
+PASS definition/color/constant Spin
+PASS definition/color/constant Brake
+PASS definition/color/constant Blast
+PASS definition/color/constant Death
+PASS strong fixed emission
+PASS 14 to 20 authored +x objects
+PASS unique placements
+PASS all six kinds placed
+PASS entire movement stays in opening restaurant-entry
+PASS at least 0.5m clear before action swept envelope restaurant-entry
+PASS entire movement stays in opening restaurant-bounce
+PASS at least 0.5m clear before action swept envelope restaurant-bounce
+PASS entire movement stays in opening restaurant-brake
+PASS at least 0.5m clear before action swept envelope restaurant-brake
+PASS entire movement stays in opening restaurant-spin
+PASS at least 0.5m clear before action swept envelope restaurant-spin
+PASS entire movement stays in opening restaurant-death
+PASS at least 0.5m clear before action swept envelope restaurant-death
+PASS death outside full standard band + crab margin restaurant-death
+PASS entire movement stays in opening restaurant-exit
+PASS at least 0.5m clear before action swept envelope restaurant-exit
+PASS entire movement stays in opening mall-entry
+PASS at least 0.5m clear before action swept envelope mall-entry
+PASS entire movement stays in opening mall-bounce-a
+PASS at least 0.5m clear before action swept envelope mall-bounce-a
+PASS entire movement stays in opening mall-spin-a
+PASS at least 0.5m clear before action swept envelope mall-spin-a
+PASS entire movement stays in opening mall-brake-a
+PASS at least 0.5m clear before action swept envelope mall-brake-a
+PASS entire movement stays in opening mall-boost
+PASS at least 0.5m clear before action swept envelope mall-boost
+PASS entire movement stays in opening mall-bounce-b
+PASS at least 0.5m clear before action swept envelope mall-bounce-b
+PASS entire movement stays in opening mall-spin-b
+PASS at least 0.5m clear before action swept envelope mall-spin-b
+PASS entire movement stays in opening mall-brake-b
+PASS at least 0.5m clear before action swept envelope mall-brake-b
+PASS entire movement stays in opening mall-death
+PASS at least 0.5m clear before action swept envelope mall-death
+PASS death outside full standard band + crab margin mall-death
+PASS entire movement stays in opening mall-exit
+PASS at least 0.5m clear before action swept envelope mall-exit
+PASS default and invalid mode stay legacy
+PASS explicit redesign
+PASS legacy retains position -500
+PASS redesign only opening -500
+PASS legacy retains position -135
+PASS redesign only opening -135
+PASS legacy retains position -134
+PASS redesign only opening -134
+PASS legacy retains position -28
+PASS redesign only opening -28
+PASS legacy retains position -4.5
+PASS redesign only opening -4.5
+PASS legacy retains position 0
+PASS redesign only opening 0
+PASS legacy retains position 4.5
+PASS redesign only opening 4.5
+PASS legacy retains position 8
+PASS redesign only opening 8
+PASS legacy retains position 28
+PASS redesign only opening 28
+PASS legacy retains position 134
+PASS redesign only opening 134
+PASS legacy retains position 135
+PASS redesign only opening 135
+PASS legacy retains position 600
+PASS redesign only opening 600
+PASS upward rebound independent of incidence and never slows a higher rise
+PASS spin doubles rebound and crushing
+PASS no input outside flight
+PASS first jet
+PASS pending duplicate rejected
+PASS second jet
+PASS third jet rejected
+PASS pause/blur release
+PASS exact three simulation seconds
+PASS new spin refresh is bounded
+PASS 1.5 second chain including boundary
+PASS gap restarts current but retains max
+PASS death cancels actions
+PASS retry resets all run state
+85 passed / 0 failed
+
+PASS legacy placement bytes games/flight/crab-flight/Assets/CrabCityDensity/Data/CityCollisionDescriptors.json
+PASS legacy placement bytes games/flight/crab-flight/Assets/CrabCityDensity/Data/CityContactProposals.json
+PASS legacy placement bytes games/flight/crab-flight/Assets/CrabCityDensity/Data/CityGeometry.json
+PASS legacy placement bytes games/flight/crab-flight/Assets/CrabCityDensity/Data/CityPlacement.json
+PASS legacy placement bytes games/flight/crab-flight/Assets/CrabCityDensityR2/Data/CityChainPlan.json
+PASS legacy placement bytes games/flight/crab-flight/Assets/CrabCityDensityR2/Data/CityDestructionProposals.json
+PASS legacy placement bytes games/flight/crab-flight/Assets/CrabCityDensityR2/Data/CityGeometryR2.json
+PASS legacy placement bytes games/flight/crab-flight/Assets/CrabCityDensityR2/Data/CityGeometryR2Compact.json
+PASS legacy placement bytes games/flight/crab-flight/Assets/CrabCityDensityR2/Data/CityPlacementDense.json
+PASS legacy placement bytes games/flight/crab-flight/Assets/CrabCityDensityR2/Data/CityPlacementReadable.json
+PASS legacy placement bytes games/flight/crab-flight/Assets/NeonDensity/Resources/NeonDensity/Placements.json
+PASS legacy placement bytes games/flight/crab-flight/Assets/NeonDensity/Resources/NeonDensity/Supports.json
+PASS legacy placement bytes games/flight/crab-flight/Assets/OpeningGrammar/Resources/OpeningGrammar/Layout.json
+PASS legacy placement bytes games/flight/crab-flight/Assets/PortPrototype/Resources/PortPrototype/Layout.json
+PASS legacy placement bytes games/flight/crab-flight/Assets/Resources/CityDensity/CityContactProposals.json
+PASS legacy placement bytes games/flight/crab-flight/Assets/Resources/CityDensity/CityGeometry.json
+PASS legacy placement bytes games/flight/crab-flight/Assets/Resources/CityDensity/CityPlacement.json
+PASS legacy placement bytes games/flight/crab-flight/Assets/Resources/CityDensityR2/CityChainPlan.json
+PASS legacy placement bytes games/flight/crab-flight/Assets/Resources/CityDensityR2/CityDestructionProposals.json
+PASS legacy placement bytes games/flight/crab-flight/Assets/Resources/CityDensityR2/CityGeometryR2Compact.json
+PASS legacy placement bytes games/flight/crab-flight/Assets/Resources/CityDensityR2/CityPlacementAtrium.json
+PASS legacy placement bytes games/flight/crab-flight/Assets/Resources/CityDensityR2/CityPlacementCore.json
+PASS legacy placement bytes games/flight/crab-flight/Assets/Resources/CityDensityR2/CityPlacementDense.json
+PASS legacy placement bytes games/flight/crab-flight/Assets/Resources/CityDensityR2/CityPlacementReadable.json
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_ceiling.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_ceiling.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_core_mall_glass.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_core_mall_glass.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_core_office_glass.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_core_office_glass.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_dish_stack.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_dish_stack.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_food_tray.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_food_tray.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_fragment_food.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_fragment_food.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_fragment_glass.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_fragment_glass.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_fragment_metal.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_fragment_metal.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_fragment_tableware.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_fragment_tableware.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_fragment_wall.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_fragment_wall.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_fragment_wood.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_fragment_wood.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_metal_kitchen.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_metal_kitchen.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_outer_wall_low.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_outer_wall_low.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_outer_wall_upper.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_outer_wall_upper.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_r5_restaurant_chair_food.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_r5_restaurant_chair_food.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_r5_restaurant_dish_tower.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_r5_restaurant_dish_tower.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_r5_restaurant_entry_dishes.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_r5_restaurant_entry_dishes.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_r5_restaurant_exit_table.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_r5_restaurant_exit_table.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_r5_restaurant_kitchen_food.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_r5_restaurant_kitchen_food.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_r5_restaurant_service_food.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_r5_restaurant_service_food.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_r5_restaurant_service_table.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_r5_restaurant_service_table.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_r5_restaurant_table_dishes.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_r5_restaurant_table_dishes.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_tank_glass.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_tank_glass.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_wood_chair.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_wood_chair.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_wood_table.fbx.meta
+PASS protected branch games/flight/crab-flight/Assets/BlenderModels/Resources/BlenderModels/panel_wood_table.fbx.meta
+PASS protected main games/flight/crab-flight/Assets/FlightField.unity
+PASS protected branch games/flight/crab-flight/Assets/FlightField.unity
+PASS unchanged base system Scripts/FloorContactStepR10.cs
+PASS unchanged base system Scripts/OverdrivePhysics.cs
+PASS unchanged base system Scripts/FlightPhysics.cs
+PASS unchanged base system Scripts/City2Data.cs
+PASS unchanged base system Scripts/City2Contacts.cs
+PASS unchanged base system OpeningGrammar/OpeningLayout.cs
+PASS no trajectory or velocity writes in action layer
+PASS no randomized effect magnitudes
+PASS physical force APIs
+PASS death checked before all other actions
+PASS death preflight precedes physics
+PASS post contact death before debris and break resolution; legacy order preserved
+PASS result cannot be delayed by a previous hit stop
+PASS legacy bypass and scoped active placement
+PASS one-shot physical and visible consumption
+PASS retry resets objects and actions
+PASS existing destruction aggregate owns maximum chain in both modes
+PASS spin amplifies crush and bounce in actual paths
+PASS bands avoid rigid solver/legacy boost recovery and lose fixed small momentum
+PASS moving real collider overlap plus swept translation
+PASS serialized and JSON default legacy
+PASS all touch/keyboard/cancel paths wired
+PASS Editor/WebGL assemblies error zero
+PASS compiled same bytes Assets/BlenderModels/BlenderFamilyOverride.cs
+PASS compiled same bytes Assets/CrabCityDensity/Runtime/CityDensityOwnedAssets.cs
+PASS compiled same bytes Assets/CrabCityDensity/Runtime/CityDensityPack.cs
+PASS compiled same bytes Assets/CrabCityDensity/Runtime/CityParallaxBands.cs
+PASS compiled same bytes Assets/CrabCityDensity/Runtime/CityVisualBreakable.cs
+PASS compiled same bytes Assets/CrabCityDensityR2/Runtime/CityDensityOwnedAssets.cs
+PASS compiled same bytes Assets/CrabCityDensityR2/Runtime/CityDensityPack.cs
+PASS compiled same bytes Assets/CrabCityDensityR2/Runtime/CityParallaxBands.cs
+PASS compiled same bytes Assets/CrabCityDensityR2/Runtime/CityVisualBreakable.cs
+PASS compiled same bytes Assets/CrabHeroR1/Runtime/CrabHeroVisualR1.cs
+PASS compiled same bytes Assets/CrabHeroR2/Runtime/CrabHeroVisualR2.cs
+PASS compiled same bytes Assets/CrabVfxPack/Runtime/CrabVfxCore.cs
+PASS compiled same bytes Assets/CrabVfxPack/Runtime/CrabVfxGeometry.cs
+PASS compiled same bytes Assets/CrabVfxPack/Runtime/CrabVfxProfile.cs
+PASS compiled same bytes Assets/CrabVfxPack/Runtime/CrabVfxRig.cs
+PASS compiled same bytes Assets/GiftStoreR7/GiftStoreR7.cs
+PASS compiled same bytes Assets/LifeActorsR20/Runtime/LifeActorMesh.cs
+PASS compiled same bytes Assets/LifeActorsR20/Runtime/LifeActorRig.cs
+PASS compiled same bytes Assets/LifeActorsR20/Runtime/LifeGeometryCacheR17.cs
+PASS compiled same bytes Assets/MallAreasR5/MallAreasR5.cs
+PASS compiled same bytes Assets/MallDensityProto/MallDensityProto.cs
+PASS compiled same bytes Assets/MallModelPackR18/Runtime/MallModelPackR18.cs
+PASS compiled same bytes Assets/NeonDensity/NeonDensity.cs
+PASS compiled same bytes Assets/NeonDensity/NeonPlacementSupports.cs
+PASS compiled same bytes Assets/NeonProto/NeonBackdropDarken.cs
+PASS compiled same bytes Assets/NeonProto/NeonCrabVisual.cs
+PASS compiled same bytes Assets/NeonProto/NeonFeelFilter.cs
+PASS compiled same bytes Assets/NeonProto/NeonGameHook.cs
+PASS compiled same bytes Assets/NeonProto/NeonGlowTexture.cs
+PASS compiled same bytes Assets/NeonProto/NeonProto.cs
+PASS compiled same bytes Assets/NeonProto/NeonSectionArt.cs
+PASS compiled same bytes Assets/NeonProto/NeonSectorArt.cs
+PASS compiled same bytes Assets/NeonProto/NeonSpinVortex.cs
+PASS compiled same bytes Assets/Scripts/AttachPhaseSplitR18.cs
+PASS compiled same bytes Assets/Scripts/CalmPerfR3.cs
+PASS compiled same bytes Assets/Scripts/CeilingGrowth.cs
+PASS compiled same bytes Assets/Scripts/City2Contacts.cs
+PASS compiled same bytes Assets/Scripts/City2Data.cs
+PASS compiled same bytes Assets/Scripts/CityContacts.cs
+PASS compiled same bytes Assets/Scripts/CityDetailR6.cs
+PASS compiled same bytes Assets/Scripts/CityDistrictArtR7.cs
+PASS compiled same bytes Assets/Scripts/CityShapeSplitProbeR18.cs
+PASS compiled same bytes Assets/Scripts/ContactObserverR24.cs
+PASS compiled same bytes Assets/Scripts/ContactOpportunityTrace.cs
+PASS compiled same bytes Assets/Scripts/ContactVisualTemplateR15.cs
+PASS compiled same bytes Assets/Scripts/CoreDistrictContactsR7.cs
+PASS compiled same bytes Assets/Scripts/CrabFlightGame.cs
+PASS compiled same bytes Assets/Scripts/CrabGearR29.cs
+PASS compiled same bytes Assets/Scripts/CrabModelR3.cs
+PASS compiled same bytes Assets/Scripts/CrabPhysicsEnvelope.cs
+PASS compiled same bytes Assets/Scripts/CrabR3Archive.cs
+PASS compiled same bytes Assets/Scripts/CrabSculptR6.cs
+PASS compiled same bytes Assets/Scripts/CrabSurfaceBinding.cs
+PASS compiled same bytes Assets/Scripts/DebrisSceneCalmR4.cs
+PASS compiled same bytes Assets/Scripts/DestructionProgressionR12.cs
+PASS compiled same bytes Assets/Scripts/DistrictWorldArtR9.cs
+PASS compiled same bytes Assets/Scripts/FarBreakablePackR10.cs
+PASS compiled same bytes Assets/Scripts/FarWorldArtR10.cs
+PASS compiled same bytes Assets/Scripts/FarWorldIntegrationR10.cs
+PASS compiled same bytes Assets/Scripts/FarWorldLifeR10.cs
+PASS compiled same bytes Assets/Scripts/FeelConfig.cs
+PASS compiled same bytes Assets/Scripts/FeelDirectorR27.cs
+PASS compiled same bytes Assets/Scripts/FeelObjectVisualR27.cs
+PASS compiled same bytes Assets/Scripts/FeelSafetyR27.cs
+PASS compiled same bytes Assets/Scripts/FlightAimInput.cs
+PASS compiled same bytes Assets/Scripts/FlightCameraR19.cs
+PASS compiled same bytes Assets/Scripts/FlightEventStream.cs
+PASS compiled same bytes Assets/Scripts/FlightPhysics.cs
+PASS compiled same bytes Assets/Scripts/FlightTuningPanel.cs
+PASS compiled same bytes Assets/Scripts/FloorContactStepR10.cs
+PASS compiled same bytes Assets/Scripts/FloorDiagnosticsR10.cs
+PASS compiled same bytes Assets/Scripts/FragmentMaterialRole.cs
+PASS compiled same bytes Assets/Scripts/FragmentVisibility.cs
+PASS compiled same bytes Assets/Scripts/FrozenCompoundLaunch.cs
+PASS compiled same bytes Assets/Scripts/HeroColliderFitR21.cs
+PASS compiled same bytes Assets/Scripts/ImpactStop.cs
+PASS compiled same bytes Assets/Scripts/InputReceiptR23.cs
+PASS compiled same bytes Assets/Scripts/KickFlightPhysics.cs
+PASS compiled same bytes Assets/Scripts/LateWorldArtR9.cs
+PASS compiled same bytes Assets/Scripts/LaunchReceipt.cs
+PASS compiled same bytes Assets/Scripts/LifeContactsR6.cs
+PASS compiled same bytes Assets/Scripts/LifeFlashR6.cs
+PASS compiled same bytes Assets/Scripts/MashimashiPresentationR27.cs
+PASS compiled same bytes Assets/Scripts/MotionCausalityR22.cs
+PASS compiled same bytes Assets/Scripts/OverdrivePhysics.cs
+PASS compiled same bytes Assets/Scripts/OverdrivePresentation.cs
+PASS compiled same bytes Assets/Scripts/OverdriveRoute.cs
+PASS compiled same bytes Assets/Scripts/PhysXProfilerTraceR18.cs
+PASS compiled same bytes Assets/Scripts/PrepareCostProbeR15.cs
+PASS compiled same bytes Assets/Scripts/PrepareEnvelopeR18.cs
+PASS compiled same bytes Assets/Scripts/PrepareFramesR18.cs
+PASS compiled same bytes Assets/Scripts/PrepareUnitTimelineR18.cs
+PASS compiled same bytes Assets/Scripts/PrimitiveColliderTraceR18.cs
+PASS compiled same bytes Assets/Scripts/ReadableMaterials.cs
+PASS compiled same bytes Assets/Scripts/RecordedWindowWebR24.cs
+PASS compiled same bytes Assets/Scripts/RestaurantPhysics.cs
+PASS compiled same bytes Assets/Scripts/RestaurantVisuals.cs
+PASS compiled same bytes Assets/Scripts/ResultOverview.cs
+PASS compiled same bytes Assets/Scripts/RigidCrabFlight.cs
+PASS compiled same bytes Assets/Scripts/RotorBurst.cs
+PASS compiled same bytes Assets/Scripts/RunResourcesR32.cs
+PASS compiled same bytes Assets/Scripts/SectionWorldArtR16.cs
+PASS compiled same bytes Assets/Scripts/ShardScatterR6.cs
+PASS compiled same bytes Assets/Scripts/SpinCharge.cs
+PASS compiled same bytes Assets/Scripts/SpinStage1R16.cs
+PASS compiled same bytes Assets/Scripts/StartupShaderPreparationR12.cs
+PASS compiled same bytes Assets/Scripts/Street3Presentation.cs
+PASS compiled same bytes Assets/Scripts/SupportGeometryCacheR14.cs
+PASS compiled same bytes Assets/Scripts/SyncProbeR8.cs
+PASS compiled same bytes Assets/Scripts/ThrowAuditR21.cs
+PASS compiled same bytes Assets/Scripts/WorldEscalationR8.cs
+PASS compiled same bytes Assets/Scripts/WorldRouteR11.cs
+PASS compiled same bytes Assets/BlenderModels/BlenderPanelOverride.cs
+PASS compiled same bytes Assets/PortPrototype/PortAtmosphere.cs
+PASS compiled same bytes Assets/PortPrototype/PortCamera.cs
+PASS compiled same bytes Assets/PortPrototype/PortHeroVisual.cs
+PASS compiled same bytes Assets/PortPrototype/PortLayout.cs
+PASS compiled same bytes Assets/PortPrototype/PortParticles.cs
+PASS compiled same bytes Assets/PortPrototype/PortRoles.cs
+PASS compiled same bytes Assets/PortPrototype/PortRules.cs
+PASS compiled same bytes Assets/PortPrototype/PortVisuals.cs
+PASS compiled same bytes Assets/OpeningGrammar/OpeningLandmarks.cs
+PASS compiled same bytes Assets/OpeningGrammar/OpeningLayout.cs
+PASS compiled same bytes Assets/JuiceLayer/EffekseerBurstBridge.cs
+PASS compiled same bytes Assets/JuiceLayer/JuiceBurst.cs
+PASS compiled same bytes Assets/JuiceLayer/JuiceParticles.cs
+PASS compiled same bytes Assets/JuiceLayer/JuicePresentation.cs
+PASS compiled same bytes Assets/JuiceLayer/JuiceRules.cs
+PASS compiled same bytes Assets/JuiceLayer/JuiceVisualCatalog.cs
+PASS compiled same bytes Assets/ObjectRedesign/ObjectPresentation.cs
+PASS compiled same bytes Assets/ObjectRedesign/ObjectRules.cs
+PASS compiled same bytes Assets/ObjectRedesign/ObjectRuntime.cs
+Traceback (most recent call last):
+  File "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/contracts.py", line 55, in <module>
+    check(hashlib.sha256((ROOT/'games/flight/crab-flight'/p).read_bytes()).hexdigest()==h,'compiled same bytes '+p)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/contracts.py", line 18, in check
+    if not value:raise AssertionError(name)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: compiled same bytes Assets/ObjectRedesign/ObjectVisual.cs

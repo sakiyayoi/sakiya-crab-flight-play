@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Offline Roslyn compile using actual 1.80.8 sources; does not start Unity."""
 from pathlib import Path
-import hashlib,json,re,subprocess,sys
+import hashlib,json,os,re,subprocess,sys
 ROOT=Path(__file__).resolve().parents[2]
-OUT=ROOT/'docs/object-redesign'
+OUT=Path(os.environ.get('KANI_OBJECT_EVIDENCE_DIR',ROOT/'docs/object-redesign'));OUT.mkdir(parents=True,exist_ok=True)
 PKG=Path(sys.argv[1] if len(sys.argv)>1 else '/tmp/kani-effekseer-1808-reference')
 assert subprocess.check_output(['git','rev-parse','HEAD'],cwd=PKG,text=True).strip()=='f02f739f5910a4a14aac12a9a4a57022930e163f'
 assert json.loads((PKG/'Assets/Effekseer/package.json').read_text())['version']=='1.80.8'
