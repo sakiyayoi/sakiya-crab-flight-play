@@ -19,6 +19,13 @@ public static class RulesContracts {
   foreach(var p in ObjectRules.Placements){
    var d=ObjectRules.Get(p.kind);float extent=ObjectRules.HalfSize+d.amplitude;
    Check(p.x-extent>4.5f&&p.x+extent<135,"entire movement stays in opening "+p.id);
+   float moveX=(d.motion=="slide"||d.motion=="fast-slide")?d.amplitude:0;
+   float moveY=(d.motion=="slide"||d.motion=="fast-slide"||d.motion=="rotate")?0:d.amplitude;
+   bool clear=true;
+   foreach(float bx in ObjectRules.BandX)foreach(float by in ObjectRules.BandY)
+    if(bx<p.x&&p.x-moveX-ObjectRules.HalfSize-(bx+.25f)<.5f&&
+       by+1+.5f>p.y-moveY-ObjectRules.HalfSize&&by-1-.5f<p.y+moveY+ObjectRules.HalfSize)clear=false;
+   Check(clear,"at least 0.5m clear before action swept envelope "+p.id);
    if(p.kind==ObjectRules.Kind.Death)Check(p.y-ObjectRules.HalfSize>ObjectRules.StandardBandMaxY+ObjectRules.CrabMargin,"death outside full standard band + crab margin "+p.id);
   }
   Check(!ObjectRules.Enabled(null)&&!ObjectRules.Enabled("")&&!ObjectRules.Enabled("legacy")&&!ObjectRules.Enabled("Redesign"),"default and invalid mode stay legacy");

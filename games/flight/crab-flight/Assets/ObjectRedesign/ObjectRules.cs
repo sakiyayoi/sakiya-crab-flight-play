@@ -23,7 +23,7 @@ public static class ObjectRules {
  public static readonly Placement[] Placements={
   new Placement("restaurant-entry",Kind.Boost,8,3),
   new Placement("restaurant-bounce",Kind.Bounce,14,2),
-  new Placement("restaurant-brake",Kind.Brake,18,10),
+  new Placement("restaurant-brake",Kind.Brake,18,12),
   new Placement("restaurant-spin",Kind.Spin,20,5),
   new Placement("restaurant-death",Kind.Death,22,26),
   new Placement("restaurant-exit",Kind.Blast,24,3),
