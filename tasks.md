@@ -352,3 +352,10 @@ R18 timing continuation 2026-11-04: 私的な診断WebGL c86cec4をビルド成�
 | stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
 |---|---|---|---|---|---|---|
 | JUICE-LAYER | 原方式の破壊に爆散・連鎖音程・HUDポップ・山場停止/規模別揺れを重ねる | Codex（単独書込） | grammar-opening 342cd9f、本人の第二手4点・視覚v2 | 配置/物理/PortCamera/26保護対象不変、オフライン型検査・契約試験・日本語レポート・commit。Unityはクロエ別工程 | 時刻指定なし | ソース実装・オフライン検証済み。C#127ソースerrors0/warnings18、実コード契約33PASS、Playwright12PASS/0FAIL/0SKIP、FBX19モデル/40ID色表再現一致。配置/物理/PortCamera/結果構成/元26保護対象不変。Unity/実聴/FPS/正規入力一巡は本人指定でクロエ別工程。指定会議/調査本文はMac未所在・未確認。日本語報告 docs/juice-layer/NEON-REPORT-JUICE-by-codex.md |
+
+
+## OBJECT-REDESIGN Stage 1（2026-11-27 本人直接指示）
+
+| stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
+|---|---|---|---|---|---|---|
+| object-redesign | 端から端まで遊べる通し版を維持して6作用・帯配置・飛行入力・最大連鎖を実装 | Codex（単独書込） | effekseer-proto 68c007f / 今回の確定仕様 | Editor/WebGL型検査0・新契約/既存契約PASS・26SHA一致・commit/報告 | 指定なし | ソース実装・オフライン確認完了：Editor/WebGL errors0、新規69+静的232PASS、bridge45/juice33PASS、Playwright10+既存8PASS、保護26SHA一致。Unity/build/game-playtestは本人指定NOT_RUN。報告docs/object-redesign/NEON-REPORT-OBJECT-by-codex.md |
