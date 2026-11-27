@@ -27,31 +27,42 @@ public sealed partial class CrabFlightGame {
  bool FramePortCamera(ref float size,ref float lead,ref float centerY){
   if(!usePortCamera||phase!="flight"||simulation==null)return false;
   float aspect=Mathf.Max(.3f,cam.aspect),speed=Mathf.Abs(simulation.Body.linearVelocity.x),altitude=Mathf.Max(0,crab.Root.position.y);
-  float desired=PortRules.Zoom(speed,altitude,aspect);
+  bool redesign=simulation.UseObjectRedesign;
+  float desired=redesign?PortCameraSettings.Zoom(speed,altitude,aspect):PortRules.Zoom(speed,altitude,aspect);
   var landmark=PortLayout.NextLandmark(crab.Root.position.x,direction);
   // Reveal at entry into the forward half of the view, then release after passing or destroying it.
   if(landmark!=null&&!simulation.BrokenObjects.Contains(landmark.id)&&landmark.p[0]-crab.Root.position.x<desired*aspect*1.35f)desired*=1.15f;
+  if(redesign)desired=Mathf.Min(desired,PortCameraSettings.Maximum);
+  Vector3 nextObject=Vector3.zero;
+  bool hasNext=redesign&&simulation.NextObjectCameraTarget(crab.Root.position.x,simulation.Body.linearVelocity.x<0?-1:1,out nextObject);
+  float upY=16/Mathf.Sqrt(16*16+5.3f*5.3f);
+  if(hasNext)desired=PortCameraSettings.FitNext(desired,Mathf.Abs(nextObject.x-crab.Root.position.x),(nextObject.y-altitude)*upY,aspect);
   float realDt=paused?0:PortCameraDt;portMoment=Mathf.Max(0,portMoment-realDt);
   float enter=Mathf.SmoothStep(0,1,simulation.Time/.32f);
   size=Mathf.Lerp(size,desired,enter);
   lead=PortRules.Lead(speed,aspect,size);
+  if(hasNext)lead=Mathf.Max(lead,Mathf.Min(Mathf.Abs(nextObject.x-crab.Root.position.x)*.5f,size*aspect*.45f));
   // Hysteresis prevents zoom/bounce chatter. The ground appears at 20% from the bottom.
   if(!portHigh&&simulation.Body.linearVelocity.y>=0&&altitude>size*.9f)portHigh=true;
   if(portHigh&&simulation.Body.linearVelocity.y<0&&altitude<size*.85f)portHigh=false;
-  float upY=16/Mathf.Sqrt(16*16+5.3f*5.3f);
   float targetY=portHigh?altitude-size*.10f/upY:size*.60f/upY;
+  if(hasNext){
+   float low=Mathf.Max(altitude-(size-PortCameraSettings.SubjectMargin)/upY,nextObject.y-(size-PortCameraSettings.NextObjectMargin)/upY);
+   float high=Mathf.Min(altitude+(size-PortCameraSettings.SubjectMargin)/upY,nextObject.y+(size-PortCameraSettings.NextObjectMargin)/upY);
+   if(low<=high)targetY=Mathf.Clamp(targetY,low,high);
+  }
   if(!portFollowing)portVertical=targetY;
-  else portVertical=Mathf.Lerp(portVertical,targetY,1-Mathf.Exp(-realDt*1.2f));
+  else portVertical=Mathf.Lerp(portVertical,targetY,1-Mathf.Exp(-realDt*PortCameraSettings.VerticalFollowRate));
   centerY=Mathf.Lerp(centerY,portVertical,enter);return true;
  }
  bool FollowPortCamera(Vector3 target,float size,float dt,bool snap){
   if(!usePortCamera||phase!="flight")return false;
   float elapsed=snap||paused?0:PortCameraDt;
-  portZoom=snap||!portFollowing?size:Mathf.Lerp(portZoom,size,1-Mathf.Exp(-elapsed*2));
+  portZoom=snap||!portFollowing?size:Mathf.Lerp(portZoom,size,1-Mathf.Exp(-elapsed*PortCameraSettings.ZoomFollowRate));
   cam.orthographicSize=portZoom*(PortMotion?Mathf.Lerp(1,.88f,portMoment/.25f):1);
   var anchor=simulation.Body.worldCenterOfMass;var offset=target-anchor;
   if(snap||!portFollowing)cameraOffsetR29=offset;
-  else cameraOffsetR29=Vector3.Lerp(cameraOffsetR29,offset,1-Mathf.Exp(-elapsed*3));
+  else cameraOffsetR29=Vector3.Lerp(cameraOffsetR29,offset,1-Mathf.Exp(-elapsed*PortCameraSettings.PositionFollowRate));
   cameraOffsetR29.x=Mathf.Clamp(cameraOffsetR29.x,-cam.orthographicSize*cam.aspect*.45f,cam.orthographicSize*cam.aspect*.45f);
   cam.transform.position=new Vector3(anchor.x+cameraOffsetR29.x,target.y,target.z);
   portFollowing=true;cameraFollowingR29=true;return true;

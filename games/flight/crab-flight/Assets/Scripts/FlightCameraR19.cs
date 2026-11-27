@@ -6,7 +6,10 @@ public sealed partial class CrabFlightGame {
  public bool ReviewFlightCameraR19Enabled=true;
 #endif
  void FrameFlightR19(ref float size,ref float lead,ref float centerY){
-  if(phase!="flight"||simulation==null)return;
+  if(phase!="flight"||simulation==null){
+   if(usePortCamera&&world!=null&&world.UseObjectRedesign&&phase=="ready")size*=PortCameraSettings.BaseMultiplier;
+   return;
+  }
 #if UNITY_EDITOR
   if(!ReviewFlightCameraR19Enabled)return;
 #endif

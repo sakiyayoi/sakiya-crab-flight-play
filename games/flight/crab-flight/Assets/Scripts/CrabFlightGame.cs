@@ -141,6 +141,9 @@ PrepareCostProbeR15.Mark("rebuild.poseAndBounds");}
   switch(simulation.LastEvent){case "brace":message="着地プッシュを構えた！";break;case "perfect":message="PERFECT！ 接地ぴったり！";break;case "good":message="GOOD！ もうひと跳ね！";break;case "miss":message="早すぎた！ 次は地面の近くで";break;case "land":message=(simulation.LastKind==1?"甲羅":simulation.LastKind==2?"ハサミ":"脚")+"が接触！ まだ転がる！";break;case "settled":message="止まるまでが飛距離！";break;}
  }
  void UpdateCamera(float dt,bool snap){
+  // Keep the collision view until death's rendered hold has ended. Actual
+  // simulation/result bookkeeping has already finished, unchanged.
+  if(ObjectDeathPresentationHeld)return;
   if(UpdateResultCamera(dt,snap))return;
   float y=phase=="flight"?(float)simulation.Y:spinCharge.Started?Mathf.Max(0,crab.Root.position.y-restHeight):0,v=phase=="flight"?(float)simulation.Vx:0;
   // Side-on X axis keeps the launch direction horizontal; elevation reveals the sand.
@@ -227,7 +230,7 @@ PrepareCostProbeR15.Mark("rebuild.poseAndBounds");}
 #if UNITY_WEBGL && !UNITY_EDITOR
  int traceReportR18=PrepareEnvelopeR18.Enter(PrepareEnvelopeR18.Report,Time.renderedFrameCount);try{
   // Receipts are archived by the browser once per change, not retransmitted every 40ms.
-  var report=State();report.throwAuditChanged=auditReportDirtyR32;if(!auditReportDirtyR32)report.throwAudit="";
+  var report=State();ApplyObjectPresentationReport(report);report.throwAuditChanged=auditReportDirtyR32;if(!auditReportDirtyR32)report.throwAudit="";
   string reportJsonR18;int traceJsonR18=PrepareEnvelopeR18.Enter(PrepareEnvelopeR18.SerializeReport,Time.renderedFrameCount);try{reportJsonR18=JsonUtility.ToJson(report);}finally{PrepareEnvelopeR18.Exit(traceJsonR18,Time.renderedFrameCount);}int traceBridgeR18=PrepareEnvelopeR18.Enter(PrepareEnvelopeR18.ReportBridge,Time.renderedFrameCount);try{FlightReport(reportJsonR18);}finally{PrepareEnvelopeR18.Exit(traceBridgeR18,Time.renderedFrameCount);}auditReportDirtyR32=false;
 }finally{PrepareEnvelopeR18.Exit(traceReportR18,Time.renderedFrameCount);}
 #endif

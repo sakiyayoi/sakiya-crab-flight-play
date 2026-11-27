@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Compile exact production queue/consume/recycler/scatter methods with recording doubles."""
 from pathlib import Path
-import hashlib,json,subprocess
+import hashlib,json,subprocess,os
 from boundaries import restore_city2,restore_runtime
-ROOT=Path(__file__).resolve().parents[3];OUT=Path(__file__).resolve().parent
+ROOT=Path(__file__).resolve().parents[3];INPUT=Path(__file__).resolve().parent
+OUT=Path(os.environ.get('KANI_BLAST_EVIDENCE_DIR',INPUT));OUT.mkdir(parents=True,exist_ok=True)
 A=ROOT/'games/flight/crab-flight/Assets';BASE='75cb1a15ea43420ce23c8e2d7afb22a63506fa00'
 def read(p):return (A/p).read_text()
 def old(p):return subprocess.check_output(['git','show',BASE+':games/flight/crab-flight/Assets/'+p],cwd=ROOT,text=True)
@@ -31,7 +32,7 @@ extracted='using System;using System.Collections.Generic;using System.Linq;using
  method(runtime,' void QueueObjectBreak('),method(restaurant,' void QueueBreak('),apply,method(city,' void RecycleCityFragment('),method(old('Scripts/City2Contacts.cs'),' void RecycleCityFragment(').replace('RecycleCityFragment()','RecycleCityFragmentBaseline()')])+ '\n}\n'
 products=Path('/tmp/kani-blastfix-offline');products.mkdir(exist_ok=True);(products/'ProductionMethods.cs').write_text(extracted)
 sdk=Path('/Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/Resources/Scripting');rt=next((sdk/'NetCoreRuntime/shared/Microsoft.NETCore.App').iterdir())
-cmd=[str(sdk/'NetCoreRuntime/dotnet'),str(sdk/'DotNetSdkRoslyn/csc.dll'),'-nologo','-nostdlib','-target:exe','-out:'+str(products/'blast.dll')]+['-r:'+str(p) for p in rt.glob('*.dll')]+[str(OUT/'BlastContracts.cs'),str(products/'ProductionMethods.cs'),str(A/'ObjectRedesign/ObjectRules.cs'),str(A/'Scripts/ShardScatterR6.cs')]
+cmd=[str(sdk/'NetCoreRuntime/dotnet'),str(sdk/'DotNetSdkRoslyn/csc.dll'),'-nologo','-nostdlib','-target:exe','-out:'+str(products/'blast.dll')]+['-r:'+str(p) for p in rt.glob('*.dll')]+[str(INPUT/'BlastContracts.cs'),str(products/'ProductionMethods.cs'),str(A/'ObjectRedesign/ObjectRules.cs'),str(A/'Scripts/ShardScatterR6.cs')]
 r=subprocess.run(cmd,capture_output=True,text=True);(OUT/'unit-compile.log').write_text(r.stdout+r.stderr)
 if r.returncode:print(r.stdout,r.stderr);r.check_returncode()
 (products/'blast.runtimeconfig.json').write_text(json.dumps({'runtimeOptions':{'tfm':'net6.0','framework':{'name':'Microsoft.NETCore.App','version':rt.name}}}))

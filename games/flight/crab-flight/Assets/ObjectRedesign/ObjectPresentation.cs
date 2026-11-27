@@ -15,6 +15,18 @@ public sealed partial class EffekseerBurstBridge {
 public sealed partial class CrabFlightGame {
  int readObjectHits;
  ObjectCaptionState objectCaption;
+ ObjectHitStopFrame objectHitStop;
+ public bool ObjectHitStopEnabled=>world!=null&&world.UseObjectRedesign&&FeelEffectsR27&&!ReducedMotion&&!feelSettingsR27.reducedMotion&&!paused&&(phase=="flight"||phase=="result");
+ bool ObjectDeathPresentationHeld=>ObjectHitStopEnabled&&simulation!=null&&simulation.ObjectRun.Dead&&objectHitStop&&objectHitStop.Holding;
+ void PresentObjectHitStop(ObjectRules.Kind kind){
+  if(!ObjectHitStopEnabled)return;
+  if(!objectHitStop){objectHitStop=cam.gameObject.AddComponent<ObjectHitStopFrame>();objectHitStop.Bind(this);}
+  objectHitStop.Request(kind);
+ }
+ void ApplyObjectPresentationReport(FlightState report){
+  if(!ObjectDeathPresentationHeld)return;
+  report.phase="flight";report.resultOverview=null;report.newRecord=false;
+ }
  public void Jet(string _){if(!paused&&phase=="flight"&&simulation!=null){simulation.ObjectJet();Report();}}
  public void DiveDown(string _){if(!paused&&phase=="flight"&&simulation!=null)simulation.ObjectDive(true);}
  public void DiveUp(string _){if(simulation!=null)simulation.ObjectDive(false);}
@@ -22,7 +34,7 @@ public sealed partial class CrabFlightGame {
   // Never change a live throw/charge. A new config is used on the next Prepare.
   if(phase!="flight"&&!aiming&&!spinCharge.Started)world.ConfigureObjects(feelR27.UsesObjectRedesign);
  }
- void ClearObjectBursts(){objectCaption=null;objectDeathBurst=false;if(juiceBurst)juiceBurst.Clear();}
+ void ClearObjectBursts(){objectCaption=null;objectDeathBurst=false;if(objectHitStop)objectHitStop.Clear();if(juiceBurst)juiceBurst.Clear();}
  void DrainObjectEvents(){
   while(readObjectHits<simulation.ObjectHits.Count){
    var hit=simulation.ObjectHits[readObjectHits++];var def=ObjectRules.Get(hit.kind);
@@ -32,6 +44,7 @@ public sealed partial class CrabFlightGame {
     visible=FeelEffectsR27&&!ReducedMotion&&!feelSettingsR27.reducedMotion&&!paused};
    Emit("action",hit.kind.ToString().ToLowerInvariant(),"action",hit.position,Vector3.up,simulation.Body.linearVelocity,1);
    if(!FeelEffectsR27||paused)continue;
+   PresentObjectHitStop(hit.kind);
    ColorUtility.TryParseHtmlString(def.color,out var color);
    feelDrawingR27.ObjectParticles(hit.position,color,cam,Time.realtimeSinceStartup,def.burstScale);
    if(feelR27.UsesEffekseer&&!ReducedMotion&&!feelSettingsR27.reducedMotion&&juiceBurst)

@@ -1,0 +1,79 @@
+
+Running 35 tests using 1 worker
+
+(node:12887) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Traceback (most recent call last):
+  File "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/camhit/contracts.py", line 51, in <module>
+    check(not any(x in new for x in ['Time.timeScale=','feelClockR27','hitStop.Filter','accumulator','AddForce','Physics.Simulate']),'render hold cannot schedule or advance physics/legacy peak clock')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/camhit/contracts.py", line 17, in check
+    assert ok,label
+           ^^
+AssertionError: render hold cannot schedule or advance physics/legacy peak clock
+  ✘   1 docs/object-redesign/camhit/camhit.spec.cjs:3:1 › camera and presentation hold execute real methods without changing fixed-step code (59.7s)
+(node:13300) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 docs/object-redesign/object.spec.cjs:5:1 › real rules, legacy placement identity and physical integration contracts (17.2s)
+  ✓   3 docs/object-redesign/object.spec.cjs:9:1 › existing Effekseer and juice behavior contracts remain green (4.4s)
+  ✓   4 docs/object-redesign/object.spec.cjs:34:2 › large thumb controls fit portrait (4.7s)
+  ✓   5 docs/object-redesign/object.spec.cjs:34:2 › large thumb controls fit small (730ms)
+  ✓   6 docs/object-redesign/object.spec.cjs:34:2 › large thumb controls fit landscape (709ms)
+  ✓   7 docs/object-redesign/object.spec.cjs:44:1 › jets by tap and keyboard, budget feedback, repeat suppression (781ms)
+  ✓   8 docs/object-redesign/object.spec.cjs:56:1 › dive pointer capture, simultaneous keyboard, release and blur (770ms)
+  ✓   9 docs/object-redesign/object.spec.cjs:66:1 › legacy, charge, pause, result and retry gate flight-only input (771ms)
+  ✓  10 docs/object-redesign/object.spec.cjs:80:1 › result shows authoritative maximum chain beside dominant destruction (683ms)
+  ✓  11 docs/object-redesign/object.spec.cjs:88:1 › touchscreen jet and held dive use the same real pointer path (734ms)
+  ✓  12 docs/object-redesign/story/story.spec.cjs:27:51 › exact caption and one second expiry: boost (1.8s)
+  ✓  13 docs/object-redesign/story/story.spec.cjs:27:51 › exact caption and one second expiry: bounce (709ms)
+  ✓  14 docs/object-redesign/story/story.spec.cjs:27:51 › exact caption and one second expiry: spin (681ms)
+  ✓  15 docs/object-redesign/story/story.spec.cjs:27:51 › exact caption and one second expiry: brake (667ms)
+  ✓  16 docs/object-redesign/story/story.spec.cjs:27:51 › exact caption and one second expiry: blast (691ms)
+  ✓  17 docs/object-redesign/story/story.spec.cjs:27:51 › exact caption and one second expiry: death (701ms)
+  ✓  18 docs/object-redesign/story/story.spec.cjs:34:1 › latest only, dense event ring, no queue and old timers cannot clear a new caption (706ms)
+  ✓  19 docs/object-redesign/story/story.spec.cjs:42:1 › effects off and OS reduced motion suppress immediately and never replay missed captions (747ms)
+  ✓  20 docs/object-redesign/story/story.spec.cjs:51:1 › native flags, activation flag, pause, legacy and retry suppress without delayed replay (860ms)
+  ✓  21 docs/object-redesign/story/story.spec.cjs:64:1 › unknown kind and stale sequence cannot replace current text (720ms)
+  ✓  22 docs/object-redesign/story/story.spec.cjs:69:2 › caption fits and avoids real destruction pop / HUD: portrait (820ms)
+  ✓  23 docs/object-redesign/story/story.spec.cjs:80:2 › death stays visible through immediate result and retry clears it: portrait (978ms)
+  ✓  24 docs/object-redesign/story/story.spec.cjs:69:2 › caption fits and avoids real destruction pop / HUD: small (766ms)
+  ✓  25 docs/object-redesign/story/story.spec.cjs:80:2 › death stays visible through immediate result and retry clears it: small (760ms)
+  ✓  26 docs/object-redesign/story/story.spec.cjs:69:2 › caption fits and avoids real destruction pop / HUD: landscape (901ms)
+  ✓  27 docs/object-redesign/story/story.spec.cjs:80:2 › death stays visible through immediate result and retry clears it: landscape (870ms)
+  ✓  28 qa/juice-layer/juice.spec.cjs:74:1 › existing WAV path rises in semitones, caps at octave, resets and deduplicates (2.1s)
+  ✓  29 qa/juice-layer/juice.spec.cjs:85:1 › fallback receives identical pitch and deferred voice keeps event-time pitch (7ms)
+  ✓  30 qa/juice-layer/juice.spec.cjs:94:1 › audio generation reset cancels delayed voices and mute does not replay missed events (8ms)
+  ✓  31 qa/juice-layer/juice.spec.cjs:122:2 › HUD portrait: aggregate count catches up, pops and stays inside viewport (688ms)
+  ✓  32 qa/juice-layer/juice.spec.cjs:122:2 › HUD small: aggregate count catches up, pops and stays inside viewport (863ms)
+  ✓  33 qa/juice-layer/juice.spec.cjs:122:2 › HUD landscape: aggregate count catches up, pops and stays inside viewport (1.0s)
+  ✓  34 qa/juice-layer/juice.spec.cjs:138:1 › HUD pause/resume, dense updates, retry and result never leave stale totals (821ms)
+  ✓  35 qa/juice-layer/juice.spec.cjs:151:1 › HUD reduced motion and effects off cancel the animation immediately (722ms)
+
+
+  1) docs/object-redesign/camhit/camhit.spec.cjs:3:1 › camera and presentation hold execute real methods without changing fixed-step code 
+
+    Error: Command failed: python3 docs/object-redesign/camhit/contracts.py
+    Traceback (most recent call last):
+      File "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/camhit/contracts.py", line 51, in <module>
+        check(not any(x in new for x in ['Time.timeScale=','feelClockR27','hitStop.Filter','accumulator','AddForce','Physics.Simulate']),'render hold cannot schedule or advance physics/legacy peak clock')
+        ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/camhit/contracts.py", line 17, in check
+        assert ok,label
+               ^^
+    AssertionError: render hold cannot schedule or advance physics/legacy peak clock
+
+
+      2 | const cp=require('node:child_process'),path=require('node:path');
+      3 | test('camera and presentation hold execute real methods without changing fixed-step code',()=>{
+    > 4 |  const out=cp.execFileSync('python3',['docs/object-redesign/camhit/contracts.py'],{cwd:path.resolve(__dirname,'../../..'),encoding:'utf8',timeout:160000});
+        |               ^
+      5 |  expect(out).toContain('151 passed / 0 failed');expect(out).toContain('10 static passed / 0 failed');
+      6 | });
+      7 |
+        at /Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/camhit/camhit.spec.cjs:4:15
+
+    Error Context: ../../../../../../../../tmp/kani-camhit-offline/playwright/docs-object-redesign-camhi-85732-ut-changing-fixed-step-code/error-context.md
+
+  1 failed
+    docs/object-redesign/camhit/camhit.spec.cjs:3:1 › camera and presentation hold execute real methods without changing fixed-step code 
+  34 passed (1.9m)

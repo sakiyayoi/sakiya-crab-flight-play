@@ -1,0 +1,20 @@
+{
+  "docs/object-redesign/blastfix/contracts.py": "170ce28e2081628b04ee72c0386d5351d148f80b321f38195584161948f16058",
+  "docs/object-redesign/camhit/Contracts.cs": "021ca040e17928e340228d027d201bbd623ab0814903e30e9898ab88e6ae34d0",
+  "docs/object-redesign/camhit/camhit.spec.cjs": "1587a598fe7b44bfdb1f57348656a67cd9345b03f4b08961030412c49b425f63",
+  "docs/object-redesign/camhit/contracts.py": "cc0941c5b4024e124cfbf4013478ef90e08855b956268e08e96449ba29dd43d0",
+  "docs/object-redesign/camhit/playwright.config.cjs": "2885c796b1d26882505efb1c942dc5f99a33e31678b48c14dded12cda0f9a945",
+  "docs/object-redesign/camhit/port-contracts.py": "d9cd0f7655141780a5af81648770088768a34a93af58748289745a96fe01e851",
+  "docs/object-redesign/camhit/verify-evidence.py": "5a9fd3c84328b3e63d47b0c20d6fab608b737c35218aa0bba88b073c6add4a85",
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectCameraTargets.cs": "3d22ccd40d54760b3390b6a2a60025342ce1f4c459b393486859990b83c1462e",
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectCameraTargets.cs.meta": "bd4961951db54c82946d3cf38247c6dbc79bdef6dd61c707fc6ccb81a1c04c8e",
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectHitStopFrame.cs": "9adecd92271a6b897d831fec618a1742b0d67d5a84372d1be2f6f406bc6934ab",
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectHitStopFrame.cs.meta": "e994b6715be844014048b49b1ee685bf6a3f16960f60b5d3b71b4468755a7aed",
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectHitStopRules.cs": "1836af37a979df41831dca5e3294f1f8dba9196ab41cdfdc39e351ff7e350d11",
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectHitStopRules.cs.meta": "90ad5b2566b916a6e34684d0d59a9ed5490cff441ba36b87254e763d9bce2f7c",
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectPresentation.cs": "b872a6728933ddf3d92eb0a5475a9eb5304a2757c3086c70a6b16533a5b3d2e2",
+  "games/flight/crab-flight/Assets/PortPrototype/PortCamera.cs": "e109fc8a206b2451344c56fa46b18d5133d5a5ba84f92771345c1b79f8a49608",
+  "games/flight/crab-flight/Assets/PortPrototype/PortRules.cs": "496b24c951f202e5c9c65eabb598d63d87a10603079db83f841b64f60054f2f6",
+  "games/flight/crab-flight/Assets/Scripts/CrabFlightGame.cs": "17764d5656e3b2df61852c7614bc8a00b223f59c11a1b84542925694d1123e3b",
+  "games/flight/crab-flight/Assets/Scripts/FlightCameraR19.cs": "fb7b411249ce1cdf45a51c08d5871e94d5ed349a96c10dc60da5e064c585909d"
+}

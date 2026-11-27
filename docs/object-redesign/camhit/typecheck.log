@@ -1,0 +1,4 @@
+{'assembly': 'Effekseer', 'flavor': 'editor', 'exitCode': 0, 'errors': 0, 'warnings': 0}
+{'assembly': 'Assembly-CSharp', 'flavor': 'editor', 'exitCode': 0, 'errors': 0, 'warnings': 18}
+{'assembly': 'Effekseer', 'flavor': 'webgl', 'exitCode': 0, 'errors': 0, 'warnings': 0}
+{'assembly': 'Assembly-CSharp', 'flavor': 'webgl', 'exitCode': 0, 'errors': 0, 'warnings': 17}
