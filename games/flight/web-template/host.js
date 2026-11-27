@@ -67,10 +67,10 @@ function setView(next){
  $('topbar').classList.toggle('hidden',next!=='aim');$('pauseButton').classList.toggle('hidden',next!=='aim');
  if(next!=='flight'){$('kickFeedback').classList.add('hidden');document.body.dataset.accelerating='false';}
  if(next!=='aim'){$('gesture').classList.add('hidden');$('cancelAim').classList.add('hidden');document.body.dataset.dragging='false';}
- inputHeld();
+ inputHeld();window.ObjectControls.setView(next);
 }
 function cancelGesture(reason,clear=true){window.FlightSound.setSpin(0);const r=gesture.cancel(reason,clear);if(r.type==='cancel'){send('CancelAim');numbers();aimHint('取り消しました。もう一度スワイプできます。');}document.body.dataset.dragging='false';$('gesture').classList.add('hidden');$('cancelAim').classList.add('hidden');}
-function setPaused(paused){cancelRecord();cancelGesture('pause');releaseKick();send('SetPaused',paused?'1':'0');window.FlightSound.setPaused(paused);}
+function setPaused(paused){window.ObjectControls.release();cancelRecord();cancelGesture('pause');releaseKick();send('SetPaused',paused?'1':'0');window.FlightSound.setPaused(paused);}
 function pause(){if(!['aim','flight','result'].includes(view))return;resumeView=view;setPaused(true);setView('pause');}
 function resume(){if(view!=='pause')return;setPaused(false);setView(resumeView);}
 function configure(){Object.assign(config,activeLoadout().shape,{gear:activeLoadout().id,upgradeLevel:progress.level});persist();numbers();return send('Configure',JSON.stringify(config));}
@@ -109,7 +109,7 @@ $('launchZone').addEventListener('lostpointercapture',()=>cancelGesture('lostcap
 $('launchZone').addEventListener('keydown',e=>{stampInput();if(view!=='aim'||pendingPrepareR23||phase!=='ready'||!runtimeReady)return;if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.code)){e.preventDefault();cancelGesture('keyboard');if(e.code==='ArrowUp')config.angle=Math.min(80,config.angle+2);if(e.code==='ArrowDown')config.angle=Math.max(10,config.angle-2);if(e.code==='ArrowLeft')config.direction=-1;if(e.code==='ArrowRight')config.direction=1;configure();}if(e.code==='Enter'&&!e.repeat){e.preventDefault();if(!lastState?.chargeReady){send('BeginSpinCharge');send('AddSpinWork',JSON.stringify({distance:.25,seconds:.12,direction:config.direction}));return;}cancelGesture('keyboard-launch');send('BeginAim');send('ReleaseLaunch',JSON.stringify({angle:config.angle,power:config.power,direction:config.direction,spinRps:config.direction*config.power*.12,eligible:true}));}});
 $('kick').addEventListener('pointerdown',e=>{if(view!=='flight'||$('kick').disabled)return;e.preventDefault();kickPointer=e.pointerId;inputHeld();});
 document.addEventListener('keyup',e=>{if(e.code==='Space'){spaceHeld=false;inputHeld();}});
-document.addEventListener('keydown',e=>{if(e.code==='Space'&&view==='flight'&&!e.repeat){e.preventDefault();spaceHeld=true;inputHeld();}if(e.code==='Escape'){if(view==='pause')resume();else if(gesture.active)cancelGesture('escape');else pause();}});
+document.addEventListener('keydown',e=>{if(e.code==='Space'&&view==='flight'&&lastState?.objectMode!=='redesign'&&!e.repeat){e.preventDefault();spaceHeld=true;inputHeld();}if(e.code==='Escape'){if(view==='pause')resume();else if(gesture.active)cancelGesture('escape');else pause();}});
 window.addEventListener('blur',()=>{cancelGesture('blur');releaseKick();pause();});document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelGesture('hidden');releaseKick();pause();}});
 window.addEventListener('resize',()=>{cancelGesture('resize');releaseKick();if(view==='flight')pause();});
 let savedThrowAuditR21='';
@@ -148,11 +148,13 @@ window.receiveFlightState=s=>{
  }
  const invalid=!!s.physicsFault;document.body.dataset.invalidResult=String(invalid);$('resultTitle').textContent=invalid?'安全停止':s.newRecord?'飛距離 · 新記録！':'飛距離';$('distanceResultUnit').textContent=invalid?'':' m';$('flightSummary').textContent=s.angle+'° · '+(s.direction<0?'左':'右')+' · 勢い '+Math.round(s.power)+' · 最高 '+s.peak.toFixed(1)+' m';
  $('destructionResultValue').textContent=invalid?'—':String(s.destructionEvent);$('firstContactResult').textContent='';
- $('resultCause').textContent='';
+ $('resultCause').textContent=s.objectDeath?'即死オブジェクトに接触して投げ終了。':'';
  $('bestDifference').textContent=s.previousBest>0?'ベスト差 '+(s.bestDelta>=0?'+':'')+s.bestDelta.toFixed(1)+' m':'はじめての記録';
  if(invalid){$('resultCause').textContent='物理試作を安全停止。この投球は記録対象外です。';$('firstContactResult').textContent=({'non-finite':'数値異常を検出','floor-tunnel':'地面の貫通を検出','world-bound':'試験範囲の外へ到達','settle-timeout':'停止までの試験時間を超過'})[s.physicsFault]||'物理状態の確認が必要です';$('bestDifference').textContent='入力を変えて再試行できます。旧記録は保持。';}
+ window.ObjectControls.update(s,view);
  if(phase==='result'&&lastResult!==s.attempts){lastResult=s.attempts;settleProgress(s);if(!invalid){savedBest=Math.max(savedBest,s.best);try{localStorage.setItem(RECORD,JSON.stringify({ruleVersion:RULE,best:savedBest,lastRun:{distance:s.distance,firstContact:s.firstContact,perfect:s.perfects,good:s.goods,earlyMiss:s.earlyMisses,config:{...config}}}));}catch{}}}
 };
+window.ObjectControls.mount(send);
 window.CrabCredits.mount({onOpen:()=>{if(view==='title')setPaused(true);},onClose:()=>{if(view==='title')setPaused(false);}});
 window.FlightFeel.mount();$('loadAgain').onclick=()=>window.location.reload();numbers();applyComfort();$('best').textContent=savedBest.toFixed(1)+' m';
 (async()=>{try{const script=document.createElement('script');script.src='Build/kani-finish-r18.loader.js';document.body.appendChild(script);await new Promise((resolve,reject)=>{script.onload=resolve;script.onerror=reject;});game=await createUnityInstance($('unity-canvas'),{dataUrl:'Build/kani-finish-r18.data',frameworkUrl:'Build/kani-finish-r18.framework.js',codeUrl:'Build/kani-finish-r18.wasm',streamingAssetsUrl:new URL('StreamingAssets',document.baseURI).href,companyName:'SakiyaPrototype',productName:'カニとばし',productVersion:'kani-finish-r18',autoSyncPersistentDataPath:true},p=>$('loadText').textContent=Math.round(p*100)+'%');await window.FlightFeel.load();configure();send('RestoreBest',savedBest);applyComfort();loaded=true;$('start').disabled=!runtimeReady;if(runtimeReady)setView('title');else $('loadText').textContent='カニの準備を仕上げています…';}catch(error){setView('error');$('loadTitle').textContent='読み込み失敗';$('loadText').textContent='3Dカニを開始できませんでした。再読み込みで戻らない場合は実行環境の確認が必要です。';$('loadAgain').classList.remove('hidden');console.info('Flight load failed:',String(error));}})();

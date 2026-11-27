@@ -1,0 +1,10 @@
+#objectControls{position:fixed;inset:auto 0 max(16px,env(safe-area-inset-bottom));z-index:24;display:flex;justify-content:space-between;padding:0 max(16px,env(safe-area-inset-left)) 0 max(16px,env(safe-area-inset-right));pointer-events:none;gap:24px}
+#objectControls.hidden{display:none}
+#objectControls button{pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none;min-height:84px;width:118px;max-width:36vw;padding:10px 8px;border:2px solid var(--gold);border-radius:2px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:16px;line-height:1.25;background:var(--ink);color:var(--paper)}
+#objectControls button:focus-visible{outline:3px solid var(--paper);outline-offset:3px}
+#objectControls button[aria-pressed="true"]{border-width:4px}
+#objectControls button span{font-size:14px;letter-spacing:.05em}
+#objectControls button:disabled{opacity:.55}
+#maxChainLine{font-size:18px;margin:8px 0;color:var(--paper)}
+#maxChain{font-variant-numeric:tabular-nums;font-size:24px;margin-left:8px}
+@media(max-height:440px){#objectControls{bottom:max(8px,env(safe-area-inset-bottom))}#objectControls button{min-height:64px;width:110px}}
