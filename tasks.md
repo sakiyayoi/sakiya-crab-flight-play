@@ -366,3 +366,10 @@ R18 timing continuation 2026-11-04: 私的な診断WebGL c86cec4をビルド成�
 | stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
 |---|---|---|---|---|---|---|
 | object-story | 6種のストーリー形・発動キャプションを既存作用へ接続 | Codex（単独書込） | object-redesign 06df915 / 今回の確定表 | Editor/WebGL errors0、既存85+232+45+33、新規形/文言/抑制契約、保護26SHA一致、報告とcommit | 指定なし | 指定オフライン範囲完了：実装8ad7595、Editor/WebGL errors0、既存85+232+45+33PASS、新規形46/保全13PASS、Playwright新16+既存18PASS、26SHA一致。報告docs/object-redesign/NEON-REPORT-STORY-by-codex.md。Unity実画面・ゲーム合格は別工程 |
+
+
+## OBJECT-REDESIGN blast修正（2026-11-27 本人直接指示）
+
+| stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
+|---|---|---|---|---|---|---|
+| object-blastfix | blast経路の停止原因修正と同一対象1回破壊の確認 | Codex（単独書込） | object-redesign 75cb1a1 | Editor/WebGL errors0・Stage 1/ストーリー契約全PASS・新規重複/消費契約・保護26SHA・commit/報告 | 指定なし | 指定オフライン範囲PASS：Editor/WebGL errors0、Stage 1 85+232/bridge45/juice33、story46+13、新規258+静的9、Playwright34、保護main/branch各26SHA一致。ソースcommit・報告読戻し中。Nativeはクロエの別工程 |

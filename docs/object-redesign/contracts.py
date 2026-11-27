@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Real deterministic policy execution plus source/data boundary contracts. No Unity."""
 from pathlib import Path
-import hashlib,json,os,re,subprocess
+import hashlib,json,os,re,subprocess,sys
 ROOT=Path(__file__).resolve().parents[2];INPUT=ROOT/'docs/object-redesign';OUT=Path(os.environ.get('KANI_OBJECT_EVIDENCE_DIR',INPUT));OUT.mkdir(parents=True,exist_ok=True)
+sys.path.insert(0,str(INPUT/'blastfix'))
+from boundaries import restore_city2
 ASSETS=ROOT/'games/flight/crab-flight/Assets'
 SDK=Path('/Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/Resources/Scripting')
 RUNTIME=next((SDK/'NetCoreRuntime/shared/Microsoft.NETCore.App').iterdir())
@@ -30,7 +32,9 @@ for p,h in json.loads((INPUT/'protected-before.json').read_text()).items():
  check(hashlib.sha256((ROOT.parent/'source'/p).read_bytes()).hexdigest()==h,'protected main '+p)
  check(git('rev-parse',BASE+':'+p)==git('rev-parse','HEAD:'+p),'protected branch '+p)
 for p in ['Scripts/FloorContactStepR10.cs','Scripts/OverdrivePhysics.cs','Scripts/FlightPhysics.cs','Scripts/City2Data.cs','Scripts/City2Contacts.cs','OpeningGrammar/OpeningLayout.cs']:
- check((ASSETS/p).read_bytes()==git('show',BASE+':games/flight/crab-flight/Assets/'+p),'unchanged base system '+p)
+ data=(ASSETS/p).read_bytes()
+ if p=='Scripts/City2Contacts.cs':data=restore_city2(data.decode()).encode()
+ check(data==git('show',BASE+':games/flight/crab-flight/Assets/'+p),'unchanged base system (exact blastfix delta excluded) '+p)
 rules=read('ObjectRedesign/ObjectRules.cs');runtime=read('ObjectRedesign/ObjectRuntime.cs');rigid=read('Scripts/RigidCrabFlight.cs');panel=read('Scripts/RestaurantPhysics.cs');game=read('Scripts/CrabFlightGame.cs')
 check(not re.search(r'Body\.(?:position|rotation|linearVelocity|angularVelocity)\s*=',runtime),'no trajectory or velocity writes in action layer')
 check('Random.' not in rules+runtime,'no randomized effect magnitudes')

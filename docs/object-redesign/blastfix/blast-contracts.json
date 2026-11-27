@@ -1,0 +1,26 @@
+{
+  "base": "75cb1a15ea43420ce23c8e2d7afb22a63506fa00",
+  "unitResult": "258 passed / 0 failed",
+  "staticPassed": 9,
+  "staticFailed": 0,
+  "checks": [
+    "City2 changes are only batch exclusion and redesign-only caller; legacy null path retained",
+    "ObjectRuntime changes only queue guard/idempotency/source ownership",
+    "actual ApplyBreaks and legacy contact/counters byte unchanged",
+    "actual scatter byte unchanged; no exception masking/null-only workaround",
+    "shared queue uses unique panel reference keys",
+    "consumed check and flag precede all material/total/event/shard processing",
+    "secondary contact enqueue rejects object-owned primary panels",
+    "batch flush clears object and common queues",
+    "throw reset clears consumed queues"
+  ],
+  "extractedSha256": "7deb2f05bf9a8b5c0ae1ae9e64b72d78204b8702cd91da8d59c31ff0f5ba6681",
+  "sourceSha256": {
+    "ObjectRedesign/ObjectRuntime.cs": "9310d85f30840cbfdb873537b81e618183c75c15c671c12b9cb5e68d21d21e97",
+    "Scripts/City2Contacts.cs": "3707fd70dac15eb643c0938e54a74047fee32b1b8424c6b832b481b2dc183970",
+    "Scripts/RestaurantPhysics.cs": "bc88b35c30c55dbc26ad46655eff290beb0c6e66424c792ae815003b8d7a5a25",
+    "Scripts/ShardScatterR6.cs": "ce5392f1407622cb9147ff587ceae6a71e6580a3e5f4b13b53a52ae4bdc5325c",
+    "ObjectRedesign/ObjectRules.cs": "03daec4ee059b3e71d30b621d0c4697e17c242351448e51ae31d8724429ce314"
+  },
+  "scope": "Exact production method execution with lifecycle/Unity doubles; no native PhysX/replay/build"
+}

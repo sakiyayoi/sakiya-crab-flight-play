@@ -1,0 +1,11 @@
+{
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectRuntime.cs": "9310d85f30840cbfdb873537b81e618183c75c15c671c12b9cb5e68d21d21e97",
+  "games/flight/crab-flight/Assets/Scripts/City2Contacts.cs": "3707fd70dac15eb643c0938e54a74047fee32b1b8424c6b832b481b2dc183970",
+  "docs/object-redesign/contracts.py": "c260a8b7842676d8002317ad2dd85c1cc2a74d6dee52dddff0abd19a81d6e61c",
+  "docs/object-redesign/story/contracts.py": "178fceaaf2c8ef94dbb392a498b94b151532b8633ef21ed669073c99d7ccaa0d",
+  "docs/object-redesign/story/story.spec.cjs": "294ace5098d690714f5b3e9cb2168349e956fd54ae636eb5613a3365cbdd3fd7",
+  "docs/object-redesign/blastfix/BlastContracts.cs": "a0c7953b8f25b4578be817bc7eb8be16f2659331f5ec0bdfbfb7af12a7bf8819",
+  "docs/object-redesign/blastfix/contracts.py": "de5544c20d45ac2a403d792208d98f15d314e080ac3fdaee76d812d1f55e413d",
+  "docs/object-redesign/blastfix/boundaries.py": "c8a5d8f609f71aee1fc6b6789b67183699678f407ad22f87b41ae53631cb6c0d",
+  "docs/object-redesign/blastfix/playwright.config.cjs": "1427c5db9296780d3281ec06e204f8c3a17137a7aaa71a972dd445030c21d93d"
+}

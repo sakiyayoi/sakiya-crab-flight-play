@@ -45,9 +45,12 @@ public sealed partial class RigidCrabFlight {
  }
  bool SecondaryAllowed(BreakPanel p,CityDebris source){int used;chainUsed.TryGetValue(source.root,out used);if(used>=2)return false;chainUsed[source.root]=used+1;CitySecondaryBreaks++;return true;}
  float PanelRetention(BreakPanel p){return p.city2||p.life!=null?p.retention:p.type=="glass"?.96f:p.type=="tableware"||p.type=="food"?.985f:p.type=="wood"?.95f:p.type=="metal"?.87f:.82f;}
- void RecycleCityFragment(){
+ void RecycleCityFragment(List<Rigidbody> scattering=null){
   if(fragments.Count<48&&CityFragments<20)return;
-  var record=cityDebris.FirstOrDefault();var old=record!=null?record.obj:fragments.FirstOrDefault();if(!old)return;
+  // Do not retire a body still awaiting ScatterShardsR6 in this spawn batch.
+  // null keeps the legacy FIFO selection exactly as before.
+  var record=cityDebris.FirstOrDefault(d=>scattering==null||!scattering.Contains(d.body));
+  var old=record!=null?record.obj:fragments.FirstOrDefault(o=>scattering==null||!scattering.Any(rb=>rb&&rb.gameObject==o));if(!old)return;
   foreach(var c in old.GetComponentsInChildren<Collider>())c.enabled=false;old.SetActive(false);fragments.Remove(old);
   if(record!=null){foreach(var id in record.colliderIds)debrisByCollider.Remove(id);cityDebris.Remove(record);CityFragments--;}
   Release(old);
@@ -79,7 +82,7 @@ public sealed partial class RigidCrabFlight {
 #endif
    source.gameObject.SetActive(false);
    if(physicalPieces>=6){while(cityDecor.Count>=12){Release(cityDecor[0].obj);cityDecor.RemoveAt(0);}cityDecor.Add(new CityDecoration{obj=obj,velocity=velocity,omega=new Vector3(.4f,1,.8f)});continue;}
-   RecycleCityFragment();if(fragments.Count>=48||CityFragments>=20){Release(obj);continue;}
+   RecycleCityFragment(UseObjectRedesign?spawned:null);if(fragments.Count>=48||CityFragments>=20){Release(obj);continue;}
    var record=new CityDebris{obj=obj,root=rootId,depth=depth,origin=p.position};
    var boxes=shard<0?p.cityAsset.pieces.Where(x=>x.shard<0).Select(x=>City2Data.Bounds(x)).OrderByDescending(x=>x.size.x*x.size.y*x.size.z).Take(4).ToArray():new[]{new Bounds(City2Data.V(p.cityProposal.shards.First(s=>s.shard==shard).center),City2Data.V(p.cityProposal.shards.First(s=>s.shard==shard).size))};
    foreach(var b in boxes){var c=obj.AddComponent<BoxCollider>();var worldCenter=original.transform.TransformPoint(b.center);c.center=obj.transform.InverseTransformPoint(worldCenter);var worldScale=original.transform.lossyScale;var cloneScale=obj.transform.lossyScale;c.size=Vector3.Max(Vector3.one*.035f,Vector3.Scale(b.size,new Vector3(Mathf.Abs(worldScale.x/cloneScale.x),Mathf.Abs(worldScale.y/cloneScale.y),Mathf.Abs(worldScale.z/cloneScale.z))));c.sharedMaterial=debrisMaterial;c.providesContacts=false;c.contactOffset=.005f;record.colliderIds.Add(c.GetInstanceID());debrisByCollider[c.GetInstanceID()]=record;if(!SeparateDebrisCalmR4)foreach(var crabCollider in colliders)UnityEngine.Physics.IgnoreCollision(c,crabCollider,true);}

@@ -119,7 +119,11 @@ public sealed partial class RigidCrabFlight {
   ObjectHits.Add(new ObjectHit{kind=a.data.kind,position=a.visual.transform.position,time=Time});
  }
  void QueueObjectBreak(BreakPanel p,bool blast){
-  objectBreakPending.Add(p);if(blast)objectBlastPending.Add(p);
+  if(!UseObjectRedesign||p==null||p.broken||p.objectSuppressed)return;
+  // A later blast may promote an already queued band hit, but never requeue it.
+  if(blast)objectBlastPending.Add(p);if(!objectBreakPending.Add(p))return;
+  // Object actions own this break; debris callbacks must not replace its source.
+  primaryPending.Add(p);secondarySources.Remove(p);
   pendingBreaks[p]=p.position;breakNormals[p]=Vector3.up;
   breakImpulses[p]=Body.mass*Mathf.Max(p.threshold*4,ObjectRules.BandThreshold);
  }

@@ -1,6 +1,7 @@
 const {test,expect}=require('playwright/test');
 const fs=require('node:fs'),path=require('node:path');
 const root=path.resolve(__dirname,'../../..'),web=path.join(root,'games/flight/web-template');
+const evidence=process.env.KANI_STORY_EVIDENCE_DIR||__dirname;
 const captions={boost:'扇風機、強すぎる！',bounce:'フライパンで跳ね上げられた！',spin:'回転寿司のレーンに乗った！',brake:'もちにくっついた…',blast:'花火、点火済みだった！',death:'かに漁師だ！'};
 async function fixture(page,size={width:390,height:844}){
  await page.setViewportSize(size);await page.clock.install({time:new Date('2026-11-27T00:00:00Z')});
@@ -74,14 +75,14 @@ for(const [name,size] of Object.entries({portrait:{width:390,height:844},small:{
   expect(caption.y).toBeGreaterThan(hud.y+hud.height);expect(caption.x).toBeGreaterThanOrEqual(0);expect(caption.x+caption.width).toBeLessThanOrEqual(size.width);expect(caption.y+caption.height).toBeLessThan(size.height-80);
   const popup=page.locator('[data-feel-popup]');
   await expect(popup).toBeVisible();const box=await popup.boundingBox();expect(box.y).toBeGreaterThanOrEqual(caption.y+caption.height+12);
-  await page.screenshot({path:path.join(__dirname,'caption-'+name+'.png')});
+  await page.screenshot({path:path.join(evidence,'caption-'+name+'.png')});
  });
  test('death stays visible through immediate result and retry clears it: '+name,async({page})=>{
   await fixture(page,size);await page.evaluate(()=>{
    state.phase='result';document.body.dataset.view='result';document.getElementById('flightHUD').classList.add('hidden');document.getElementById('result').classList.remove('hidden');hit('death');
   });await expect(page.locator('#result #objectStoryCaption')).toHaveText(captions.death);await expect(page.locator('#objectStoryCaption')).toBeVisible();
   const b=await page.locator('#objectStoryCaption').boundingBox();expect(b.x).toBeGreaterThanOrEqual(0);expect(b.x+b.width).toBeLessThanOrEqual(size.width);expect(b.y+b.height).toBeLessThan(size.height);
-  await page.screenshot({path:path.join(__dirname,'death-'+name+'.png')});
+  await page.screenshot({path:path.join(evidence,'death-'+name+'.png')});
   await page.evaluate(()=>{state.generation++;state.phase='ready';state.objectCaption=null;paint();});await expect(page.locator('#objectStoryCaption')).toBeHidden();
  });
 }
