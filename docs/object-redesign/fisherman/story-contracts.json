@@ -1,0 +1,22 @@
+{
+  "base": "06df91585f52edefeb133cef041f64139edbf987",
+  "shapes": "46 passed / 0 failed",
+  "staticPassed": 13,
+  "staticFailed": 0,
+  "checks": [
+    "all Rules bytes unchanged except six shape names, three requested brake positions, two death positions and exact 1.6 scale",
+    "entire Runtime unchanged except child visual motion and exact blastfix queue delta",
+    "Stage 1 unchanged Scripts/RigidCrabFlight.cs",
+    "Stage 1 unchanged Scripts/RestaurantPhysics.cs",
+    "Stage 1 unchanged Scripts/FlightEventStream.cs",
+    "Stage 1 unchanged Scripts/FeelDirectorR27.cs",
+    "Stage 1 unchanged Scripts/FeelConfig.cs",
+    "caption captures actual effect/reduced/pause flags at activation",
+    "caption reflects latest consumed hit only",
+    "caption snapshot cleared on existing reset",
+    "latest caption survives event ring in existing FlightState/Report",
+    "26 protected SHA256 unchanged main",
+    "26 protected SHA256 unchanged branch"
+  ],
+  "scope": "Recording doubles and source contracts; no Unity rendering/PhysX"
+}

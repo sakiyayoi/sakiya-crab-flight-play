@@ -1,0 +1,35 @@
+{
+  "base": "8b3e4211c2299dafcd65e14418fc1a2439da02bd",
+  "staticPassed": 23,
+  "staticFailed": 0,
+  "entryResults": {
+    "hits": "61 passed / 0 failed (offline review entry adapters)",
+    "empty": "13 passed / 0 failed (offline review entry adapters)"
+  },
+  "checks": [
+    "runtime Rules differ only at the three brake and two death centers",
+    "existing native input/camera/capture/hit writer code unchanged",
+    "all other tracked game Assets unchanged from supplied tip",
+    "original builder overwrites the archived helper",
+    "injected legacy helper has no action writer",
+    "local builder uses guarded archived review runner",
+    "hits: guarded CLI and actual Run produce exact output destination/count",
+    "hits: exact committed helper was executed",
+    "adapter captures are never saved as screenshot evidence: hits",
+    "hits: existing output cannot be overwritten",
+    "empty: guarded CLI and actual Run produce exact output destination/count",
+    "empty: exact committed helper was executed",
+    "adapter captures are never saved as screenshot evidence: empty",
+    "empty: existing output cannot be overwritten",
+    "stale helper is rejected before running the review",
+    "persisted review output reads back as 48 events",
+    "review success without action-events is rejected",
+    "invalid kind/coordinate/time rejected case 0",
+    "invalid kind/coordinate/time rejected case 1",
+    "invalid kind/coordinate/time rejected case 2",
+    "invalid kind/coordinate/time rejected case 3",
+    "invalid kind/coordinate/time rejected case 4",
+    "out-of-order action times rejected"
+  ],
+  "scope": "Offline CLI and production Run/RunOne/writer with game/Unity/serialization adapters. No actual rendering, PhysX, Unity or native replay."
+}

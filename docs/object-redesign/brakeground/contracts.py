@@ -11,7 +11,9 @@ import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[3]
-OUT = Path(__file__).resolve().parent
+INPUT = Path(__file__).resolve().parent
+OUT = Path(os.environ.get('KANI_BRAKEGROUND_EVIDENCE_DIR', INPUT))
+OUT.mkdir(parents=True, exist_ok=True)
 BASE = '8b3e4211c2299dafcd65e14418fc1a2439da02bd'
 PROJECT = Path('games/flight/crab-flight')
 HELPER = PROJECT / 'Assets/PortPrototype/Editor/PortNativeReview.cs'
@@ -42,16 +44,17 @@ def old(p):
 
 rules = PROJECT / 'Assets/ObjectRedesign/ObjectRules.cs'
 expected = old(rules).decode().replace('Kind.Brake,19,20', 'Kind.Brake,21,2.5f').replace('Kind.Brake,64,20', 'Kind.Brake,58,3').replace('Kind.Brake,108,20', 'Kind.Brake,108,3')
-check((ROOT / rules).read_text() == expected, 'runtime Rules differ only at the three requested brake centers')
+expected = expected.replace('Kind.Death,22,26', 'Kind.Death,13,26').replace('Kind.Death,114,26', 'Kind.Death,95,3')
+check((ROOT / rules).read_text() == expected, 'runtime Rules differ only at the three brake and two death centers')
 check((ROOT / HELPER).read_bytes() == old(HELPER), 'existing native input/camera/capture/hit writer code unchanged')
 changed = subprocess.check_output(['git', 'diff', BASE, '--name-only', '--', str(PROJECT / 'Assets')], cwd=ROOT, text=True).splitlines()
 check(changed == [str(rules)], 'all other tracked game Assets unchanged from supplied tip')
 driver = Path('/tmp/build-object.sh')
 # The driver is local orchestration. Keep a committed patch for reproducing the
 # fix elsewhere, without executing its build/deploy stages in this offline job.
-before = (OUT / 'before-build-object.sh.txt').read_text()
+before = (INPUT / 'before-build-object.sh.txt').read_text()
 check('cp /tmp/PortNativeReviewOpening.cs' in before, 'original builder overwrites the archived helper')
-check('WriteActionEvents' not in (OUT / 'before-PortNativeReviewOpening.cs.txt').read_text(), 'injected legacy helper has no action writer')
+check('WriteActionEvents' not in (INPUT / 'before-PortNativeReviewOpening.cs.txt').read_text(), 'injected legacy helper has no action writer')
 if driver.exists():
     after = driver.read_text()
     check('cp /tmp/PortNativeReviewOpening.cs' not in after and 'run_native_review.py' in after, 'local builder uses guarded archived review runner')
@@ -75,7 +78,7 @@ with tempfile.TemporaryDirectory(prefix='kani brakeground offline ') as temporar
     shutil.copy2(ROOT / RUNNER, fixture / RUNNER)
     dll = tmp / 'entry.dll'
     run([SDK / 'NetCoreRuntime/dotnet', SDK / 'DotNetSdkRoslyn/csc.dll', '-nologo', '-nostdlib', '-target:exe', '-out:' + str(dll),
-         *['-r:' + str(p) for p in RT.glob('*.dll')], ROOT / rules, ROOT / HELPER, OUT / 'ReviewContracts.cs'], 'review-entry-compile.log')
+         *['-r:' + str(p) for p in RT.glob('*.dll')], ROOT / rules, ROOT / HELPER, INPUT / 'ReviewContracts.cs'], 'review-entry-compile.log')
     dll.with_suffix('.runtimeconfig.json').write_text(json.dumps({'runtimeOptions': {'tfm': 'net6.0', 'framework': {'name': 'Microsoft.NETCore.App', 'version': RT.name}}}))
     # This explicitly labelled stand-in invokes the real C# review entry with
     # adapters; it is not a Unity process or a native physics/rendering test.
@@ -103,7 +106,7 @@ with tempfile.TemporaryDirectory(prefix='kani brakeground offline ') as temporar
         check(rerun.returncode != 0 and 'fresh PORT_REVIEW_OUTPUT' in rerun.stderr, name + ': existing output cannot be overwritten')
     # Reproduce the actual failure as a stale injected helper. The guarded
     # runner must stop before invoking even the offline engine adapter.
-    (fixture / HELPER).write_bytes((OUT / 'before-PortNativeReviewOpening.cs.txt').read_bytes())
+    (fixture / HELPER).write_bytes((INPUT / 'before-PortNativeReviewOpening.cs.txt').read_bytes())
     stale_output = tmp / 'stale output'
     env['PORT_REVIEW_OUTPUT'] = str(stale_output)
     stale = subprocess.run(list(map(str, cmd)), cwd=tmp, env=env, capture_output=True, text=True)

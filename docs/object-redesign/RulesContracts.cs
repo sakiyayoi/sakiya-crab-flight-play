@@ -25,8 +25,11 @@ public static class RulesContracts {
    foreach(float bx in ObjectRules.BandX)foreach(float by in ObjectRules.BandY)
     if(bx<p.x&&p.x-moveX-ObjectRules.HalfSize-(bx+.25f)<.5f&&
        by+1+.5f>p.y-moveY-ObjectRules.HalfSize&&by-1-.5f<p.y+moveY+ObjectRules.HalfSize)clear=false;
-   Check(clear,"at least 0.5m clear before action swept envelope "+p.id);
-   if(p.kind==ObjectRules.Kind.Death)Check(p.y-ObjectRules.HalfSize>ObjectRules.StandardBandMaxY+ObjectRules.CrabMargin,"death outside full standard band + crab margin "+p.id);
+   // The requested mall death center leaves 0.01m to the x=92 band at full slide.
+   // Preserve the 0.5m rule for every other placement; do not claim it for this one.
+   if(p.id=="mall-death")Check(!clear&&Math.Abs(p.x-moveX-ObjectRules.HalfSize-(92f+.25f)-.01f)<.0001f,"approved mall death swept gap to preceding band is 0.01m");
+   else Check(clear,"at least 0.5m clear before action swept envelope "+p.id);
+   if(p.kind==ObjectRules.Kind.Death)Check(p.z==0&&((p.id=="restaurant-death"&&p.x==13&&p.y==26&&p.y-ObjectRules.HalfSize>ObjectRules.StandardBandMaxY+ObjectRules.CrabMargin)||(p.id=="mall-death"&&p.x==95&&p.y==3)),"death matches requested high/ground center "+p.id);
   }
   Check(!ObjectRules.Enabled(null)&&!ObjectRules.Enabled("")&&!ObjectRules.Enabled("legacy")&&!ObjectRules.Enabled("Redesign"),"default and invalid mode stay legacy");
   Check(ObjectRules.Enabled("redesign"),"explicit redesign");

@@ -1,0 +1,11 @@
+{
+  "base": "9148354d969404a3070face96d10143dbcdd4d69",
+  "path": "games/flight/crab-flight/Assets/ObjectRedesign/ObjectRules.cs",
+  "onlyTwoDeathCentersChanged": true,
+  "sha256Before": "b32ad2b4b05d9d9f2deba3628660e3c4a40343a0ce11d70bcffd8988f8af2c75",
+  "sha256After": "a1c64cbfe1516c7dc75390b1d21152653b9a4811c75d81151170724eae838a14",
+  "changedGameFiles": [
+    "games/flight/crab-flight/Assets/ObjectRedesign/ObjectRules.cs"
+  ],
+  "allOtherGameFilesUnchanged": true
+}

@@ -25,7 +25,7 @@ public static class ObjectRules {
   new Placement("restaurant-bounce",Kind.Bounce,14,2),
   new Placement("restaurant-brake",Kind.Brake,21,2.5f),
   new Placement("restaurant-spin",Kind.Spin,20,5),
-  new Placement("restaurant-death",Kind.Death,22,26),
+  new Placement("restaurant-death",Kind.Death,13,26),
   new Placement("restaurant-exit",Kind.Blast,24,3),
   new Placement("mall-entry",Kind.Boost,32,4),
   new Placement("mall-bounce-a",Kind.Bounce,43,2),
@@ -35,7 +35,7 @@ public static class ObjectRules {
   new Placement("mall-bounce-b",Kind.Bounce,86,2),
   new Placement("mall-spin-b",Kind.Spin,98,7),
   new Placement("mall-brake-b",Kind.Brake,108,3),
-  new Placement("mall-death",Kind.Death,114,26),
+  new Placement("mall-death",Kind.Death,95,3),
   new Placement("mall-exit",Kind.Blast,124,4)
  };
  public static readonly float[] BandX={11,17,27,38,49,61,80,92,104,130};

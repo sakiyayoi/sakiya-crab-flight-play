@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/var/folders/3w/2mr054b55_3cztt9zngchfcm0000gn/T/kani brakeground offline c83stbjo/source copy/tools/object-redesign/run_native_review.py", line 82, in <module>
+    main()
+    ~~~~^^
+  File "/var/folders/3w/2mr054b55_3cztt9zngchfcm0000gn/T/kani brakeground offline c83stbjo/source copy/tools/object-redesign/run_native_review.py", line 60, in main
+    raise ValueError("Stale PortNativeReview: restore the helper from this source commit; do not inject /tmp/PortNativeReviewOpening.cs")
+ValueError: Stale PortNativeReview: restore the helper from this source commit; do not inject /tmp/PortNativeReviewOpening.cs

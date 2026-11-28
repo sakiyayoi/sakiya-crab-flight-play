@@ -401,3 +401,10 @@ R18 timing continuation 2026-11-04: 私的な診断WebGL c86cec4をビルド成�
 | stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
 |---|---|---|---|---|---|---|
 | object-brakeground | brake3中心のみ移設・レビュー実経路の作用JSONL出力を修正 | Codex（単独書込） | object-redesign 8b3e421・クロエobject-2実測 | Editor/WebGL errors0・全既存契約件数維持・レビュー入口からcamon出力・26SHA一致・報告/commit | 指定なし | 指定オフライン範囲PASS：Editor/WebGL errors0・既存1054/追加97契約PASS・Playwright37PASS・main/branch26SHA一致。旧helper再注入を除去し、camon作用JSONL出力を実Run入口＋オフラインアダプタで確認。報告docs/object-redesign/NEON-REPORT-BRAKEGROUND-by-codex.mdへ記録。Native実投はクロエの別工程 |
+
+
+## 第4便：かに漁師の移設（2026-11-28）
+
+| stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
+|---|---|---|---|---|---|---|
+| object-fisherman | death2中心のみ移設・関連契約期待値を更新 | Codex（単独書込） | object-redesign 9148354・本人実プレイ報告 | Editor/WebGL errors0・既存契約全PASS/件数維持・保護26SHA前後一致・報告/commit | 指定なし | 指定オフライン範囲PASS：Editor/WebGL errors0、全既存1151契約PASS/件数不変、Playwright37PASS、main/branch26SHA前後一致。ゲーム変更はdeath2中心のみ。報告docs/object-redesign/NEON-REPORT-FISHERMAN-by-codex.md、ローカルcommitへ保存。Native実投は今回範囲外。 |

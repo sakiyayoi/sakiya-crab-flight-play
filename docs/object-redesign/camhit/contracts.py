@@ -42,13 +42,14 @@ for entry in entries:
  data=(ROOT/full).read_bytes()
  if p=='ObjectRedesign/ObjectRules.cs':
   original=data.decode().replace('Kind.Brake,21,2.5f','Kind.Brake,18,12').replace('Kind.Brake,58,3','Kind.Brake,64,9').replace('Kind.Brake,108,3','Kind.Brake,108,9').replace(' public const float ObjectScale=1.6f;\n','').replace('HalfSize=1.15f*ObjectScale','HalfSize=1.15f')
+  original=original.replace('Kind.Death,13,26','Kind.Death,22,26').replace('Kind.Death,95,3','Kind.Death,114,26')
   assert original.encode()==old(p),full
   continue
  if p=='ObjectRedesign/ObjectVisual.cs':
   continue # Geometry is explicitly revised in placecute; executed shape/face contracts cover it.
  assert hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()==blob,full
  protected[full]=hashlib.sha256(data).hexdigest()
-check(len(protected)>120,'all existing non-camera/presentation code, configuration and art bytes identical except exact placecute Rules delta and contracted Visual')
+check(len(protected)>120,'all existing non-camera/presentation code, configuration and art bytes identical except exact placecute/fisherman Rules deltas and contracted Visual')
 check('Mathf.Min(desired,PortCameraSettings.Maximum)' in (A/'PortPrototype/PortCamera.cs').read_text(),'landmark bonus cannot exceed new hard cap')
 check('size*=PortCameraSettings.BaseMultiplier' in (A/'Scripts/FlightCameraR19.cs').read_text(),'aim framing is wired to base multiplier')
 check('PresentObjectHitStop(hit.kind);' in presentation,'all actual consumed kinds use one presentation entry')
