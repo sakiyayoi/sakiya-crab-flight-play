@@ -24,11 +24,11 @@ async function fixture(page,size={width:390,height:844}){
  for(const p of ['flight-cues.js','feel.js','juice-hud.js','object-controls.js'])await page.addScriptTag({path:path.join(web,p)});
  await page.evaluate(async()=>{await FlightFeel.load();ObjectControls.mount(send);window.paint=()=>{ObjectControls.update(state,state.phase);FlightFeel.update(state);FlightCues.update(state);JuiceHud.update(state);};paint();window.hit=(kind,visible=true)=>{state.objectCaption={kind,visible,sequence:(state.objectCaption?.sequence||0)+1};paint();};});
 }
-for(const [kind,text] of Object.entries(captions))test('exact caption and one second expiry: '+kind,async({page})=>{
+for(const [kind,text] of Object.entries(captions))test('exact caption and specified expiry: '+kind,async({page})=>{
  await fixture(page);await page.evaluate(kind=>hit(kind),kind);
  await expect(page.locator('#objectStoryCaption')).toHaveText(text);await expect(page.locator('#objectStoryCaption')).toBeVisible();
  await page.clock.runFor(900);await expect(page.locator('#objectStoryCaption')).toBeVisible();
- await page.clock.runFor(101);await expect(page.locator('#objectStoryCaption')).toBeHidden();
+ await page.clock.runFor(kind==='death'?301:101);await expect(page.locator('#objectStoryCaption')).toBeHidden();
  await page.evaluate(()=>paint());await expect(page.locator('#objectStoryCaption')).toBeHidden();
 });
 test('latest only, dense event ring, no queue and old timers cannot clear a new caption',async({page})=>{
@@ -36,7 +36,7 @@ test('latest only, dense event ring, no queue and old timers cannot clear a new 
  await page.evaluate(()=>{state.events=Array.from({length:32},(_,i)=>({generation:1,id:i+40,type:'impact'}));hit('blast');hit('bounce');hit('death');});
  await expect(page.locator('#objectStoryCaption')).toHaveText(captions.death);await expect(page.locator('#objectStoryCaption')).toHaveCount(1);
  await page.clock.runFor(201);await expect(page.locator('#objectStoryCaption')).toBeVisible();
- await page.clock.runFor(800);await expect(page.locator('#objectStoryCaption')).toBeHidden();
+ await page.clock.runFor(1000);await expect(page.locator('#objectStoryCaption')).toBeHidden();
  await page.clock.runFor(5000);await expect(page.locator('#objectStoryCaption')).toBeHidden();
 });
 test('effects off and OS reduced motion suppress immediately and never replay missed captions',async({page})=>{

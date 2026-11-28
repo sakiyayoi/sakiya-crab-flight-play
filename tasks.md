@@ -408,3 +408,10 @@ R18 timing continuation 2026-11-04: 私的な診断WebGL c86cec4をビルド成�
 | stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
 |---|---|---|---|---|---|---|
 | object-fisherman | death2中心のみ移設・関連契約期待値を更新 | Codex（単独書込） | object-redesign 9148354・本人実プレイ報告 | Editor/WebGL errors0・既存契約全PASS/件数維持・保護26SHA前後一致・報告/commit | 指定なし | 指定オフライン範囲PASS：Editor/WebGL errors0、全既存1151契約PASS/件数不変、Playwright37PASS、main/branch26SHA前後一致。ゲーム変更はdeath2中心のみ。報告docs/object-redesign/NEON-REPORT-FISHERMAN-by-codex.md、ローカルcommitへ保存。Native実投は今回範囲外。 |
+
+
+## NEON 第5便：死亡演出と機能の読みやすさ
+
+| stream | task | owner | depends_on | acceptance_check | deadline (JST) | status |
+|---|---|---|---|---|---|---|
+| object-readability | 700ms描画停止・600ms捕獲・1200ms字幕・結果死因、6種バッジと常時描画動作 | Codex | object-redesign 428892f、本人第5便 | 保護26SHA前後一致、物理/効果/座標/Collider不変、Editor/WebGL型errors0、既存1151契約維持＋新規遷移契約、shape-preview、ローカルcommit | 指定なし | 指定オフライン範囲PASS：139ソースEditor/WebGL errors0、既存1151を維持し1241契約PASS、Playwright44PASS、保護main/branch各26SHA一致。390幅shape-preview作成。報告NEON-REPORT-READABILITY-by-codex.md、ローカルcommitへ保存。実ゲームは未確認。 |

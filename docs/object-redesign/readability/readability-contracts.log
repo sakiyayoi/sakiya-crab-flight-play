@@ -1,0 +1,87 @@
+PASS ordinary end has no capture wait
+PASS death begins in render hold
+PASS delayed rendering cannot eat capture time
+PASS hold expiry enters capture
+PASS halfway through 600ms pull
+PASS capture ends with large subtitle
+PASS subtitle still present at 1199ms
+PASS 1200ms subtitle completes before result
+PASS retry clears capture and cause presentation state
+PASS off keeps subtitle only
+PASS off preserves full 1.2 seconds
+PASS off releases result
+PASS OS reduced keeps subtitle only
+PASS OS reduced preserves full 1.2 seconds
+PASS OS reduced releases result
+PASS native reduced keeps subtitle only
+PASS native reduced preserves full 1.2 seconds
+PASS native reduced releases result
+PASS settings change during hold goes to caption without movement
+PASS changed settings do not replay capture
+PASS settings change during capture goes to caption without movement
+PASS changed settings do not replay capture
+PASS pause preserves subtitle elapsed time
+PASS resume uses remaining duration
+PASS resume eventually releases result
+PASS Boost child pose never changes root/trigger
+PASS three wind streaks travel local +X; mirrored root turns them outward
+PASS wind continuously advances outward
+PASS fan remains fast 720 deg/s
+PASS Boost off/reduced suppresses marks
+PASS Boost off/reduced restores static scale
+PASS Boost off/reduced stops net sway
+PASS Boost added art has zero colliders
+PASS Boost bounded shape budget remains below original cap
+PASS Bounce child pose never changes root/trigger
+PASS pan stretches and narrows like a spring
+PASS Bounce off/reduced suppresses marks
+PASS Bounce off/reduced restores static scale
+PASS Bounce off/reduced stops net sway
+PASS Bounce added art has zero colliders
+PASS Bounce bounded shape budget remains below original cap
+PASS Spin child pose never changes root/trigger
+PASS off-center topping breaks half-turn symmetry
+PASS Spin off/reduced suppresses marks
+PASS Spin off/reduced restores static scale
+PASS Spin off/reduced stops net sway
+PASS Spin added art has zero colliders
+PASS Spin bounded shape budget remains below original cap
+PASS Brake child pose never changes root/trigger
+PASS three thin downward sticky strands
+PASS mochi slow small wobble
+PASS Brake off/reduced suppresses marks
+PASS Brake off/reduced restores static scale
+PASS Brake off/reduced stops net sway
+PASS Brake added art has zero colliders
+PASS Brake bounded shape budget remains below original cap
+PASS Blast child pose never changes root/trigger
+PASS three sparks originate at fuse tip
+PASS Blast off/reduced suppresses marks
+PASS Blast off/reduced restores static scale
+PASS Blast off/reduced stops net sway
+PASS Blast added art has zero colliders
+PASS Blast bounded shape budget remains below original cap
+PASS Death child pose never changes root/trigger
+PASS raised net sways slowly
+PASS Death off/reduced suppresses marks
+PASS Death off/reduced restores static scale
+PASS Death off/reduced stops net sway
+PASS Death added art has zero colliders
+PASS Death bounded shape budget remains below original cap
+70 passed / 0 failed
+
+PASS all existing physical, placement, effect, collider and material sources byte identical
+PASS unchanged  public void Tick(float dt)
+PASS unchanged  public FlightState State()
+PASS exact requested presentation delta ObjectRedesign/ObjectPresentation.cs
+PASS exact requested presentation delta ObjectRedesign/ObjectHitStopRules.cs
+PASS exact requested presentation delta Scripts/CrabFlightGame.cs
+PASS capture copies only render components, no physics APIs
+PASS render copies read source transforms and share meshes
+PASS renderer visibility and owned objects restored on cleanup
+PASS net casts before the render copy is pulled toward fisher
+PASS death subtitle clock starts even with effects off
+PASS camera and browser result both wait for entire capture sequence
+PASS real late frame and Report connect timeline and badges
+PASS badges follow actual unconsumed projected centers
+14 static passed / 0 failed

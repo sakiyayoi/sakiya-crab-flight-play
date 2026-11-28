@@ -1,0 +1,24 @@
+PASS runtime Rules differ only at the three brake and two death centers
+PASS existing native input/camera/capture/hit writer code unchanged
+PASS only requested presentation delta and historical Rules delta; other tracked game Assets unchanged
+PASS original builder overwrites the archived helper
+PASS injected legacy helper has no action writer
+PASS local builder uses guarded archived review runner
+PASS hits: guarded CLI and actual Run produce exact output destination/count
+PASS hits: exact committed helper was executed
+PASS adapter captures are never saved as screenshot evidence: hits
+PASS hits: existing output cannot be overwritten
+PASS empty: guarded CLI and actual Run produce exact output destination/count
+PASS empty: exact committed helper was executed
+PASS adapter captures are never saved as screenshot evidence: empty
+PASS empty: existing output cannot be overwritten
+PASS stale helper is rejected before running the review
+PASS persisted review output reads back as 48 events
+PASS review success without action-events is rejected
+PASS invalid kind/coordinate/time rejected case 0
+PASS invalid kind/coordinate/time rejected case 1
+PASS invalid kind/coordinate/time rejected case 2
+PASS invalid kind/coordinate/time rejected case 3
+PASS invalid kind/coordinate/time rejected case 4
+PASS out-of-order action times rejected
+23 static passed / 0 failed

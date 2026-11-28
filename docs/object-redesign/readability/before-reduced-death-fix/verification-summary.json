@@ -1,0 +1,44 @@
+{
+  "base": "428892f8c99197742341650a678b2c8c494ab804",
+  "existingContracts": {
+    "Rules": 85,
+    "Bridge": 45,
+    "Juice": 33,
+    "Shapes": 46,
+    "Blast": 258,
+    "Port": 30,
+    "CameraHitstop": 151,
+    "Faces": 66,
+    "ActionWriter": 51,
+    "Stage1Boundary": 238,
+    "StoryBoundary": 13,
+    "BlastBoundary": 9,
+    "CameraBoundary": 10,
+    "PlacementBoundary": 22
+  },
+  "reviewContracts": {
+    "hits": 61,
+    "empty": 13,
+    "boundary": 23
+  },
+  "addedContracts": {
+    "captureMotion": 70,
+    "readabilityBoundary": 14
+  },
+  "previousPassed": 1151,
+  "retainedPassed": 1154,
+  "passed": 1238,
+  "failed": 0,
+  "noCountReduction": true,
+  "protectedMain": 26,
+  "protectedBranch": 26,
+  "playwright": {
+    "startTime": "2026-11-28T05:10:41.542Z",
+    "duration": 87961.229,
+    "expected": 44,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "sourceCount": 139
+}

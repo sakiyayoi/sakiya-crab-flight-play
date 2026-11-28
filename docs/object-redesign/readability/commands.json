@@ -1,0 +1,80 @@
+{
+  "environment": {
+    "KANI_OBJECT_EVIDENCE_DIR": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/readability",
+    "KANI_STORY_EVIDENCE_DIR": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/readability",
+    "KANI_BLAST_EVIDENCE_DIR": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/readability",
+    "KANI_CAMHIT_EVIDENCE_DIR": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/readability",
+    "KANI_EFFEKSEER_EVIDENCE_DIR": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/readability",
+    "KANI_PLACECUTE_EVIDENCE_DIR": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/readability",
+    "KANI_BRAKEGROUND_EVIDENCE_DIR": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/readability",
+    "KANI_JUICE_EVIDENCE_DIR": "/Users/konomichiharu/Documents/Codex/2026-10-21/task-4/kani-neon-proto-20261118/object-redesign/docs/object-redesign/readability",
+    "NODE_PATH": "/Users/konomichiharu/.npm/_npx/e41f203b7505f1fb/node_modules",
+    "npm_config_offline": "true"
+  },
+  "commands": [
+    {
+      "command": [
+        "python3",
+        "docs/object-redesign/typecheck.py"
+      ],
+      "exitCode": 0,
+      "log": "typecheck.log"
+    },
+    {
+      "command": [
+        "python3",
+        "docs/object-redesign/story/contracts.py"
+      ],
+      "exitCode": 0,
+      "log": "story-contracts.log"
+    },
+    {
+      "command": [
+        "python3",
+        "docs/object-redesign/blastfix/contracts.py"
+      ],
+      "exitCode": 0,
+      "log": "blast-contracts.log"
+    },
+    {
+      "command": [
+        "python3",
+        "docs/object-redesign/camhit/port-contracts.py"
+      ],
+      "exitCode": 0,
+      "log": "port-run.log"
+    },
+    {
+      "command": [
+        "npx",
+        "--no-install",
+        "playwright",
+        "test",
+        "-c",
+        "docs/object-redesign/readability/playwright.config.cjs"
+      ],
+      "exitCode": 0,
+      "log": "playwright.log"
+    }
+  ],
+  "previewCommands": [
+    {
+      "command": [
+        "/Users/konomichiharu/.local/bin/codex-creative",
+        "blender",
+        "--python",
+        "docs/object-redesign/readability/render-shapes.py"
+      ],
+      "exitCode": 0,
+      "log": "shape-preview.log"
+    },
+    {
+      "command": [
+        "node",
+        "docs/object-redesign/readability/preview.cjs"
+      ],
+      "exitCode": 0,
+      "result": "shape-preview.png, preview-metrics.json"
+    }
+  ]
+}

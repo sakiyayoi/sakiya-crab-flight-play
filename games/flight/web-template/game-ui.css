@@ -102,5 +102,12 @@ body[data-fixed-shape=true] #resultCustom{display:none!important}
 #objectStoryCaption{position:absolute;z-index:8;left:max(16px,env(safe-area-inset-left));right:max(16px,env(safe-area-inset-right));width:max-content;max-width:calc(100% - 32px);padding:8px 12px;border-left:4px solid var(--gold);background:var(--ink);color:var(--paper);font-size:clamp(22px,5.6vw,32px);font-weight:900;line-height:1.25;overflow-wrap:anywhere;pointer-events:none}
 #objectStoryCaption[hidden]{display:none}
 #objectStoryCaption[data-result=true]{position:static;width:100%;max-width:100%;text-align:left}
-body[data-reduced=true] #objectStoryCaption{display:none}
-@media(prefers-reduced-motion:reduce){#objectStoryCaption{display:none}}
+body[data-reduced=true] #objectStoryCaption:not([data-death=true]){display:none}
+@media(prefers-reduced-motion:reduce){#objectStoryCaption:not([data-death=true]){display:none}}
+
+/* Readability: screen-space ink/cream badges stay upright even on rotating sushi. */
+#objectFunctionBadges{position:absolute;inset:0;pointer-events:none;z-index:4;overflow:hidden}
+.objectFunctionBadge{position:absolute;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:2px solid var(--paper);background:var(--ink);color:var(--paper);font-family:Arial,'Hiragino Kaku Gothic ProN',sans-serif;font-size:27px;font-weight:900;line-height:1;transform:translate(-50%,-100%);text-shadow:0.5px 0 currentColor,-0.5px 0 currentColor;box-sizing:border-box}
+.objectFunctionBadge[hidden]{display:none}
+#objectStoryCaption[data-death=true]{font-size:clamp(30px,8.2vw,46px);border:3px solid var(--paper);text-align:center;left:16px;right:16px;width:calc(100% - 32px);line-height:1.2}
+#resultCause:empty{display:none}

@@ -32,6 +32,7 @@ public static class FaceContracts {
    if(kind==ObjectRules.Kind.Brake)Check(mouth.transform.children.Count==2&&Find("mochi-white-body").renderer.block.colors["_Color"]==Color.white,"mochi white body with tiny w mouth");
    if(kind==ObjectRules.Kind.Blast)Check(Find("face-mouth-o").transform.localScale.y>Find("face-mouth-o").transform.localScale.x,"firework surprised round mouth");
    if(kind==ObjectRules.Kind.Death)Check(Find("fisher-hat-crown").primitive==PrimitiveType.Sphere&&Find("fisher-free-arm").primitive==PrimitiveType.Capsule&&face.transform.parent==Find("fisher-person").transform,"fisher rounded hat two arms and face");
+   motion.Pose(.125f,false);
    sheets.Add(new{kind=kind.ToString(),nodes=GameObject.All.Select(o=>new{name=o.name,parent=o.transform.parent?.gameObject.name,shape=o.primitive?.ToString(),p=o.transform.localPosition,s=o.transform.localScale,r=o.transform.localRotation,color=o.renderer?.block?.colors.GetValueOrDefault("_Color",mat.color)??mat.color,emission=o.renderer?.block?.colors.GetValueOrDefault("_EmissionColor",mat.colors["_EmissionColor"])??mat.colors["_EmissionColor"]}).ToArray()});
   }
   File.WriteAllText(Environment.GetEnvironmentVariable("KANI_SHAPE_RECORD"),JsonSerializer.Serialize(sheets,new JsonSerializerOptions{IncludeFields=true,WriteIndented=true}));

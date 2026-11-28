@@ -22,7 +22,7 @@ fields=presentation[presentation.index(' int readObjectHits;'):presentation.inde
 extracted='using UnityEngine;\npublic sealed partial class CrabFlightGame {\n'+fields+'\n'+method(presentation,' void DrainObjectEvents()')+'\n'+method(presentation,' void ClearObjectBursts()')+'\n}\n'
 products=Path('/tmp/kani-camhit-offline');products.mkdir(exist_ok=True);(products/'ProductionMethods.cs').write_text(extracted)
 sdk=Path('/Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/Resources/Scripting');rt=next((sdk/'NetCoreRuntime/shared/Microsoft.NETCore.App').iterdir())
-sources=[INPUT/'Contracts.cs',products/'ProductionMethods.cs']+[A/p for p in ['PortPrototype/PortRules.cs','ObjectRedesign/ObjectRules.cs','ObjectRedesign/ObjectHitStopRules.cs','ObjectRedesign/ObjectHitStopFrame.cs']]
+sources=[INPUT/'Contracts.cs',products/'ProductionMethods.cs']+[A/p for p in ['PortPrototype/PortRules.cs','ObjectRedesign/ObjectRules.cs','ObjectRedesign/ObjectHitStopRules.cs','ObjectRedesign/ObjectHitStopFrame.cs','ObjectRedesign/ObjectCaptureTimeline.cs']]
 cmd=[str(sdk/'NetCoreRuntime/dotnet'),str(sdk/'DotNetSdkRoslyn/csc.dll'),'-nologo','-nostdlib','-target:exe','-out:'+str(products/'camhit.dll')]+['-r:'+str(p) for p in rt.glob('*.dll')]+list(map(str,sources))
 r=subprocess.run(cmd,capture_output=True,text=True);(OUT/'camhit-unit-compile.log').write_text(r.stdout+r.stderr)
 if r.returncode:print(r.stdout,r.stderr);r.check_returncode()

@@ -1,0 +1,38 @@
+{
+  "shapePreview": {
+    "path": "shape-preview.png",
+    "width": 390,
+    "height": 844,
+    "reviewed": true,
+    "notes": "Six distinct source-built silhouettes; six upright 34px ink/cream badges; fan wind and fuse sparks visible. Diagnostic Blender rendering, not the Unity camera."
+  },
+  "deathCaption": {
+    "files": [
+      "capture-caption-off.png",
+      "capture-result-normal.png"
+    ],
+    "reviewed": true,
+    "notes": "Large exact death caption and result cause readable and unclipped at 390px. Real HTML components with synthetic state."
+  },
+  "defects": [
+    {
+      "id": "PREVIEW-ORIENTATION",
+      "severity": "diagnostic only",
+      "status": "fixed",
+      "cause": "Blender default tracking used a different up axis",
+      "fix": "Explicit camera basis with Unity Y up; initial files preserved."
+    },
+    {
+      "id": "PREVIEW-LABEL-OVERLAP",
+      "severity": "diagnostic only",
+      "status": "fixed",
+      "cause": "Optional diagnostic names overlapped next-row badges",
+      "fix": "Removed extra labels; report table maps the six shapes and glyphs."
+    }
+  ],
+  "notRun": [
+    "Unity actual camera/net overlay/capture movement",
+    "WebGL build / IL2CPP / GPU shader execution",
+    "physical iPhone / FPS / listening / native throw / game-playtest"
+  ]
+}

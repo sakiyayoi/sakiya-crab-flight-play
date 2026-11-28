@@ -148,7 +148,7 @@ window.receiveFlightState=s=>{
  }
  const invalid=!!s.physicsFault;document.body.dataset.invalidResult=String(invalid);$('resultTitle').textContent=invalid?'安全停止':s.newRecord?'飛距離 · 新記録！':'飛距離';$('distanceResultUnit').textContent=invalid?'':' m';$('flightSummary').textContent=s.angle+'° · '+(s.direction<0?'左':'右')+' · 勢い '+Math.round(s.power)+' · 最高 '+s.peak.toFixed(1)+' m';
  $('destructionResultValue').textContent=invalid?'—':String(s.destructionEvent);$('firstContactResult').textContent='';
- $('resultCause').textContent=s.objectDeath?'即死オブジェクトに接触して投げ終了。':'';
+ $('resultCause').textContent=s.objectDeath?'かに漁師につかまった！':'';
  $('bestDifference').textContent=s.previousBest>0?'ベスト差 '+(s.bestDelta>=0?'+':'')+s.bestDelta.toFixed(1)+' m':'はじめての記録';
  if(invalid){$('resultCause').textContent='物理試作を安全停止。この投球は記録対象外です。';$('firstContactResult').textContent=({'non-finite':'数値異常を検出','floor-tunnel':'地面の貫通を検出','world-bound':'試験範囲の外へ到達','settle-timeout':'停止までの試験時間を超過'})[s.physicsFault]||'物理状態の確認が必要です';$('bestDifference').textContent='入力を変えて再試行できます。旧記録は保持。';}
  window.ObjectControls.update(s,view);

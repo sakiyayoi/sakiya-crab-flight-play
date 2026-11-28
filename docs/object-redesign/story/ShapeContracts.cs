@@ -66,6 +66,7 @@ namespace UnityEngine {
  public class GameObject {
   public static List<GameObject> All=new List<GameObject>();public string name;public Transform transform;public PrimitiveType? primitive;public Collider collider;public Renderer renderer;
   public GameObject(string name){this.name=name;transform=new Transform{gameObject=this};All.Add(this);}
+  public bool activeSelf=true;public void SetActive(bool value){activeSelf=value;}
   public static GameObject CreatePrimitive(PrimitiveType p)=>new GameObject(p.ToString()){primitive=p,collider=new Collider(),renderer=new Renderer()};
   public T GetComponent<T>() where T:class=>typeof(T)==typeof(Collider)?collider as T:renderer as T;
  }

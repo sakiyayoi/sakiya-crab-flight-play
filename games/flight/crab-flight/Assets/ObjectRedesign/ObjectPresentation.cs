@@ -17,13 +17,14 @@ public sealed partial class CrabFlightGame {
  ObjectCaptionState objectCaption;
  ObjectHitStopFrame objectHitStop;
  public bool ObjectHitStopEnabled=>world!=null&&world.UseObjectRedesign&&FeelEffectsR27&&!ReducedMotion&&!feelSettingsR27.reducedMotion&&!paused&&(phase=="flight"||phase=="result");
- bool ObjectDeathPresentationHeld=>ObjectHitStopEnabled&&simulation!=null&&simulation.ObjectRun.Dead&&objectHitStop&&objectHitStop.Holding;
+ bool ObjectDeathPresentationHeld=>world!=null&&world.UseObjectRedesign&&simulation!=null&&simulation.ObjectRun.Dead&&objectCapture.Active;
  void PresentObjectHitStop(ObjectRules.Kind kind){
   if(!ObjectHitStopEnabled)return;
   if(!objectHitStop){objectHitStop=cam.gameObject.AddComponent<ObjectHitStopFrame>();objectHitStop.Bind(this);}
   objectHitStop.Request(kind);
  }
  void ApplyObjectPresentationReport(FlightState report){
+  AddObjectReadabilityReport(report);
   if(!ObjectDeathPresentationHeld)return;
   report.phase="flight";report.resultOverview=null;report.newRecord=false;
  }
@@ -34,7 +35,7 @@ public sealed partial class CrabFlightGame {
   // Never change a live throw/charge. A new config is used on the next Prepare.
   if(phase!="flight"&&!aiming&&!spinCharge.Started)world.ConfigureObjects(feelR27.UsesObjectRedesign);
  }
- void ClearObjectBursts(){objectCaption=null;objectDeathBurst=false;if(objectHitStop)objectHitStop.Clear();if(juiceBurst)juiceBurst.Clear();}
+ void ClearObjectBursts(){ClearObjectCapture();objectCaption=null;objectDeathBurst=false;if(objectHitStop)objectHitStop.Clear();if(juiceBurst)juiceBurst.Clear();}
  void DrainObjectEvents(){
   while(readObjectHits<simulation.ObjectHits.Count){
    var hit=simulation.ObjectHits[readObjectHits++];var def=ObjectRules.Get(hit.kind);
@@ -43,6 +44,7 @@ public sealed partial class CrabFlightGame {
    objectCaption=new ObjectCaptionState{sequence=readObjectHits,kind=hit.kind.ToString().ToLowerInvariant(),
     visible=FeelEffectsR27&&!ReducedMotion&&!feelSettingsR27.reducedMotion&&!paused};
    Emit("action",hit.kind.ToString().ToLowerInvariant(),"action",hit.position,Vector3.up,simulation.Body.linearVelocity,1);
+   if(hit.kind==ObjectRules.Kind.Death){BeginObjectCapture(hit.position);if(ReducedMotion||feelSettingsR27.reducedMotion)continue;}
    if(!FeelEffectsR27||paused)continue;
    PresentObjectHitStop(hit.kind);
    ColorUtility.TryParseHtmlString(def.color,out var color);

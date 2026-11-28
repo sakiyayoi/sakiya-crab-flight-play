@@ -48,7 +48,9 @@ expected = expected.replace('Kind.Death,22,26', 'Kind.Death,13,26').replace('Kin
 check((ROOT / rules).read_text() == expected, 'runtime Rules differ only at the three brake and two death centers')
 check((ROOT / HELPER).read_bytes() == old(HELPER), 'existing native input/camera/capture/hit writer code unchanged')
 changed = subprocess.check_output(['git', 'diff', BASE, '--name-only', '--', str(PROJECT / 'Assets')], cwd=ROOT, text=True).splitlines()
-check(changed == [str(rules)], 'all other tracked game Assets unchanged from supplied tip')
+allowed={str(rules)}|{'games/flight/crab-flight/Assets/'+p for p in ['ObjectRedesign/ObjectVisual.cs','ObjectRedesign/ObjectPresentation.cs','ObjectRedesign/ObjectHitStopRules.cs','Scripts/CrabFlightGame.cs']}
+allowed|={'games/flight/crab-flight/Assets/ObjectRedesign/'+name+suffix for name in ['ObjectCaptureTimeline','ObjectReadability','ObjectCaptureView'] for suffix in ['.cs','.cs.meta']}
+check(set(changed)<=allowed, 'only requested presentation delta and historical Rules delta; other tracked game Assets unchanged')
 driver = Path('/tmp/build-object.sh')
 # The driver is local orchestration. Keep a committed patch for reproducing the
 # fix elsewhere, without executing its build/deploy stages in this offline job.

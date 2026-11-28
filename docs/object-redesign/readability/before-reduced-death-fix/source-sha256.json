@@ -1,0 +1,23 @@
+{
+  "docs/object-redesign/brakeground/contracts.py": "b267a9bc7d578538189c8d21b5a7e2f1c153ab39321641369b5b10c658fb6fc6",
+  "docs/object-redesign/camhit/Contracts.cs": "7d9a68f5b6ba13ee9a11900e09b4670b95f8a1977b50a5b7c8e7d6bce45aed23",
+  "docs/object-redesign/camhit/contracts.py": "4e6fb7bb9cd1c6686d3e99e87f84bf7954819bea6669d7b96e0f8139475d8fa1",
+  "docs/object-redesign/placecute/FaceContracts.cs": "3ea37bb038c374ee627dac6d917334b21c10f005198fecdba0ec99fe322c3573",
+  "docs/object-redesign/placecute/contracts.py": "574f72a059c048ffc633b00d31b7d18f4edf977e26f08825cff3d8eb9d3c2846",
+  "docs/object-redesign/story/ShapeContracts.cs": "c54e736c51b3df60ba75b628387797950dc959c0b1efc26f28a5bb2aa13cee42",
+  "docs/object-redesign/story/story.spec.cjs": "9900770635bedf286ccb3e166b89913e8db40e5116a78d2e9324309084dda241",
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectHitStopRules.cs": "851b9fcd2d3a42f17de3864f14b68cc81f44f70c42b3422d3dc454ee8fa8f494",
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectPresentation.cs": "c1216b7fc4698e4ed03df1512fb3aff8b58089197a83ff40933d4b0bddcce772",
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectVisual.cs": "14cdf6b17eb7743b5d5c0199bf86e2da02a9508696bc4b2e71f8e54f223a8675",
+  "games/flight/crab-flight/Assets/Scripts/CrabFlightGame.cs": "b3bdaaa93aa9060279cf2f2fe30dbbd6dbd122e5739b0dfe548fa60f553121e9",
+  "games/flight/web-template/game-ui.css": "379e33d04a7c76b07bdcea490ff09238e1d5b87b30a6356f332f1211ef97da81",
+  "games/flight/web-template/host.js": "3a299b0decae309c9dc863da402964f5fc9d5e464a1da72a36c2e2a22d9b986d",
+  "games/flight/web-template/juice-hud.js": "daa88e4c9d056402f07d82122a3516b0c2299c39b0375fa20166f06e5f502d50",
+  "tasks.md": "8966eeb6a58897aca9926d8c8ecaa5f1fd06501bc22d5cd546b168e12c2536f8",
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectCaptureTimeline.cs": "71bb16d9243774af216e74e65da436aaec072ce555a6ae9b0f2752279d39a9ad",
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectCaptureTimeline.cs.meta": "2a9b952e1981c029dcbd24ea10b7fa9f0e3de6e210ec12349a8792f20b2878cb",
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectCaptureView.cs": "e6db0efd76f71e2120a54e10df793bed82e6c70b4390bf65d6f223e9b7f9031c",
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectCaptureView.cs.meta": "6cc16f67f09dca945692b656d3f0126b784062bbad17121442f22770e9078326",
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectReadability.cs": "3215d4e6e60d7f478fbe34667378b84cefc4bc367d07b27b9c70c864048eb1cf",
+  "games/flight/crab-flight/Assets/ObjectRedesign/ObjectReadability.cs.meta": "d3d4dc972587079c3bf1e369f5532f44d44281174ad06c24059600c75a0aa6b8"
+}

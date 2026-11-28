@@ -1,0 +1,16 @@
+docs/object-redesign/blastfix/BlastContracts.cs(49,183): warning CS0649: フィールド 'RigidCrabFlight.UseReadableSurfaces' は割り当てられません。常に既定値 false を使用します
+docs/object-redesign/blastfix/BlastContracts.cs(49,218): warning CS0649: フィールド 'RigidCrabFlight.UseCeilingRicochet' は割り当てられません。常に既定値 false を使用します
+docs/object-redesign/blastfix/BlastContracts.cs(49,137): warning CS0649: フィールド 'RigidCrabFlight.UseCC0FoodFragments' は割り当てられません。常に既定値 false を使用します
+docs/object-redesign/blastfix/BlastContracts.cs(49,203): warning CS0649: フィールド 'RigidCrabFlight.UseRotorBursts' は割り当てられません。常に既定値 false を使用します
+docs/object-redesign/blastfix/BlastContracts.cs(42,249): warning CS0649: フィールド 'RigidCrabFlight.BreakPanel.life' は割り当てられません。常に既定値 null を使用します
+docs/object-redesign/blastfix/BlastContracts.cs(42,230): warning CS0649: フィールド 'RigidCrabFlight.BreakPanel.city' は割り当てられません。常に既定値 null を使用します
+docs/object-redesign/blastfix/BlastContracts.cs(43,86): warning CS0649: フィールド 'RigidCrabFlight.CityDebris.preVelocity' は割り当てられません。常に既定値  を使用します
+docs/object-redesign/blastfix/BlastContracts.cs(49,237): warning CS0649: フィールド 'RigidCrabFlight.CeilingUnlocked' は割り当てられません。常に既定値 false を使用します
+docs/object-redesign/blastfix/BlastContracts.cs(42,133): warning CS0649: フィールド 'RigidCrabFlight.BreakPanel.position' は割り当てられません。常に既定値  を使用します
+docs/object-redesign/blastfix/BlastContracts.cs(43,163): warning CS0649: フィールド 'RigidCrabFlight.CityDebris.root' は割り当てられません。常に既定値 null を使用します
+docs/object-redesign/blastfix/BlastContracts.cs(50,299): warning CS0649: フィールド 'RigidCrabFlight.debrisMaterial' は割り当てられません。常に既定値 null を使用します
+docs/object-redesign/blastfix/BlastContracts.cs(42,142): warning CS0649: フィールド 'RigidCrabFlight.BreakPanel.size' は割り当てられません。常に既定値  を使用します
+docs/object-redesign/blastfix/BlastContracts.cs(50,243): warning CS0649: フィールド 'RigidCrabFlight.FragmentSceneCalmR4' は割り当てられません。常に既定値 0 を使用します
+docs/object-redesign/blastfix/BlastContracts.cs(43,139): warning CS0649: フィールド 'RigidCrabFlight.CityDebris.preEnergy' は割り当てられません。常に既定値 0 を使用します
+docs/object-redesign/blastfix/BlastContracts.cs(49,118): warning CS0414: フィールド 'RigidCrabFlight.portGroundThisStep' が割り当てられていますが、値は使用されていません
+docs/object-redesign/blastfix/BlastContracts.cs(49,253): warning CS0414: フィールド 'RigidCrabFlight.CeilingBreakthrough' が割り当てられていますが、値は使用されていません

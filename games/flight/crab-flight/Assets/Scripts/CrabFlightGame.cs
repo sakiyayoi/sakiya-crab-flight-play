@@ -13,6 +13,7 @@ using UnityEngine;
  public bool widerCamera,auraVisible;public int tracePoints,auraPoints;public float cameraSize,rotorPulseCapacity;public int upgradeLevel;public string district="restaurant";public float chargeLaunchFloor;public float hitStopRemaining,hitStopSeconds;public int hitStopRequests;public int contactKind;public int furnitureBroken,equipmentBroken,foodBroken;public int glassBroken,wallsBroken,dishesBroken,destructionEvent,fragments,foodFragments;public string lastBroken="";
  public bool compoundFrozen;public float compoundEnvelopeError,compoundBoundsDifference;public int cityLayout,cityTargets,chainBreaks,cityDecorative;public int generation;public FlightGameEvent[] events;public int vfxActive,cityFragments;
  public ObjectCaptionState objectCaption;
+ public ObjectBadgeState[] objectBadges;public ObjectCaptureState objectCapture;
  public string objectMode="legacy";public int jetsRemaining=2,maxChain;public bool diving,spinActive,objectDeath;
  public int direction=1;
  public int attempts,kicksRemaining=3,kicksUsed,perfects,goods,earlyMisses,impacts,eventId;
@@ -109,7 +110,7 @@ CrabHeroVisualR2.Attach(crab);CrabGearR29.Apply(crab,settings.gear);
 PrepareCostProbeR15.Mark("rebuild.poseAndBounds");}
  void AttachCrabR18(){world.Attach(crab,settings,restHeight);AttachNeon();PrepareCostProbeR15.Mark("rebuild.afterAttach");}
  void Update(){SyncStampR8(0);feelRealDeltaR27=Time.unscaledDeltaTime;Tick(Mathf.Min(Time.unscaledDeltaTime,.08f));feelRealDeltaR27=-1;SyncStampR8(1);}
- void LateUpdate(){SyncStampR8(5);neonCrab?.SyncTankVisibility(phase);}
+ void LateUpdate(){SyncStampR8(5);neonCrab?.SyncTankVisibility(phase);LateObjectReadability();}
  public void Tick(float dt){
   if(prepareWorkR18!=null){AdvancePrepareFrameR18();return;}
   if(!initialized||paused)return;PrimitiveColliderTraceR18.BeforeMain(world.Scene,world.Time,"frame");BeginCalmFrameR3(dt);BeginFeelFrameR27();AuditTick(dt);float gameplayDt=FeelOnR27?FilterFeelR27(dt):phase=="flight"&&useHitStop?hitStop.Filter(dt):dt;visualClock+=dt;

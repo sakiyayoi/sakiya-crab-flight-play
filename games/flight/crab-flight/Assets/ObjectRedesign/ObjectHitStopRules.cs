@@ -2,7 +2,7 @@ using System;
 
 // Presentation seconds only. Never passed to a simulation/accumulator clock.
 public static class ObjectHitStopRules {
- public const double Boost=.070, Bounce=.070, Spin=.070, Brake=.090, Blast=.140, Death=.200;
+ public const double Boost=.070, Bounce=.070, Spin=.070, Brake=.090, Blast=.140, Death=.700;
  public static double Seconds(ObjectRules.Kind kind){
   switch(kind){
    case ObjectRules.Kind.Boost:return Boost;

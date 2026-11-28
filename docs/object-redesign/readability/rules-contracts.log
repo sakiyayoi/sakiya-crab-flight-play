@@ -1,0 +1,86 @@
+PASS six unique kinds
+PASS definition/color/constant Boost
+PASS definition/color/constant Bounce
+PASS definition/color/constant Spin
+PASS definition/color/constant Brake
+PASS definition/color/constant Blast
+PASS definition/color/constant Death
+PASS strong fixed emission
+PASS 14 to 20 authored +x objects
+PASS unique placements
+PASS all six kinds placed
+PASS entire movement stays in opening restaurant-entry
+PASS at least 0.5m clear before action swept envelope restaurant-entry
+PASS entire movement stays in opening restaurant-bounce
+PASS at least 0.5m clear before action swept envelope restaurant-bounce
+PASS entire movement stays in opening restaurant-brake
+PASS at least 0.5m clear before action swept envelope restaurant-brake
+PASS entire movement stays in opening restaurant-spin
+PASS at least 0.5m clear before action swept envelope restaurant-spin
+PASS entire movement stays in opening restaurant-death
+PASS at least 0.5m clear before action swept envelope restaurant-death
+PASS death matches requested high/ground center restaurant-death
+PASS entire movement stays in opening restaurant-exit
+PASS at least 0.5m clear before action swept envelope restaurant-exit
+PASS entire movement stays in opening mall-entry
+PASS at least 0.5m clear before action swept envelope mall-entry
+PASS entire movement stays in opening mall-bounce-a
+PASS at least 0.5m clear before action swept envelope mall-bounce-a
+PASS entire movement stays in opening mall-spin-a
+PASS at least 0.5m clear before action swept envelope mall-spin-a
+PASS entire movement stays in opening mall-brake-a
+PASS at least 0.5m clear before action swept envelope mall-brake-a
+PASS entire movement stays in opening mall-boost
+PASS at least 0.5m clear before action swept envelope mall-boost
+PASS entire movement stays in opening mall-bounce-b
+PASS at least 0.5m clear before action swept envelope mall-bounce-b
+PASS entire movement stays in opening mall-spin-b
+PASS at least 0.5m clear before action swept envelope mall-spin-b
+PASS entire movement stays in opening mall-brake-b
+PASS at least 0.5m clear before action swept envelope mall-brake-b
+PASS entire movement stays in opening mall-death
+PASS approved mall death swept gap to preceding band is 0.01m
+PASS death matches requested high/ground center mall-death
+PASS entire movement stays in opening mall-exit
+PASS at least 0.5m clear before action swept envelope mall-exit
+PASS default and invalid mode stay legacy
+PASS explicit redesign
+PASS legacy retains position -500
+PASS redesign only opening -500
+PASS legacy retains position -135
+PASS redesign only opening -135
+PASS legacy retains position -134
+PASS redesign only opening -134
+PASS legacy retains position -28
+PASS redesign only opening -28
+PASS legacy retains position -4.5
+PASS redesign only opening -4.5
+PASS legacy retains position 0
+PASS redesign only opening 0
+PASS legacy retains position 4.5
+PASS redesign only opening 4.5
+PASS legacy retains position 8
+PASS redesign only opening 8
+PASS legacy retains position 28
+PASS redesign only opening 28
+PASS legacy retains position 134
+PASS redesign only opening 134
+PASS legacy retains position 135
+PASS redesign only opening 135
+PASS legacy retains position 600
+PASS redesign only opening 600
+PASS upward rebound independent of incidence and never slows a higher rise
+PASS spin doubles rebound and crushing
+PASS no input outside flight
+PASS first jet
+PASS pending duplicate rejected
+PASS second jet
+PASS third jet rejected
+PASS pause/blur release
+PASS exact three simulation seconds
+PASS new spin refresh is bounded
+PASS 1.5 second chain including boundary
+PASS gap restarts current but retains max
+PASS death cancels actions
+PASS retry resets all run state
+85 passed / 0 failed

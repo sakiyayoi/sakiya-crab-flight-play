@@ -1,0 +1,46 @@
+PASS default marks
+PASS unknown value uses marks: 
+PASS unknown value uses marks: 
+PASS unknown value uses marks: invalid
+PASS unknown value uses marks: MARKS
+PASS unknown value uses marks: Effekseer
+PASS explicit effekseer
+PASS initialize available native system
+PASS reuse singleton
+PASS Resources path
+PASS 25th ordinary skipped
+PASS peak evicts oldest ordinary
+PASS break world position
+PASS scale and real-time group
+PASS expired handles free capacity
+PASS clear owns only its handles
+PASS full priority pool still admits peak
+PASS ordinary victim preferred over older peak
+PASS 10000 events remain bounded
+PASS disable clears
+PASS missing import never fakes playback
+PASS initialize available native system
+PASS invalid native handle not counted
+PASS edit mode initialization defers runtime
+PASS edit mode play never starts runtime
+PASS missing runtime created once on play
+PASS repeat initialization no duplicate runtime
+PASS teardown after system destruction
+PASS marks does not create bridge
+PASS legacy marks path intact
+PASS effekseer replaces only burst
+PASS duplicate event not replayed
+PASS 10 chain keeps juice peak
+PASS pause clears
+PASS OS reduced blocks new bursts
+PASS feel reduced blocks new bursts
+PASS off clears and blocks
+PASS retry clears both sequences
+PASS result clears
+PASS death burst survives immediate result in shared bounded pool
+PASS death burst still obeys pause
+PASS full pool still plays hero
+PASS full pool still plays landmark
+PASS full pool skips ordinary but plays chain milestone
+PASS mode switch clears previous effects
+45 passed / 0 failed (engine/native stubs; no Unity execution)

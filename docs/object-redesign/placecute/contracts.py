@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """Real builder and diagnostic writer execution; source boundaries and offline typecheck."""
 from pathlib import Path
-import hashlib,json,os,re,subprocess
+import hashlib,json,os,re,subprocess,sys
 ROOT=Path(__file__).resolve().parents[3];INPUT=Path(__file__).resolve().parent
 OUT=Path(os.environ.get("KANI_PLACECUTE_EVIDENCE_DIR",INPUT));OUT.mkdir(parents=True,exist_ok=True)
 A=ROOT/'games/flight/crab-flight/Assets';BASE='b8f8bb59d58589c06db9d46bd957e35aba4597a3'
 SDK=Path('/Applications/Unity/Hub/Editor/6000.3.23f1/Unity.app/Contents/Resources/Scripting');RT=next((SDK/'NetCoreRuntime/shared/Microsoft.NETCore.App').iterdir())
 TMP=Path('/tmp/kani-placecute-offline');TMP.mkdir(exist_ok=True)
+sys.path.insert(0,str(INPUT.parent/'readability'))
+from boundaries import before_readability
 def method(s,signature):
  start=s.index(signature);end=s.index('{',start)+1;depth=1
  while depth:depth+=(s[end]=='{')-(s[end]=='}');end+=1
@@ -57,7 +59,7 @@ expected=oldrules.replace('Kind.Brake,18,12','Kind.Brake,21,2.5f').replace('Kind
 expected=expected.replace('Kind.Death,22,26','Kind.Death,13,26').replace('Kind.Death,114,26','Kind.Death,95,3')
 check(rules==expected,'only three brake centers, two death centers and exact common multiplier changed in Rules')
 for p in ['ObjectRedesign/ObjectRuntime.cs','ObjectRedesign/ObjectPresentation.cs','ObjectRedesign/ObjectCameraTargets.cs','ObjectRedesign/ObjectHitStopRules.cs','ObjectRedesign/ObjectHitStopFrame.cs','PortPrototype/PortCamera.cs','PortPrototype/PortRules.cs','Scripts/FlightCameraR19.cs','Scripts/CrabFlightGame.cs','Scripts/RigidCrabFlight.cs','Scripts/RestaurantPhysics.cs','Scripts/FloorContactStepR10.cs']:
- check((A/p).read_bytes()==subprocess.check_output(['git','show',BASE+':games/flight/crab-flight/Assets/'+p],cwd=ROOT),'unchanged runtime/camera/hitstop boundary '+p)
+ check(before_readability(p,(A/p).read_text()).encode()==subprocess.check_output(['git','show',BASE+':games/flight/crab-flight/Assets/'+p],cwd=ROOT),'unchanged runtime/camera/hitstop boundary '+p)
 check('collider.size=Vector3.one*(ObjectRules.HalfSize*2)' in (A/'ObjectRedesign/ObjectRuntime.cs').read_text(),'real trigger size reads scaled half extent')
 run(['python3',INPUT/'audit.py'],'hit-map.log')
 audit=json.loads((OUT/'hit-map.json').read_text())

@@ -1,0 +1,43 @@
+{
+  "width": 390,
+  "height": 844,
+  "badges": [
+    {
+      "text": "→",
+      "width": 34,
+      "height": 34,
+      "transform": "matrix(1, 0, 0, 1, -17, -34)"
+    },
+    {
+      "text": "↑",
+      "width": 34,
+      "height": 34,
+      "transform": "matrix(1, 0, 0, 1, -17, -34)"
+    },
+    {
+      "text": "↻",
+      "width": 34,
+      "height": 34,
+      "transform": "matrix(1, 0, 0, 1, -17, -34)"
+    },
+    {
+      "text": "↓",
+      "width": 34,
+      "height": 34,
+      "transform": "matrix(1, 0, 0, 1, -17, -34)"
+    },
+    {
+      "text": "✹",
+      "width": 34,
+      "height": 34,
+      "transform": "matrix(1, 0, 0, 1, -17, -34)"
+    },
+    {
+      "text": "✕",
+      "width": 34,
+      "height": 34,
+      "transform": "matrix(1, 0, 0, 1, -17, -34)"
+    }
+  ],
+  "scope": "Production DOM glyphs on recorded-source geometry, not a Unity game screenshot"
+}

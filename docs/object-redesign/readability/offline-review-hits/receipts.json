@@ -1,0 +1,12 @@
+{
+  "runs": [
+    {
+      "cameraOn": true,
+      "distance": 144,
+      "breaks": 0,
+      "ticks": 48,
+      "phase": "result",
+      "retryReady": true
+    }
+  ]
+}

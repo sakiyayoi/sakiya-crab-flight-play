@@ -1,0 +1,3 @@
+docs/object-redesign/brakeground/ReviewContracts.cs(56,80): warning CS0169: フィールド 'CrabFlightGame.steadyFlightSpeedR3' は使用されていません
+docs/object-redesign/brakeground/ReviewContracts.cs(56,18): warning CS0169: フィールド 'CrabFlightGame.cameraOffsetR29' は使用されていません
+docs/object-redesign/brakeground/ReviewContracts.cs(56,47): warning CS0169: フィールド 'CrabFlightGame.cameraFollowingR29' は使用されていません

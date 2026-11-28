@@ -1,0 +1,15 @@
+PASS action file exists before Prepare resets consumed history
+PASS Run writes action log beneath PORT_REVIEW_OUTPUT/camon
+PASS no misplaced root action log
+PASS all consumed hits written exactly once including beyond UI ring capacity
+PASS zero-hit review creates an empty file
+PASS retry really clears source hits after file write
+PASS existing physics shutdown called
+PASS Run completes camon result and retry receipt
+PASS existing initialization preserved
+PASS existing scene path preserved
+PASS accepted replay seed preserved
+PASS accepted input passes unmodified through Run
+PASS existing route/break output still written
+13 passed / 0 failed (offline review entry adapters)
+{"path": "/private/var/folders/3w/2mr054b55_3cztt9zngchfcm0000gn/T/kani brakeground offline uw4l_l2k/review output empty/camon/action-events.jsonl", "events": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "helperSha256": "82e31429304b202f1a7cb6a9909eb18fbd6a173584302b9a5c6854b1b0e876ad"}

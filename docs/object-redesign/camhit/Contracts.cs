@@ -30,6 +30,11 @@ public class Drawing {public int particles;public void ObjectParticles(Vector3 p
 public sealed partial class CrabFlightGame:MonoBehaviour {
  public Simulation world=new Simulation(),simulation;public bool FeelEffectsR27=true,ReducedMotion,paused;public string phase="flight";
  public Settings feelSettingsR27=new Settings();public Config feelR27=new Config();public Drawing feelDrawingR27=new Drawing();public Camera cam=new Camera();public EffekseerBurstBridge juiceBurst=new EffekseerBurstBridge();bool objectDeathBurst;
+ readonly ObjectCaptureTimeline objectCapture=new ObjectCaptureTimeline();
+ void BeginObjectCapture(Vector3 p){objectCapture.Begin(Time.realtimeSinceStartupAsDouble,FeelEffectsR27&&!ReducedMotion&&!feelSettingsR27.reducedMotion);}
+ void ClearObjectCapture(){objectCapture.Clear();}
+ void AddObjectReadabilityReport(FlightState report){}
+ public void AdvanceCapture(){objectCapture.Advance(Time.realtimeSinceStartupAsDouble,objectHitStop&&objectHitStop.Holding,FeelEffectsR27&&!ReducedMotion&&!feelSettingsR27.reducedMotion,paused);}
  public CrabFlightGame(){simulation=world;}
  void Emit(string a,string b,string c,Vector3 d,Vector3 e,Vector3 f,int g){}
  public void Hit(ObjectRules.Kind kind){simulation.ObjectHits.Add(new Hit{kind=kind});DrainObjectEvents();}
@@ -60,7 +65,7 @@ class Contracts {
   }
   var window=new ObjectHitStopRules.Window();window.Request(.07);window.Request(.09);window.Request(.14);Near(window.Remaining(20),.14,"same frame takes max, not sum");window.Captured(20);Near(window.Remaining(20),.14,"capture clock starts at actual frame");window.Request(.07);window.Captured(20.01);Near(window.Remaining(20.01),.13,"shorter overlapping hold cannot extend longer");window.Request(.2);window.Captured(20.02);Near(window.Remaining(20.02),.2,"longer overlap replaces remainder, not adds");Check(!window.Active(20.221),"hold expires");
   window.Request(.2);window.Clear();Check(!window.Active(0),"reset drops pending and captured holds");
-  double[] times={.07,.07,.07,.09,.14,.2};int i=0;
+  double[] times={.07,.07,.07,.09,.14,.7};int i=0;
   foreach(ObjectRules.Kind kind in Enum.GetValues(typeof(ObjectRules.Kind))){
    Near(ObjectHitStopRules.Seconds(kind),times[i++],"duration "+kind);
    var game=new CrabFlightGame();Time.realtimeSinceStartupAsDouble=100;game.Hit(kind);
@@ -75,13 +80,14 @@ class Contracts {
   foreach(string flag in new[]{"off","reduced","nativeReduced","paused","legacy","ready"}){
    var g=new CrabFlightGame();if(flag=="off")g.FeelEffectsR27=false;if(flag=="reduced")g.feelSettingsR27.reducedMotion=true;if(flag=="nativeReduced")g.ReducedMotion=true;if(flag=="paused")g.paused=true;if(flag=="legacy")g.world.UseObjectRedesign=false;if(flag=="ready")g.phase="ready";
    g.Hit(ObjectRules.Kind.Blast);Check(!g.Frame,"no hold when "+flag);
+   if(flag=="off"||flag=="reduced"||flag=="nativeReduced"){int particles=g.feelDrawingR27.particles;g.Hit(ObjectRules.Kind.Death);Check(!g.Frame&&g.feelDrawingR27.particles==particles&&g.juiceBurst.plays==0,"death keeps information only when "+flag);}
   }
   var death=new CrabFlightGame();Time.realtimeSinceStartupAsDouble=200;death.simulation.ObjectRun.Kill();death.Hit(ObjectRules.Kind.Death);death.phase="result";
   var report=new FlightState{phase="result",resultOverview=new object(),newRecord=true,distance=1266.590576171875,broken=80};death.Report(report);
   Check(death.phase=="result"&&report.phase=="flight"&&report.resultOverview==null&&!report.newRecord,"only browser presentation waits; real phase is result");
   Near(report.distance,1266.590576171875,"report distance untouched (sentinel, not PhysX replay)");Check(report.broken==80,"report count untouched (sentinel)");
   var src=new RenderTexture(390,844,0,RenderTextureFormat.Default){pixel=8};var dst=new RenderTexture(390,844,0,RenderTextureFormat.Default);Render(death.Frame,src,dst);
-  Time.realtimeSinceStartupAsDouble=200.199;Check(death.Frame.Holding,"death still held before 200ms");Time.realtimeSinceStartupAsDouble=200.201;report.phase="result";death.Report(report);Check(report.phase=="result","result released after 200ms");
+  Time.realtimeSinceStartupAsDouble=200.699;Check(death.Frame.Holding,"death still held before 700ms");Time.realtimeSinceStartupAsDouble=200.701;death.AdvanceCapture();Time.realtimeSinceStartupAsDouble=201.302;death.AdvanceCapture();Time.realtimeSinceStartupAsDouble=202.503;death.AdvanceCapture();report.phase="result";death.Report(report);Check(report.phase=="result","result released after hold, capture and caption");
   death.Hit(ObjectRules.Kind.Blast);Render(death.Frame,src,dst);var old=src;src=new RenderTexture(844,390,0,RenderTextureFormat.ARGBHalf){pixel=12};Render(death.Frame,src,dst);Check(RenderTexture.live==1,"resize/format change replaces single buffer");Near(dst.pixel,12,"resize shows a valid image");
   death.paused=true;Render(death.Frame,src,dst);Check(RenderTexture.live==0&&!death.Frame.Holding,"pause clears immediately before blit");death.paused=false;Check(!death.Frame.Holding,"unpause never replays stale hold");
   death.Hit(ObjectRules.Kind.Blast);Render(death.Frame,src,dst);typeof(ObjectHitStopFrame).GetMethod("OnDisable",BindingFlags.Instance|BindingFlags.NonPublic).Invoke(death.Frame,null);Check(RenderTexture.live==0&&!death.Frame.Holding,"disable cleanup");

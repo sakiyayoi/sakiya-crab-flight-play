@@ -1,0 +1,62 @@
+PASS story root Boost
+PASS Stage 1 colour/emission Boost
+PASS all visual primitive colliders disabled/destroyed Boost
+PASS one owned shared material Boost
+PASS detail motion cannot rotate root Boost
+PASS fan cylindrical base four blades and open guard
+PASS fan child spins at 720 degrees/second
+PASS reduced detail is static Boost
+PASS story root Bounce
+PASS Stage 1 colour/emission Bounce
+PASS all visual primitive colliders disabled/destroyed Bounce
+PASS one owned shared material Bounce
+PASS detail motion cannot rotate root Bounce
+PASS flat pan with handle and tilt
+PASS reduced detail is static Bounce
+PASS story root Spin
+PASS Stage 1 colour/emission Spin
+PASS all visual primitive colliders disabled/destroyed Spin
+PASS one owned shared material Spin
+PASS detail motion cannot rotate root Spin
+PASS belt plate and contrasting sushi topping
+PASS sushi rides the rotating plate on the belt
+PASS reduced detail is static Spin
+PASS story root Brake
+PASS Stage 1 colour/emission Brake
+PASS all visual primitive colliders disabled/destroyed Brake
+PASS one owned shared material Brake
+PASS detail motion cannot rotate root Brake
+PASS white squashed mochi and purple rim
+PASS reduced detail is static Brake
+PASS story root Blast
+PASS Stage 1 colour/emission Blast
+PASS all visual primitive colliders disabled/destroyed Blast
+PASS one owned shared material Blast
+PASS detail motion cannot rotate root Blast
+PASS firework ball fuse and lit tip
+PASS reduced detail is static Blast
+PASS story root Death
+PASS Stage 1 colour/emission Death
+PASS all visual primitive colliders disabled/destroyed Death
+PASS one owned shared material Death
+PASS detail motion cannot rotate root Death
+PASS human body head wide hat and two boots
+PASS separate wide open net grid and hoop
+PASS death retains magenta and black
+PASS reduced detail is static Death
+46 passed / 0 failed
+ 
+PASS all Rules bytes unchanged except six shape names, three requested brake positions, two death positions and exact 1.6 scale
+PASS entire Runtime unchanged except child visual motion and exact blastfix queue delta
+PASS Stage 1 unchanged Scripts/RigidCrabFlight.cs
+PASS Stage 1 unchanged Scripts/RestaurantPhysics.cs
+PASS Stage 1 unchanged Scripts/FlightEventStream.cs
+PASS Stage 1 unchanged Scripts/FeelDirectorR27.cs
+PASS Stage 1 unchanged Scripts/FeelConfig.cs
+PASS caption captures actual effect/reduced/pause flags at activation
+PASS caption reflects latest consumed hit only
+PASS caption snapshot cleared on existing reset
+PASS latest caption survives event ring in existing FlightState/Report
+PASS 26 protected SHA256 unchanged main
+PASS 26 protected SHA256 unchanged branch
+13 static passed / 0 failed
